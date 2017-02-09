@@ -1,0 +1,184 @@
+#header, .container-fluid {
+    background: transparent url('../IMAGES/ciit_header.gif')no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+
+}
+#welcome_hostel{
+    float: left;
+    color: white;
+    text-align: left;
+    margin-top: 2%;
+}
+
+
+/*.dropdown {*/
+    /*position: relative;*/
+    /*display: inline-block;*/
+/*}*/
+
+/*.dropdown-menu {*/
+    /*display: none;*/
+    /*position: absolute;*/
+    /*background-color: #f9f9f9;*/
+    /*min-width: 160px;*/
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+    /*padding: 12px 16px;*/
+    /*z-index: 1;*/
+/*}*/
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+
+}
+.nav ul li a{
+    color: white;
+    line-height: 1.8em;
+    display: inline-flex;
+    border: groove 1px;
+}
+#Dropdown{
+    background: transparent url('../IMAGES/ciit_header.gif')no-repeat center;
+    background-size: cover;
+    text-align: center;
+    text-decoration: solid;
+    border: groove;
+}
+
+
+.nav {
+
+    display: inline-block;
+}
+.nav>li>a{
+    padding: 10px 317px;
+}
+
+.nav > li, .nav:active > .active {
+    float: left;
+    color: #595959;
+    text-shadow: 0 1px black;
+    background-color: rgba(0, 0, 0, 0.05);
+    border: 0.5px solid;
+    border-color: black;
+    background-color: beige;
+}
+
+.nav > li:hover {
+    color: black;
+    text-shadow: 0 1px black, 0 0 20px white;
+}
+
+.content-title, h1.content-title {
+    margin: 0 0 0 0;
+    color: white;
+    background: #373737;
+    display: block;
+    padding: 10px 20px;
+    font-size: 24px;
+    line-height: 27px;
+    font-family: Open Sans;
+    font-weight: 600;
+    text-align: left;
+}
+
+h2 {
+    display: block;
+    color: white;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+p {
+    display: block;
+    color: white;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+ol {
+    display: block;
+    list-style-type: decimal;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    color: white;
+}
+
+/*Simple side bar...............................active*/
+
+/*!
+ * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+/* Toggle Styles */
+.sidebar-nav {
+
+    padding: 0;
+    list-style: none;
+}
+
+#wrapper .sidebar-nav li{
+    list-style: none;
+    line-height: 40px;
+    text-indent: 20px;
+}
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background: #000;
+
+}
+
+/*wow slider 1 for hostels*/
+
+#wowslider-container1 .ws_images img{
+    height: 200px;
+}
+
+/*google map api for site*/
+
+#map {
+    width: 100%;
+    height: 200px;
+}
