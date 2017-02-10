@@ -16,7 +16,7 @@ session_start();
 
 <div class="container-fluid">
     <div class="row background">
-        <div class="comsats col-md-12 col-xs-12">
+        <div class="comsats col-md-12 col-xs-12" >
             <img src="../../IMAGES/CIITLogo_Plain.png">
             <strong class="textcolor"><h1>Welcome to Comsats Hostel Login</h1></strong>
         </div>
@@ -34,7 +34,7 @@ session_start();
 
 
     <div id="login1" class="tab-pane fade in active">
-        <div class="background1 row">
+        <div class="background1 row" >
             <br>
             <br>
             <br>
@@ -42,7 +42,7 @@ session_start();
             <br>
 
 
-            <div class="comsats col-md-12 col-xs-12">
+            <div  class="comsats col-md-12 col-xs-12">
                 <div class="form-inline" role="form">
                     <div class="form-group">
                         <div class="col-md-2 col-xs-2">
@@ -81,34 +81,52 @@ session_start();
 
 
     <div id="login2" class="tab-pane fade">
-        <div class="background1 row">
+        <div class="background1 row" >
             <br>
             <br>
             <br>
             <br>
             <br>
 
-            <form action="LoginProcessing.php" method="post">
-                <div class="comsats col-md-12 col-xs-12">
-                    <div class="form-inline" role="form">
-                        <div class="form-group">
-                            <div class="col-md-2 col-xs-2">
-                                <label class="textcolor">Email</label>
-                            </div>
-                            <div class="col-md-offset-1 col-md-9">
-                                <input type="text" class="form-control" name="email">
-                            </div>
+
+            <div  class="comsats col-md-12 col-xs-12">
+                <div class="form-inline" role="form">
+                    <div class="form-group">
+                        <div class="col-md-2 col-xs-2">
+                            <label class="textcolor">Email</label>
                         </div>
-                        <br><br>
-                                    <label class="textcolor">Password</label>
-                                    <input type="password" class="form-control" name="password">
-                        <br>
-                            <input type="submit" value="login" name="submit2"> </a>
+                        <div class="col-md-offset-1 col-md-9">
+                            <input type="text" class="form-control">
+                        </div>
+
 
                     </div>
                 </div>
-            </form>
+                <br>
+
+                <div class="form-inline" role="form">
+                    <div class="form-group">
+                        <div class="col-md-2 col-xs-2">
+                            <label class="textcolor">Password</label>
+                        </div>
+                        <div class="col-md-offset-1 col-md-9">
+                            <input type="text" class="form-control">
+                        </div>
+
+
+                    </div>
+                </div>
+                <br>
+                <div>
+                    <a href="MainApplicationOffice.php"><input type="submit" value="login" name="submit2"> </a>
+                </div>
+
+
+            </div>
         </div>
     </div>
+</div>
+
+
 </body>
 </html>

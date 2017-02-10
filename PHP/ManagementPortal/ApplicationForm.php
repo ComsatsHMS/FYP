@@ -31,113 +31,134 @@
 <div class="container">
 
     <div class="panel panel-primary">
-        <div class="panel-heading"><h2 class="panelheading">Application For Hostel</h2></div>
-        <div class="panelheight panel-body " >
+        <div class="panel-heading"><h2 class="panelheading">Boys Hostel Admission Form</h2></div>
+        <div class="panel-body " >
             <div class="row">
-                <form action="applicationProcessing.php" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input class="form-control" type="text" name="name">
-                    </div>
-                    <div class="form-group">
-                        <label>Father Name</label>
-                        <input class="form-control" type="text" name="fname">
-                    </div>
-                    <div class="form-group">
-                        <label>Student ID</label>
-                        <input class="form-control" type="number" name="studentId">
-                    </div>
-                    <div class="form-group">
-                        <label>Address</label>
-                        <input class="form-control" type="text" name="address">
-                    </div>
-                    <div class="form-group">
-                        <label>CNIC Number</label>
-                        <input class="form-control" type="number" name="cnic">
-                    </div>
+                <form action="ApplicationProcessing.php" method="post" enctype="multipart/form-data">
+                    <div class="form-inline">
+                        <label style="padding-right: 95pt;padding-left: 5px">Name</label>
+                        <input class="form-control" type="text" name="name" style="width: 250px" required>
 
-                    <label><h3>Preferred Hostel</h3></label>
+                        <label>CNIC No.</label>
+                        <input class="form-control" type="number" name="cnic" required>
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <label style="padding-left: 5px">Father/Guardian's Name</label>
+                        <input class="form-control" type="text" name="fname" style="width: 250px" required>
+                        <label>CNIC No.</label>
+                        <input class="form-control" type="number" name="fcnic" required>
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <label style="padding-left: 5px">Program</label>
+                        <input class="form-control" type="text" name="studentProgram" style="width: 100px">
+                        <label>Registration ID</label>
+                        <input class="form-control" type="number" name="studentId" style="width: 200px">
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <label style="padding-left: 5px">Postal Address</label>
+                        <input class="form-control" type="text" name="address" style="width: 550px">
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <label style="padding-left: 5px">Tel No.</label>
+                        <input class="form-control" type="number" name="telephoneNumber" style="width: 200px">
+                        <label >Mobile No.</label>
+                        <input class="form-control" type="number" name="mobileNumber" style="width: 200px">
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <label style="padding-left: 5px">Email</label>
+                        <input class="form-control" type="text" name="email" style="width: 200px" required>
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <label style="padding-left: 5px">Domicile</label>
+                        <input class="form-control" type="text" name="domicile" style="width: 150px">
+                        <label >Blood Group</label>
+                        <input class="form-control" type="text" name="bloodGroup" style="width: 100px">
+                        <label >Religion</label>
+                        <input class="form-control" type="text" name="religion" style="width: 100px">
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <label style="padding-left: 5px">Parent/Guardian's Occupation</label>
+                        <input class="form-control" type="text" name="occupation" style="width: 200px">
+                        <label >Monthly income (Rs.)</label>
+                        <input class="form-control" type="number" name="income" style="width: 150px">
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <label style="padding-left: 5px">Name of person to be entaded on care of Emergency</label>
+                        <input class="form-control" type="text" name="emergency" style="width: 250px">
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <label style="padding-left: 5px">Relationship</label>
+                        <input class="form-control" type="text" name="relation" style="width: 150px">
+                        <label >Cell No.</label>
+                        <input class="form-control" type="number" name="cell" style="width: 150px">
+                    </div>
+                    <br>
                     <div class="form-inline ">
-                        <div class="col-md-3 col-xs-0">
-                            <label>M.A JINNAH</label>
-                            <input type="radio" name="hostel">
-                        </div>
-                        <div class="col-md-3 col-xs-0">
-                            <label>Liquat Hall</label>
-                            <input type="radio" name="hostel">
-                        </div>
-                        <div class="col-md-3 col-xs-0">
-                            <label>Johar Hall</label>
-                            <input type="radio" name="hostel">
-                        </div>
-                        <div class="col-md-3 col-xs-0">
-                            <label>Jupitar Hall Hall</label>
-                            <input type="radio" name="hostel">
+                        <div class="form-group">
+                            <label style="padding-left: 5px;padding-right: 10px">Preferred Hostel </label>
+                            <label><input type="radio" name="hostel" value="M.A JINNAH"> M.A JINNAH</label>
+                            <label><input type="radio" name="hostel" value="Liquat Hall"> Liquat Hall</label>
+                            <label><input type="radio" name="hostel" value="Johar Hall"> Johar Hall</label>
+                            <label><input type="radio" name="hostel" value="Jupitar Hall"> Jupitar Hall</label>
                         </div>
                     </div>
+                    <br>
+                    <div class="form-inline ">
+                        <div class="form-group">
+                            <label style="padding-left: 5px;padding-right: 20pt">Old Resident  </label>
+                            <label><input type="radio" name="old" value="1"> yes</label>
+                            <label><input type="radio" name="old" value="0"> No</label>
+                        </div>
+                    </div>
+                    <div class="form-inline ">
+                        <div class="form-group">
+                            <label style="padding-left: 5px;padding-right: 20pt">New Student </label>
+                            <label><input type="radio" name="new_student" value="1"> yes </label>
+                            <label><input type="radio" name="new_student" value="0"> No</label>
+                        </div>
+                    </div>
+                    <br>
                     <label>
-                        <h3>Require Document</h3>
+                        <h3>Required Documents</h3>
                     </label>
                     <div class="form-inline ">
-                        <div class="col-md-3 col-xs-0">
-                            <label>One Picture</label>
-                            <input type="file" name="image">
+                        <div class="form-group">
+                            <label>Picture</label>
+                            <input  type="file" name="image">
                         </div>
-                        <div class="col-md-3 col-xs-0">
+                        <div class="form-group">
                             <label>Semester fee slip</label>
-                            <input type="file" name="image1">
+                            <input  type="file" name="image1">
                         </div>
-                        <div class="col-md-3 col-xs-0">
-                            <label>Student Id Card </label>
-                            <input type="file" name="image2">
+                        <div class="form-group">
+                            <label>CNIC</label>
+                            <input  type="file" name="imageCNIC">
                         </div>
-
-
+                        <div class="form-group">
+                            <label>Domicile Certificate</label>
+                            <input  type="file" name="imageDomicile">
+                        </div>
+                        <div class="form-group">
+                            <label>Father/Guardian's CNIC </label>
+                            <input  type="file" name="imageFG">
+                        </div>
                     </div>
                     <br>
-                    <br>
-                    <br>
-                    <br>
-                    <label><h3>Old Hostalide</h3></label>
-                    <div class="form-inline ">
-
-                        <div class="col-md-3 col-xs-0">
-                            <label>yes </label>
-                            <input type="radio" name="old">
-                        </div>
-                        <div class="col-md-3 col-xs-0">
-                            <label>No</label>
-                            <input type="radio" name="old">
-                        </div>
-
+                    <div class="checkbox">
+                        <label><input type="checkbox" required>I certify that the aforementioned information given by me is correct. I understand that if any part of this information is found false/incorrect,my allotment will stand cancelled. I also undertake to strictly observe all rules & regulations of the hostel. I shall also comply with the direction and orders issued by the hostel authorities from time to time during the period of my stay in the hostel. I undertake further to pay all dues in time.</label>
                     </div>
-
-                    <br>
-                    <br>
-                    <br>
-                    <label><h3>New Student</h3></label>
-                    <div class="form-inline ">
-
-                        <div class="col-md-3 col-xs-0">
-                            <label>yes </label>
-                            <input type="radio" name="new_student">
-                        </div>
-                        <div class="col-md-3 col-xs-0">
-                            <label>No</label>
-                            <input type="radio" name="new_student">
-                        </div>
-
-                    </div>
-
-                    <label><input type="submit" value="submit" name="submit1"></label>
+                    <button type="submit" class="btn btn-success" name="submit1">Apply</button>
                 </form>
             </div>
-
-
-
-
-
-
 
     </div>
 

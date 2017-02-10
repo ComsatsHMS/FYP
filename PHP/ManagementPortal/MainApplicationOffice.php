@@ -1,7 +1,3 @@
-<?php
-session_start();
-error_reporting(0);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,16 +18,15 @@ error_reporting(0);
     <link rel="stylesheet" href='../../CSS/OfficePortal.css' type="text/css" media="screen" />
 </head>
 
-
-
 <script>
     $(document).ready(function(){
-        $('#sidebar').height($(window).height());
+        $('#sidebar').height(800);
     });
 </script>
+
 <script>
     $(document).ready(function(){
-        $('#rightside').height($(window).height());
+        $('#rightside').height(800);
     });
 </script>
 
@@ -51,10 +46,25 @@ error_reporting(0);
                 <!--  Menu -->
                 <li><a id="applications" class="nav-top-item" href="ApplicationsDisplay.php">Hostel Applications</a></li>
                 <li><a id="allotment" class="nav-top-item" href="Allotment.php">Allotment</a></li>
+                <li><a id="studentList" class="nav-top-item" href="#" class="nav-top-item">Student's List</a>
+                    <ul>
+                        <li ><a id="selected" href="SelectedStudents.php">Selected</a></li>
+                        <li ><a id="notSelected" href="NotSelectedStudents.php">Not Selected</a></li>
+                    </ul>
+                </li>
                 <li><a id="complains" class="nav-top-item" href="ViewComplains.php">View Complains</a></li>
                 <li><a id="applications" class="nav-top-item" href="ViewStudentApps.php">View Applications</a></li>
                 <li><a id="statistics" class="nav-top-item" href="OffStatistics.php">Statistics</a></li>
                 <li><a id="vote" class="nav-top-item" href="StartVoting.php">Voting</a></li>
+                <li><a id="fee" class="nav-top-item" href="#">Fee/Fine</a>
+                    <ul>
+                        <li ><a id="mess_fee" href="MessFeeChallan.php">Mess Fee Challan</a></li>
+                        <li ><a id="fine" href="Fine.php">Fine</a></li>
+                        <li ><a id="mess_paid" href="MessFeePaidList.php">Mess Fee Paid Student's List</a></li>
+                        <li ><a id="mess_unpaid" href="MessFeeUnPaidList.php">Mess Fee unPaid Student's List</a></li>
+                    </ul>
+
+                </li>
                 <li><a id="logout" class="nav-top-item" href="OfficeLogin.php">Logout</a></li>
             </ul>
         </div>
@@ -66,21 +76,21 @@ error_reporting(0);
             <div class="row" style="padding-bottom: 8pt">
                 <div class="col-md-6 col-xs-6">
                     <li><a href="#" style="padding-bottom: 20%">
-                            <img id="profile_pic" src="../../IMAGES/profile_pic.jpg" alt="profilepic" style="width: 100px; height: 100px"; /></a></li>
+                            <img id="profile_pic" src="../../IMAGES/profilepic.jpg" alt="profilepic" style="width: 100px; height: 100px"; /></a></li>
                 </div>
                 <!--Page header-->
 
                 <div class="col-md-6 col-xs-6" id="profile" style="text-align: center;">
                     <span id="ciit_Label" style="font-size:10pt;">Welcome,</span>
                     <a href="#" title="Your profile">
-                        <span id="ciit_office" style="font-size:14pt; "><?php echo"{$_SESSION['PName']}"; ?></span></a><br>
-                    <a id="ciit_Signout" href="Logout.php" style="font-size: 12pt;font-style: italic">Log
+                        <span id="ciit_office" style="font-size:14pt; ">abcd</span></a><br>
+                    <a id="ciit_Signout" href="login.php" style="font-size: 12pt;font-style: italic">Log
                         Out</a>
                 </div>
             </div>
             <ol class="breadcrumb">
-                <li><a href="../index.php">Home</a></li>
-                <li><a href="Logout.php">Login</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="login.php">Login</a></li>
                 <li class="active">Office Main</li>
 
             </ol>

@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <?php
-include("phpFunctions.php")
+//include("phpFunctions.php");
+include ("../connection.php");
+$studentsCount = 0;
+$applicationNumber = array();
+if (isset($_GET['selected'])){
+    $temp = $_GET['selected'];
+    $tmp = $_GET['sh'];
+    $rec = "select * from hostel WHERE roomNumber = '$temp' AND HostelName = '$tmp'";
+    $exec = mysqli_query($connection, $rec);
+    while ($each_rec = mysqli_fetch_array($exec)) {
+        $applicationNumber[] = $each_rec['applicationNumber'];
+        $studentsCount = $studentsCount + 1;
+    }
+}
 ?>
 <html lang="en">
 <head>
@@ -32,7 +45,6 @@ include("phpFunctions.php")
                 $('#rightside').height($(window).height());
             });
         </script>
-
 <body>
 <div class="container-fluid" >
     <div class="row" >
@@ -48,6 +60,12 @@ include("phpFunctions.php")
                 <!--  Menu -->
                 <li><a id="applications" class="nav-top-item" href="ApplicationsDisplay.php">Hostel Applications</a></li>
                 <li><a id="allotment" class="nav-top-item" href="Allotment.php">Allotment</a></li>
+                <li><a id="studentList" class="nav-top-item" href="#" class="nav-top-item">Student's List</a>
+                    <ul>
+                        <li ><a id="selected" href="SelectedStudents.php">Selected</a></li>
+                        <li ><a id="notSelected" href="NotSelectedStudents.php">Not Selected</a></li>
+                    </ul>
+                </li>
                 <li><a id="complains" class="nav-top-item" href="ViewComplains.php">View Complains</a></li>
                 <li><a id="applications" class="nav-top-item" href="ViewApplications.php">View Applications</a></li>
                 <li><a id="statistics" class="nav-top-item" href="OffStatistics.php">Statistics</a></li>
@@ -91,25 +109,136 @@ include("phpFunctions.php")
                             <div class="panel-body">
                                 <form role="form" action="phpFunctions.php" method="post" enctype="multipart/form-data">
                                     <div class="form-group ">
-                                        <div class="form-group ">
-                                            <label >Student Application no.</label>
-                                            <input type="number" class="form-control" name="id" value="<?php echo $_GET['id'];?>" readonly>
-                                        </div>
+                                        <label>Student Application no.</label>
+                                        <input type="number" class="form-control" style="width: 80px" id="id" name="id" value="<?php echo $_GET['id'];?>" readonly>
+                                    </div>
+                                    <div class="form-group">
                                         <label>choose Hostel: </label>
-                                        <select name="hostels">
-                                            <option><----Choose-----></option>
-                                            <?php
-                                                getAvaiableHostle($_GET['id']);
-                                            ?>
-                                            <option value="M.A Jinnah" >M.A Jinnah</option>
-                                            <option value="Liaquat Hall" >Liaquat Hall</option>
-                                            <option value="Jupitar Hall" >Jupitar Hall</option>
-                                            <option value="Johar Hall" >Johar Hall</option>
-                                        </select>
+                                        <?php
+
+                                            if(isset($_GET['sh'])){
+                                                $temp = $_GET['sh'];
+                                                if ($temp == 'M.A Jinnah'){
+                                                    echo "
+                                                  <select name=\"hostels\" id=\"hostels\">
+                                                        <option ><----Choose-----></option>
+                                                        <option value=\"M.A Jinnah\" selected>M.A Jinnah</option>
+                                                        <option value=\"Liaquat Hall\">Liaquat Hall</option>
+                                                        <option value=\"Jupitar Hall\" >Jupitar Hall</option>
+                                                        <option value=\"Johar Hall\" >Johar Hall</option>
+                                                  </select>
+                                                ";
+                                                }
+                                                elseif ($temp == 'Liaquat Hall'){
+                                                    echo "
+                                                  <select name=\"hostels\" id=\"hostels\">
+                                                        <option ><----Choose-----></option>
+                                                        <option value=\"M.A Jinnah\" >M.A Jinnah</option>
+                                                        <option value=\"Liaquat Hall\" selected>Liaquat Hall</option>
+                                                        <option value=\"Jupitar Hall\" >Jupitar Hall</option>
+                                                        <option value=\"Johar Hall\" >Johar Hall</option>
+                                                  </select>
+                                                ";
+                                                }
+                                                elseif ($temp == 'Jupitar Hall'){
+                                                    echo "
+                                                  <select name=\"hostels\" id=\"hostels\">
+                                                        <option ><----Choose-----></option>
+                                                        <option value=\"M.A Jinnah\" >M.A Jinnah</option>
+                                                        <option value=\"Liaquat Hall\">Liaquat Hall</option>
+                                                        <option value=\"Jupitar Hall\" selected>Jupitar Hall</option>
+                                                        <option value=\"Johar Hall\" >Johar Hall</option>
+                                                  </select>
+                                                ";
+                                                }
+                                                elseif ($temp == 'Johar Hall'){
+                                                    echo "
+                                                  <select name=\"hostels\" id=\"hostels\">
+                                                        <option ><----Choose-----></option>
+                                                        <option value=\"M.A Jinnah\" >M.A Jinnah</option>
+                                                        <option value=\"Liaquat Hall\">Liaquat Hall</option>
+                                                        <option value=\"Jupitar Hall\" >Jupitar Hall</option>
+                                                        <option value=\"Johar Hall\" selected>Johar Hall</option>
+                                                  </select>
+                                                ";
+                                                }
+                                                else{
+                                                    echo "
+                                                  <select name=\"hostels\" id=\"hostels\">
+                                                        <option ><----Choose-----></option>
+                                                        <option value=\"M.A Jinnah\" >M.A Jinnah</option>
+                                                        <option value=\"Liaquat Hall\">Liaquat Hall</option>
+                                                        <option value=\"Jupitar Hall\" >Jupitar Hall</option>
+                                                        <option value=\"Johar Hall\" >Johar Hall</option>
+                                                  </select>
+                                                ";
+                                                }
+
+                                            }else{
+                                                echo "
+                                                  <select name=\"hostels\" id=\"hostels\">
+                                                        <option ><----Choose-----></option>
+                                                        <option value=\"M.A Jinnah\" >M.A Jinnah</option>
+                                                        <option value=\"Liaquat Hall\">Liaquat Hall</option>
+                                                        <option value=\"Jupitar Hall\" >Jupitar Hall</option>
+                                                        <option value=\"Johar Hall\" >Johar Hall</option>
+                                                  </select>
+                                                ";
+                                            }
+                                        ?>
                                     </div>
                                     <div class="form-group ">
                                         <label >Room No.</label>
-                                        <input type="number" class="form-control" name="num">
+                                        <input type="number" value="<?php {echo $_GET['selected'];}?>" style="width: 150px" class="form-control" name="num" id="roomNo">
+                                    </div>
+
+                                    <script>
+                                        $("#roomNo").on("change", function(){
+                                            var roomNum = $(this).val();
+                                            var sh = $("#hostels").val();
+                                            var sid = $("#id").val();
+                                            self.location = "Allocate.php?selected="+roomNum+"&id="+sid+"&sh="+sh;
+                                        })
+                                    </script
+                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+                                    <div class="form-group ">
+                                        <label >Students Allocated to selected Room</label>
+                                        <input type="number" class="form-control" style="width: 80px" value="<?php {echo $studentsCount;}?>" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                    <table class="table table-striped" style="max-width: 200pt;border: 0.5pt solid">
+                                        <?php
+                                            if($studentsCount != 0){
+                                                echo "<thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Father Name</th>
+                                                            <th>Student Id</th>
+                                                        </tr>
+                                                      </thead><tbody>";
+                                                $iteration=0;
+                                                while ($iteration < $studentsCount){
+                                                    $get_record = "select name,fathername,studentid from oldstudentform WHERE applicationNumber = '$applicationNumber[$iteration]'";
+                                                    $run = mysqli_query($connection, $get_record);
+                                                    while ($each_record = mysqli_fetch_array($run)){
+                                                        $studentName = $each_record['name'];
+                                                        $studentFName = $each_record['fathername'];
+                                                        $studentId = $each_record['studentid'];
+                                                        echo "<tr>
+                                                                    <td>$studentName</td>
+                                                                    <td>$studentFName</td>
+                                                                    <td>$studentId</td>
+                                                              </tr>
+                                                        ";
+                                                    }
+                                                    $iteration = $iteration+1;
+                                                }
+                                                echo "</tbody>";
+                                            }
+                                        ?>
+
+                                    </table>
                                     </div>
                                     <div class="form-group ">
 
@@ -128,6 +257,3 @@ include("phpFunctions.php")
 
 </body>
 </html>
-<?php
-    session_destroy();
-?>

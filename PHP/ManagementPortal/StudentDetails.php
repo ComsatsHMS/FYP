@@ -48,8 +48,14 @@ include("phpFunctions.php")
                 <!--  Menu -->
                 <li><a id="applications" class="nav-top-item" href="ApplicationsDisplay.php">Hostel Applications</a></li>
                 <li><a id="allotment" class="nav-top-item" href="Allotment.php">Allotment</a></li>
+                <li><a id="studentList" class="nav-top-item" href="#" class="nav-top-item">Student's List</a>
+                    <ul>
+                        <li ><a id="selected" href="SelectedStudents.php">Selected</a></li>
+                        <li ><a id="notSelected" href="NotSelectedStudents.php">Not Selected</a></li>
+                    </ul>
+                </li>
                 <li><a id="complains" class="nav-top-item" href="ViewComplains.php">View Complains</a></li>
-                <li><a id="applications" class="nav-top-item" href="ViewApplications.php">View Applications</a></li>
+                <li><a id="applications" class="nav-top-item" href="ViewStudentApps.php">View Applications</a></li>
                 <li><a id="statistics" class="nav-top-item" href="OffStatistics.php">Statistics</a></li>
                 <li><a id="vote" class="nav-top-item" href="StartVoting.php">Voting</a></li>
                 <li><a id="logout" class="nav-top-item" href="OfficeLogin.php">Logout</a></li>

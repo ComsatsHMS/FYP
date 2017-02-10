@@ -48,6 +48,12 @@ $(document).ready(function(){
                 <!--  Menu -->
                 <li><a id="applications" class="nav-top-item" href="ApplicationsDisplay.php">Hostel Applications</a></li>
                 <li><a id="allotment" class="nav-top-item" href="Allotment.php">Allotment</a></li>
+                <li><a id="studentList" class="nav-top-item" href="#" class="nav-top-item">Student's List</a>
+                    <ul>
+                        <li ><a id="selected" href="SelectedStudents.php">Selected</a></li>
+                        <li ><a id="notSelected" href="NotSelectedStudents.php">Not Selected</a></li>
+                    </ul>
+                </li>
                 <li><a id="complains" class="nav-top-item" href="ViewComplains.php">View Complains</a></li>
                 <li><a id="applications" class="nav-top-item" href="ViewApplications.php">View Applications</a></li>
                 <li><a id="statistics" class="nav-top-item" href="OffStatistics.php">Statistics</a></li>
@@ -71,14 +77,14 @@ $(document).ready(function(){
                     <span id="ciit_Label" style="font-size:10pt;">Welcome,</span>
                     <a href="#" title="Your profile">
                         <span id="ciit_office" style="font-size:14pt; ">abcd</span></a><br>
-                    <a id="ciit_Signout" href="OfficeLogin.php" style="font-size: 12pt;font-style: italic">Log
+                    <a id="ciit_Signout" href="login.php" style="font-size: 12pt;font-style: italic">Log
                         Out</a>
                 </div>
             </div>
             <ol class="breadcrumb">
-                <li><a href="../index.php">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="#">Login</a></li>
-                <li><a href="MainApplicationOffice.php">Office Main</a></li>
+                <li><a href="mainApplicationOffice.php">Office Main</a></li>
                 <li class="active">Applications</li>
             </ol>
             <div class="panel-group" id="profile_box" style="padding-top: 3pt">
@@ -93,7 +99,6 @@ $(document).ready(function(){
                                         <th>Sr. No</th>
                                         <th>Name</th>
                                         <th>Father Name</th>
-                                        <th>Student id</th>
                                         <th>preffered hostel</th>
                                         <th></th>
                                     </tr>
