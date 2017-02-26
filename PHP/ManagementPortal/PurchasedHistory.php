@@ -107,7 +107,7 @@ include "InventoryProcessing.php";
 
                     <div class="col-md-offset-1 col-md-10 col-md-offset-1">
                         <div class="panel panel-primary">
-                            <div class="panel-heading" > Remaining Stock </div>
+                            <div class="panel-heading" > Purchased History </div>
                             <div class="panel-body">
                                 <div class="btn-group btn-group-lg btn-group-justified">
                                     <a href="InventoryItems.php" class="btn btn-primary">View All Items</a>
@@ -116,14 +116,14 @@ include "InventoryProcessing.php";
                                     <a href="UsedItemsHistory.php" class="btn btn-primary">Used Items Hstory</a>
                                 </div>
                                 <div class="form-group ">
-                                        <br>
-                                        <form method="post" action="#Search">
-                                            <label for="Balance">Serach By Date: From </label>
-                                            <input type="date" name="StartDate" id="StartDate">
-                                            <label for="Balance">To </label>
-                                            <input type="date" name="EndDate" id="EndDate">
-                                            <input type="submit" name="search" value="search">
-                                        </form>
+                                    <br>
+                                    <form method="post" action="#Search">
+                                        <label for="Balance">Serach By Date: From </label>
+                                        <input type="date" name="StartDate" id="StartDate">
+                                        <label for="Balance">To </label>
+                                        <input type="date" name="EndDate" id="EndDate">
+                                        <input type="submit" name="search" value="search">
+                                    </form>
                                     <form method="post" action="#Search">
                                         <label for="Balance">Serach By Item No: </label>
                                         <input type="date" name="SearchItemNo">
@@ -143,9 +143,10 @@ include "InventoryProcessing.php";
 
                                     </tr>
 
-                                        <?php
-                                        getBalance();
-                                        ?>
+                                    <?php
+
+                                    getPurchasedHistory();
+                                    ?>
 
 
                                 </table>

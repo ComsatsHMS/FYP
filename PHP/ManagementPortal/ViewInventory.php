@@ -1,6 +1,6 @@
 <?php
 session_start();
-//error_reporting(0);
+error_reporting(0);
 include "../connection.php";
 ?>
 <!DOCTYPE html>
@@ -106,54 +106,84 @@ include "../connection.php";
 
                     <div class="col-md-offset-1 col-md-10 col-md-offset-1">
                         <div class="panel panel-primary">
-                            <div class="panel-heading" > Inventory Items </div>
+                            <div class="panel-heading" > Inventory System </div>
                             <div class="panel-body">
                                 <div class="btn-group btn-group-lg btn-group-justified">
-                                    <a href="CostOfGoodSold.php" class="btn btn-primary">Cost Of Good Sold</a>
+                                    <a href="InventoryItems.php" class="btn btn-primary">View All Items</a>
                                     <a href="RemainingInventory.php" class="btn btn-primary">Remaining Inventory</a>
                                     <a href="PurchasedHistory.php" class="btn btn-primary">Purchased Hstory</a>
+                                    <a href="UsedItemsHistory.php" class="btn btn-primary">Used Items Hstory</a>
                                 </div>
+                            
+
+
                                 <div class="col-md-6">
+                                    <div class="col-md-offset-2">
+                                        <h2> Used Items </h2>
+                                    </div>
 
-                                    <div class="form-group ">
 
-                                        <form method="post" action="InventoryProcessing.php">
-                                            <label for="ItemName">Serach By Item Name: </label>
-                                            <input type="text" name="ItemName" id="ItemName">
-                                            <input type="submit" name="search" value="search">
+                                        <form class="form-horizontal" method="post" action="InventoryProcessing.php">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4" for="ItemNo">Item No: </label>
+
+                                                <input type="number" name="ItemNo_" id="ItemNo_">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4" for="ItemName">Item Name: </label>
+                                                <input type="text" name="ItemName_" id="ItemName_">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4" for="UnitsUsed">Units Used: </label>
+                                                <input type="number" name="UnitsUsed_" id="UnitsUsed_">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4" for="UnitCost">Per Unit Cost: </label>
+                                                <input type="number" name="UnitCost_" id="UnitCost_">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4" for="TotalCost">Total Cost: </label>
+                                                <input type="number" name="TotalCost_" id="TotalCost_">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4" for="TotalCost">Used for: </label>
+                                            <textarea name="UsedFor_" class="col-md-4"
+                                                      id="UsedFor_">
+                                            </textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-offset-4">
+                                                    <input  type="submit" value="Update" name="Update_">
+                                                </div>
+                                            </div>
                                         </form>
 
-                                </div>
-
-                                <table class="table">
-                                    <tr>
-                                        <th>Item No</th>
-                                        <th>Item Name</th>
-
-                                    </tr>
-
                                         <?php
-                                        $ItemNo; $ItemName;
-                                        $run = mysqli_query($connection, "select ItemNo,ItemName from messitems");
-                                        while ($each_record = mysqli_fetch_array($run)){
-                                            $ItemNo = $each_record['ItemNo'];
-                                            $ItemName = $each_record['ItemName'];
-                                            echo"
-                                        <tr>
-                                        <td>  $ItemNo  </td>
-                                        <td>  $ItemName   </td></tr>";
+                                        if($_SESSION['BalanceUpdate']=="Ok"){
+                                            echo "<script>
+                                    alert(\"Success! Records are Updated!\");
+                                    </script>";
                                         }
-
+                                        else if($_SESSION['BalanceUpdate']=="error"){
+                                            echo "<script>
+                                    alert(\"Error! Records Not Updated\");
+                                    </script>";
+                                        }
+                                        else if($_SESSION['BalanceUpdate']=="cost"){
+                                            echo "<script>
+                                    alert(\"Error! Totoal Cost Not correct!\");
+                                    </script>";
+                                        }
+                                        else if($_SESSION['BalanceUpdate']=="mismatch"){
+                                            echo "<script>
+                                    alert(\"Error! Item No or Name Not Correct!\");
+                                    </script>";
+                                        }
+                                        unset($_SESSION['BalanceUpdate']);
                                         ?>
-
-
-                                </table>
-                                <form action="InventoryProcessing.php" method="post">
-                                    <label for="NewItem">Enter Item Name: </label>
-                                    <input type="text" name="NewItem" id="NewItem">
-                                   <input type="submit" value="Add Item" name="AddItem">
-                                </form>
                                 </div>
+
+
                                 <div class="col-md-6">
                                     <div class="col-md-offset-2">
                                     <h2> Purchased Items </h2>
@@ -164,7 +194,7 @@ include "../connection.php";
                                             <div class="form-group">
                                                 <label class="control-label col-md-4" for="ItemNo">Item No: </label>
 
-                                                <input type="text" name="ItemNo" id="ItemNo">
+                                                <input type="number" name="ItemNo" id="ItemNo">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-4" for="ItemName">Item Name: </label>
@@ -172,15 +202,15 @@ include "../connection.php";
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-4" for="UnitsPurchased">Units Purchased: </label>
-                                                <input type="text" name="UnitsPurchased" id="UnitsPurchased">
+                                                <input type="number" name="UnitsPurchased" id="UnitsPurchased">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-4" for="UnitCost">Per Unit Cost: </label>
-                                                <input type="text" name="UnitCost" id="UnitCost">
+                                                <input type="number" name="UnitCost" id="UnitCost">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-4" for="TotalCost">Total Cost: </label>
-                                                <input type="text" name="TotalCost" id="TotalCost">
+                                                <input type="number" name="TotalCost" id="TotalCost">
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-md-offset-4">
@@ -188,7 +218,29 @@ include "../connection.php";
                                                 </div>
                                             </div>
                                         </form>
-
+                                    <?php
+                                    if($_SESSION['BalanceUpdate']=="Ok"){
+                                        echo "<script>
+                                    alert(\"Success! Records are Updated!\");
+                                    </script>";
+                                    }
+                                    else if($_SESSION['BalanceUpdate']=="error"){
+                                     echo "<script>
+                                    alert(\"Error! Records Not Updated\");
+                                    </script>";
+                                    }
+                                    else if($_SESSION['BalanceUpdate']=="cost"){
+                                        echo "<script>
+                                    alert(\"Error! Totoal Cost Not correct!\");
+                                    </script>";
+                                    }
+                                    else if($_SESSION['BalanceUpdate']=="mismatch"){
+                                        echo "<script>
+                                    alert(\"Error! Item No or Name Not Correct!\");
+                                    </script>";
+                                    }
+                                    unset($_SESSION['BalanceUpdate']);
+                                    ?>
 
                                 </div>
                             </div>

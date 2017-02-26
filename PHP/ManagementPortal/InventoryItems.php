@@ -1,8 +1,8 @@
 <?php
 session_start();
+include "InventoryProcessing.php";
 error_reporting(0);
 include "../connection.php";
-include "InventoryProcessing.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,7 +107,7 @@ include "InventoryProcessing.php";
 
                     <div class="col-md-offset-1 col-md-10 col-md-offset-1">
                         <div class="panel panel-primary">
-                            <div class="panel-heading" > Remaining Stock </div>
+                            <div class="panel-heading" > Inventory Items </div>
                             <div class="panel-body">
                                 <div class="btn-group btn-group-lg btn-group-justified">
                                     <a href="InventoryItems.php" class="btn btn-primary">View All Items</a>
@@ -115,40 +115,58 @@ include "InventoryProcessing.php";
                                     <a href="PurchasedHistory.php" class="btn btn-primary">Purchased Hstory</a>
                                     <a href="UsedItemsHistory.php" class="btn btn-primary">Used Items Hstory</a>
                                 </div>
-                                <div class="form-group ">
+
+
+
+                                <div class="col-md-12">
+
+                                    <div class="form-group ">
                                         <br>
-                                        <form method="post" action="#Search">
-                                            <label for="Balance">Serach By Date: From </label>
-                                            <input type="date" name="StartDate" id="StartDate">
-                                            <label for="Balance">To </label>
-                                            <input type="date" name="EndDate" id="EndDate">
-                                            <input type="submit" name="search" value="search">
+
+                                        <form method="post" action="#result">
+                                            <label for="ItemName">Search By Item Name: </label>
+                                            <input type="text" name="ItemName" id="ItemName">
+                                            <input type="submit" name="SearchItem" value="search">
                                         </form>
-                                    <form method="post" action="#Search">
-                                        <label for="Balance">Serach By Item No: </label>
-                                        <input type="date" name="SearchItemNo">
-                                        <input type="submit" name="SearchByItemNo" value="Search">
+
+                                       </div>
+                                    <div class="form-group ">
+                                    <form action="InventoryProcessing.php" method="post">
+                                        <label for="NewItem">Enter Item Name: </label>
+                                        <input type="text" name="NewItem" id="NewItem">
+                                        <input type="submit" value="Add Item" name="AddItem">
                                     </form>
+                                        <?php
+                                        if($_SESSION['InsertItem'] == "inserted"){
+                                            echo "<div class=\"alert alert-success\">
+                                        <strong>Success!</strong> Item Added Successfully!!!
+                                        </div>";
+                                        }
+                                        else if($_SESSION['InsertItem']=="error"){
+                                            echo "<div class=\"alert alert-danger\">
+                                    <strong>Not Inserted!</strong> error!!
+                                     </div>";
+                                        }
+                                        unset($_SESSION['InsertItem']);
+                                        ?>
 
-                                </div>
+                                    </div>
 
-                                <table class="table" id="Search">
+                                <table class="table" id="result">
                                     <tr>
                                         <th>Item No</th>
                                         <th>Item Name</th>
-                                        <th>Units</th>
-                                        <th>Unit Cost</th>
-                                        <th>Total Cost</th>
-                                        <th>Date</th>
 
                                     </tr>
 
                                         <?php
-                                        getBalance();
+                                     getItems();
+
                                         ?>
 
 
                                 </table>
+                                </div>
 
                             </div>
                         </div>
@@ -158,6 +176,7 @@ include "InventoryProcessing.php";
         </div>
     </div>
 </div>
+
 
 </body>
 </html>

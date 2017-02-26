@@ -1,6 +1,7 @@
 <?php
 session_start();
-//error_reporting(0);
+include "InventoryProcessing.php";
+error_reporting(0);
 include "../connection.php";
 ?>
 <!DOCTYPE html>
@@ -106,38 +107,51 @@ include "../connection.php";
 
                     <div class="col-md-offset-1 col-md-10 col-md-offset-1">
                         <div class="panel panel-primary">
-                            <div class="panel-heading" > Cost Of Good Sold </div>
+                            <div class="panel-heading" > Used Items History </div>
                             <div class="panel-body">
+                                <div class="btn-group btn-group-lg btn-group-justified">
+                                    <a href="InventoryItems.php" class="btn btn-primary">View All Items</a>
+                                    <a href="RemainingInventory.php" class="btn btn-primary">Remaining Inventory</a>
+                                    <a href="PurchasedHistory.php" class="btn btn-primary">Purchased Hstory</a>
+                                    <a href="UsedItemsHistory.php" class="btn btn-primary">Used Items Hstory</a>
+                                </div>
                                 <div class="form-group ">
-
-                                    <form class="form-horizontal" method="post" action="InventoryProcessing.php">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-4" for="ItemNo">Item No: </label>
-
-                                            <input type="text" name="ItemNo" id="ItemNo">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-4" for="ItemName">Item Name: </label>
-                                            <input type="text" name="ItemName" id="ItemName">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-4" for="UnitsPurchased">Units Purchased: </label>
-                                            <input type="text" name="UnitsPurchased" id="UnitsPurchased">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-4" for="UnitCost">Per Unit Cost: </label>
-                                            <input type="text" name="UnitCost" id="UnitCost">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-4" for="TotalCost">Total Cost: </label>
-                                            <input type="text" name="TotalCost" id="TotalCost">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-offset-4">
-                                                <input  type="submit" value="Update" name="Update">
-                                            </div>
-                                        </div>
+                                    <br>
+                                    <form method="post" action="#Search">
+                                        <label for="Balance">Serach By Date: From </label>
+                                        <input type="date" name="StartDate" id="StartDate">
+                                        <label for="Balance">To </label>
+                                        <input type="date" name="EndDate" id="EndDate">
+                                        <input type="submit" name="search" value="search">
                                     </form>
+                                    <form method="post" action="#Search">
+                                        <label for="Balance">Serach By Item No: </label>
+                                        <input type="date" name="SearchItemNo">
+                                        <input type="submit" name="SearchByItemNo" value="Search">
+                                    </form>
+
+                                </div>
+
+                                <table class="table" id="search">
+                                    <tr>
+                                        <th>Item No</th>
+                                        <th>Item Name</th>
+                                        <th>Units</th>
+                                        <th>Unit Cost</th>
+                                        <th>Total Cost</th>
+                                        <th>Date</th>
+                                        <th>Used For</th>
+
+                                    </tr>
+
+                                    <?php
+
+                                  getUsedHistory();
+                                    ?>
+
+
+                                </table>
+
                             </div>
                         </div>
                     </div>
