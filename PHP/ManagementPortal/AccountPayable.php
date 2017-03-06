@@ -2,7 +2,6 @@
 session_start();
 error_reporting(0);
 include "../connection.php";
-include "InventoryProcessing.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,50 +106,82 @@ include "InventoryProcessing.php";
 
                     <div class="col-md-offset-1 col-md-10 col-md-offset-1">
                         <div class="panel panel-primary">
-                            <div class="panel-heading" > Purchased History </div>
+                            <div class="panel-heading" > Inventory System </div>
                             <div class="panel-body">
                                 <div class="btn-group btn-group-lg btn-group-justified">
                                     <a href="InventoryItems.php" class="btn btn-primary">View All Items</a>
                                     <a href="RemainingInventory.php" class="btn btn-primary">Remaining Inventory</a>
-                                    <a href="PurchasedHistory.php" class="btn btn-primary">Purchased History</a>
-                                    <a href="UsedItemsHistory.php" class="btn btn-primary">Used Items History</a>
+                                    <a href="PurchasedHistory.php" class="btn btn-primary">Purchased Hstory</a>
+                                    <a href="UsedItemsHistory.php" class="btn btn-primary">Used Items Hstory</a>
+                                </div><br>
+                                <div class="btn-group btn-group-lg btn-group-justified">
+                                    <a href="AccountPayable.php" class="btn btn-primary">Account Payable</a>
+                                    <a href="AccountReceivable.php" class="btn btn-primary">Account Receivable</a>
+                                    <a href="BankAmount.php" class="btn btn-primary">Bank Amount</a>
+                                    <a href="PayableHistory.php" class="btn btn-primary">Payable/Paid History</a>
                                 </div>
-                                <div class="form-group ">
-                                    <br>
-                                    <form method="post" action="#Search">
-                                        <label for="Balance">Serach By Date: From </label>
-                                        <input type="date" name="StartDate" id="StartDate">
-                                        <label for="Balance">To </label>
-                                        <input type="date" name="EndDate" id="EndDate">
-                                        <input type="submit" name="search" value="search">
-                                    </form>
-                                    <form method="post" action="#Search">
-                                        <label for="Balance">Serach By Item No: </label>
-                                        <input type="number" name="SearchItemNo">
-                                        <input type="submit" name="SearchByItemNo" value="Search">
+                            
+                                <div class="col-md-6">
+                                    <div class="col-md-offset-2">
+                                        <h2> Payable Details </h2>
+                                    </div>
+                                    <form class="form-horizontal" method="post" action="InventoryProcessing.php">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4" for="PayableTo">Payable To: </label>
+
+                                            <input type="text" name="PayableTo" id="PayableTo">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4" for="RefrenceNo">Reference No: </label>
+                                            <input type="text" name="RefrenceNo" id="RefrenceNo">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4" for="PayableAmount">Payable Amount: </label>
+                                            <input type="number" name="PayableAmount" id="PayableAmount">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4" for="Description">Description: </label>
+                                            <textarea name="Description" class="col-md-4"
+                                                      id="Description">
+                                            </textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-4">
+                                                <input  type="submit" value="Submit" name="Payable">
+                                            </div>
+                                        </div>
                                     </form>
 
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="col-md-offset-2">
+                                        <h2> Paid Amount </h2>
+                                    </div>
+                                    <form class="form-horizontal" method="post" action="InventoryProcessing.php">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4" for="RefrenceNo">Refrence No: </label>
+                                            <input type="text" name="RefrenceNo" id="RefrenceNo">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4" for="PaidAmount">Paid Amount: </label>
+                                            <input type="number" name="PaidAmount" id="PaidAmount">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4" for="PayementMethod">Payment Method: </label>
+                                            <select  id="PaymentMethod" name="PaymentMethod">
+                                                <option><----Choose-----></option>
+                                                <option>By Cheque</option>
+                                                <option>By Cash</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-4">
+                                                <input  type="submit" value="Submit" name="Paid">
+                                            </div>
+                                        </div>
+                                    </form>
 
-                                <table class="table" id="Search">
-                                    <tr>
-                                        <th>Item No</th>
-                                        <th>Item Name</th>
-                                        <th>Units</th>
-                                        <th>Unit Cost</th>
-                                        <th>Total Cost</th>
-                                        <th>Date</th>
-
-                                    </tr>
-
-                                    <?php
-
-                                    getPurchasedHistory();
-                                    ?>
-
-
-                                </table>
-
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -159,6 +190,31 @@ include "InventoryProcessing.php";
         </div>
     </div>
 </div>
-
+    <?php
+    if($_SESSION['PayableDetails']=="Ok"){
+        echo "<script>
+                                    alert(\"Success! Payable Details Updated!\");
+                                    </script>";
+    }
+    else if($_SESSION['PayableDetails']=="error"){
+        echo "<script>
+                                    alert(\"Error! Records Not Updated\");
+                                    </script>";
+    }
+    unset($_SESSION['PayableDetails']);
+    ?>
+    <?php
+    if($_SESSION['PaidDetails']=="Ok"){
+        echo "<script>
+                                    alert(\"Success! Payable and Paid Details Updated!\");
+                                    </script>";
+    }
+    else if($_SESSION['PaidDetails']=="error"){
+        echo "<script>
+                                    alert(\"Error! Records Not Updated\");
+                                    </script>";
+    }
+    unset($_SESSION['PaidDetails']);
+    ?>
 </body>
 </html>

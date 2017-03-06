@@ -2,6 +2,65 @@
 error_reporting(0);
 session_start();
 include("../connection.php");
+function getPaidDetails(){
+    global $connection;
+    if(isset($_POST['SearchByRefrenceNo'])) {
+        $search = $_POST['SearchRefrenceNo'];
+        $run = mysqli_query($connection, "select paid.*,payable.PayableTo from paid paid,payable payable where paid.RefrenceNo=Payable.RefrenceNo and paid.RefrenceNo='$search' ORDER BY  paid.Date desc limit 15");
+    }
+    else{
+        $run = mysqli_query($connection, "select paid.*,payable.PayableTo from paid paid,payable payable where paid.RefrenceNo=Payable.RefrenceNo ORDER BY  paid.Date desc limit 15");
+    }
+    while ($each_record = mysqli_fetch_array($run)) {
+
+        $RefrenceNo = $each_record['RefrenceNo'];
+        $PaidAmount = $each_record['PaidAmount'];
+        $PaymentMethod = $each_record['PaymentMethod'];
+        $Date = $each_record['Date'];
+        $PayableTo = $each_record['PayableTo'];
+        echo "
+            <tr><td> $PayableTo </td>
+            <td> $RefrenceNo </td>
+            <td> $PaidAmount </td>
+            <td> $PaymentMethod </td>
+            <td> $Date </td>
+            </tr>
+        ";
+    }
+    unset($_POST['SearchByRefrenceNo']);
+//    header("location:http://localhost/FYP/PHP/ManagementPortal/PayableHistory.php");
+
+}
+function getPayableDetails(){
+    global $connection;
+    if(isset($_POST['SearchByRefrenceNo1'])) {
+        $search = $_POST['SearchRefrenceNo'];
+        $run = mysqli_query($connection, "select * from payable where RefrenceNo='$search' ORDER BY Date desc limit 15");
+    }
+    else{
+        $run = mysqli_query($connection, "select * from payable ORDER BY Date desc limit 15");
+    }
+    while ($each_record = mysqli_fetch_array($run)) {
+        $PayableTo = $each_record['PayableTo'];
+        $RefrenceNo = $each_record['RefrenceNo'];
+        $PayableAmount = $each_record['AmountPayable'];
+        $Description = $each_record['Description'];
+        $Date = $each_record['Date'];
+
+        echo "
+            <tr><td> $PayableTo </td>
+            <td> $RefrenceNo </td>
+            <td> $PayableAmount </td>
+            <td> $Description </td>
+            <td> $Date </td>
+            </tr>
+        ";
+    }
+
+    unset($_POST['SearchByRefrenceNo1']);
+//    header("location:http://localhost/FYP/PHP/ManagementPortal/PayableHistory.php");
+
+}
 
 function getItems(){
     global $connection;
@@ -241,6 +300,55 @@ else if(isset($_POST['Update_'])) {
         $_SESSION['BalanceUpdate']="mismatch";
     }
     header("location:http://localhost/FYP/PHP/ManagementPortal/ViewInventory.php");
+}
+
+//for payable details
+
+else if(isset($_POST['Payable'])) {
+
+    $PayableTo = $_POST['PayableTo'];
+    $RefrenceNo = $_POST['RefrenceNo'];
+    $PayableAmount = $_POST['PayableAmount'];
+    $Description = $_POST['Description'];
+
+    $query = mysqli_query($connection, "insert into payable VALUES ('$PayableTo','$RefrenceNo','$PayableAmount','$Description',CURRENT_DATE)");
+            if ($query) {
+                $_SESSION['PayableDetails']="Ok";
+            } else{
+                $_SESSION['PayableDetails']="error";
+            }
+    header("location:http://localhost/FYP/PHP/ManagementPortal/AccountPayable.php");
+}
+
+//for paid details...
+else if(isset($_POST['Paid'])) {
+
+    $RefrenceNo    = $_POST['RefrenceNo'];
+    $PaidAmount    = $_POST['PaidAmount'];
+    $PaymentMethod = $_POST['PaymentMethod'];
+
+    $query = mysqli_query($connection, "insert into paid VALUES ('$RefrenceNo','$PaidAmount','$PaymentMethod',CURRENT_DATE)");
+    if ($query) {
+
+        $run = mysqli_query($connection, "select * from payable where RefrenceNo='$RefrenceNo'");
+        $each_record = mysqli_fetch_array($run);
+//        $PayableTo     = $each_record['PayableTo'];
+//        $RefrenceNo    = $each_record['RefrenceNo'];
+        $PayableAmount = $each_record['AmountPayable'];
+//        $Description   = $each_record['Description'];
+        $PayableAmount = $PayableAmount - $PaidAmount;
+//        echo "$PayableTo"."$RefrenceNo"."$PayableAmount"."$Description";
+        $query = mysqli_query($connection, "Update payable set AmountPayable = '$PayableAmount',Date = CURRENT_DATE where RefrenceNo='$RefrenceNo'");
+       if($query){
+           $_SESSION['PaidDetails']="Ok";
+       }
+       else{
+           $_SESSION['PaidDetails']="error";
+       }
+    } else{
+        $_SESSION['PaidDetails']="error";
+    }
+    header("location:http://localhost/FYP/PHP/ManagementPortal/AccountPayable.php");
 }
 
 /*

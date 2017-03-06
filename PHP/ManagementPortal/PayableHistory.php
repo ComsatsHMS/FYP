@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include "../connection.php";
-include "InventoryProcessing.php";
+include "InventoryProcessing.php"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,6 +34,23 @@ include "InventoryProcessing.php";
     $(document).ready(function(){
         $('#rightside').height(800);
     });
+</script>
+<script>
+    function showhide(id,id1,id3) {
+        var e = document.getElementById(id);
+        var e1 = document.getElementById(id1);
+        if(id3 == 'btn'){
+            e.style.display = 'block';
+            e1.style.display = 'none';
+        }
+
+        else{
+            e.style.display = 'none';
+            e1.style.display = 'block';
+        }
+
+
+    }
 </script>
 
 
@@ -107,49 +124,84 @@ include "InventoryProcessing.php";
 
                     <div class="col-md-offset-1 col-md-10 col-md-offset-1">
                         <div class="panel panel-primary">
-                            <div class="panel-heading" > Purchased History </div>
+                            <div class="panel-heading" > Inventory System </div>
                             <div class="panel-body">
-                                <div class="btn-group btn-group-lg btn-group-justified">
-                                    <a href="InventoryItems.php" class="btn btn-primary">View All Items</a>
-                                    <a href="RemainingInventory.php" class="btn btn-primary">Remaining Inventory</a>
-                                    <a href="PurchasedHistory.php" class="btn btn-primary">Purchased History</a>
-                                    <a href="UsedItemsHistory.php" class="btn btn-primary">Used Items History</a>
-                                </div>
-                                <div class="form-group ">
-                                    <br>
-                                    <form method="post" action="#Search">
-                                        <label for="Balance">Serach By Date: From </label>
-                                        <input type="date" name="StartDate" id="StartDate">
-                                        <label for="Balance">To </label>
-                                        <input type="date" name="EndDate" id="EndDate">
-                                        <input type="submit" name="search" value="search">
-                                    </form>
-                                    <form method="post" action="#Search">
-                                        <label for="Balance">Serach By Item No: </label>
-                                        <input type="number" name="SearchItemNo">
-                                        <input type="submit" name="SearchByItemNo" value="Search">
-                                    </form>
+<!--                                <div class="btn-group btn-group-lg btn-group-justified">-->
+<!--                                    <a href="InventoryItems.php" class="btn btn-primary">View All Items</a>-->
+<!--                                    <a href="RemainingInventory.php" class="btn btn-primary">Remaining Inventory</a>-->
+<!--                                    <a href="PurchasedHistory.php" class="btn btn-primary">Purchased Hstory</a>-->
+<!--                                    <a href="UsedItemsHistory.php" class="btn btn-primary">Used Items Hstory</a>-->
+<!--                                </div><br>-->
+<!--                                <div class="btn-group btn-group-lg btn-group-justified">-->
+<!--                                    <a href="AccountPayable.php" class="btn btn-primary">Account Payable</a>-->
+<!--                                    <a href="AccountReceivable.php" class="btn btn-primary">Account Receivable</a>-->
+<!--                                    <a href="BankAmount.php" class="btn btn-primary">Bank Amount</a>-->
+<!--                                    <a href="PayableHistory.php" class="btn btn-primary">Payable/Paid History</a>-->
+<!--                                </div><br>-->
+
+                                <div class="col-md-12">
+                                    <div class="btn-group btn-group-md col-md-offset-2">
+                                        <a href="javascript:showhide('Payable','PaidHistory','btn')" class="btn btn-primary">View Payable</a>
+                                        <a href="javascript:showhide('Payable','PaidHistory','btn1')" class="btn btn-primary">Paid History</a>
+                                    </div>
+
+
+                                  <div id="PaidHistory" style="display: none">
+                                      <div class="form-group ">
+                                          <br>
+                                          <form method="post" action="#Search">
+                                              <label for="Balance">Serach By Refrence No: </label>
+                                              <input type="text" name="SearchRefrenceNo">
+                                              <input type="submit" name="SearchByRefrenceNo" value="Search">
+                                          </form>
+
+                                      </div>
+                                      <table class="table" id="Search">
+
+                                        <tr>
+                                            <th>Paid To</th>
+                                            <th>Reference No</th>
+                                            <th>Paid Amount</th>
+                                            <th>Payment Method</th>
+                                            <th>Date</th>
+                                        </tr>
+                                          <?php
+                                          getPaidDetails();
+                                          ?>
+
+
+                                    </table></div>
+                                    <div  id="Payable" style="display: none">
+                                        <div class="form-group ">
+                                            <br>
+                                            <form method="post" action="#Search">
+                                                <label for="Balance">Serach By Refrence No: </label>
+                                                <input type="text" name="SearchRefrenceNo">
+                                                <input type="submit" name="SearchByRefrenceNo1" value="Search">
+                                            </form>
+
+                                        </div>
+                                        <table class="table" id="Search">
+                                            <tr>
+                                                <th>Paid To</th>
+                                                <th>Reference No</th>
+                                                <th>Payable Amount</th>
+                                                <th>Description</th>
+                                                <th>Date</th>
+                                            </tr>
+                                            <?php
+                                            getPayableDetails();
+                                            ?>
+
+
+
+                                        </table></div>
 
                                 </div>
 
-                                <table class="table" id="Search">
-                                    <tr>
-                                        <th>Item No</th>
-                                        <th>Item Name</th>
-                                        <th>Units</th>
-                                        <th>Unit Cost</th>
-                                        <th>Total Cost</th>
-                                        <th>Date</th>
 
-                                    </tr>
+                            
 
-                                    <?php
-
-                                    getPurchasedHistory();
-                                    ?>
-
-
-                                </table>
 
                             </div>
                         </div>

@@ -113,12 +113,12 @@ include "../connection.php";
                                     <a href="RemainingInventory.php" class="btn btn-primary">Remaining Inventory</a>
                                     <a href="PurchasedHistory.php" class="btn btn-primary">Purchased Hstory</a>
                                     <a href="UsedItemsHistory.php" class="btn btn-primary">Used Items Hstory</a>
-                                </div><br>
+                                </div>
                                 <div class="btn-group btn-group-lg btn-group-justified">
                                     <a href="AccountPayable.php" class="btn btn-primary">Account Payable</a>
                                     <a href="AccountReceivable.php" class="btn btn-primary">Account Receivable/Received</a>
                                     <a href="BankAmount.php" class="btn btn-primary">Bank Amount</a>
-                                    <a href="PayableHistory.php" class="btn btn-primary">Payable/Paid History</a>
+<!--                                    <a href="UsedItemsHistory.php" class="btn btn-primary">Used Items Hstory</a>-->
                                 </div>
                             
 
@@ -164,7 +164,29 @@ include "../connection.php";
                                             </div>
                                         </form>
 
-
+                                        <?php
+                                        if($_SESSION['BalanceUpdate']=="Ok"){
+                                            echo "<script>
+                                    alert(\"Success! Records are Updated!\");
+                                    </script>";
+                                        }
+                                        else if($_SESSION['BalanceUpdate']=="error"){
+                                            echo "<script>
+                                    alert(\"Error! Records Not Updated\");
+                                    </script>";
+                                        }
+                                        else if($_SESSION['BalanceUpdate']=="cost"){
+                                            echo "<script>
+                                    alert(\"Error! Totoal Cost Not correct!\");
+                                    </script>";
+                                        }
+                                        else if($_SESSION['BalanceUpdate']=="mismatch"){
+                                            echo "<script>
+                                    alert(\"Error! Item No or Name Not Correct!\");
+                                    </script>";
+                                        }
+                                        unset($_SESSION['BalanceUpdate']);
+                                        ?>
                                 </div>
 
 
@@ -202,7 +224,29 @@ include "../connection.php";
                                                 </div>
                                             </div>
                                         </form>
-
+                                    <?php
+                                    if($_SESSION['BalanceUpdate']=="Ok"){
+                                        echo "<script>
+                                    alert(\"Success! Records are Updated!\");
+                                    </script>";
+                                    }
+                                    else if($_SESSION['BalanceUpdate']=="error"){
+                                     echo "<script>
+                                    alert(\"Error! Records Not Updated\");
+                                    </script>";
+                                    }
+                                    else if($_SESSION['BalanceUpdate']=="cost"){
+                                        echo "<script>
+                                    alert(\"Error! Totoal Cost Not correct!\");
+                                    </script>";
+                                    }
+                                    else if($_SESSION['BalanceUpdate']=="mismatch"){
+                                        echo "<script>
+                                    alert(\"Error! Item No or Name Not Correct!\");
+                                    </script>";
+                                    }
+                                    unset($_SESSION['BalanceUpdate']);
+                                    ?>
 
                                 </div>
                             </div>
@@ -216,49 +260,3 @@ include "../connection.php";
 
 </body>
 </html>
-<?php
-if($_SESSION['BalanceUpdate']=="Ok"){
-    echo "<script>
-                                    alert(\"Success! Records are Updated!\");
-                                    </script>";
-}
-else if($_SESSION['BalanceUpdate']=="error"){
-    echo "<script>
-                                    alert(\"Error! Records Not Updated\");
-                                    </script>";
-}
-else if($_SESSION['BalanceUpdate']=="cost"){
-    echo "<script>
-                                    alert(\"Error! Totoal Cost Not correct!\");
-                                    </script>";
-}
-else if($_SESSION['BalanceUpdate']=="mismatch"){
-    echo "<script>
-                                    alert(\"Error! Item No or Name Not Correct!\");
-                                    </script>";
-}
-unset($_SESSION['BalanceUpdate']);
-?>
-<?php
-if($_SESSION['BalanceUpdate']=="Ok"){
-    echo "<script>
-                                    alert(\"Success! Records are Updated!\");
-                                    </script>";
-}
-else if($_SESSION['BalanceUpdate']=="error"){
-    echo "<script>
-                                    alert(\"Error! Records Not Updated\");
-                                    </script>";
-}
-else if($_SESSION['BalanceUpdate']=="cost"){
-    echo "<script>
-                                    alert(\"Error! Totoal Cost Not correct!\");
-                                    </script>";
-}
-else if($_SESSION['BalanceUpdate']=="mismatch"){
-    echo "<script>
-                                    alert(\"Error! Item No or Name Not Correct!\");
-                                    </script>";
-}
-unset($_SESSION['BalanceUpdate']);
-?>
