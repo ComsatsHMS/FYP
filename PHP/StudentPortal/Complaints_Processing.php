@@ -105,7 +105,7 @@ global $connection;
         $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid and c.Date like '$date%' ORDER BY  ComplainID desc limit 5";
         $run = mysqli_query($connection, $get_record);
         while ($each_record = mysqli_fetch_array($run)){
-``
+
             $Complain_ID = $each_record['ComplainID'];
             $Complain_Type = $each_record['ComplainType'];
             $Complain_Text = $each_record['ComplainText'];
