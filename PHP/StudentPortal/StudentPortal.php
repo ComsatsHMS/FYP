@@ -21,6 +21,8 @@ error_reporting(0);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
     <link rel="stylesheet" href='../../CSS/StudentPortal.css' type="text/css" media="screen" />
+
+
 </head>
 
 
@@ -136,29 +138,33 @@ error_reporting(0);
                     <!--            Content Box Contents-->
                     <div class="panel-body">
                         <!--                User profile Data-->
-                        <form class="form-horizontal" role="form" method="post" action="createProfileProcessing.php">
+                        <form class="form-horizontal" role="form" method="post" action="createProfileProcessing.php" onsubmit="return validateForm()" name="studentForm">
                             <div class="form-group">
                                 <label class="control-label col-sm-2 col-xs-2" for="name">Name:</label>
                                 <div class="col-md-4 col-xs-4">
-                                    <input type="name" class="form-control" value="<?PHP echo "{$_SESSION['name']}";?>" id="name" name="studentName">
+                                    <input type="name" class="form-control" value="<?PHP echo "{$_SESSION['name']}";?>" id="name" name="studentName" >
+                                    <div id="name_error" class="val_error" style="color: red "></div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2 col-xs-2" for="father_name">Father Name:</label>
                                 <div class="col-md-4 col-xs-4">
-                                    <input type="text" class="form-control" id="father_name"  value="<?PHP echo "{$_SESSION['fname']}";?>" name="fathername">
+                                    <input type="text" class="form-control" id="father_name"  value="<?PHP echo "{$_SESSION['fname']}";?>" name="fatherName">
+                                    <div id="f_error" class="val_error" style="color: red "></div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2 col-xs-2" for="RegistrationID">Regestration ID:</label>
                                 <div class="col-md-4 col-xs-4">
-                                    <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['id']}";?>" id="RegistrationID" name="id">
+                                    <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['id']}";?>" id="RegistrationID" name="Regid">
+                                    <div id="reg_error" class="val_error" style="color: red "></div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2 col-xs-2" for="Room_No">Room No:</label>
                                 <div class="col-md-4 col-xs-4">
                                     <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['room']}";?>" id="Room_No" name="room">
+                                    <div id="room_error" class="val_error" style="color: red "></div>
                                 </div>
                             </div>
 
@@ -166,43 +172,49 @@ error_reporting(0);
                                 <label class="control-label col-sm-2 col-xs-2" for="Program">Program:</label>
                                 <div class="col-md-4 col-xs-4">
                                     <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['program']}";?>" id="program" name="program">
+                                    <div id="program_error" class="val_error" style="color: red "></div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2 col-xs-2" for="CGPA">CGPA:</label>
                                 <div class="col-md-4 col-xs-4">
-                                    <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['cgpa']}";?>" id="cgpa" name="cgpa">
+                                    <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['cgpa']}";?>" id="cgpa" name="cgpaS">
+                                    <div id="cgpa_error" class="val_error" style="color: red "></div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2 col-xs-2" for="Econtact">Emergency Contact No.:</label>
                                 <div class="col-md-4 col-xs-4">
-                                    <input type="number" class="form-control"  value="<?PHP echo "{$_SESSION['contact']}";?>" id="Econtact" name="econtact">
+                                    <input type="number" class="form-control"  value="<?PHP echo "{$_SESSION['contact']}";?>" id="Econtact" name="contact">
+                                    <div id="contact_error" class="val_error" style="color: red "></div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2 col-xs-2" for="phone">Personal NO.:</label>
                                 <div class="col-md-4 col-xs-4">
                                     <input type="number" class="form-control"  value="<?PHP echo "{$_SESSION['phone']}";?>" id="phoneno" name="phone">
+                                    <div id="phone_error" class="val_error" style="color: red "></div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-sm-2 col-xs-2" for="Address">Address:</label>
                                 <div class="col-md-4 col-xs-4">
-                                    <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['address']}";?>" id="address" name="address1">
+                                    <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['address']}";?>" id="address" name="address">
+                                    <div id="address_error" class="val_error" style="color: red "></div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label col-sm-2 col-xs-2" for="hostel">Your Hostel: </label>
-
-                                <select  id="hostel" name="hostel">
+                                <div class="col-md-4 col-xs-4">
+                                <select  id="select" name="hostel" class="form-control" >
                                     <option><?PHP echo "{$_SESSION['hostel']}";?></option>
                                     <option>Liaqat Hall</option>
                                     <option>M.A Jinnah</option>
                                     <option>Johar Hall</option>
                                 </select>
-
+                                    <div id="hostel_error" class="val_error" style="color: red "></div>
+                            </div>
                             </div>
 
                             <div class="form-group">
@@ -227,3 +239,75 @@ error_reporting(0);
 
 </body>
 </html>
+<script type="text/javascript">
+
+
+
+
+    function validateForm() {
+        var name_error = document.getElementById("name_error");
+        var studentName = document.forms["studentForm"]["studentName"].value;
+
+        var fatherName = document.forms["studentForm"]["fatherName"].value;
+        var f_error = document.getElementById("f_error");
+
+        var Reg = document.forms["studentForm"]["Regid"].value;
+        var reg_error = document.getElementById("reg_error");
+
+        var room = document.forms["studentForm"]["room"].value;
+        var room_error = document.getElementById("room_error");
+
+        var program = document.forms["studentForm"]["program"].value;
+        var program_error = document.getElementById("program_error");
+
+        var cgpa = document.forms["studentForm"]["cgpaS"].value;
+        var cgpa_error = document.getElementById("cgpa_error");
+
+        var contact = document.forms["studentForm"]["contact"].value;
+        var contact_error = document.getElementById("contact_error");
+
+        var phone = document.forms["studentForm"]["phone"].value;
+        var phone_error = document.getElementById("phone_error");
+
+        var address = document.forms["studentForm"]["address"].value;
+        var address_error = document.getElementById("address_error");
+
+        var hostel = document.forms["studentForm"]["hostel"].value;
+        var hostel_error = document.getElementById("hostel_error");
+
+        if(studentName == "" || fatherName=="" || Reg=="" || room=="" || program==""|| cgpa=="" ||contact=="" || phone=="" || address=="" || hostel==""){
+            if(fatherName== ""){
+                f_error.textContent = "Father Name is required ";
+            }
+            if(studentName == "") {
+                name_error.textContent = "Username is required ";
+            }
+            if(Reg==""){
+                reg_error.textContent = "Registration is required ";
+            }
+            if(room==""){
+                room_error.textContent = "Room Number is required ";
+            }
+            if (program==""){
+                program_error.textContent="Program is required"
+            }
+            if (cgpa==""){
+                cgpa_error.textContent="CGPA is required"
+            }
+            if (contact==""){
+                contact_error.textContent="Contact is required"
+            }
+            if (phone==""){
+                phone_error.textContent="Phone is required"
+            }
+            if (address==""){
+                address_error.textContent="Address is required"
+            }
+            if (hostel==""){
+                hostel_error.textContent="Select hostel name"
+            }
+            return false;
+        }
+        return true;
+    }
+</script>

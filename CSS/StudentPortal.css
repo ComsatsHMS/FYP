@@ -171,3 +171,10 @@
     width:95%;
     border-collapse:collapse;"
 }
+#select {
+    width: 230px;
+    height: 30px;
+    border-width: 2px;
+    border-color: rgba(50, 50, 50, 0.14);
+    margin: 10px 10px 10px 0px;
+}
