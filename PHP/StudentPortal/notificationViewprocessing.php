@@ -1,26 +1,19 @@
 
 <?php
 session_start();
+include "../connection.php";
+error_reporting(0);
 $id;
 $file;
-include "../connection.php";
-
-error_reporting(0);
-
 $hostelName=$_GET['selected_'];
 $notificationType= $_GET['select'];
 if(isset($hostelName)){
     $_SESSION['hostel']=$hostelName;
-
-    header("Location:http://localhost/fyp/php/Notifications.php");
-
-
+    header("Location:http://localhost/fyp/php/StudentPortal/Notifications.php");
 }
 if(isset($notificationType)){
     $_SESSION['type']=$notificationType;
-    header("Location:http://localhost/fyp/php/Notifications.php");
-
-
+    header("Location:http://localhost/fyp/php/StudentPortal/Notifications.php");
 }
 echo $_POST['date'];
 if(isset($_POST['date'])){
@@ -32,18 +25,9 @@ if(isset($_POST['date'])){
 }
 echo "$hostelName";
 echo "$notificationType";
-
-
 function viewnotification(){
     global $connection;
-
-
-
-
-
     $column= array();
-
-
 }
 
 
