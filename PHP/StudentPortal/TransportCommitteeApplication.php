@@ -6,9 +6,13 @@ if(isset($_POST['Submit'])){
     $s_id = $_SESSION['id'];
     $application_type = "Transport Committe";
     $application_details = $_POST['text'];
-
     $insert = "insert into applications VALUES ('','$s_id','$application_type','$application_details','','','','')";
-    mysqli_query($connection, $insert);
+    $query  = mysqli_query($connection, $insert);
+    if($query){
+        echo "<script type='text/javascript'>alert('Success! Application Submitted.');</script>";
+    }else{
+        echo "<script type='text/javascript'>alert('Error! Something Went Wrong.');</script>";
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -132,7 +136,9 @@ if(isset($_POST['Submit'])){
             <ol class="breadcrumb">
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="Login.php">Login</a></li>
-                <li class="active">Student</li>
+                <li><a href="StudentPortal.php">Student Portal</a></li>
+                <li><a href="Applications.php">Applications</a></li>
+                <li class="active">Transport Committe Application</li>
             </ol>
 
 
@@ -147,19 +153,15 @@ if(isset($_POST['Submit'])){
 
                                     <div class="form-group ">
                                         <label for="text">Application content</label>
-                                        <textarea class="form-control" name="text" rows="9" cols="20" required> </textarea>
+                                        <textarea class="form-control" name="text" rows="9" cols="20" required></textarea>
                                     </div>
                                     <div class="form-group ">
                                         <button type='submit' name="Submit" class="btn btn-success">submit</button>
                                     </div>
-
                                 </form>
                             </div>
                         </div>
-
             </div>
-
-
         </div>
     </div>
 </div>

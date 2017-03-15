@@ -5,18 +5,15 @@
     background-size: cover;
 }
 .comsats{
-
     text-align: center;
 }
 .textcolor{
     color: white;
-
 }
-.background1{
+div.background1{
     background-color: darkblue;
     background-size: cover;
-    height: 400px;
-
+    height: auto;
 }
 .degree{
 

@@ -2,9 +2,13 @@
 session_start();
 include "../connection.php";
 error_reporting(0);
-if (isset($_SESSION['insert'])) {
+if ($_SESSION['Complain']=='inserted') {
     echo "<script type='text/javascript'>alert('Complain Submitted');</script>";
 }
+else if ($_SESSION['Complain']=='error') {
+    echo "<script type='text/javascript'>alert('Error! Complain Cannot be Submitted');</script>";
+}
+unset($_SESSION['Complain']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +33,7 @@ if (isset($_SESSION['insert'])) {
         <
         script
         src = "//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js" ></script>
-    <link rel="stylesheet" href='../../CSS/StudentPortal.css' type="text/css" media="screen"/>
+    <link rel="stylesheet" href='../../CSS/StudentPortal.css?<?php echo time(); ?>' type="text/css" media="screen"/>
 </head>
 
 
@@ -41,6 +45,17 @@ if (isset($_SESSION['insert'])) {
 <script>
     $(document).ready(function () {
         $('#rightside').height($(window).height());
+    });
+</script>
+<script>
+    $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
+        // Avoid following the href location when clicking
+        event.preventDefault();
+        // Avoid having the menu to close when clicking
+        event.stopPropagation();
+        // Re-add .open to parent sub-menu item
+        $(this).parent().addClass('open');
+        $(this).parent().find("ul").parent().find("li.dropdown").addClass('open');
     });
 </script>
 
@@ -57,7 +72,7 @@ if (isset($_SESSION['insert'])) {
             <a href="StudentPortal.php">
                 <img id="ciit_logo" src="../../IMAGES/CIITLogo_Plain.png" alt="COMSATS"/>
             </a>
-            <ul id="main-nav">
+            <ul class="nav navbar-toggleable-md" id="main-nav">
                 <!--  Menu -->
                 <li>
                     <a id="ciit_lnk_Profile" class="nav-top-item" href="StudentPortal.php">Profile</a>
@@ -67,6 +82,13 @@ if (isset($_SESSION['insert'])) {
                 </li>
                 <li>
                     <a id="ciit_lnk_Complaints" class="nav-top-item" href="Complaints.php">Complaints</a>
+                </li>
+
+                <li>
+                    <a id="ciit_lnk_Vote" class="nav-top-item" href="Voting.php">Vote</a>
+                </li>
+                <li>
+                    <a id="ciit_lnk_Applications" class="nav-top-item" href="Applications.php">Applications</a>
                 </li>
                 <?php
                 $fetch = "select studentID from wingproctorslist where studentID='{$_SESSION["id"]}'";
@@ -81,21 +103,13 @@ if (isset($_SESSION['insert'])) {
                             <a id="ciit_lnk_Applications" class="nav-top-item" href="ViewComplains.php?id=' . $studentID . '">Wing Complaints</a>
                         </li>';
                 }
-
-
                 ?>
-                <li>
-                    <a id="ciit_lnk_Vote" class="nav-top-item" href="Voting.php">Vote</a>
-                </li>
-                <li>
-                    <a id="ciit_lnk_Applications" class="nav-top-item" href="Applications.php">Applications</a>
-                </li>
                 <li>
                     <a id="ciit_lnk_Statistics" class="nav-top-item" href="Statistics.php">Statistics</a>
                 </li>
 
-                <li><a href="#" id="ciit_lnk_FeeChallan" class="nav-top-item">Fee </a>
-                    <ul>
+                <li class="dropdown"><a href="#" id="ciit_lnk_FeeChallan" class="dropdown-toggle nav-top-item" data-toggle="dropdown">Fee </a>
+                    <ul class="dropdown-menu">
                         <li><a href="#" id="ciit_lnkFee">Challan</a></li>
                         <li><a href="FeeHistory.php" id="ciit_lnkFeeHistory">History</a></li>
                     </ul>
@@ -153,8 +167,8 @@ if (isset($_SESSION['insert'])) {
                                 <form role="form" method="post" action="Complaints_Processing.php">
                                     <div class="form-group ">
                                         <label for="complain">Please Choose Complain Type: </label>
-                                        <select id="complain" name="ComplainType">
-                                            <option><----Choose-----></option>
+                                        <select id="complain" name="ComplainType" required>
+                                            <option></option>
                                             <option>Mess Complain</option>
                                             <option>Water Complain</option>
                                             <option>Sweeper Complain</option>
@@ -165,9 +179,7 @@ if (isset($_SESSION['insert'])) {
                                     </div>
                                     <div class="form-group">
                             <textarea name="ComplainText" class="col-md-offset-1 col-md-8 col-md-offset-3 col-xs-4"
-                                      id="complain_box">
-
-                            </textarea>
+                                      id="complain_box" required></textarea>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10 col-xs-10">

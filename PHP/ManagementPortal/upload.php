@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "connection.php";
+include "../connection.php";
 error_reporting(0);
 $_hostel=$_GET['naam'];
 $_type=$_GET['cause'];
@@ -35,7 +35,7 @@ if(isset($_POST['upload'])) {
 
 
     $file = $_FILES["fileToUpload"]["name"];
-    move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "mydocs/" . $file);
+    move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "../mydocs/" . $file);
 
     $insert = "insert into notification VALUES ('','$_type','$_hostel','$date','$file')";
     $transport = mysqli_query($connection, $insert);

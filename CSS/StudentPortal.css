@@ -78,6 +78,10 @@
     color: black;
     margin: 2px;
     box-shadow:0px 0px 15px 2px;
+
+}
+#sidebar .dropdown:hover .dropdown-content {
+    display: block;
 }
 #sidebar #main-nav li a.active{
     background-color:yellow;
@@ -122,7 +126,7 @@
 
 /********************************     For Complain Page     ********************************/
 #rightside #complain_box{
-    height: 300px;
+    height: 270px;
     overflow: scroll;
 }
 

@@ -77,7 +77,7 @@ include ("phpFunctions.php");
                     <span id="ciit_Label" style="font-size:10pt;">Welcome,</span>
                     <a href="#" title="Your profile">
                         <span id="ciit_office" style="font-size:14pt; ">abcd</span></a><br>
-                    <a id="ciit_Signout" href="login.php" style="font-size: 12pt;font-style: italic">Log
+                    <a id="ciit_Signout" href="OfficeLogin.php" style="font-size: 12pt;font-style: italic">Log
                         Out</a>
                 </div>
             </div>

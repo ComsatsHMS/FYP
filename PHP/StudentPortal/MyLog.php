@@ -168,20 +168,10 @@ include "LogsProcessing.php";
 
 <!--                            Showing the Logs in table form          -->
                                 <table class="table">
-                                    <tr>
-                                        <th>Complain ID</th>
-                                        <th>Complain Type</th>
-                                        <th>Complain Text</th>
-                                        <th>Status</th>
-                                        <th>View By</th>
-                                        <th>Progress</th>
-                                    </tr>
                                     <?php
                                     getLogs();
                                     ?>
                                 </table>
-
-
                             </div>
                         </div>
                     </div>

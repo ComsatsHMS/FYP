@@ -118,7 +118,6 @@ function getSelectedStudents(){
                   </tr>";
         }
     }
-
 }
 function checkRecord($applicationNo){
     global $connection;
@@ -179,7 +178,6 @@ function checkRecord($applicationNo){
               <button type='button'  class=\"btn btn-danger\" ><a href='ApplicationProcessing.php?id=$application_no&state=0'>Not Select</a></button></td></tr>";
 
             }
-
         }
     }
 }

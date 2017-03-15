@@ -217,7 +217,7 @@ while($record = mysqli_fetch_array($exec)){
 
                 }
 
-                elseif($dateM < $endM){
+                else if($dateM < $endM){
 
                     if($val > $val1){ // If true then Lunch Menu
                         echo "Voting Last Date is  ". date("d M Y", $enddateM) . "<br><br>";
@@ -381,7 +381,7 @@ while($record = mysqli_fetch_array($exec)){
                     }
                     //Breakfast Menu
 
-                    elseif($val < $val1){
+                    else if($val < $val1){
                         echo "Voting Last Date is  ". date("d M Y", $enddateM) . "<br><br>";
                         $flag= $_GET['flag'];
                         echo'   <strong> Please! Choose Breakfast Menu which suits you the most?</strong>

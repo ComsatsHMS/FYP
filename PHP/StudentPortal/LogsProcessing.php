@@ -17,11 +17,19 @@ if(isset($_GET['SelectedLog'])){
 function getLogs()
 {
     $selected = $_SESSION['SelectedLog'];
-if($selected=='Complains') {
     global $connection;
     echo "Below are the LOGS for: " . "$selected";
+if($selected=='Complains') {
     $get_record = "select ComplainID,ComplainType,ComplainText,Status,ViewBy from complaints where studentid={$_SESSION['id']}";
     $run = mysqli_query($connection, $get_record);
+    echo "<tr>
+                                        <th>Complain ID</th>
+                                        <th>Complain Type</th>
+                                        <th>Complain Text</th>
+                                        <th>Status</th>
+                                        <th>View By</th>
+                                        <th>Progress</th>
+                                    </tr>";
     while ($each_record = mysqli_fetch_array($run)) {
 
         $Complain_ID = $each_record['ComplainID'];
@@ -42,9 +50,27 @@ if($selected=='Complains') {
         ";
     }
 }
-    else{
-        echo "Else";
+else{
+    $get_record = "select * from applications where studentid={$_SESSION['id']}";
+    $run = mysqli_query($connection, $get_record);
+    echo "<tr>
+                                        <th>Application No.</th>
+                                        <th>Application Type</th>
+                                        <th>Application Text</th>
+                                    </tr>";
+    while ($each_record = mysqli_fetch_array($run)) {
 
+        $Application_ID = $each_record['applicationNumber'];
+        $Application_Type = $each_record['applicationtype'];
+        $Application_Text = $each_record['details'];
+        echo "
+            <tr>
+            <td> $Application_ID </td>
+            <td> $Application_Type </td>
+            <td> $Application_Text </td>
+            </tr>
+        ";
+    }
 }
 }
 

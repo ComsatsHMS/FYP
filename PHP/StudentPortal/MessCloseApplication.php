@@ -3,13 +3,21 @@ session_start();
 include "../connection.php";
 error_reporting(0);
 if(isset($_POST['messclose'])){
+    $today = date("Y-m-d");
     $application_type = "MessClose";
     $application_details = $_POST['text'];
     $firstdate = $_POST['startdate'];
     $lastdate = $_POST['lastdate'];
     $s_id = $_SESSION['id'];
-    $insert = "insert into applications VALUES ('','$s_id','$application_type','$application_details','$firstdate',' $lastdate','','')";
-    mysqli_query($connection, $insert);
+    $startDay = date('w', strtotime($firstdate));
+    $endDay = date('w', strtotime($lastdate));
+    if($firstdate >= $today  && $lastdate >= $firstdate && (($startDay==6 || $startDay==0) && ($endDay==6 || $endDay==0))){
+        $insert = "insert into applications VALUES ('','$s_id','$application_type','$application_details','$firstdate',' $lastdate','','')";
+        mysqli_query($connection, $insert);
+        echo "<script type='text/javascript'>alert('Success! Application Submitted.');</script>";
+    }else{
+        echo "<script type='text/javascript'>alert('Error! Please Provide Correct Close Dates.');</script>";
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -133,7 +141,10 @@ if(isset($_POST['messclose'])){
             <ol class="breadcrumb">
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="Login.php">Login</a></li>
-                <li class="active">Student</li>
+                <li><a href="StudentPortal.php">Student Portal</a></li>
+                <li><a href="Applications.php">Applications</a></li>
+                <li class="active">Mess Close Application</li>
+
             </ol>
 
 
@@ -156,7 +167,7 @@ if(isset($_POST['messclose'])){
                                     </div>
                                     <div class="form-group ">
                                         <label for="text">Application content</label>
-                                        <textarea class="form-control" name="text" rows="9" cols="20" required> </textarea>
+                                        <textarea class="form-control" name="text" rows="9" cols="20" required></textarea>
                                     </div>
                                     <div class="form-group ">
                                         <button type='submit' name="messclose" class="btn btn-success">submit</button>

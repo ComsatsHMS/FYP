@@ -8,7 +8,7 @@ include "../connection.php";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>office Portal</title>
+    <title>Student Portal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -43,26 +43,62 @@ include "../connection.php";
 <body>
 <div class="container-fluid" >
     <div class="row" >
-        <!--    Column of size 2 for sidebar Menu -->
         <div  class= "col-md-2 col-xs-6" id="sidebar">
             <!-- Sidebar with logo and menu -->
             <h4 >
-                <a href="mainApplicationOffice.php" id="sidebar-title">Office Hostel Portal</a></h4>
-            <a href="#">
+                <a href="#" id="sidebar-title">Student Hostel Portal</a></h4>
+            <a href="StudentPortal.php">
                 <img id="ciit_logo" src="../../IMAGES/CIITLogo_Plain.png" alt="COMSATS" />
             </a>
             <ul id="main-nav">
                 <!--  Menu -->
-                <li><a id="applications" class="nav-top-item" href="applicationsDisplay.php">Hostel Applications</a></li>
-                <li><a id="allotment" class="nav-top-item" href="allotment.php">Allotment</a></li>
-                <li><a id="complains" class="nav-top-item" href="ViewComplains.php">View Complains</a></li>
-                <li><a id="applications" class="nav-top-item" href="ViewApplications.php">View Applications</a></li>
-                <li><a id="statistics" class="nav-top-item" href="offStatistics.php">Statistics</a></li>
-                <li><a id="vote" class="nav-top-item" href="StartVoting.php">Voting</a></li>
+                <li>
+                    <a id="ciit_lnk_Profile" class="nav-top-item" href="StudentPortal.php">Profile</a>
+                </li>
+                <li>
+                    <a id="ciit_lnk_Notifications" class="nav-top-item" href="Notifications.php">Notifications</a>
+                </li>
+                <li>
+                    <a id="ciit_lnk_Complaints" class="nav-top-item" href="Complaints.php">Complaints</a>
+                </li>
+                <li>
+                    <a id="ciit_lnk_Vote" class="nav-top-item" href="Voting.php">Vote</a>
+                </li>
+                <li>
+                    <a id="ciit_lnk_Applications" class="nav-top-item" href="Applications.php">Applications</a>
+                </li>
+                <?php
+                $fetch= "select studentID from wingproctorslist where studentID='{$_SESSION["id"]}'";
+                $studentID;
+                $transport = mysqli_query($connection,$fetch);
+                while ($each_record = mysqli_fetch_array($transport)){
+                    $studentID = $each_record['studentID'];
+                }
+                if($studentID == $_SESSION['id']){
+
+                    echo '<li>
+                            <a id="ciit_lnk_Applications" class="nav-top-item" href="ViewComplains.php?id=' . $studentID . '">Wing Complaints</a>
+                        </li>';
+                }
+
+
+                ?>
+                <li>
+                    <a id="ciit_lnk_Statistics" class="nav-top-item" href="Statistics.php">Statistics</a>
+                </li>
+
+                <li><a href="#" id="ciit_lnk_FeeChallan" class="nav-top-item">Fee </a>
+                    <ul>
+                        <li><a href="Challan.php" id="ciit_lnkFee">Challan</a></li>
+                        <li><a href="FeeHistory.php" id="ciit_lnkFeeHistory">History</a></li>
+                    </ul>
+                </li>
                 <li>
                     <a id="ciit_lnk_logout" class="nav-top-item" href="MyLog.php">My Log</a>
                 </li>
-                <li><a id="logout" class="nav-top-item" href="OfficeLogin.php">Logout</a></li>
+                <li>
+                    <a id="ciit_lnk_logout" class="nav-top-item" href="Logout.php">Logout</a>
+                </li>
             </ul>
         </div>
 
@@ -72,26 +108,29 @@ include "../connection.php";
             <!--profile Pic of logged in user-->
             <div class="row">
                 <div class="col-md-6 col-xs-6">
-                    <li><a href="#" style="padding-bottom: 20%">
-                            <img id="profile_pic" src="../IMAGES/profile_pic.jpg" alt="profilepic" style="width: 100px; height: 100px"; /></a></li>
+                    <li class="col-md-3"><a href="#">
+                            <img id="profile_pic" src="../../IMAGES/profile_pic.jpg" alt="profilepic" style="width: 100px; height: 100px"; /></a></li>
+                    <br><br>
+                    <h1 class="col-md-9"> <?PHP echo "{$_SESSION['hostel']}";?>  </h1>
                 </div>
                 <!--Page header-->
 
-                <div class="col-md-6 col-xs-6" id="profile" style="text-align: center;">
-                    <span id="ciit_Label" style="font-size:10pt;">Welcome,</span>
-                    <a href="#" title="Your profile">
-                        <span id="ciit_office" style="font-size:14pt; ">abcd</span></a><br>
-                    <a id="ciit_Signout" href=" Login.php" style="font-size: 12pt;font-style: italic">Log
-                        Out</a>
+                <div class="col-md-6 col-xs-6" id="profile" style="text-align: right;">
+                    <span id="ciit_Label" >Welcome,</span>
+
+                    <span id="ciit_StudentName"><?php echo "{$_SESSION['name']}"; ?></span><br>
+                    <br><br><h3> Room No:<?php echo "{$_SESSION['room']}"; ?> </h3>
                 </div>
             </div>
-            <br>
+            <!--Breadcrumb Start-->
             <ol class="breadcrumb">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="login.php">Login</a></li>
-                <li class="active">Office Main</li>
-
+                <li><a href="../index.php">Home</a></li>
+                <li><a href="Logout.php">Login</a></li>
+                <li><a href="StudentPortal.php">Student Portal</a></li>
+                <li class="active">View Complains</a></li>
             </ol>
+
+
             <div class="col-md-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading" > View Complains </div>
@@ -161,7 +200,7 @@ include "../connection.php";
                             $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid ORDER BY  ComplainID desc limit 5";
                             $run = mysqli_query($connection, $get_record);
                             while ($each_record = mysqli_fetch_array($run)){
-
+                                $Student_ID   = $each_record['studentid'];
                                 $Complain_ID   = $each_record['ComplainID'];
                                 $Complain_Type = $each_record['ComplainType'];
                                 $Complain_Text = $each_record['ComplainText'];
@@ -182,21 +221,15 @@ include "../connection.php";
             <td> $Complain_Type </td>
             <td> $Complain_Date </td>
               <td> $Hostel </td>
-            <td> <button type='button'  class='btn btn-success'><a href='ComplainsDisplay.php?id=$Complain_ID & room=$Room_No & name=$Student_Name & text=$Complain_Text'>View</a> </button> </td>
+            <td> <button type='button'  class='btn btn-success'><a href='ComplainsDisplay.php?id=$Student_ID & room=$Room_No & name=$Student_Name & text=$Complain_Text'>View</a> </button> </td>
             </tr>
         ";
                                         }
-
-
-
-                                                                          }
-                                                 }
-
-
+                            }
+                            }
                             else{
                                 getComplainDetails();
                             }
-
                             ?>
 
                         </table>
@@ -206,8 +239,6 @@ include "../connection.php";
 
         </div>
     </div>
-
 </div>
-
 </body>
 </html>

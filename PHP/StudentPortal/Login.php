@@ -37,7 +37,7 @@ session_start();
             <br>
             <br>
             <br>
-            <form action="loginProcessing.php" method="post" enctype="multipart/form-data">
+            <form action="LoginProcessing.php" method="post" enctype="multipart/form-data">
                 <div class="align col-md-12 col-xs-12">
                     <div class="form-inline" role="form">
                         <div class="form-group">

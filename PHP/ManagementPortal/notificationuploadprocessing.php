@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
 
     move_uploaded_file( $_FILES['upload']['tmp_name'],"". $file);
     $insert="insert into notification VALUES ('','$file')";
-    $transport=mysqli_query($conn,$insert);
+    $transport=mysqli_query($connection,$insert);
     if($insert){
 
         echo "ture";

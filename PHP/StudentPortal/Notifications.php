@@ -2,8 +2,7 @@
 session_start();
 error_reporting(0);
 include "../connection.php";
-include "notificationViewprocessing.php";
-
+include "NotificationViewprocessing.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,9 +23,6 @@ include "notificationViewprocessing.php";
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
     <link rel="stylesheet" href='../../CSS/StudentPortal.css' type="text/css" media="screen" />
 </head>
-
-
-
 <script>
     $(document).ready(function(){
         $('#sidebar').height($(window).height());
@@ -37,8 +33,6 @@ include "notificationViewprocessing.php";
         $('#rightside').height($(window).height());
     });
 </script>
-
-
 <body>
 
 <div class="container-fluid" >
@@ -153,21 +147,10 @@ include "notificationViewprocessing.php";
                             <label >Hostel Name</label>
 
                                 <select  id="hostelName" name="hostelName">
-
-                                    <option>
-                                        <?php
-                                        if(isset($_SESSION['hostel'])){
-                                            echo $_SESSION['hostel'];
-
-                                        }
-                                        ?>
-                                    </option>
-
+                                    <option></option>
                                     <option>M.A Jinnah</option>
                                     <option>Liaqat Hall</option>
                                     <option>Johar Hall</option>
-
-
                                 </select>
 
                         </div>
@@ -175,15 +158,7 @@ include "notificationViewprocessing.php";
 
                             <label >Notice Type</label>
                             <select  id="notificationType" name="notificationType">
-
-                                <option>
-                                    <?php
-                                    if(isset($_SESSION['type'])){
-                                        echo $_SESSION['type'];
-
-                                    }
-                                    ?>
-                                </option>
+                                <option></option>
                                 <option>Mess Notification</option>
                                 <option>Hostel Timing</option>
                                 <option>Trip Notification</option>
@@ -193,7 +168,7 @@ include "notificationViewprocessing.php";
                         </div>
 
                         <div class="col-md-4">
-                        <form method="post" action="notificationViewprocessing.php">
+                        <form method="post" action="NotificationViewprocessing.php">
                             <label for="date">Date: </label>
                             <input type="date" name="date">
                             <input type="submit" value="Go">
@@ -227,22 +202,13 @@ include "notificationViewprocessing.php";
                         $file=$row['notice'];
 
                         echo "
-
                 <tr>
                      <td ><a href=''>$id</a> </td>
                      <td>$type</td>
                      <td> $nameHostel</td>
                      <td>$date</td>
-
-
-                     <td><a href='displaynotification.php?id=$id'>view</a></td>
-
-
-                </tr>
-
-        ";
-
-
+                     <td><a href='DisplayNotification.php?id=$id'>view</a></td>
+                </tr> ";
                     }
 
                     ?>
@@ -253,7 +219,7 @@ include "notificationViewprocessing.php";
             <script>
                 $("#notificationType").on("change", function(){
                     var value = $(this).val();
-                    window.location = "notificationViewprocessing.php?select="+value;
+                    window.location = "NotificationViewprocessing.php?select="+value;
                 })
             </script>
 
@@ -261,17 +227,9 @@ include "notificationViewprocessing.php";
             <script>
                 $("#hostelName").on("change", function(){
                     var selected = $(this).val();
-                    window.location = "notificationViewprocessing.php?selected_="+selected;
+                    window.location = "NotificationViewprocessing.php?selected_="+selected;
                 })
             </script>
-
-                <div class="col-md-4 border-right">
-                            <?php
-                            include '../connection.php';
-
-
-                            ?>
-                </div>
 
             </div>
         </div>

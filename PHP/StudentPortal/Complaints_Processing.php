@@ -9,16 +9,20 @@ print_r($_POST);
     $ComplainType = $_POST['ComplainType'];
     $ComplainText = $_POST['ComplainText'];
     $StudentID =    $_SESSION['id'];
-    $query = mysqli_query($connection, "insert into complaints VALUES ('0','$ComplainType','$ComplainText',now(),$StudentID)");
+    if(!empty($ComplainType) && !empty($ComplainText)){
+        $query = mysqli_query($connection, "insert into complaints VALUES ('','$ComplainType','$ComplainText',now(),$StudentID,'Pending','')");
 
-    if($query){
-        $_SESSION['insert']="inserted";
-        header("location:http://localhost/FYP/PHP/StudentPortal/Complaints.php");
+        if($query){
+            $_SESSION['Complain']="inserted";
+        }
+        else {
+            $_SESSION['Complain']="error";
+        }
     }
-    else {
-
-        echo "Unable To Insert";
+    else{
+        $_SESSION['Complain']="error";
     }
+    header("location:http://localhost/FYP/PHP/StudentPortal/Complaints.php");
 }
 
 
@@ -105,7 +109,6 @@ global $connection;
         $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid and c.Date like '$date%' ORDER BY  ComplainID desc limit 5";
         $run = mysqli_query($connection, $get_record);
         while ($each_record = mysqli_fetch_array($run)){
-``
             $Complain_ID = $each_record['ComplainID'];
             $Complain_Type = $each_record['ComplainType'];
             $Complain_Text = $each_record['ComplainText'];
