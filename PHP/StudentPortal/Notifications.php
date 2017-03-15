@@ -168,7 +168,7 @@ include "NotificationViewprocessing.php";
                         </div>
 
                         <div class="col-md-4">
-                        <form method="post" action="NotificationViewprocessing.php">
+                        <form method="post" action="NotificationViewProcessing.php">
                             <label for="date">Date: </label>
                             <input type="date" name="date">
                             <input type="submit" value="Go">
@@ -218,7 +218,7 @@ include "NotificationViewprocessing.php";
             <script>
                 $("#notificationType").on("change", function(){
                     var value = $(this).val();
-                    window.location = "NotificationViewprocessing.php?select="+value;
+                    window.location = "NotificationViewProcessing.php?select="+value;
                 })
             </script>
 
@@ -226,7 +226,7 @@ include "NotificationViewprocessing.php";
             <script>
                 $("#hostelName").on("change", function(){
                     var selected = $(this).val();
-                    window.location = "NotificationViewprocessing.php?selected_="+selected;
+                    window.location = "NotificationViewProcessing.php?selected_="+selected;
                 })
             </script>
 
@@ -239,7 +239,7 @@ include "NotificationViewprocessing.php";
 
 
     </div>
-    </div>
+
 
 
 
