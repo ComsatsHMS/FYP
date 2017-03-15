@@ -14,7 +14,6 @@ $studentphone=$_POST['phone'];
 $studentaddres=$_POST['address'];
     $insert="insert into insertstudentprofile VALUES ('$studentName','$studentFatherName','$studentId','$studentroom',
 '$studentprogram','$studentcgpa','$studentEContact','$studentphone','$studentaddres')";
-
     $query=mysqli_query($connection,$insert);
     if($query){
         echo "true";
@@ -50,7 +49,6 @@ if(isset($_POST['update'])){
                 header('Location:StudentPortal.php');
             }
         }
-
 }
 ?>
 

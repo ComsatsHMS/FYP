@@ -200,7 +200,6 @@ include "NotificationViewprocessing.php";
                         $nameHostel=$row['hostelName'];
                         $date=$row['date'];
                         $file=$row['notice'];
-
                         echo "
                 <tr>
                      <td ><a href=''>$id</a> </td>
