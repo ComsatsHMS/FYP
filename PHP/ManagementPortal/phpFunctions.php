@@ -25,6 +25,28 @@ echo "inside isset";
     }
     $insert="insert into hostel VALUES ('','$hostel_Name','$application_no','$room_num')";
     $transport = mysqli_query($connection,$insert);
+    if($transport){
+        $select = "select * from oldstudentform where applicationNumber='$application_no'";
+        $run = mysqli_query($connection,$select);
+        while ($each_record = mysqli_fetch_array($run)) {
+            $student_name = $each_record['name'];
+            $student_f_name = $each_record['fathername'];
+            $student_contact = $each_record['mobileNo'];
+            $student_contact_e = $each_record['cellNo'];
+            $student_program = $each_record['program'];
+            $student_year = $each_record['year'];
+            $student_degree = $each_record['degree'];
+            $student_id = $each_record['studentid'];
+            $address = $each_record['address'];
+            $insert = "insert into insertstudentprofile VALUES ('$student_name','$student_f_name','$student_id','$room_num','$student_degree','$student_year','$student_program','','$student_contact',' $student_contact_e','$address','','$hostel_Name')";
+            $exec = mysqli_query($connection,$insert);
+            if($exec){
+
+                $acc = "insert into loginoldstudent VALUES ('$student_degree','$student_year','$student_program','$student_id',12345)";
+                $exec = mysqli_query($connection,$acc);
+            }
+        }
+    }
     header('Location: Allotment.php');
 }
 
@@ -106,13 +128,16 @@ function getSelectedStudents(){
             $application_no = $each_record['applicationNumber'];
             $student_name = $each_record['name'];
             $student_f_name = $each_record['fathername'];
+            $degree = $each_record['degree'];
+            $year = $each_record['year'];
+            $program = $each_record['program'];
             $student_id = $each_record['studentid'];
             $student_preffered_hostel = $each_record['hostel'];
 
             echo "<tr><td>$application_no</td>
                   <td>$student_name</td>
                   <td>$student_f_name</td>
-                  <td>$student_id</td>
+                  <td>$degree-$year-$program-$student_id</td>
                   <td>$student_preffered_hostel</td>
                   <td><button type='button' class='btn btn-default' ><a href='Allocate.php?id=$application_no'>Allot</a></button> </td>
                   </tr>";
@@ -127,7 +152,9 @@ function checkRecord($applicationNo){
         $application_no = $each_record['applicationNumber'];
         $student_name = $each_record['name'];
         $father_name = $each_record['fathername'];
-        
+        $degree = $each_record['degree'];
+        $year = $each_record['year'];
+        $program = $each_record['program'];
         $student_id = $each_record['studentid'];
         $semester_Fee_Slip = $each_record['feephoto'];
         $student_cell = $each_record['mobileNo'];
@@ -148,7 +175,7 @@ function checkRecord($applicationNo){
             echo"
             <tr><td>Student Name</td><td>$student_name</td></tr>
             <tr><td>Father Name</td><td>$father_name</td></tr>
-            <tr><td>Student Id</td><td>$student_id</td></tr>
+            <tr><td>Student Id</td><td>$degree-$year-$program-$student_id</td></tr>
             <tr><td>Student Mobile No.</td><td>$student_cell</td></tr>
             <tr><td>Semester fee slip</td><td><img src='../IMAGES/$semester_Fee_Slip' width='100' height='150'></td></tr>
             ";
@@ -159,26 +186,19 @@ function checkRecord($applicationNo){
         }
         elseif($each_record['oldstudent'] == 1){
             global $connection;
-            $get_record = "select * from studentrecord WHERE studentId = '$student_id'";
-            $run = mysqli_query($connection, $get_record);
-            while ($each_record = mysqli_fetch_array($run)){
-                $mess_bill = $each_record['messbill'];
-                $defaulter = $each_record['defaulter'];
-                $remarks = $each_record['remarks'];
+
                 echo"
                     <tr><td>Student Name</td><td>$student_name</td></tr>
                     <tr><td>Father Name</td><td>$father_name</td></tr>
-                    <tr><td>Student Id</td><td>$student_id</td></tr>
+                    <tr><td>Student Id</td><td>$degree-$year-$program-$student_id</td></tr>
                     <tr><td>Student Mobile No.</td><td>$student_cell</td></tr>
-                    <tr><td>Remaining Mess Bill</td><td>$mess_bill</td></tr>
-                    <tr><td>Defaulter</td><td>$defaulter</td></tr>
-                    <tr><td>Remarks</td><td>$remarks</td></tr>
+
                     <tr><td>Semester fee slip</td><td><img src='../IMAGES/$semester_Fee_Slip' width='100' height='150'></td></tr>
             ";
                 echo "<tr><td><button type='button' class=\"btn btn-default\" ><a href='ApplicationProcessing.php?id=$application_no&state=1'>Select</a></button>
               <button type='button'  class=\"btn btn-danger\" ><a href='ApplicationProcessing.php?id=$application_no&state=0'>Not Select</a></button></td></tr>";
 
-            }
+
         }
     }
 }
