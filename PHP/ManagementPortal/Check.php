@@ -69,7 +69,7 @@ include("phpFunctions.php")
             <div class="row" style="padding-bottom: 8pt">
                 <div class="col-md-6 col-xs-6">
                     <li><a href="#" style="padding-bottom: 20%">
-                            <img id="profile_pic" src="../../IMAGES/profilepic.jpg" alt="profilepic" style="width: 100px; height: 100px"; /></a></li>
+                            <img id="profile_pic" src="../../IMAGES/profile_pic.jpg" alt="profilepic" style="width: 100px; height: 100px"; /></a></li>
                 </div>
                 <!--Page header-->
 

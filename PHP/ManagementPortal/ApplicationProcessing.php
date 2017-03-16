@@ -60,8 +60,10 @@ if(isset($_POST['submit1'])) {
     $student_Name = $_POST['name'];
     $student_cnic = $_POST['cnic'];
     $studentF_cnic = $_POST['fcnic'];
-    $student_Id = $_POST['studentId'];
-    $student_program = $_POST['studentProgram'];
+    $degree = $_POST['degree'];
+    $year = $_POST['year'];
+    $student_program = $_POST['program'];
+    $student_Id = $_POST['studentid'];
     $student_Address = $_POST['address'];
     $telephoneNumber = $_POST['telephoneNumber'];
     $mobileNumber = $_POST['mobileNumber'];
@@ -89,7 +91,7 @@ if(isset($_POST['submit1'])) {
     move_uploaded_file($_FILES["imageFG"]["tmp_name"],"../IMAGES/".$student_image5);
 
 
-    $insert = "insert into oldstudentform values ('','$student_Name','$student_Fname','$student_program','$student_Id','$student_Address',
+    $insert = "insert into oldstudentform values ('','$student_Name','$student_Fname','$degree','$year','$student_program','$student_Id','$student_Address',
     '$student_cnic','$studentF_cnic','$telephoneNumber','$mobileNumber','$email','$domicile','$bloodGroup','$religion','$occupation',
     '$income','$emergency','$relation','$cell','$student_hostel','$student_image','$student_image1','$student_image3','$student_image4','$student_image5','$student_old_hostel','$student_newstudent','','','')";
 

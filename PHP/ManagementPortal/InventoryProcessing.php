@@ -199,11 +199,8 @@ if(isset($_POST['AddItem'])) {
         if ($query) {
             $run = mysqli_query($connection, "select ItemNo from messitems where ItemName='$NewItem'");
             while ($each_record = mysqli_fetch_array($run)) {
-
                 $ItemNo = $each_record['ItemNo'];
-
                 $query = mysqli_query($connection, "insert into balance VALUES ('$ItemNo' ,'0','0','0',CURRENT_DATE )");
-
             }
             $_SESSION['InsertItem'] = "inserted";
         } else {

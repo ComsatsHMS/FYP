@@ -200,7 +200,8 @@ include "../connection.php";
                             $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid ORDER BY  ComplainID desc limit 5";
                             $run = mysqli_query($connection, $get_record);
                             while ($each_record = mysqli_fetch_array($run)){
-                                $Student_ID   = $each_record['studentid'];
+                                $Student_ID    = $each_record['studentid'];
+                                echo "$Student_ID";
                                 $Complain_ID   = $each_record['ComplainID'];
                                 $Complain_Type = $each_record['ComplainType'];
                                 $Complain_Text = $each_record['ComplainText'];

@@ -1,8 +1,13 @@
+<?php
+session_start();
+include "../connection.php";
+error_reporting(0);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>office Portal</title>
+    <title>Office Portal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -46,7 +51,7 @@
                 <!--  Menu -->
                 <li><a id="applications" class="nav-top-item" href="ApplicationsDisplay.php">Hostel Applications</a></li>
                 <li><a id="allotment" class="nav-top-item" href="Allotment.php">Allotment</a></li>
-                <li><a id="studentList" class="nav-top-item" href="#" class="nav-top-item">Student's List</a>
+                <li><a id="studentList" href="#" class="nav-top-item">Student's List</a>
                     <ul>
                         <li ><a id="selected" href="SelectedStudents.php">Selected</a></li>
                         <li ><a id="notSelected" href="NotSelectedStudents.php">Not Selected</a></li>
@@ -84,7 +89,7 @@
                 <div class="col-md-6 col-xs-6" id="profile" style="text-align: center;">
                     <span id="ciit_Label" style="font-size:10pt;">Welcome,</span>
                     <a href="#" title="Your profile">
-                        <span id="ciit_office" style="font-size:14pt; ">abcd</span></a><br>
+                        <span id="ciit_office" style="font-size:14pt; "><?php echo"{$_SESSION['LoggedUser']}"; ?></span></a><br>
                     <a id="ciit_Signout" href="OfficeLogin.php" style="font-size: 12pt;font-style: italic">Log
                         Out</a>
                 </div>
@@ -93,10 +98,7 @@
                 <li><a href="MainApplicationOffice.php">Home</a></li>
                 <li><a href="OfficeLogin.php">Login</a></li>
                 <li class="active">Office Main</li>
-
             </ol>
-
-
             </div>
 
         </div>

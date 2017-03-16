@@ -52,27 +52,16 @@ session_start();
                         <span class="textcolor">-</span>
                         <div class="form-group">
                             <select name="fall" id="year" class="form-control">
-                                <option value="FA10">FA10</option>
-                                <option value="FA11">FA11</option>
-                                <option value="FA12">FA12</option>
-                                <option value="FA13">FA13</option>
-                                <option value="FA14">FA14</option>
-                                <option value="FA15">FA15</option>
-                                <option value="FA16">FA16</option>
-                                <option value="SP11">SP11</option>
-                                <option value="SP12">SP12</option>
-                                <option value="SP13">SP13</option>
-                                <option value="SP14">SP14</option>
-                                <option value="SP15">SP15</option>
-                                <option value="SP16">SP16</option>
-                                <option value="SP17">SP17</option>
-                                <option value="SU11">SU11</option>
-                                <option value="SU12">SU12</option>
-                                <option value="SU13">SU13</option>
-                                <option value="SU14">SU14</option>
-                                <option value="SU15">SU15</option>
-                                <option value="SU16">SU16</option>
-                                <option value="SU17">SU17</option>
+                                <?php
+                                $year = date("Y");
+                                $year = ($year - 6)%2000;;
+                                $i=0;
+                                while($i <=6 ){
+                                    echo '<option value="FA'.$year.'">FA'.$year.'</option>';
+                                    echo '<option value="SP'.$year.'">SP'.$year.'</option>';
+                                    $year++;$i++;
+                                }
+                                ?>
                             </select>
                         </div>
                         <span class="textcolor">-</span>
@@ -245,7 +234,6 @@ session_start();
                         <input type="submit" value="Submit">
                     </div>
                 </div>
-
 
             </div>
             <br>

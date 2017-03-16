@@ -27,7 +27,7 @@ function getApps(){
         $get_record = "select a.*,s.studentName,s.room,s.studentHostel from applications a,insertstudentprofile s where a.studentid = s.studentid and a.applicationType='$selectedType' ORDER BY  applicationNumber desc limit 5";
         $run = mysqli_query($connection, $get_record);
         while ($each_record = mysqli_fetch_array($run)){
-
+            $Student_ID = $each_record['studentid'];
             $app_ID = $each_record['applicationNumber'];
             $app_Type = $each_record['applicationtype'];
             $app_Text = $each_record['details'];
@@ -41,7 +41,7 @@ function getApps(){
             <td> $Room_No </td>
             <td> $app_Type </td>
             <td> $Hostel </td>
-            <td> <button type='button'  class='btn btn-success'><a href='AppDisplaytemp.php?id=$app_ID & room=$Room_No & name=$Student_Name & text=$app_Text'>View</a></button> </td>
+            <td> <button type='button'  class='btn btn-success'><a href='AppDisplaytemp.php?id=$Student_ID & room=$Room_No & name=$Student_Name & text=$app_Text &type=$app_Type'>View</a></button> </td>
             </tr>
         ";
         }
@@ -177,9 +177,10 @@ function getApps(){
             </div>
             <br>
             <ol class="breadcrumb">
-                <li><a href="../index.php">Home</a></li>
+                <li><a href="MainApplicationOffice.php">Home</a></li>
                 <li><a href="OfficeLogin.php">Login</a></li>
-                <li class="active">Students Applications</li>
+                <li><a href="MainApplicationOffice.php">Office Main</a></li>
+                <li class="active">Student Applications</li>
 
             </ol>
             <div class="col-md-12">

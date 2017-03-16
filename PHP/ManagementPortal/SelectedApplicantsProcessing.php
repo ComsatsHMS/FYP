@@ -1,21 +1,30 @@
 <?php
-//error_reporting(0);
+error_reporting(0);
 include("../connection.php");
 session_start();
 if($_POST['submit']) {
     $WingName = $_POST['wingname'];
     $Start = $_POST['start'];
-    $End = $_POST['end'];
-    $SelectedApplicant = $_SESSION['SelectedApplicant'];
-
-    $run = mysqli_query($connection, "select studentName,room,studentHostel from insertstudentprofile where studentid=$SelectedApplicant");
+    $End   = $_POST['end'];
+    $ApplicationType = $_GET['type'];
+    $StudentID = $_GET['id'];
+    $run = mysqli_query($connection, "select studentName,room,studentHostel from insertstudentprofile where studentid=$StudentID");
     while ($each_record = mysqli_fetch_array($run)) {
-
         $StudentName = $each_record['studentName'];
         $StudentRoom = $each_record['room'];
         $StudentHostel = $each_record['studentHostel'];
-
+        if($ApplicationType=='Wing Proctor'){
+            $run = mysqli_query($connection, "insert into wingproctorslist values('$StudentName','$StudentID','$StudentRoom','$StudentHostel','$WingName','$Start','$End')");
+       if($run){
+           echo "OK";
+       }
+        }
+        else{
+            $run = mysqli_query($connection, "insert into selectedmembers values('$StudentID','$StudentName','$StudentRoom','$StudentHostel','$WingName','$ApplicationType',CURRENT_DATE)");
+            if($run){
+                echo "OK";
+            }
+        }
     }
-    $run = mysqli_query($connection, "insert into wingproctorslist values('$StudentName','$SelectedApplicant','$StudentRoom','$StudentHostel','$WingName','$Start','$End')");
-    header("location:http://localhost/FYP/PHP/ManagementPortal/AppDisplaytemp.php");
+//    header("location:http://localhost/FYP/PHP/ManagementPortal/AppDisplaytemp.php");
 }

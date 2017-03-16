@@ -133,8 +133,8 @@ function checkRecord($applicationNo){
             <tr><td>First semester fee slip</td><td><img src='IMAGES/$semester_Fee_Slip' width='100' height='150'></td></tr>
             <tr><td>Affidivat</td><td><img src='IMAGES/$affidivat' width='100' height='150'></td></tr>
              ";
-            echo "<tr><td><button type='button'  class=\"btn btn-default\" ><a href='applicationProcessing.php?id=$application_no&state=1'>Select</a></button>
-              <button type='button'  class=\"btn btn-danger\" ><a href='applicationProcessing.php?id=$application_no&state=0'>Not Select</a></button></td></tr>";
+            echo "<tr><td><button type='button'  class=\"btn btn-default\" ><a href='ManagementPortal/ApplicationProcessing.php?id=$application_no&state=1'>Select</a></button>
+              <button type='button'  class=\"btn btn-danger\" ><a href='ManagementPortal/ApplicationProcessing.php?id=$application_no&state=0'>Not Select</a></button></td></tr>";
 
         }
         elseif($each_record['oldstudent'] == false){

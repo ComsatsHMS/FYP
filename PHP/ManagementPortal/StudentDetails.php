@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
-include("phpFunctions.php")
+include("phpFunctions.php");
+session_start();
+include "../connection.php";
+error_reporting(0);
 ?>
 <html lang="en">
 <head>
@@ -69,23 +72,23 @@ include("phpFunctions.php")
             <div class="row" style="padding-bottom: 8pt">
                 <div class="col-md-6 col-xs-6">
                     <li><a href="#" style="padding-bottom: 20%">
-                            <img id="profile_pic" src="../../IMAGES/profilepic.jpg" alt="profilepic" style="width: 100px; height: 100px"; /></a></li>
+                            <img id="profile_pic" src="../../IMAGES/profile_pic.jpg" alt="profilepic" style="width: 100px; height: 100px"; /></a></li>
                 </div>
                 <!--Page header-->
 
                 <div class="col-md-6 col-xs-6" id="profile" style="text-align: center;">
                     <span id="ciit_Label" style="font-size:10pt;">Welcome,</span>
                     <a href="#" title="Your profile">
-                        <span id="ciit_office" style="font-size:14pt; ">abcd</span></a><br>
-                    <a id="ciit_Signout" href="login.php" style="font-size: 12pt;font-style: italic">Log
+                        <span id="ciit_office" style="font-size:14pt; "><?php echo"{$_SESSION['LoggedUser']}"; ?></span></a><br>
+                    <a id="ciit_Signout" href="OfficeLogin.php" style="font-size: 12pt;font-style: italic">Log
                         Out</a>
                 </div>
             </div>
             <ol class="breadcrumb">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="login.php">Login</a></li>
-                <li><a href="mainApplicationOffice.php">Office Main</a></li>
-                <li><a href="applicationsDisplay.php">Applications</a></li>
+                <li><a href="MainApplicationOffice.php">Home</a></li>
+                <li><a href="OfficeLogin.php">Login</a></li>
+                <li><a href="MainApplicationOffice.php">Office Main</a></li>
+                <li><a href="ApplicationsDisplay.php">Applications</a></li>
                 <li class="active">Student Details</li>
             </ol>
             <div class="panel-group" id="profile_box" style="padding-top: 3pt">

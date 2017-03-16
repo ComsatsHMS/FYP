@@ -85,34 +85,36 @@ session_start();
                     <!--            Content Box Contents-->
                     <div class="panel-body">
                         <!--                Complaints-->
-                        <?php $StudentID = $_GET['id'];
-                        $_SESSION['SelectedApplicant'] = $StudentID;
+                        <?php
+                        $StudentID = $_GET['id'];
                         $StudentRoom = $_GET['room'];
                         $StudentName = $_GET['name'];
+
                         echo "<Strong>Student ID: </Strong>"."$StudentID"."<br>"."<Strong>Student Name: </Strong>"."$StudentName"."<br>"."<Strong>Student Room: </Strong>"."$StudentRoom"."<br>";
                         ?>
-                        <textarea name="ComplainText" class="col-md-offset-1 col-md-8 col-md-offset-3 col-xs-4" id="complain_box">
-                        <?php
-                        $text = $_GET['text'];
-                        echo "$text" ?>
-                        </textarea>
-                        <form action="SelectedApplicantsProcessing.php" method="post">
+                        <textarea readonly name="ComplainText" class="col-md-offset-1 col-md-8 col-md-offset-3 col-xs-4" id="complain_box"><?php $text = $_GET['text'];echo "$text" ?></textarea>
+                        <form action='SelectedApplicantsProcessing.php?<?php echo "type={$_GET['type']}"."& id={$_GET['id']}"; ?>' method="post">
                             <div class="form-inline">
-
-                                <div class="col-md-3 col-xs-0">
-                                    <label>Wing Name: </label>
-                                    <input type="text" name="wingname">
-                                </div>
-                                <div class="col-md-3 col-xs-0">
+                                <?php
+                                $ApplicationType = $_GET['type'];
+                                if($ApplicationType=='Wing Proctor'){
+                                    echo "<div class=\"col-md-3 col-xs-0\">
                                     <label>Room from:</label>
-                                    <input type="text" name="start">
+                                    <input type=\"text\" name=\"start\">
                                     <label>to</label>
-                                    <input type="text" name="end">
+                                    <input type=\"text\" name=\"end\">
+                                </div> ";
+                                }
+                                if($ApplicationType!='Mess Close'){
+                                    echo"<div class=\"col-md-3 col-xs-0\">
+                                    <label>Wing Name: </label>
+                                    <input type=\"text\" name=\"wingname\">
                                 </div>
-                                <div class="col-md-3 col-xs-0">
-                                <input type="submit" name="submit" value="Select">
-                                </div>
-
+                                <div class=\"col-md-3 col-xs-0\">
+                                <input type=\"submit\" name=\"submit\" value=\"Select\">
+                                </div>";
+                                }
+                                ?>
                             </div>
                         </form>
 

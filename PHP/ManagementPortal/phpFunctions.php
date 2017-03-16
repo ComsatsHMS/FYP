@@ -127,6 +127,7 @@ function checkRecord($applicationNo){
         $application_no = $each_record['applicationNumber'];
         $student_name = $each_record['name'];
         $father_name = $each_record['fathername'];
+        
         $student_id = $each_record['studentid'];
         $semester_Fee_Slip = $each_record['feephoto'];
         $student_cell = $each_record['mobileNo'];

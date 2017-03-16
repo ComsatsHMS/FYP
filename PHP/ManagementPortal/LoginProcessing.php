@@ -13,6 +13,7 @@ if(isset($_POST['submit'])) {
         $db_password       = $db_data['Password'];
         echo "$db_email"."$db_password";
         if ($email == $db_email && $db_password == $password) {
+                            $_SESSION['LoggedUser'] = $_SESSION['PName'];
                             header('Location:MainApplicationOffice.php');
                         }
         else if(++$counter == $numResults){

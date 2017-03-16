@@ -69,7 +69,7 @@ include("../connection.php");
         <!--    Start of the other column of size 10  -->
         <div class="col-md-10 col-xs-6" id="rightside" >
             <!--profile Pic of logged in user-->
-            <div class="row">
+            <div class="row" style="padding-bottom: 8pt">
                 <div class="col-md-6 col-xs-6">
                     <li><a href="#" style="padding-bottom: 20%">
                             <img id="profile_pic" src="../../IMAGES/profile_pic.jpg" alt="profilepic" style="width: 100px; height: 100px"; /></a></li>
@@ -84,11 +84,11 @@ include("../connection.php");
                         Out</a>
                 </div>
             </div>
-            <br>
             <ol class="breadcrumb">
-                <li><a href="../index.php">Home</a></li>
+                <li><a href="MainApplicationOffice.php">Home</a></li>
                 <li><a href="OfficeLogin.php">Login</a></li>
-                <li class="active">Office Main</li>
+                <li><a href="MainApplicationOffice.php">Office Main</a></li>
+                <li class="active">View Complains</li>
 
             </ol>
             <div class="col-md-12">
@@ -161,7 +161,7 @@ include("../connection.php");
                             $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid ORDER BY  ComplainID desc limit 5";
                             $run = mysqli_query($connection, $get_record);
                             while ($each_record = mysqli_fetch_array($run)){
-
+                                $Student_ID    = $each_record['studentid'];
                                 $Complain_ID   = $each_record['ComplainID'];
                                 $Complain_Type = $each_record['ComplainType'];
                                 $Complain_Text = $each_record['ComplainText'];
@@ -188,18 +188,13 @@ include("../connection.php");
             <td> $Complain_Type </td>
             <td> $Complain_Date </td>
               <td> $Hostel </td>
-           <td> <button type='button'  class='btn btn-success'><a href='ComplainsDisplay.php?id=$Complain_ID & room=$Room_No & name=$Student_Name & text=$Complain_Text'>$status_</a> </button> </td>
+           <td> <button type='button'  class='btn btn-success'><a href='ComplainsDisplay.php?id=$Student_ID & room=$Room_No & name=$Student_Name & text=$Complain_Text'>$status_</a> </button> </td>
             <td> $ViewBy </td>
             </tr>
         ";
                                         }
-
-
-
-                                                                          }
-                                                 }
-
-
+                            }
+                            }
                             else{
                                 getComplainDetails();
                             }

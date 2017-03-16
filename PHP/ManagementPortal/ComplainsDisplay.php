@@ -74,11 +74,12 @@ if($ViewBy==""){
         <!--    Start of the other column of size 10  -->
         <div class="col-md-10 col-xs-6" id="rightside" >
             <!--profile Pic of logged in user-->
-            <div class="row">
+            <div class="row" style="padding-bottom: 8pt">
                 <div class="col-md-6 col-xs-6">
                     <li><a href="#" style="padding-bottom: 20%">
                             <img id="profile_pic" src="../../IMAGES/profile_pic.jpg" alt="profilepic" style="width: 100px; height: 100px"; /></a></li>
                 </div>
+
                 <!--Page header-->
 
                 <div class="col-md-6 col-xs-6" id="profile" style="text-align: center;">
@@ -88,9 +89,16 @@ if($ViewBy==""){
                     <a id="ciit_Signout" href="OfficeLogin.php" style="font-size: 12pt;font-style: italic">Log
                         Out</a>
                 </div>
+
             </div>
+            <ol class="breadcrumb">
+                <li><a href="MainApplicationOffice.php">Home</a></li>
+                <li><a href="OfficeLogin.php">Login</a></li>
+                <li><a href="MainApplicationOffice.php">Office Main</a></li>
+                <li><a href="ViewComplains.php">View Complains</a></li>
+                <li class="active">Complaint Data</li>
+            </ol>
             <div class="col-md-12">
-                <br><br>
                 <div class="panel panel-primary">
                     <div class="panel-heading" > View Complains </div>
                     <!--            Content Box Contents-->
@@ -101,11 +109,7 @@ if($ViewBy==""){
                         $StudentName = $_GET['name'];
                         echo "<Strong>Student ID: </Strong>"."$StudentID"."<br>"."<Strong>Student Name: </Strong>"."$StudentName"."<br>"."<Strong>Student Room: </Strong>"."$StudentRoom"."<br>";
                         ?>
-                        <textarea name="ComplainText" class="col-md-offset-1 col-md-8 col-md-offset-3 col-xs-4" id="complain_box">
-                        <?php
-                        $text = $_GET['text'];
-                        echo "$text" ?>
-                        </textarea>
+                        <textarea readonly name="ComplainText" class="col-md-offset-1 col-md-8 col-md-offset-3 col-xs-4" id="complain_box"><?php $text = $_GET['text'];echo "$text" ?></textarea>
                     </div>
                 </div>
             </div>
