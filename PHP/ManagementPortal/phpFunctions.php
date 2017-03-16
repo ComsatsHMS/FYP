@@ -363,7 +363,7 @@ function getStudentCompleteDetails($applicationNo){
 //mess fee and fines
 function getFeePaidStudentsList(){
     global $connection;
-    $get_record = "select m.challanNo,m.student_id,m.submit_date,s.name,s.fathername from studentmesschallanrecord m,oldstudentform s where m.status =true AND m.student_id =s.studentid" ;
+    $get_record = "select m.challanNo,m.studentid,m.submitdate,s.name,s.fathername from messchallandetails m,oldstudentform s where m.status =true AND m.studentid =s.studentid" ;
     $run = mysqli_query($connection, $get_record);
 
     while ($each_record = mysqli_fetch_array($run)) {
@@ -371,7 +371,7 @@ function getFeePaidStudentsList(){
         $student_name = $each_record['name'];
         $student_f_name = $each_record['fathername'];
         $student_id = $each_record['studentid'];
-        $submit_date = $each_record['submit_date'];
+        $submit_date = $each_record['submitdate'];
 
         echo "<tr>
                   <td>$challan_no</td>
@@ -387,14 +387,14 @@ function getFeePaidStudentsList(){
 
 function getFeeUnPaidStudentsList(){
     global $connection;
-    $get_record = "select m.challanNo,m.student_id,s.name,s.fathername from studentmesschallanrecord m,oldstudentform s where m.status =false AND m.student_id =s.studentid" ;
+    $get_record = "select DISTINCT m.challanNo,m.studentid,s.name,s.fathername from messchallandetails m,oldstudentform s where m.status =false AND m.studentid =s.studentid" ;
     $run = mysqli_query($connection, $get_record);
 
     while ($each_record = mysqli_fetch_array($run)) {
         $challan_no = $each_record['challanNo'];
         $student_name = $each_record['name'];
         $student_f_name = $each_record['fathername'];
-        $student_id = $each_record['student_id'];
+        $student_id = $each_record['studentid'];
 
         echo "<tr>
                   <td>$challan_no</td>
