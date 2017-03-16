@@ -14,17 +14,19 @@ if($_POST['submit']) {
         $StudentRoom = $each_record['room'];
         $StudentHostel = $each_record['studentHostel'];
         if($ApplicationType=='Wing Proctor'){
+            $update = mysqli_query($connection, "update applications set status=1 where applicationtype='$ApplicationType' and studentid='$StudentID'");
             $run = mysqli_query($connection, "insert into wingproctorslist values('$StudentName','$StudentID','$StudentRoom','$StudentHostel','$WingName','$Start','$End')");
        if($run){
-           echo "OK";
+           header("location:http://localhost/FYP/PHP/ManagementPortal/ViewStudentApps.php?status=OK");
        }
         }
         else{
+            $update = mysqli_query($connection, "update applications set status=1 where applicationtype='$ApplicationType' and studentid='$StudentID'");
             $run = mysqli_query($connection, "insert into selectedmembers values('$StudentID','$StudentName','$StudentRoom','$StudentHostel','$WingName','$ApplicationType',CURRENT_DATE)");
             if($run){
-                echo "OK";
+                header("location:http://localhost/FYP/PHP/ManagementPortal/ViewStudentApps.php?status=OK");
             }
         }
     }
-//    header("location:http://localhost/FYP/PHP/ManagementPortal/AppDisplaytemp.php");
+
 }

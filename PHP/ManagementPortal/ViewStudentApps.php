@@ -7,7 +7,7 @@
 error_reporting(0);
 session_start();
 include("../connection.php");
-//for view complains on admin panel page
+//for view Applications on admin panel page
 if(isset($_GET['selectedHostel'])){
     $_SESSION['selectedHostel'] = $_GET['selectedHostel'];
 }
@@ -17,15 +17,23 @@ if(isset($_GET['selectedType'])){
 }
 
 function getApps(){
-
     $selectedType = $_SESSION['selectedType'];
     $selectedHostel = $_SESSION['selectedHostel'];
     global $connection;
-
     if(isset($_SESSION['selectedType'])){
         echo "Below are the results for Choosen Application Type: "."$selectedType";
-        $get_record = "select a.*,s.studentName,s.room,s.studentHostel from applications a,insertstudentprofile s where a.studentid = s.studentid and a.applicationType='$selectedType' ORDER BY  applicationNumber desc limit 5";
+        $get_record = "select a.*,s.studentName,s.room,s.studentHostel from applications a,insertstudentprofile s where a.studentid = s.studentid and a.applicationType='$selectedType' ORDER BY  applicationNumber desc limit 15";
         $run = mysqli_query($connection, $get_record);
+    }
+    else if(isset($_SESSION['selectedHostel'])){
+        echo "Below are the results for Choosen Hostel: "."$selectedHostel";
+        $get_record = "select a.*,s.studentName,s.room,s.studentHostel from applications a,insertstudentprofile s where a.studentid = s.studentid and s.studentHostel='$selectedHostel' ORDER BY  applicationNumber desc limit 15";
+        $run = mysqli_query($connection, $get_record);
+    }
+    else{
+        $get_record = "select a.*,s.studentName,s.room,s.studentHostel from applications a,insertstudentprofile s where a.studentid = s.studentid and a.Status !=1  ORDER BY  applicationNumber desc limit 15";
+        $run = mysqli_query($connection, $get_record);
+    }
         while ($each_record = mysqli_fetch_array($run)){
             $Student_ID = $each_record['studentid'];
             $app_ID = $each_record['applicationNumber'];
@@ -45,59 +53,8 @@ function getApps(){
             </tr>
         ";
         }
-    }
-
-    else if(isset($_SESSION['selectedHostel'])){
-        echo "Below are the results for Choosen Hostel: "."$selectedHostel";
-        $get_record = "select a.*,s.studentName,s.room,s.studentHostel from applications a,insertstudentprofile s where a.studentid = s.studentid and s.studentHostel='$selectedHostel' ORDER BY  applicationNumber desc limit 5";
-        $run = mysqli_query($connection, $get_record);
-        while ($each_record = mysqli_fetch_array($run)){
-
-            $app_ID = $each_record['applicationNumber'];
-            $app_Type = $each_record['applicationtype'];
-            $app_Text = $each_record['details'];
-            $app_Date = $each_record['date'];
-            $Student_Name  = $each_record['studentName'];
-            $Room_No  = $each_record['room'];
-            $Hostel= $each_record['studentHostel'];
-            echo "
-            <tr><td> $app_ID </td>
-            <td> $Student_Name </td>
-            <td> $Room_No </td>
-            <td> $app_Type </td>
-            <td> $Hostel </td>
-            <td> <button type='button'  class='btn btn-success'><a href='AppDisplaytemp.php?id=$app_ID & room=$Room_No & name=$Student_Name & text=$app_Text'>View</a> </button> </td>
-            </tr>
-        ";
-        }
-    }
-
-    else{
-        $get_record = "select a.*,s.studentName,s.room,s.studentHostel from applications a,insertstudentprofile s where a.studentid = s.studentid ORDER BY  applicationNumber desc limit 5";
-        $run = mysqli_query($connection, $get_record);
-        while ($each_record = mysqli_fetch_array($run)){
-
-            $app_ID = $each_record['applicationNumber'];
-            $app_Type = $each_record['applicationtype'];
-            $app_Text = $each_record['details'];
-            $app_Date = $each_record['date'];
-            $Student_Name  = $each_record['studentName'];
-            $Room_No  = $each_record['room'];
-            $Hostel= $each_record['studentHostel'];
-            echo "
-            <tr><td> $app_ID </td>
-            <td> $Student_Name </td>
-            <td> $Room_No </td>
-            <td> $app_Type </td>
-            <td> $Hostel </td>
-            <td><button type='button'  class='btn btn-success'><a href='AppDisplaytemp.php?id=$app_ID & room=$Room_No & name=$Student_Name & text=$app_Text'>View</a> </button>
-            </td>
-            </tr>
-        ";
-        }
-    }
-
-
+    unset($_SESSION['selectedType']);
+    unset($_SESSION['selectedHostel']);
 }
 
 ?>
@@ -218,6 +175,9 @@ function getApps(){
                             ?>
 
                         </div>
+                        <div >
+                           <a href="SelectedCommitteeMembers.php"><button class="btn-primary"> View Selected Applicants </button></a>
+                        </div>
 
                         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
                         <script>
@@ -254,8 +214,22 @@ function getApps(){
 
         </div>
     </div>
-
 </div>
 
 </body>
 </html>
+<?php
+$var = 'http://localhost/FYP/PHP/ManagementPortal/ViewStudentApps.php?status=OK';
+$Message = $_GET['status'];
+$parsed = parse_url($var);
+$query = $parsed['query'];
+parse_str($query, $params);
+
+if($Message=='OK'){
+    echo "<script type='text/javascript'>alert('Success! Person is Selected.');</script>";
+    unset($params['status']);
+    $string = http_build_query($params);
+    var_dump($string);
+
+}
+?>
