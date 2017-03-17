@@ -12,7 +12,7 @@ body {
 }
 
 .header-nightsky .navbar-nav>li>a {
-    color: white;
+    color: #0f192a;
     font-size: 18px;
     border-radius: 10px;
 }
@@ -56,7 +56,7 @@ body {
 }
 
 .header-nightsky .navbar-toggle .icon-bar {
-    background-color: white;
+    background-color: #00aced;
 }
 
 .header-nightsky .navbar-brand {
@@ -87,8 +87,8 @@ body {
 
 
 .header-nightsky .btn-primary {
-    color: #fff;
-    background-color: transparent;
+    color: #2a3133;
+    background-color:#2a3133 ;
     border-color: #fffbfb !important;
     outline:none;
     margin-right: 20px;
@@ -114,7 +114,7 @@ body {
     }
 
     .header-nightsky .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover{
-        color: #ccc;
+        color: #0f192a;
     }
 
     .header-nightsky .navbar-collapse {

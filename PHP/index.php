@@ -49,13 +49,13 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">HOME</a></li>
+                    <li><a href="index.php">HOME</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">LOGIN <span class="caret"></span></a>
                         <ul class="dropdown-menu" id="Dropdown">
-                            <li><a href="ParentLogin.php">Parent Login</a></li>
-                            <li><a href="Login.php">Student Login</a></li>
-                            <li><a href="OfficeLogin.php">Hostel Management Login</a></li>
+                            <li><a href="ParentPortal/ParentLogin.php">Parent Login</a></li>
+                            <li><a href="StudentPortal/Login.php">Student Login</a></li>
+                            <li><a href="ManagementPortal/OfficeLogin.php">Hostel Management Login</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -139,9 +139,18 @@
                     </div>
                     <div id="ma" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <div class="col-md-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            <div class="col-md-6">M.A Jinnah hostel is named after Quaid-e-Azam Muhammad Ali Jinnnah. This hostel is based on campus. This is the main hostel and All Management Offices are located in this hostel.
+                                List of few facilities provided at this hostel are followings:
+                                <br>Fully furnished accommodation
+                                <br>Well-equipped Mess Hall
+                                <br>Shutter service for students
+                                <br>Laundry
+                                <br>Internet facility
+                                <br>Badminton court
+                                <br>TV Room
+                                <br>Mini Mart
+                                <br>Praying area
+
                             </div>
                             <div class="col-md-6">
                                 <div id="wowslider-container1">
@@ -172,9 +181,16 @@
                     </div>
                     <div id="liaqat" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <div class="col-md-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            <div class="col-md-6">Liaqat hall is named after Liaqat Ali Khan. This hostel is based on campus.
+                                List of few facilities provided at this hostel are followings:
+                                <br>Fully furnished accommodation
+                                <br>Well-equipped Mess Hall
+                                <br>Laundry
+                                <br>Internet facility
+                                <br>Badminton court
+                                <br>TV Room
+                                <br>Mini Mart
+                                <br>Praying area
                             </div>
                             <div class="col-md-6">
                                 <div id="wowslider-container1">
@@ -205,9 +221,16 @@
                     </div>
                     <div id="jupitar" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <div class="col-md-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            <div class="col-md-6">This hostel is Outside campus near Comsats Lahore. This is for those students who have less cgpa and whose name do not appear in merit list for on campus hostels.
+                                List of few facilities provided at this hostel are followings:
+                                <br>Fully furnished accommodation
+                                <br>Well-equipped Mess Hall
+                                <br>Shutter service for students
+                                <br>Laundry
+                                <br>Internet facility
+                                <br>Badminton court
+                                <br>TV Room
+                                <br>Mini Mart
                             </div>
                             <div class="col-md-6">
                                 <div id="wowslider-container1">
@@ -238,9 +261,18 @@
                     </div>
                     <div id="johar" class="panel-collapse collapse">
                         <div class="panel-body">
-                            <div class="col-md-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            <div class="col-md-6">This hostel is Outside campus near Comsats Lahore. This is for those students who have less cgpa and whose name do not appear in merit list for on campus hostels.
+                                List of few facilities provided at this hostel are followings:
+
+                                    <br>Fully furnished accommodation
+                                <br>Well-equipped Mess Hall
+                                <br>Shutter service for students
+                                <br>Laundry
+                                <br>Internet facility
+                                    <br>Badminton court
+                                <br>TV Room
+                                <br>Mini Mart
+
                             </div>
                             <div class="col-md-6">
                                 <div id="wowslider-container1">
@@ -271,36 +303,30 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
-                    <h5>Get started</h5>
+                    <h5>Quick Links</h5>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Sign up</a></li>
-                        <li><a href="#">Downloads</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="ManagementPortal/OfficeLogin.php">Management Login</a></li>
+                        <li><a href="ParentPortal/ParentLogin.php">Parent Login</a></li>
+                        <li><a href="StudentPortal/Login.php">Student Login</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3">
-                    <h5>About us</h5>
+                    <h5>Quick Download Links</h5>
                     <ul>
-                        <li><a href="#">Company Information</a></li>
-                        <li><a href="#">Contact us</a></li>
-                        <li><a href="#">Reviews</a></li>
+                        <li><a href="ManagementPortal/ApplicationForm.php">Hostel Application Form</a></li>
+
                     </ul>
                 </div>
                 <div class="col-sm-3">
-                    <h5>Support</h5>
+                    <h5>Contact Info</h5>
                     <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Help desk</a></li>
-                        <li><a href="#">Forums</a></li>
+
                     </ul>
                 </div>
                 <div class="col-sm-3">
-                    <h5>Legal</h5>
-                    <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
+                    <h5></h5>
+
                 </div>
             </div>
             <!-- Here we use the Google Embed API to show Google Maps. -->
