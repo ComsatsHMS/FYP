@@ -20,7 +20,7 @@ error_reporting(0);
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
-    <link rel="stylesheet" href='../../CSS/OfficePortal.css' type="text/css" media="screen" />
+    <link rel="stylesheet" href='../../CSS/OfficePortal.css?<?php echo time();?>' type="text/css" media="screen" />
 
 
 </head>

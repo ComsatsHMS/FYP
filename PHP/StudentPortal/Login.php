@@ -120,13 +120,9 @@ session_start();
                             <input type="text" name="rollNumber" class="form-control" style="width:100px;">
 
                         </div>
-
-
                         <br>
                         <br>
                         <br>
-
-
                         <label class="textcolor"> Enter Password</label>
                         <input type="password" name="check" class="form-control" style="width: 350px"">
 

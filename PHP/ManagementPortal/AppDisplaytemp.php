@@ -103,9 +103,12 @@ session_start();
                                     <input type=\"text\" name=\"start\">
                                     <label>to</label>
                                     <input type=\"text\" name=\"end\">
-                                </div> ";
+                                </div>
+                                 <div class=\"col-md-3 col-xs-0\">
+                                <input type=\"submit\" name=\"submit\" value=\"Select\">
+                                </div>";
                                 }
-                                if($ApplicationType!='Mess Close'){
+                               else if($ApplicationType!='Mess Close'){
                                     echo"<div class=\"col-md-3 col-xs-0\">
                                     <label>Wing Name: </label>
                                     <input type=\"text\" name=\"wingname\">

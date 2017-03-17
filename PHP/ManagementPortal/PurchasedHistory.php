@@ -109,11 +109,8 @@ include "InventoryProcessing.php";
                         <div class="panel panel-primary">
                             <div class="panel-heading" > Purchased History </div>
                             <div class="panel-body">
-                                <div class="btn-group btn-group-lg btn-group-justified">
-                                    <a href="InventoryItems.php" class="btn btn-primary">View All Items</a>
-                                    <a href="RemainingInventory.php" class="btn btn-primary">Remaining Inventory</a>
-                                    <a href="PurchasedHistory.php" class="btn btn-primary">Purchased History</a>
-                                    <a href="UsedItemsHistory.php" class="btn btn-primary">Used Items History</a>
+                                <div class="btn-group btn-group-lg">
+                                    <a href="ViewInventory.php" class="btn btn-primary">Return To Inventory</a>
                                 </div>
                                 <div class="form-group ">
                                     <br>
