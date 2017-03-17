@@ -1,6 +1,5 @@
 <?php
 error_reporting(0);
-error_reporting(0);
 
 include "../connection.php";
 ?>
@@ -26,6 +25,20 @@ include "../connection.php";
 </head>
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+    angular.module('app', []).controller('appc', ['$scope',
+        function($scope) {
+            $scope.selected = 'Choose one';
+        }
+    ]);
+</script>
 
 <script>
     $(document).ready(function(){
@@ -40,7 +53,7 @@ include "../connection.php";
 
 
 
-<body>
+<body ng-app="app" ng-controller="appc">
 <div class="container-fluid" >
     <div class="row" >
         <!--    Column of size 2 for sidebar Menu -->
@@ -54,7 +67,7 @@ include "../connection.php";
             <ul id="main-nav">
                 <!--  Menu -->
                 <li><a id="studentList" class="nav-top-item" href="List_Emoloyees.php" class="nav-top-item">Employees List</a></li>
-                <li><a id="studentList" class="nav-top-item" href="#" class="nav-top-item">Account Request</a></li>
+                <li><a id="studentList" class="nav-top-item" href="Request.php" class="nav-top-item">Account Request</a></li>
 
             </ul>
         </div>
@@ -74,82 +87,37 @@ include "../connection.php";
                     <li><a href="">Home</a></li>
                     <li><a href="">Login</a></li>
                     <li><a href="">Admin Portal</a></li>
-                    <li class="active">Requests</li>
+                    <li ><a href="">List of Employees</a></li>
+                    <li ><a href=""class="active">Rigths Assign</a></li>
 
                 </ol>
                 <div class="col-md-12">
                     <div class="panel panel-primary">
-                        <div class="panel-heading" > Account Requests </div>
+                        <div class="panel-heading" > Rights Assign to Employees </div>
                         <!--            Content Box Contents-->
                         <div class="panel-body">
-                            <div class="form-group ">
+                            <h3>Check Tab Will only visible to Employee</h3>
+                        <form class="form-group form-horizontal" role="form" method="post" action="">
 
+                            <div><input type="checkbox" name="1"> <button class="btn btn-primary" >Hostel Application</button></div>
+                            <div><input type="checkbox" name="2"> <button class="btn btn-primary" >Allotment</button></div>
+                            <div><input type="checkbox" name="2"> <button class="btn btn-primary" >Student List</button></div>
+                            <div> <input type="checkbox" name3> <button class="btn btn-primary" >View Complain</button></div>
+                            <div> <input type="checkbox" name="4"> <button class="btn btn-primary" >View Application</button></div>
+                            <div>  <input type="checkbox" name="5"> <button class="btn btn-primary" >Statics</button></div>
+                            <div>  <input type="checkbox"name="6" > <button class="btn btn-primary" >Voting</button></div>
+                            <div>    <input type="checkbox" name="7" > <button class="btn btn-primary" >Fee/Fine</button></div>
+                            <div>    <input type="checkbox" name="8" > <button class="btn btn-primary" >View Inventory</button></div>
+                            <br>
+                            <br>
+                            <input type="submit" name="submit" value="Save" class="submit">
+
+                        </form>
 
                             </div>
 
 
 
-                            <!--                Complaints-->
-                            <table class="table">
-                                <tr>
-                                    <th>First Name</th>
-                                    <th>last Name</th>
-                                    <th>Hostel</th>
-                                    <th>Role</th>
-                                    <th>Email</th>
-                                    <th>Address</th>
-                                    <th>Phone</th>
-                                    <th>Action</th>
-                                </tr>
-                                <?php
-
-
-                                $start; $end;
-
-
-                                $get_record = "select u.* from users u";
-                                $run = mysqli_query($connection, $get_record);
-                                while ($each_record = mysqli_fetch_array($run)){
-                                    $id=$each_record['userid'];
-                                    $first   = $each_record['first_name'];
-                                    $last=$each_record['last_name'];
-                                    $email=$each_record['email'];
-                                    $role=$each_record['role'];
-                                    $address=$each_record['address'];
-                                    $phone=$each_record['phone_no'];
-                                    $hostel=$each_record['Hostel'];
-                                    $status=$each_record['status'];
-
-
-                                    if($status==0){
-                                        echo "
-            <tr><td> $first </td>
-            <td> $last </td>
-            <td> $hostel </td>
-            <td> $role </td>
-            <td> $email </td>
-              <td> $address </td>
-              <td> $phone </td>
-              <td><a href='Admin_processing.php?id1=$id,email=$email'>
-          <span class=\"glyphicon glyphicon-remove\"></span>
-        </a> <a href='Admin_processing.php?id2=$id'>
-          <span class=\"glyphicon glyphicon-ok\"></span>
-        </a></td>
-
-            </tr>
-        ";
-                                    }
-
-
-
-
-                                }
-
-
-
-                                ?>
-
-                            </table>
                         </div>
                     </div>
                 </div>
@@ -163,5 +131,7 @@ include "../connection.php";
 
 
 
+
 </body>
+
 </html>

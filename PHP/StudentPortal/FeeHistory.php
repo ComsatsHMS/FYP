@@ -143,121 +143,24 @@ error_reporting(0);
                                     <table class="Grid" cellspacing="0" rules="all" border="1" id="FeeHistory">
                                         <tr>
                                             <th scope="col">Sr#</th><th scope="col">Month</th><th scope="col">Fee Type</th><th scope="col">Previous Dues</th><th scope="col">Current Dues</th><<th scope="col">Fine</th><th scope="col">Net Dues</th><th scope="col">Dues Paid</th><th scope="col">Paid Date</th><th scope="col">Outstanding Balance</th>
-                                        </tr><tr>
-                                            <td>
-                                                1
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_Month">January</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_FeeType">Mess Bill</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_PreviousDues">0</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_CurrentDues">10</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_Fine">50000</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_NetDues">50010</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_DuesPaid">50010</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_PaidDate">Thursday, Aug 15,2013</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_OutstandinBalance">0</span>
-                                            </td>
-                                        </tr><tr>
-                                            <td>
-                                                1
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_Month">January</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_FeeType">Mess Bill</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_PreviousDues">0</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_CurrentDues">10</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_Fine">50000</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_NetDues">50010</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_DuesPaid">50010</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_PaidDate">Thursday, Aug 15,2013</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_OutstandinBalance">0</span>
-                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                1
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_Month">January</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_FeeType">Mess Bill</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_PreviousDues">0</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_CurrentDues">10</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_Fine">50000</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_NetDues">50010</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_DuesPaid">50010</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_PaidDate">Thursday, Aug 15,2013</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_OutstandinBalance">0</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                1
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_Month">January</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_FeeType">Mess Bill</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_PreviousDues">0</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_CurrentDues">10</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_Fine">50000</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_NetDues">50010</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_DuesPaid">50010</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_PaidDate">Thursday, Aug 15,2013</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_OutstandinBalance">0</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                1
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_Month">January</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_FeeType">Mess Bill</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_PreviousDues">0</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_CurrentDues">10</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_Fine">50000</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_NetDues">50010</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_DuesPaid">50010</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_PaidDate">Thursday, Aug 15,2013</span>
-                                            </td><td class="GridColumn">
-                                                <span id="FeeHistory_OutstandinBalance">0</span>
-                                            </td>
-                                        </tr>
+                                        <!--<?php
+                                        $student_id = $_SESSION["id"];
+                                        $i = 0;
+                                        $query = "select * from messchallandetails where studentid = '$student_id' AND status = TRUE ";
+                                        $run = mysqli_query($connection,$query);
+                                        while ($each_record = mysqli_fetch_array($run)){
+                                            $challan = $each_record['challanNo'];
+                                            echo "<tr> <td>$i </td>
+                                                        <td>Mess Bill </td>
+                                                        <td>$challan </td>
+                                                        <td><button><a href='../MessChallan.php?id='.$student_id> Challan</a></button> </td>
 
+                                                </tr>";
+
+                                        }
+
+                                        ?>-->
                                     </table>
                                 </div>
                             </div>

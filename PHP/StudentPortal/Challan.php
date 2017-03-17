@@ -141,18 +141,31 @@ include "../connection.php";
                                     <thead>
                                     <tr>
                                         <th>Sr#</th>
-                                        <th>Session</th>
                                         <th>Fee Types</th>
                                         <th>Challan no</th>
                                         <th>Print</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td</td>
-                                    </tr>
+
+                                        <?php
+                                        $student_id = $_SESSION["id"];
+                                        $i = 0;
+                                        $query = "select * from messchallandetails where studentid = '$student_id' AND status = FALSE ";
+                                        $run = mysqli_query($connection,$query);
+                                        while ($each_record = mysqli_fetch_array($run)){
+                                            $challan = $each_record['challanNo'];
+                                            echo "<tr> <td>$i </td>
+                                                        <td>Mess Bill </td>
+                                                        <td>$challan </td>
+                                                        <td><button><a href='../MessChallan.php?id='.$student_id> Challan</a></button> </td>
+
+                                                </tr>";
+
+                                        }
+                                        ?>
+
+
                                     </tbody>
                                     </table>
 
