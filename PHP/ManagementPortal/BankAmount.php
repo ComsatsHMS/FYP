@@ -108,26 +108,13 @@ include "../connection.php";
                         <div class="panel panel-primary">
                             <div class="panel-heading" > Inventory System </div>
                             <div class="panel-body">
-                                <div class="btn-group btn-group-lg btn-group-justified">
-                                    <a href="InventoryItems.php" class="btn btn-primary">View All Items</a>
-                                    <a href="RemainingInventory.php" class="btn btn-primary">Remaining Inventory</a>
-                                    <a href="PurchasedHistory.php" class="btn btn-primary">Purchased Hstory</a>
-                                    <a href="UsedItemsHistory.php" class="btn btn-primary">Used Items Hstory</a>
+                                <div class="btn-group btn-group-lg">
+                                    <a href="ViewInventory.php" class="btn btn-primary">Return To Inventory</a>
                                 </div>
-                                <div class="btn-group btn-group-lg btn-group-justified">
-                                    <a href="AccountPayable.php" class="btn btn-primary">Account Payable</a>
-                                    <a href="AccountReceivable.php" class="btn btn-primary">Account Receivable/Received</a>
-                                    <a href="BankAmount.php" class="btn btn-primary">Bank Amount</a>
-<!--                                    <a href="UsedItemsHistory.php" class="btn btn-primary">Used Items Hstory</a>-->
-                                </div>
-                            
-
-
                                 <div class="col-md-6">
                                     <div class="col-md-offset-2">
                                         <h2> Used Items </h2>
                                     </div>
-
 
                                         <form class="form-horizontal" method="post" action="InventoryProcessing.php">
                                             <div class="form-group">

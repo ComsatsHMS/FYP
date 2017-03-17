@@ -15,12 +15,12 @@
     padding: 5%;
     font-size: 14px;
     cursor: pointer;
-    display: block;
+    /*display: block;*/
     text-decoration: none;
 }
 #sidebar {
-    background: url('../IMAGES/bg-sidebar.gif');
-    color: #888;
+    /*background: url('../IMAGES/bg-sidebar.gif');*/
+    background-color: #276A27;
     font-size: 11px;
 
 
@@ -67,7 +67,7 @@
 
 #sidebar #main-nav ul li a {
     padding: 8px 15px;
-    display: block;
+    /*display: block;*/
     color: white;
     font-size: 12px;
     line-height: 0.9em;
@@ -92,7 +92,7 @@
 
 
 #rightside{
-    background-color: gainsboro;
+    background-color: #629c62
 
 }
 
@@ -121,6 +121,7 @@
 #rightside .panel-body{
     overflow: scroll;
     height: 400px;
+    background-color: #8CBA8C;
 }
 
 

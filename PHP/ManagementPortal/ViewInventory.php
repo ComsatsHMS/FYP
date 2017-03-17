@@ -20,7 +20,7 @@ include "../connection.php";
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
-    <link rel="stylesheet" href='../../CSS/OfficePortal.css' type="text/css" media="screen" />
+    <link rel="stylesheet" href='../../CSS/OfficePortal.css?<?php echo time(); ?>' type="text/css" media="screen" />
 </head>
 
 <script>
@@ -111,8 +111,8 @@ include "../connection.php";
                                 <div class="btn-group btn-group-lg btn-group-justified">
                                     <a href="InventoryItems.php" class="btn btn-primary">View All Items</a>
                                     <a href="RemainingInventory.php" class="btn btn-primary">Remaining Inventory</a>
-                                    <a href="PurchasedHistory.php" class="btn btn-primary">Purchased Hstory</a>
-                                    <a href="UsedItemsHistory.php" class="btn btn-primary">Used Items Hstory</a>
+                                    <a href="PurchasedHistory.php" class="btn btn-primary">Purchased History</a>
+                                    <a href="UsedItemsHistory.php" class="btn btn-primary">Used Items History</a>
                                 </div><br>
                                 <div class="btn-group btn-group-lg btn-group-justified">
                                     <a href="AccountPayable.php" class="btn btn-primary">Account Payable</a>

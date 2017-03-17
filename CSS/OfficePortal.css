@@ -19,8 +19,8 @@
     text-decoration: none;
 }
 #sidebar {
-    background: url('../IMAGES/bg-sidebar.gif');
-    color: #888;
+    /*background: url('../IMAGES/bg-sidebar.gif');*/
+    background-color: #412B3C;
     font-size: 11px;
 
 
@@ -86,7 +86,7 @@
     box-shadow:0px 0px 15px 2px;
 }
 #rightside{
-    background-color: gainsboro;
+    background-color: #7E6478;
     position: relative;
 
 }
@@ -115,6 +115,7 @@
 #rightside .panel-body{
     overflow: scroll;
     height: 430px;
+    background-color: #998595;
 }
 
 

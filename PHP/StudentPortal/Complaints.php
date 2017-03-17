@@ -47,19 +47,6 @@ unset($_SESSION['Complain']);
         $('#rightside').height($(window).height());
     });
 </script>
-<script>
-    $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
-        // Avoid following the href location when clicking
-        event.preventDefault();
-        // Avoid having the menu to close when clicking
-        event.stopPropagation();
-        // Re-add .open to parent sub-menu item
-        $(this).parent().addClass('open');
-        $(this).parent().find("ul").parent().find("li.dropdown").addClass('open');
-    });
-</script>
-
-
 <body>
 
 <div class="container-fluid">
@@ -108,11 +95,14 @@ unset($_SESSION['Complain']);
                     <a id="ciit_lnk_Statistics" class="nav-top-item" href="Statistics.php">Statistics</a>
                 </li>
 
-                <li class="dropdown"><a href="#" id="ciit_lnk_FeeChallan" class="dropdown-toggle nav-top-item" data-toggle="dropdown">Fee </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#" id="ciit_lnkFee">Challan</a></li>
-                        <li><a href="FeeHistory.php" id="ciit_lnkFeeHistory">History</a></li>
-                    </ul>
+                <li><a  id="ciit_lnk_FeeChallan" class="nav-top-item" data-toggle="collapse" data-target="#show"">Fee </a>
+                    <div id="show" class="collapse">
+                        <ul >
+                            <li><a href="#" id="ciit_lnkFee">Challan</a></li>
+                            <li><a href="FeeHistory.php" id="ciit_lnkFeeHistory">History</a></li>
+                        </ul>
+                    </div>
+
                 </li>
                 <li>
                     <a id="ciit_lnk_logout" class="nav-top-item" href="MyLog.php">My Log</a>
