@@ -38,7 +38,8 @@ echo "inside isset";
             $student_degree = $each_record['degree'];
             $student_id = $each_record['studentid'];
             $address = $each_record['address'];
-            $insert = "insert into insertstudentprofile VALUES ('$student_name','$student_f_name','$student_id','$room_num','$student_degree','$student_year','$student_program','','$student_contact',' $student_contact_e','$address','','$hostel_Name')";
+            $pic = $each_record['photo'];
+            $insert = "insert into insertstudentprofile VALUES ('$student_name','$student_f_name','$student_id','$room_num','$student_degree','$student_year','$student_program','','$student_contact',' $student_contact_e','$address','','$hostel_Name',$pic)";
             $exec = mysqli_query($connection,$insert);
             if($exec){
 

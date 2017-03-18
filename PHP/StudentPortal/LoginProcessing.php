@@ -16,7 +16,7 @@ course='$program' ";
         $db_password = $db_data['password'];
     }
     if($db_password==$password){
-        $query = mysqli_query($connection,"select studentName, fathername, studentid, room, program, cgpa, contact, phone, adress, studentHostel from insertstudentprofile where  studentid='$rollNumber'");
+        $query = mysqli_query($connection,"select * from insertstudentprofile where  studentid='$rollNumber'");
         while ($db_data = mysqli_fetch_array($query)) {
             $_SESSION['name']=$db_data['studentName'];
             $_SESSION['fname']=$db_data['fathername'];
@@ -28,6 +28,7 @@ course='$program' ";
             $_SESSION['phone']=$db_data['phone'];
             $_SESSION['address']=$db_data['adress'];
             $_SESSION['hostel']=$db_data['studentHostel'];
+            $_SESSION['pic']=$db_data['Pic'];
         }
         header('Location:StudentPortal.php');
     }
