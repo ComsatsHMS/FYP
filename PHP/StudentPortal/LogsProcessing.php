@@ -44,7 +44,7 @@ if($selected=='Complains') {
             <td> $Complain_Text </td>
             <td> $Complain_Status </td>
             <td> $ViewBy </td>
-            <td><form action='LogsProcessing.php?id=$Complain_ID' method='POST'><input type='submit' value='Mark Done' name='progress'></form>
+            <td><form action='LogsProcessing.php?id=$Complain_ID' method='POST' ><input type='submit' value='Mark Done' name='progress'></form>
           </td>
             </tr>
         ";
