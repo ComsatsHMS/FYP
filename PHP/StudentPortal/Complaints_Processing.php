@@ -75,6 +75,7 @@ global $connection;
             </tr>
         ";
         }
+        unset($_SESSION['selected_']);
     }
 
   else if(isset($_SESSION['selected'])){
@@ -101,6 +102,7 @@ global $connection;
             </tr>
         ";
         }
+      unset($_SESSION['selected']);
     }
 
     else if(isset($_SESSION['FetchDate'])){
@@ -127,7 +129,7 @@ global $connection;
             </tr>
         ";
         }
-
+        unset($_SESSION['FetchDate']);
     }
     else{
         $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid ORDER BY  ComplainID desc limit 5";
@@ -153,8 +155,6 @@ global $connection;
         ";
         }
     }
-
-
 }
 
 
