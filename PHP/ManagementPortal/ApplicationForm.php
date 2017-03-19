@@ -17,6 +17,116 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../CSS/style.css">
 </head>
+<script>
+    function Validate(){
+        var name=document.forms["application"]["name"].value;
+
+        var regexp1=new RegExp("[^a-zA-Z][^a-zA-Z\s]+");
+
+
+        if(regexp1.test(document.forms["application"]["name"].value) || name.length==0 || name.length>20 ) {
+            if (name.length==0) {
+
+              //  document.getElementById("name_error").innerHTML = "Please fill out this field";
+
+                document.getElementById("name").style.borderColor = "red";
+                return false;
+            }
+            if (regexp1.test(document.forms["application"]["name"].value)) {
+
+
+
+                document.getElementById("name").style.borderColor = "red";
+                return false;
+            }
+
+            if (name.length > 20) {
+
+                document.getElementById("name").style.borderColor = "red";
+                return false;
+            }
+        }
+
+        else{
+
+            document.getElementById("name_error").style.display = "none";
+
+            document.getElementById("name").style.borderColor = "green";
+            return true;
+        }
+    }
+    function Validate1(){
+
+        var fname=document.forms["application"]["fname"].value;
+
+        var regexp1=new RegExp("[^a-zA-Z][^a-zA-Z\s]+");
+
+
+        if(regexp1.test(document.forms["application"]["fname"].value) || fname.length==0 || fname.length>20 ) {
+            if (fname.length==0) {
+
+              //  document.getElementById("fname_error").innerHTML = "Please fill out this field";
+
+                document.getElementById("fname").style.borderColor = "red";
+                return false;
+            }
+            if (regexp1.test(document.forms["application"]["fname"].value)) {
+
+
+
+                document.getElementById("fname").style.borderColor = "red";
+                return false;
+            }
+
+            if (name.length > 20) {
+
+                document.getElementById("fname").style.borderColor = "red";
+                return false;
+            }
+        }
+
+        else{
+
+            document.getElementById("fname_error").style.display = "none";
+
+            document.getElementById("fname").style.borderColor = "green";
+            return true;
+        }
+    }
+    function Validate2() {
+        var id=document.forms["application"]["id"].value;
+
+
+        var regexp2=new RegExp("[^0-9]");
+
+       // if(regexp2.test(document.forms["application"]["cnic"].value)  ){
+        if(id.length==0 || regexp2.test(document.forms["application"]["id"].value) || id.length>3 ){
+
+
+            document.getElementById("id").style.borderColor="red";
+
+
+
+            return false;
+          }else {
+
+            document.getElementById("id").style.borderColor = "green";
+            return true;
+        }
+    }
+    function Validate2() {
+        var mail=document.forms["application"]["mail"].value;
+        var regexp3=new RegExp("^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+        if()
+
+    }
+
+
+
+
+</script>
+
+
 <body>
 <div class="container-fluid">
     <div class="row">
@@ -34,20 +144,25 @@
         <div class="panel-heading"><h2 class="panelheading">Boys Hostel Admission Form</h2></div>
         <div class="panel-body " >
             <div class="row">
-                <form action="ApplicationProcessing.php" method="post" enctype="multipart/form-data">
-                    <div class="form-inline">
+                <form action="ApplicationProcessing.php" role="form" method="post" enctype="multipart/form-data" name="application" id="application" onclick="return Validate()">
+                    <div class="form-horizontal">
                         <label style="padding-right: 95pt;padding-left: 5px">Name</label>
-                        <input class="form-control" type="text" name="name" style="width: 250px" required>
 
-                        <label>CNIC No.</label>
-                        <input class="form-control" type="number" name="cnic" required>
+                        <input class="form-control inline" type="text" name="name" style="width: 250px" id="name" placeholder="Enter only 20 Alphabets" onmousemove=" return  Validate()">
+                        <p id="name_error"  style="color: red "></p>
+
+
+
                     </div>
+
                     <br>
                     <div class="form-inline">
                         <label style="padding-left: 5px">Father/Guardian's Name</label>
-                        <input class="form-control" type="text" name="fname" style="width: 250px" required>
+                        <input class="form-control" type="text" name="fname" style="width: 250px" id="fname" placeholder="Enter only 20 Alphabets" onmousemove=" return  Validate1()">
+                        <p id="fname_error"  style="color: red "></p>
                         <label>CNIC No.</label>
-                        <input class="form-control" type="number" name="fcnic" required>
+                        <input class="form-control" type="text" name="cnic" id="=cnic" onmousemove="return  Validate2()" >
+                        <p id="fcnic_error"  style="color: red "></p>
                     </div>
                     <br>
                     <div class="form-inline">
@@ -124,7 +239,7 @@
                                 <option value="PSTAT">PSTAT</option>
                             </select>
                         </div>
-                        <input class="form-control" type="number" name="studentid" style="width: 100px">
+                        <input class="form-control" type="text" name="studentid" id="id" style="width: 100px" onmousemove="Validate2()">
 
                     </div>
                     <br>
@@ -142,7 +257,7 @@
                     <br>
                     <div class="form-inline">
                         <label style="padding-left: 5px">Email</label>
-                        <input class="form-control" type="text" name="email" style="width: 200px" required>
+                        <input class="form-control" type="text" name="email" style="width: 200px" id="mail" onmousemove="Validate3()">
                     </div>
                     <br>
                     <div class="form-inline">
@@ -227,7 +342,7 @@
                     <div class="checkbox">
                         <label><input type="checkbox" required>I certify that the aforementioned information given by me is correct. I understand that if any part of this information is found false/incorrect,my allotment will stand cancelled. I also undertake to strictly observe all rules & regulations of the hostel. I shall also comply with the direction and orders issued by the hostel authorities from time to time during the period of my stay in the hostel. I undertake further to pay all dues in time.</label>
                     </div>
-                    <button type="submit" class="btn btn-success" name="submit1">Apply</button>
+                    <input type="submit" class="btn btn-success" value="submit" name="submit1">
                 </form>
             </div>
 
