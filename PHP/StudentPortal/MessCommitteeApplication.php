@@ -129,7 +129,7 @@ if(isset($_POST['mess'])){
             <ul class="nav" id="main-menu">
 
                 <li>
-                    <a class="active-menu" href="StudentPortal.php"><i class="fa fa-user"></i> Profile</a>
+                    <a href="StudentPortal.php"><i class="fa fa-user"></i> Profile</a>
                 </li>
                 <li>
                     <a href="Notifications.php"><i class="fa fa-bell"></i> Notifications</a>
@@ -143,7 +143,7 @@ if(isset($_POST['mess'])){
                     <a href="Voting.php"><i class="fa fa-"></i> Votes</a>
                 </li>
                 <li>
-                    <a href="Applications.php"><i class="fa fa-"></i> Applications </a>
+                    <a class="active-menu" href="Applications.php"><i class="fa fa-"></i> Applications </a>
                 </li>
                 <?php
                 $fetch= "select studentID from wingproctorslist where studentID='{$_SESSION["id"]}'";

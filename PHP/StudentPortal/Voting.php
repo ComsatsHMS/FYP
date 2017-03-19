@@ -130,7 +130,7 @@ while($record = mysqli_fetch_array($exec)){
             <ul class="nav" id="main-menu">
 
                 <li>
-                    <a class="active-menu" href="StudentPortal.php"><i class="fa fa-user"></i> Profile</a>
+                    <a href="StudentPortal.php"><i class="fa fa-user"></i> Profile</a>
                 </li>
                 <li>
                     <a href="Notifications.php"><i class="fa fa-bell"></i> Notifications</a>
@@ -141,7 +141,7 @@ while($record = mysqli_fetch_array($exec)){
                 </li>
 
                 <li>
-                    <a href="Voting.php"><i class="fa fa-"></i> Votes</a>
+                    <a class="active-menu" href="Voting.php"><i class="fa fa-"></i> Votes</a>
                 </li>
                 <li>
                     <a href="Applications.php"><i class="fa fa-"></i> Applications </a>

@@ -118,10 +118,10 @@ include "NotificationViewprocessing.php";
             <ul class="nav" id="main-menu">
 
                 <li>
-                    <a class="active-menu" href="StudentPortal.php"><i class="fa fa-user"></i> Profile</a>
+                    <a href="StudentPortal.php"><i class="fa fa-user"></i> Profile</a>
                 </li>
                 <li>
-                    <a href="Notifications.php"><i class="fa fa-bell"></i> Notifications</a>
+                    <a class="active-menu" href="Notifications.php"><i class="fa fa-bell"></i> Notifications</a>
                 </li>
 
                 <li>

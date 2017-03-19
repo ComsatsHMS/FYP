@@ -118,7 +118,7 @@ include "../connection.php";
             <ul class="nav" id="main-menu">
 
                 <li>
-                    <a class="active-menu" href="StudentPortal.php"><i class="fa fa-user"></i> Profile</a>
+                    <a href="StudentPortal.php"><i class="fa fa-user"></i> Profile</a>
                 </li>
                 <li>
                     <a href="Notifications.php"><i class="fa fa-bell"></i> Notifications</a>
@@ -144,7 +144,7 @@ include "../connection.php";
                 if($studentID == $_SESSION['id']){
                     echo '
                 <li>
-                    <a href="ViewComplains.php"><i class="fa fa-"></i> Wing Complaints </a>
+                    <a class="active-menu" href="ViewComplains.php"><i class="fa fa-"></i> Wing Complaints </a>
                 </li>';
                 }
                 ?>

@@ -117,7 +117,7 @@ include "../connection.php";
             <ul class="nav" id="main-menu">
 
                 <li>
-                    <a class="active-menu" href="StudentPortal.php"><i class="fa fa-user"></i> Profile</a>
+                    <a href="StudentPortal.php"><i class="fa fa-user"></i> Profile</a>
                 </li>
                 <li>
                     <a href="Notifications.php"><i class="fa fa-bell"></i> Notifications</a>
@@ -151,7 +151,7 @@ include "../connection.php";
                     <a href="Statistics.php"><i class="fa fa-"></i> Statistics </a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-"></i> Fee <span class="fa arrow"></span></a>
+                    <a class="active-menu" href="#"><i class="fa fa-"></i> Fee <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="Challan.php">Challan</a>
