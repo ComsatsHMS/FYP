@@ -114,12 +114,12 @@
             return true;
         }
     }
-    function Validate2() {
-        var mail=document.forms["application"]["mail"].value;
-        var regexp3=new RegExp("^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
-        if()
-
-    }
+//    function Validate2() {
+//        var mail=document.forms["application"]["mail"].value;
+//        var regexp3=new RegExp("^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+//
+//
+//    }
 
 
 
