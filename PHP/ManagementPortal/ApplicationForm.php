@@ -332,7 +332,7 @@
         <div class="panel-heading"><h2 class="panelheading">Boys Hostel Admission Form</h2></div>
         <div class="panel-body " >
             <div class="row">
-                <form action="ApplicationProcessing.php" role="form" method="post" enctype="multipart/form-data" name="application" id="application" onclick="return Validate()">
+                <form action="ApplicationProcessing.php" role="form" method="post" enctype="multipart/form-data" name="application" id="application" onsubmit="return Validate()">
                     <div class="form-horizontal">
                         <label style="padding-right: 95pt;padding-left: 5px">Name</label>
 
