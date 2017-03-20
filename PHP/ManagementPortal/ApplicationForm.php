@@ -114,14 +114,202 @@
             return true;
         }
     }
-//    function Validate2() {
-//        var mail=document.forms["application"]["mail"].value;
-//        var regexp3=new RegExp("^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
-//
-//
-//    }
+   function Validate3() {
+
+      var mail=document.forms["application"]["mail"].value;
+      // var regexp3=new RegExp("([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+        var regexp3=new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")
+        //if(regexp3.test(document.forms["application"]["mail"].value)){
+       if(mail.length==0 || !regexp3.test(document.forms["application"]["mail"].value) ){
+
+            document.getElementById("mail").style.borderColor="red";
+        }
+       else {
+
+            document.getElementById("mail").style.borderColor="green";
+        }
+
+   }
+    function Validate4() {
+
+        var tele=document.forms["application"]["tele"].value;
+        var regexp2=new RegExp("[^0-9]");
+
+        if(tele.length==0 ||regexp2.test(document.forms["application"]["tele"].value)){
+
+            document.getElementById("tele").style.borderColor="red";
+        }
+        else {
+
+            document.getElementById("tele").style.borderColor="green";
+        }
+
+    }
+    function Validate5() {
+
+        var phone=document.forms["application"]["phone"].value;
+        var regexp2=new RegExp("[^0-9]");
+
+        if(phone.length==0 ||regexp2.test(document.forms["application"]["phone"].value)){
+
+            document.getElementById("phone").style.borderColor="red";
+        }
+        else {
+
+            document.getElementById("phone").style.borderColor="green";
+        }
+
+    }
+    function Validate6() {
+
+        var dom=document.forms["application"]["dom"].value;
+        var regexp2=new RegExp("[^A-Z|a-z]");
+
+        if(dom.length==0 ||regexp2.test(document.forms["application"]["dom"].value)){
+
+            document.getElementById("dom").style.borderColor="red";
+        }
+        else {
+
+            document.getElementById("dom").style.borderColor="green";
+        }
+
+    }
+    function Validate7() {
+
+        var dom=document.forms["application"]["reg"].value;
+        var regexp2=new RegExp("[^A-Z|a-z]");
+
+        if(dom.length==0 ||regexp2.test(document.forms["application"]["reg"].value)){
+
+            document.getElementById("reg").style.borderColor="red";
+        }
+        else {
+
+            document.getElementById("reg").style.borderColor="green";
+        }
+
+    }
+    function Validate8() {
+
+        var blood=document.forms["application"]["blood"].value;
+        var regexp2=new RegExp("[^A-Z|a-z|+|-]");
+
+        if(blood.length==0 ||regexp2.test(document.forms["application"]["blood"].value)){
+
+            document.getElementById("blood").style.borderColor="red";
+        }
+        else {
+
+            document.getElementById("blood").style.borderColor="green";
+        }
+
+    }
+    function Validate9() {
+
+        var occ=document.forms["application"]["occ"].value;
+        var regexp2=new RegExp("[^A-Z|a-z]");
+
+        if(occ.length==0 ||regexp2.test(document.forms["application"]["occ"].value)){
+
+            document.getElementById("occ").style.borderColor="red";
+        }
+        else {
+
+            document.getElementById("occ").style.borderColor="green";
+        }
+
+    }
+    function Validate10() {
+
+        var inc=document.forms["application"]["inc"].value;
+        var regexp2=new RegExp("[^0-9]");
+
+        if(inc.length==0 ||regexp2.test(document.forms["application"]["inc"].value)){
+
+            document.getElementById("inc").style.borderColor="red";
+        }
+        else {
+
+            document.getElementById("inc").style.borderColor="green";
+        }
+
+    }
+    function Validate11() {
+
+        var emg=document.forms["application"]["emg"].value;
+        var regexp2=new RegExp("[^a-zA-Z][^a-zA-Z\s]+");
+
+        if(emg.length==0 ||regexp2.test(document.forms["application"]["emg"].value)){
+
+            document.getElementById("emg").style.borderColor="red";
+        }
+        else {
+
+            document.getElementById("emg").style.borderColor="green";
+        }
+
+    }
+    function Validate12() {
+
+        var rel=document.forms["application"]["rel"].value;
+        var regexp2=new RegExp("[^a-zA-Z][^a-zA-Z\s]+");
+
+        if(rel.length==0 ||regexp2.test(document.forms["application"]["rel"].value)){
+
+            document.getElementById("rel").style.borderColor="red";
+        }
+        else {
+
+            document.getElementById("rel").style.borderColor="green";
+        }
+
+    }
+    function Validate13() {
+
+        var cell=document.forms["application"]["cell"].value;
+        var regexp2=new RegExp("[^0-9]");
+
+        if(cell.length==0 ||regexp2.test(document.forms["application"]["cell"].value)){
+
+            document.getElementById("cell").style.borderColor="red";
+        }
+        else {
+
+            document.getElementById("cell").style.borderColor="green";
+        }
+
+    }
+    function Validate14() {
+
+        var add=document.forms["application"]["add"].value;
 
 
+        if(add.length==0){
+
+            document.getElementById("add").style.borderColor="red";
+        }
+        else {
+
+            document.getElementById("add").style.borderColor="green";
+        }
+
+    }
+    function Validate15() {
+
+        var cn=document.forms["application"]["cn"].value;
+
+
+        if(cn.length==0){
+
+            document.getElementById("cn").style.borderColor="red";
+        }
+        else {
+
+            document.getElementById("cn").style.borderColor="green";
+        }
+
+    }
 
 
 </script>
@@ -144,7 +332,7 @@
         <div class="panel-heading"><h2 class="panelheading">Boys Hostel Admission Form</h2></div>
         <div class="panel-body " >
             <div class="row">
-                <form action="ApplicationProcessing.php" role="form" method="post" enctype="multipart/form-data" name="application" id="application" onclick="return Validate()">
+                <form action="ApplicationProcessing.php" role="form" method="post" enctype="multipart/form-data" name="application" id="application" onsubmit="return Validate()">
                     <div class="form-horizontal">
                         <label style="padding-right: 95pt;padding-left: 5px">Name</label>
 
@@ -160,9 +348,13 @@
                         <label style="padding-left: 5px">Father/Guardian's Name</label>
                         <input class="form-control" type="text" name="fname" style="width: 250px" id="fname" placeholder="Enter only 20 Alphabets" onmousemove=" return  Validate1()">
                         <p id="fname_error"  style="color: red "></p>
-                        <label>CNIC No.</label>
-                        <input class="form-control" type="text" name="cnic" id="=cnic" onmousemove="return  Validate2()" >
-                        <p id="fcnic_error"  style="color: red "></p>
+                        <label style="padding-left: 5px">Father CNIC</label>
+                        <input  class="form-control" type="text" id="cn" onmousemove="return Validate15()">
+
+
+                    </div>
+                    <div class="for">
+
                     </div>
                     <br>
                     <div class="form-inline">
@@ -245,47 +437,47 @@
                     <br>
                     <div class="form-inline">
                         <label style="padding-left: 5px">Postal Address</label>
-                        <input class="form-control" type="text" name="address" style="width: 550px">
+                        <input class="form-control" type="text" name="address" id="add" style="width: 550px" onmousemove="Validate14()">
                     </div>
                     <br>
                     <div class="form-inline">
                         <label style="padding-left: 5px">Tel No.</label>
-                        <input class="form-control" type="number" name="telephoneNumber" style="width: 200px">
+                        <input class="form-control" type="text" name="telephoneNumber" style="width: 200px" id="tele" onmousemove="return Validate4()">
                         <label >Mobile No.</label>
-                        <input class="form-control" type="number" name="mobileNumber" style="width: 200px">
+                        <input class="form-control" type="text" name="mobileNumber" id="phone" style="width: 200px" onmousemove="return Validate5()">
                     </div>
                     <br>
                     <div class="form-inline">
                         <label style="padding-left: 5px">Email</label>
-                        <input class="form-control" type="text" name="email" style="width: 200px" id="mail" onmousemove="Validate3()">
+                        <input class="form-control" type="text"  style="width: 200px" id="mail" onmousemove="return Validate3()">
                     </div>
                     <br>
                     <div class="form-inline">
                         <label style="padding-left: 5px">Domicile</label>
-                        <input class="form-control" type="text" name="domicile" style="width: 150px">
+                        <input class="form-control" type="text" name="domicile" id="dom" style="width: 150px" onmousemove="return Validate6()">
                         <label >Blood Group</label>
-                        <input class="form-control" type="text" name="bloodGroup" style="width: 100px">
+                        <input class="form-control" type="text" id="blood" name="bloodGroup" style="width: 100px" onmousemove="return Validate8()">
                         <label >Religion</label>
-                        <input class="form-control" type="text" name="religion" style="width: 100px">
+                        <input class="form-control" type="text" id="reg" name="religion" style="width: 100px" onmousemove="return Validate7()">
                     </div>
                     <br>
                     <div class="form-inline">
                         <label style="padding-left: 5px">Parent/Guardian's Occupation</label>
-                        <input class="form-control" type="text" name="occupation" style="width: 200px">
+                        <input class="form-control" type="text" name="occupation" style="width: 200px" id="occ" onmousemove="return Validate9();" >
                         <label >Monthly income (Rs.)</label>
-                        <input class="form-control" type="number" name="income" style="width: 150px">
+                        <input class="form-control" type="text" name="income" id="inc" style="width: 150px" onmousemove="return Validate10();">
                     </div>
                     <br>
                     <div class="form-inline">
                         <label style="padding-left: 5px">Name of person to be entaded on care of Emergency</label>
-                        <input class="form-control" type="text" name="emergency" style="width: 250px">
+                        <input class="form-control" type="text" name="emergency" id="emg" style="width: 250px" onmousemove="return Validate11();">
                     </div>
                     <br>
                     <div class="form-inline">
                         <label style="padding-left: 5px">Relationship</label>
-                        <input class="form-control" type="text" name="relation" style="width: 150px">
+                        <input class="form-control" type="text" name="relation" style="width: 150px" id="rel" onmousemove="return Validate12();">
                         <label >Cell No.</label>
-                        <input class="form-control" type="number" name="cell" style="width: 150px">
+                        <input class="form-control" type="text" name="cell" id="cell" style="width: 150px" onmousemove="return Validate13();">
                     </div>
                     <br>
                     <div class="form-inline ">
