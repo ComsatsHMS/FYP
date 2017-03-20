@@ -1,116 +1,174 @@
 <?php
 session_start();
+include("phpFunctions.php");
+include "../connection.php";
+error_reporting(0);
 ?>
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>office Portal</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Management Portal</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-
-    <link rel="stylesheet" href='../../CSS/OfficePortal.css' type="text/css" media="screen" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
-    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    <script src = jquery.js></script>
-    <script src = jqueryui/js/jquery-ui-1.8.16.custom.min.js></script>
-
-    <link rel=stylesheet type=text/css
-          href=jqueryui/css/smoothness/jquery-ui-1.8.16.custom.css />
-    <script>
-        $(document).ready(function(){
-            $('#sidebar').height($(window).height());
-        });
-    </script>
-    <script>
-        $(document).ready(function(){
-            $('#rightside').height($(window).height());
-        });
-    </script>
-
-
-    <script>
-        $(function() {
-            $( "#dialog-2" ).dialog({
-                autoOpen: false,
-                maxWidth:410,
-                maxHeight: 300,
-                width: 500,
-                height: 300,
-                buttons: {
-                    Submit: function() {$(this).dialog("close");}
-                },
-                title: "Notification",
-                position: {
-                    my: " center",
-                    at: " center"
-                }
-
-            });
-            $( "#opener-2" ).click(function() {
-                $( "#dialog-2" ).dialog( "open" );
-            });
-        });
-    </script>
-
+    <!-- Bootstrap Styles-->
+    <link href="../../CSS/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="../../CSS/font-awesome.css" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+    <link href="../../JS/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="../../CSS/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="../../JS/Lightweight-Chart/cssCharts.css">
 </head>
+<script>
+    $(function() {
+        $( "#dialog-2" ).dialog({
+            autoOpen: false,
+            maxWidth:410,
+            maxHeight: 300,
+            width: 500,
+            height: 300,
+            buttons: {
+                Submit: function() {$(this).dialog("close");}
+            },
+            title: "Notification",
+            position: {
+                my: " center",
+                at: " center"
+            }
 
-
-
-
+        });
+        $( "#opener-2" ).click(function() {
+            $( "#dialog-2" ).dialog( "open" );
+        });
+    });
+</script>
 <body>
-<div class="container-fluid" >
-    <div class="row" >
-        <!--    Column of size 2 for sidebar Menu -->
-        <div  class= "col-md-2 col-xs-6" id="sidebar">
-            <!-- Sidebar with logo and menu -->
-            <h4 >
-                <a href="mainApplicationOffice.php" id="sidebar-title">Office Hostel Portal</a></h4>
-            <a href="#">
-                <img id="ciit_logo" src="../IMAGES/CIITLogo_Plain.png" alt="COMSATS" />
-            </a>
-            <ul id="main-nav">
-                <!--  Menu -->
-                <li><a id="applications" class="nav-top-item" href="applicationsDisplay.php">Applications</a></li>
-                <li><a id="complain" class="nav-top-item" href="ViewComplains.php">View Complains</a></li>
-                <li><a id="complain" class="nav-top-item" href="UploadNotifications.php">Upload Notifications</a></li>
-            </ul>
+<div id="wrapper">
+    <nav class="navbar navbar-default top-navbar" role="navigation">
+        <div class="navbar-header">
+            <!--
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>-->
+            <!--            <a class="navbar-brand" href="index.html"><strong><i class="icon fa fa-plane"></i> BRILLIANT</strong></a>-->
+            <a  class="navbar-brand" href="MainApplicationOffice.php" id="sidebar-title">Management Portal</a>
+
+            <div id="sideNav" href="">
+                <i class="fa fa-bars icon"></i>
+            </div>
         </div>
 
+    </nav>
+    <!--/. NAV TOP  -->
+    <nav class="navbar-default navbar-side" role="navigation">
+        <!--        <a href="StudentPortal.php">-->
+        <!--            <img id="ciit_logo" src="../../IMAGES/CIITLogo_Plain.png" alt="COMSATS" />-->
+        <!--        </a>-->
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li>
+                    <a class="active-menu" href="MainApplicationOffice.php"><i class="fa fa-user"></i> Profile</a>
+                </li>
 
-        <!--    Start of the other column of size 10  -->
-        <div class="col-md-10 col-xs-6" id="rightside" >
-            <!--profile Pic of logged in user-->
-            <div class="row">
-                <div class="col-md-6 col-xs-6">
-                    <li><a href="#" style="padding-bottom: 20%">
-                            <img id="profile_pic" src="../IMAGES/profile_pic.jpg" alt="profilepic" style="width: 100px; height: 100px"; /></a></li>
-                </div>
-                <!--Page header-->
+                <li>
+                    <a href="ApplicationsDisplay.php"><i class="fa fa-user"></i> Hostel Applications</a>
+                </li>
+                <li>
+                    <a href="Allotment.php"><i class="fa fa-bell"></i> Allotment</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-"></i> Student's List<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="SelectedStudents.php">Selected</a>
+                        </li>
+                        <li>
+                            <a href="NotSelectedStudents.php">Not Selected</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="ViewComplains.php"><i class="fa fa-"></i> View Complains</a>
+                </li>
 
-                <div class="col-md-6 col-xs-6" id="profile" style="text-align: center;">
-                    <span id="ciit_Label" style="font-size:10pt;">Welcome,</span>
-                    <a href="#" title="Your profile">
-                        <span id="ciit_office" style="font-size:14pt; ">abcd</span></a><br>
-                    <a id="ciit_Signout" href=" Login.php" style="font-size: 12pt;font-style: italic">Log
-                        Out</a>
+                <li>
+                    <a href="ViewStudentApps.php"><i class="fa fa-"></i> View Applications</a>
+                </li>
+                <li>
+                    <a href="StartVoting.php"><i class="fa fa-"></i> Voting </a>
+                </li>
+
+                <li>
+                    <a href="OffStatistics.php"><i class="fa fa-"></i> Statistics </a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-"></i> Fee/Fine <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="MessFeeChallan.php">Mess Fee Challan</a>
+                        </li>
+                        <li>
+                            <a href="Fine.php">Fine</a>
+                        </li>
+                        <li>
+                            <a href="MessFeePaidList.php">Mess Fee Paid Student's List</a>
+                        </li>
+                        <li>
+                            <a href="MessFeeUnPaidList.php">Mess Fee unPaid Student's List</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="ViewInventory.php"><i class="fa fa-"></i> View Inventory</a>
+                </li>
+                <li>
+                    <a href="Logout.php.php"><i class="fa fa-"></i> Logout</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+    <!-- /. NAV SIDE  -->
+
+    <div id="page-wrapper">
+        <div class="header row">
+            <div class="page-header row">
+                <div class="col-md-3 col-xs-4 col-sm-4">
+                    <a href="#">
+                        <img id="profile_pic" src="../../IMAGES/<?php echo"{$_SESSION['pic']}";?>" alt="profilepic" style="width: 100px; height: 100px";>
+                    </a>
                 </div>
+
+                <h1 class="col-md-3 col-xs-5 col-sm-5" style="padding-top:15px;">
+                    Welcome <small> <?php echo "{$_SESSION['LoggedUser']}"; ?></small>
+                </h1>
+
             </div>
-            <div class="panel-group" id="profile_box">
-                <div class="row">
-
-                    <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a href="../index.php">Home</a></li>
+                <li><a href="OfficeLogin.php">Login</a></li>
+                <li class="active">Notifications</li>
+            </ol>
+        </div>
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="board">
                         <div class="panel panel-primary">
                             <div class="panel-heading" > Previous Uploaded </div>
                             <!--            Content Box Contents-->
@@ -130,9 +188,9 @@ session_start();
                                                 }
                                                 ?>
                                             </option>
-                                        <option>M.A Jinnah</option>
-                                        <option>Liaqat Hall</option>
-                                        <option>Johar Hall</option>
+                                            <option>M.A Jinnah</option>
+                                            <option>Liaqat Hall</option>
+                                            <option>Johar Hall</option>
                                         </select>
 
 
@@ -177,7 +235,7 @@ session_start();
                                             <input class="form-control" type="date" name="date" id="date">
 
                                             <div class="form-group ">
-                                         <input type="file"  name="fileToUpload" id="fileToUpload" >
+                                                <input type="file"  name="fileToUpload" id="fileToUpload" >
                                                 <input type="submit" value="upload" name="upload" id="upload">
                                             </div>
                                         </form>
@@ -186,36 +244,54 @@ session_start();
                             </div>
 
 
-                                   <div class="col-md-12">
-                                       <div id="dialog-2" title="Dialog Title goes here...">Please write Notification
+                            <div class="col-md-12">
+                                <div id="dialog-2" title="Dialog Title goes here...">Please write Notification
                                            <textarea rows="5" cols="54" id="text" class="text">
 
                                                </textarea>
 
-                                       </div>
-                                       <button id="opener-2">Click here to write Notification</button>
-                                   </div>
-
-
-
-
-
-
-
-
-
+                                </div>
+                                <button id="opener-2">Click here to write Notification</button>
                             </div>
 
                         </div>
-
                     </div>
-
                 </div>
             </div>
-
+            <footer><p>All right reserved. By: <a href="http://lahore.comsats.edu.pk/">COMSATS LAHORE</a></p>
+            </footer>
         </div>
+        <!-- /. PAGE INNER  -->
     </div>
+    <!-- /. PAGE WRAPPER  -->
 </div>
+<!-- /. WRAPPER  -->
+<!-- JS Scripts-->
+<!-- jQuery Js -->
+<script src="../../JS/jquery-1.10.2.js"></script>
+<!-- Bootstrap Js -->
+<script src="../../JS/bootstrap.min.js"></script>
+
+<!-- Metis Menu Js -->
+<script src="../../JS/jquery.metisMenu.js"></script>
+<!-- Morris Chart Js -->
+<script src="../../JS/morris/raphael-2.1.0.min.js"></script>
+<script src="../../JS/morris/morris.js"></script>
+
+
+<script src="../../JS/easypiechart.js"></script>
+<script src="../../JS/easypiechart-data.js"></script>
+
+<script src="../../JS/Lightweight-Chart/jquery.chart.js"></script>
+
+<!-- Custom Js -->
+<script src="../../JS/custom-scripts.js"></script>
+
+
+<!-- Chart Js -->
+<script type="text/javascript" src="../../JS/chart.min.js"></script>
+<script type="text/javascript" src="../../JS/chartjs.js"></script>
+
 
 </body>
 </html>
