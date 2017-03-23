@@ -206,50 +206,29 @@ include "../connection.php";
                             <div class="panel-heading" > View Complains </div>
                                <div class="panel-body">
                                    <div class="form-group ">
-                                            <?php
-                                            $check =  $_GET['id'];
-                                            if(!$check){
-                                                echo '
-                                             <div class="col-md-4"><label for="complain">Complain Type: </label>
+                                             <div class="col-md-offset-1 col-md-6"><label for="complain">Complain Type: </label>
                                             <select  id="complainType" name="ComplainType">
-                                                <option><----Choose-----></option>
+                                                <option><?php echo "{$_SESSION['type']}"; ?></option>
                                                 <option>Mess Complain</option>
                                                 <option>Water Complain</option>
                                                 <option>Sweeper Complain</option>
                                                 <option>Other Complain</option>
                                             </select>
                                             </div>
-                                            <div class="col-md-4">
-                                            <label>Specify Hostel: </label>
-                                            <select  id="hostel" name="hostel">
-                                                <option><----Choose-----></option>
-                                                <option>M.A Jinnah</option>
-                                                <option>Liaqat Hall</option>
-                                                <option>Johar Hall</option>
-                                            </select>
-                                            </div>
+
                                             <form method="post" action="Complaints_Processing.php">
                                                 <label for="date">Date: </label>
-                                                <input type="date" name="date">
+                                                <input type="date" name="date" value='<?php echo "{$_SESSION['date']}"; ?>'>
                                                 <input type="submit" value="Go">
-                                            </form>';} ?>
-                                   </div>
+                                            </form>
 
-                                            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-                                            <script>
-                                                $("#hostel").on("change", function(){
-                                                    var selected = $(this).val();
-                                                    window.location = "Complaints_Processing.php?selected="+selected;
-                                                })
-                                            </script>
-                                            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+                                   </div>
                                             <script>
                                                 $("#complainType").on("change", function(){
                                                     var selected = $(this).val();
-                                                    window.location = "Complaints_Processing.php?selected_="+selected;
+                                                    window.location = "Complaints_Processing.php?type="+selected;
                                                 })
                                             </script>
-
                                      <div class="table-responsive">
                                             <table class="table table-striped table-bordered table-hover">
                                                 <tr>
@@ -262,45 +241,7 @@ include "../connection.php";
                                                     <th>Status</th>
                                                 </tr>
                                                 <?php
-                                                $check =  $_GET['id'];
-
-                                                $start; $end;
-
-                                                if($check){
-                                                    $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid ORDER BY  ComplainID desc limit 5";
-                                                    $run = mysqli_query($connection, $get_record);
-                                                    while ($each_record = mysqli_fetch_array($run)){
-                                                        $Student_ID    = $each_record['studentid'];
-                                                        echo "$Student_ID";
-                                                        $Complain_ID   = $each_record['ComplainID'];
-                                                        $Complain_Type = $each_record['ComplainType'];
-                                                        $Complain_Text = $each_record['ComplainText'];
-                                                        $Complain_Date = $each_record['Date'];
-                                                        $Student_Name  = $each_record['studentName'];
-                                                        $Room_No       = $each_record['room'];
-                                                        $Hostel= $each_record['studentHostel'];
-                                                        $query = mysqli_query($connection, "select w.*,c.ComplainID from wingproctorslist w,complaints c where w.studentID=$check ORDER BY  ComplainID desc limit 5");
-                                                        while ($each = mysqli_fetch_array($query)) {
-                                                            $start = $each['start'];
-                                                            $end = $each['end'];}
-
-                                                        if($Room_No >= $start && $Room_No <= $end ) {
-                                                            echo "
-                                                                <tr><td> $Complain_ID </td>
-                                                                <td> $Student_Name </td>
-                                                                <td> $Room_No </td>
-                                                                <td> $Complain_Type </td>
-                                                                <td> $Complain_Date </td>
-                                                                  <td> $Hostel </td>
-                                                                <td> <button type='button'  class='btn btn-success'><a href='ComplainsDisplay.php?id=$Student_ID & room=$Room_No & name=$Student_Name & text=$Complain_Text'>View</a> </button> </td>
-                                                                </tr>
-                                                            ";
-                                                        }
-                                                    }
-                                                }
-                                                else{
-                                                    getComplainDetails();
-                                                }
+                                                getComplainDetails();
                                                 ?>
                                             </table>
                                        </div>

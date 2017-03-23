@@ -1,22 +1,24 @@
 <?php
 include "../connection.php";
+error_reporting(0);
 session_start();
-print_r($_POST);
 if(isset($_POST['submit'])) {
     $degreeProgram = $_POST['degree'];
-    $year = $_POST['fall'];
-    $program = $_POST['degreeProgram'];
+    $year       = $_POST['fall'];
+    $program    = $_POST['degreeProgram'];
     $rollNumber = $_POST['rollNumber'];
+    $studentID  = $_POST['degree'].'-'.$_POST['fall'].'-'.$_POST['degreeProgram'].'-'.$_POST['rollNumber'];
     $password=$_POST['check'];
+    echo "$studentID";
 
-    $query = "select password from loginoldstudent where  rollNumber='$rollNumber' AND degree='$degreeProgram' AND year='$year' AND
-course='$program' ";
+    $query  = "select password from loginoldstudent where studentid = '$studentID' ";
     $result = mysqli_query($connection, $query);
+
     while ($db_data = mysqli_fetch_array($result)) {
         $db_password = $db_data['password'];
     }
     if($db_password==$password){
-        $query = mysqli_query($connection,"select * from insertstudentprofile where  studentid='$rollNumber'");
+        $query = mysqli_query($connection,"select * from insertstudentprofile where  studentid='$studentID'");
         while ($db_data = mysqli_fetch_array($query)) {
             $_SESSION['name']=$db_data['studentName'];
             $_SESSION['fname']=$db_data['fathername'];
@@ -33,7 +35,7 @@ course='$program' ";
         header('Location:StudentPortal.php');
     }
     else{
-        echo "not login";
+        echo "Username or Password Mismatch";
     }
 }
 ?>

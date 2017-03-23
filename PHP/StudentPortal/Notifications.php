@@ -209,7 +209,7 @@ include "NotificationViewprocessing.php";
                                         <div class="col-md-4">
                                             <label >Hostel Name</label>
                                                 <select  id="hostelName" name="hostelName">
-                                                    <option></option>
+                                                    <option><?php echo "{$_SESSION['hostel']}"; ?></option>
                                                     <option>M.A Jinnah</option>
                                                     <option>Liaqat Hall</option>
                                                     <option>Johar Hall</option>
@@ -218,20 +218,18 @@ include "NotificationViewprocessing.php";
                                             <div class="col-md-4">
                                               <label >Notice Type</label>
                                                     <select  id="notificationType" name="notificationType">
-                                                        <option></option>
+                                                        <option><?php echo "{$_SESSION['type']}"; ?></option>
                                                         <option>Mess Notification</option>
                                                         <option>Hostel Timing</option>
                                                         <option>Trip Notification</option>
                                                         <option>Guest Notification</option>
                                                     </select>
                                              </div>
-                                            <div class="col-md-4">
                                                 <form method="post" action="NotificationViewProcessing.php">
                                                     <label for="date">Date: </label>
-                                                         <input type="date" name="date">
+                                                        <input type="date" name="date" value='<?php echo "{$_SESSION['date']}"; ?>'>
                                                         <input type="submit" value="Go">
                                                 </form>
-                                            </div>
                                    </div>
                                         <div class="table-responsive">
                                           <table  class="table table-striped table-bordered table-hover">
@@ -242,28 +240,9 @@ include "NotificationViewprocessing.php";
                                                      <th>Date & Time </th>
                                                      <th>Status</th>
                                                </tr>
-                                    <?php
-                                    if(isset($_SESSION['hostel'] )){
-                                        $query="select * from notification ORDER  BY  number ASC";
-                                    }
-                                    $query="select * from notification ORDER  BY  number ASC ";
-                                    $transpot=mysqli_query($connection,$query);
-                                    while($row=mysqli_fetch_array($transpot)){
-                                        $id=$row['number'];
-                                        $type=$row['notificationType'];
-                                        $nameHostel=$row['hostelName'];
-                                        $date=$row['date'];
-                                        $file=$row['notice'];
-                                        echo "
-                                                    <tr>
-                                                         <td ><a href=''>$id</a> </td>
-                                                         <td>$type</td>
-                                                         <td> $nameHostel</td>
-                                                         <td>$date</td>
-                                                         <td><a href='DisplayNotification.php?id=$id'>view</a></td>
-                                                    </tr> ";
-                                    }
-                                    ?>
+                                                  <?php
+                                                    getNotifications();
+                                                  ?>
                                              </table>
                                            </div>
                                 </div>
@@ -284,7 +263,7 @@ include "NotificationViewprocessing.php";
 <script>
     $("#notificationType").on("change", function(){
         var value = $(this).val();
-        window.location = "NotificationViewProcessing.php?select="+value;
+        window.location = "NotificationViewProcessing.php?type="+value;
     })
 </script>
 
@@ -292,7 +271,7 @@ include "NotificationViewprocessing.php";
 <script>
     $("#hostelName").on("change", function(){
         var selected = $(this).val();
-        window.location = "NotificationViewProcessing.php?selected_="+selected;
+        window.location = "NotificationViewProcessing.php?hostelname="+selected;
     })
 </script>
 <!-- JS Scripts-->

@@ -30,6 +30,23 @@ include "../connection.php";
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="../../JS/Lightweight-Chart/cssCharts.css">
 </head>
+<script>
+    function showhide(id,id1,id3) {
+        var e = document.getElementById(id);
+        var e1 = document.getElementById(id1);
+        if(id3 == 'btn'){
+            e.style.display = 'block';
+            e1.style.display = 'none';
+        }
+
+        else{
+            e.style.display = 'none';
+            e1.style.display = 'block';
+        }
+
+
+    }
+</script>
 <body>
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">

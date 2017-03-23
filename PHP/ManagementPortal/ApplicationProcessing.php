@@ -1,5 +1,6 @@
 <?php
 include("../connection.php");
+error_reporting(0);
 if(isset($_GET['state'])){
     print_r($_GET);
     $application_no = $_GET['id'];
@@ -18,42 +19,6 @@ if(isset($_GET['state'])){
     }
 }
 
-if(isset($_POST['wingProctor'])){
-    $application_type = "Wing Proctor";
-    $application_details = $_POST['text'];
-    $insert = "insert into applications VALUES ('','1','$application_type','$application_details','','','','')";
-    mysqli_query($connect, $insert);
-    header('Location: StudentPortal.php');
-}
-if(isset($_POST['mess'])){
-    $application_type = "Mess Committee";
-    $application_details = $_POST['text'];
-    $insert = "insert into applications VALUES ('','1','$application_type','$application_details','','','','')";
-    mysqli_query($connect, $insert);
-    header('Location: StudentPortal.php');
-}
-if(isset($_POST['messclose'])){
-    $application_type = "Mess Close";
-    $application_details = $_POST['text'];
-    $firstdate = $_POST['startdate'];
-    $lastdate = $_POST['lastdate'];
-    $insert = "insert into applications VALUES ('','1','$application_type','$application_details','$firstdate',' $lastdate','','')";
-    mysqli_query($connect, $insert);
-    header('Location: StudentPortal.php');
-}
-if(isset($_POST['fee'])){
-    $application_type = "Security Fee";
-    $application_details = $_POST['text'];
-    $student_card=$_FILES["StudentCard"]["name"];
-    move_uploaded_file($_FILES["StudentCard"]["tmp_name"],"IMAGES/".$student_card);
-    $student_idcard=$_FILES["idcard"]["name"];
-    move_uploaded_file($_FILES["idcard"]["tmp_name"],"IMAGES/".$student_idcard);
-    $insert = "insert into applications VALUES ('','1','$application_type','$application_details','','','$student_card','$student_idcard')";
-    mysqli_query($connect, $insert);
-    header('Location: StudentPortal.php');
-}
-
-
 if(isset($_POST['submit1'])) {
 
     $student_Fname = $_POST['fname'];
@@ -63,7 +28,8 @@ if(isset($_POST['submit1'])) {
     $degree = $_POST['degree'];
     $year = $_POST['year'];
     $student_program = $_POST['program'];
-    $student_Id = $_POST['studentid'];
+    $student_Id = $degree.'-'.$year.'-'.$student_program.'-'.$_POST['studentid'];
+    echo "$student_Id";
     $student_Address = $_POST['address'];
     $telephoneNumber = $_POST['telephoneNumber'];
     $mobileNumber = $_POST['mobileNumber'];
@@ -91,7 +57,7 @@ if(isset($_POST['submit1'])) {
     move_uploaded_file($_FILES["imageFG"]["tmp_name"],"../IMAGES/".$student_image5);
 
 
-    $insert = "insert into oldstudentform values ('','$student_Name','$student_Fname','$degree','$year','$student_program','$student_Id','$student_Address',
+    $insert = "insert into oldstudentform values ('','$student_Name','$student_Fname','$student_Id','$student_Address',
     '$student_cnic','$studentF_cnic','$telephoneNumber','$mobileNumber','$email','$domicile','$bloodGroup','$religion','$occupation',
     '$income','$emergency','$relation','$cell','$student_hostel','$student_image','$student_image1','$student_image3','$student_image4','$student_image5','$student_old_hostel','$student_newstudent','','','')";
 
