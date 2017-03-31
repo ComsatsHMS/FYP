@@ -34,9 +34,10 @@ echo "inside isset";
             $student_contact = $each_record['mobileNo'];
             $student_contact_e = $each_record['cellNo'];
             $student_id = $each_record['studentid'];
+            $student_program = $each_record['program'];
             $address = $each_record['address'];
             $pic = $each_record['photo'];
-            $insert = "insert into insertstudentprofile VALUES ('$student_name','$student_f_name','$student_id','$room_num','','$student_contact',' $student_contact_e','$address','','$hostel_Name',$pic)";
+            $insert = "insert into insertstudentprofile VALUES ('$student_name','$student_f_name','$student_id','$student_program','$room_num','','$student_contact',' $student_contact_e','$address','','$hostel_Name',$pic)";
             $exec = mysqli_query($connection,$insert);
             if($exec){
                 $acc = "insert into loginoldstudent VALUES ('$student_id',12345)";
