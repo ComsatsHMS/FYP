@@ -14,7 +14,7 @@
         var program = document.forms["studentForm"]["program"].value;
         var program_error = document.getElementById("program_error");
 
-        var cgpa = document.forms["studentForm"]["cgpaS"].value;
+        var cgpa = document.forms["studentForm"]["cgpa"].value;
         var cgpa_error = document.getElementById("cgpa_error");
 
         var contact = document.forms["studentForm"]["contact"].value;
