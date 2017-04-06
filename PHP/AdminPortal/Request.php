@@ -130,7 +130,7 @@ include "../connection.php";
             <td> $email </td>
               <td> $address </td>
               <td> $phone </td>
-              <td><a href='Admin_processing.php?id1=$id,email=$email'>
+              <td><a href='Admin_processing.php?id1=$id'>
           <span class=\"glyphicon glyphicon-remove\"></span>
         </a> <a href='Admin_processing.php?id2=$id'>
           <span class=\"glyphicon glyphicon-ok\"></span>
