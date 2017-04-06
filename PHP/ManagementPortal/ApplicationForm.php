@@ -21,12 +21,12 @@
 </head>
 <body>
 <div class="container-fluid">
-    <div class="row">
-        <div class="paddingimg col-md-12">
-            <img src="../../IMAGES/CIITLogo_Plain.png" >
-            <strong class="textcolor"><h1>Welcome to Comsats Hostel Login</h1></strong>
+    <div class="inner-wrap">
+        <div class="row">
+            <div class="col-md-offset-2 small-12 medium-4 large-4 columns small-only-text-center">
+                <a href="ApplicationForm.php"><img src="../../IMAGES/FormLogo.png" style="margin-bottom:0.5em; margin-top:0.2em"></a>
+            </div>
         </div>
-
     </div>
 </div>
 <div class="container">
@@ -542,16 +542,16 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="col-md-offset-11">
-                                <input type="submit" class="btn btn-success" value="submit" name="submit1">
-                            </div>
+                            <input type="submit" class="btn btn-success col-md-offset-11" value="submit" name="submit1">
+                            <input class="col-md-offset-6 btn btn-success" type="reset" value="Reset" name="reset">
                         </div>
                     </div>
             </div>
 
         </div>
                 </form>
-            </div>
+
+    </div>
 
     </div>
 
