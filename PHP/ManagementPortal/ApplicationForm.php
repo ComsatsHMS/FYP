@@ -1,3 +1,7 @@
+<?php
+session_start();
+error_reporting(0);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +39,16 @@
         <div class="panel-heading"><h2 class="panelheading">Boys Hostel Admission Form</h2></div>
         <div class="panel-body " >
             <div class="row">
-                <form action="ApplicationProcessing.php" role="form" method="post" enctype="multipart/form-data" name="application" id="application" onsubmit="return Validate()  && Validate1() && Validate2() && Validate3() && Validate4() && Validate5() && Validate6() && Validate7() &&Validate8() &&Validate9() &&Validate10() &&Validate11() &&Validate12() &&Validate13() &&Validate14() &&Validate15()">
+                <?php
+                if($_SESSION['send'] == 'success'){
+                    echo "<h2 style='color: green;text-align: center'> Application Successfully Submitted!! </h2>";
+                }
+                else if($_SESSION['send'] == 'error'){
+                    echo "<h2 style='color: red;text-align: center'> OOPS!! Error Occured. </h2>";
+                }
+                unset($_SESSION['send']);
+                ?>
+                <form action="ApplicationProcessing.php" role="form" method="post" enctype="multipart/form-data" name="application" id="application" onsubmit="return Validate()  && Validate1() && Validate2() && Validate3() && Validate4() && Validate5() && Validate6() && Validate7() &&Validate8() &&Validate9() &&Validate10() &&Validate11() &&Validate12() &&Validate13() &&Validate14() &&Validate15() &&Validate16()">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="col-md-offset-8">
@@ -72,7 +85,24 @@
                             <p id="fname_error"  style="color: red "></p>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="col-md-offset-8">
+                                <h5><label>Student CNIC</label></h5>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <input  class="form-control" name="cnic" type="text" placeholder="Enter without Dashes" id="cnic" onchange="return Validate16()">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-align-justify"></span></span>
+                            </div>
 
+                        </div>
+                        <div class="col-md-4">
+                            <p id="cnic_error"  style="color: red "></p>
+                        </div>
+
+                    </div>
                     <div class="row">
                         <div class="col-md-3">
                             <div class="col-md-offset-8">
@@ -82,7 +112,7 @@
                         <div class="col-md-4">
                             <div class="input-group">
 
-                                <input  class="form-control" type="text" placeholder="Enter without Dashes" id="cn" onchange="return Validate15()">
+                                <input  class="form-control" name="fcnic" type="text" placeholder="Enter without Dashes" id="cn" onchange="return Validate15()">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-align-justify"></span></span>
                             </div>
 
@@ -101,7 +131,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="input-group">
-                                <input class="form-control" type="text"   id="mail" onchange="return Validate3()">
+                                <input class="form-control" type="text" name="email"  id="mail" onchange="return Validate3()">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
 
                             </div>
@@ -541,10 +571,12 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
-                            <input type="submit" class="btn btn-success col-md-offset-11" value="submit" name="submit1">
-                            <input class="col-md-offset-6 btn btn-success" type="reset" value="Reset" name="reset">
-                        </div>
+                        <div class="col-md-offset-10 col-md-1" style="padding-right: 1px">
+                            <input type="submit" class="btn btn-success" value="submit" name="submit1">
+                            </div>
+                        <div class="col-md-1" >
+                            <input class="btn btn-success" type="reset" value="Reset" name="reset">
+                            </div>
                     </div>
             </div>
 

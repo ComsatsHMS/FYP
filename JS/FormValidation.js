@@ -281,7 +281,7 @@ function Validate12() {
         }
     }
     else {
-
+        document.getElementById("rel_e").innerHTML= '<span style="color:green;font-size:20px;" class="glyphicon glyphicon-ok-sign "></span>';
         document.getElementById("rel").style.borderColor="green";
     }
 
@@ -328,8 +328,9 @@ function Validate14() {
 }
 function Validate15() {
     var cn=document.forms["application"]["cn"].value;
+    var cnic=document.forms["application"]["cnic"].value;
     var regexp2=new RegExp("^[0-9+]{13}$");
-    if(cn.length==0 || !regexp2.test(document.forms["application"]["cn"].value)  ){
+    if(cn.length==0 || !regexp2.test(document.forms["application"]["cn"].value)){
         if(cn.length==0){
             document.getElementById("cn_error").innerHTML = "Please fill out this field";
             document.getElementById("cn").style.borderColor="red";
@@ -340,11 +341,44 @@ function Validate15() {
             document.getElementById("cn").style.borderColor="red";
             return false;
         }
+    }if(cnic.length==0 || !regexp2.test(document.forms["application"]["cnic"].value)){
+        if(cnic.length==0){
+            document.getElementById("cn_error").innerHTML = "Please fill out this field";
+            document.getElementById("cnic").style.borderColor="red";
+            return false;
+        }
+        if(!regexp2.test(document.forms["application"]["cnic"].value)){
+            document.getElementById("cnic_error").innerHTML = "Length is not Correct ";
+            document.getElementById("cnic").style.borderColor="red";
+            return false;
+        }
     }
     else {
         document.getElementById("cn_error").innerHTML= '<span style="color:green;font-size:20px;" class="glyphicon glyphicon-ok-sign "></span>';
-
         document.getElementById("cn").style.borderColor="green";
+        return true;
+    }
+
+}
+function Validate16(){
+    var cnic=document.forms["application"]["cnic"].value;
+    var regexp2=new RegExp("^[0-9+]{13}$");
+   if(cnic.length==0 || !regexp2.test(document.forms["application"]["cnic"].value)){
+        if(cnic.length==0){
+            document.getElementById("cnic_error").innerHTML = "Please fill out this field";
+            document.getElementById("cnic").style.borderColor="red";
+            return false;
+        }
+        if(!regexp2.test(document.forms["application"]["cnic"].value)){
+            document.getElementById("cnic_error").innerHTML = "Length is not Correct ";
+            document.getElementById("cnic").style.borderColor="red";
+            return false;
+        }
+    }
+    else {
+        document.getElementById("cnic_error").innerHTML= '<span style="color:green;font-size:20px;" class="glyphicon glyphicon-ok-sign "></span>';
+        document.getElementById("cnic").style.borderColor="green";
+        return true;
     }
 
 }
