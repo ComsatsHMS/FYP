@@ -14,14 +14,15 @@ session_start();
 </head>
 <body>
 
-<div class="container-fluid">
-    <div class="row background">
+<div class="container-fluid" style="background-color: red">
+
         <div class="comsats col-md-12 col-xs-12">
-            <img src="../../IMAGES/CIITLogo_Plain.png">
-            <strong class="textcolor"><h1>Welcome to Comsats Hostel Login</h1></strong>
-        </div>
+            <img src="../../IMAGES/CIITLogo_Plain.png" style="padding-right: 90%">
+
+
     </div>
 </div>
+<strong style="text-align: center" ><h1>Student Login/Sign up</h1></strong>
 
 <div class="row">
     <ul class="nav nav-tabs navbar-inverse">
@@ -33,7 +34,7 @@ session_start();
 
 <div class="tab-content">
     <div id="OldLogin" class="tab-pane fade in active">
-        <div class="row background1" id="background">
+        <div class="row background1" id="background" style="background-color: white">
             <br>
             <br>
             <br>
@@ -41,7 +42,7 @@ session_start();
                 <div class="align col-md-12 col-xs-12">
                     <div class="form-inline" role="form">
                         <div class="form-group">
-                            <label class="control-label textcolor">Email</label>
+                            <label class="control-label textcolor" style="color: black">Email</label>
                         </div>
                         <div class="form-group">
                             <select name="degree" class="degree form-control">
@@ -123,7 +124,7 @@ session_start();
                         <br>
                         <br>
                         <br>
-                        <label class="textcolor"> Enter Password</label>
+                        <label class="textcolor" style="color: black"> Enter Password</label>
                         <input type="password" name="check" class="form-control" style="width: 350px"">
 
                         <br>
@@ -140,8 +141,8 @@ session_start();
     </div>
 
 
-    <div id="NewStudentLogin" class="tab-pane fade">
-        <div class="background1 row">
+    <div id="NewStudentLogin" class="tab-pane fade" >
+        <div class="background1 row"  style="background-color: white">
             <br>
             <br>
             <br>
@@ -153,7 +154,7 @@ session_start();
                 <div class="form-inline" role="form">
                     <div class="form-group">
                         <div class="col-md-2 col-xs-2">
-                            <label class="textcolor">Email</label>
+                            <label class="textcolor" style="color: black;">Email</label>
                         </div>
                         <div class="col-md-offset-1 col-md-9">
                             <input type="text" class="form-control">
@@ -167,7 +168,7 @@ session_start();
                 <div class="form-inline" role="form">
                     <div class="form-group">
                         <div class="col-md-2 col-xs-2">
-                            <label class="textcolor">Password</label>
+                            <label class="textcolor" style="color: black;">Password</label>
                         </div>
                         <div class="col-md-offset-1 col-md-9">
                             <input type="text" class="form-control">
@@ -188,7 +189,7 @@ session_start();
 
 
     <div id="NewStudentSignup" class="tab-pane fade ">
-        <div class="background1 row">
+        <div class="background1 row" style="background-color: white">
             <br>
             <br>
 
