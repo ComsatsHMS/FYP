@@ -50,15 +50,27 @@ echo "inside isset";
 
 function getStudentApplications(){
     global $connection;
-    $get_record = "select * from oldstudentform";
+    $get_record = "select * from oldstudentform where status=0";
     $run = mysqli_query($connection, $get_record);
-
+    if(mysqli_num_rows($run) == 0){
+        echo "No student Application Found";
+    }
+    else{
+        echo "<tr>
+                                        <th>Sr. No</th>
+                                        <th>Name</th>
+                                        <th>Father Name</th>
+                                        <th>preffered hostel</th>
+                                        <th></th>
+                                    </tr>";
+    }
     while ($each_record = mysqli_fetch_array($run)) {
         $application_no = $each_record['applicationNumber'];
         $student_name = $each_record['name'];
         $student_f_name = $each_record['fathername'];
         $student_preffered_hostel = $each_record['hostel'];
         $status = $each_record['status'];
+
 
         echo "<tr><td><a href='StudentDetails.php?id=$application_no'>$application_no</a></td>
                   <td><a href='StudentDetails.php?id=$application_no'>$student_name</a></td>
@@ -86,56 +98,67 @@ function getStudentDetails($applicationNo){
         $student_id = $each_record['studentid'];
         $address = $each_record['address'];
         $cnic = $each_record['cnic'];
-        $student_preffered_hostel = $each_record['hostel'];
+        $f_cnic = $each_record['fcnic'];
+        $program =$each_record['program'];
         $photo = $each_record['photo'];
-        $status= $each_record['status'];
+        $student_home_no =$each_record['telephoneNumber'];
         $student_mob = $each_record['mobileNo'];
-        $student_preffered_hostel = $each_record['hostel'];
+        $student_email = $each_record['email'];
+        $student_domicile = $each_record['domicile'];
+        $student_bloodgroup =$each_record['bloodgroup'];
+        $religion =$each_record['religion'];
+        $father_occupation=$each_record['occupation'];
+        $father_income =$each_record['income'];
         $qaurdian = $each_record['emergencyName'];
         $gaurdian_No =$each_record['cellNo'];
         $guardian_relation = $each_record['relation'];
+
         echo "
-            <tr><td><img src='../IMAGES/$photo' height='150px' width='100px' ></td><td></td></tr>
+            <tr><td>Student Picture</td><td><img src='../IMAGES/$photo' height='150px' width='130px' ></td></tr>
             <tr><td>Student Name</td><td>$student_name</td></tr>
             <tr><td>Father Name</td><td>$student_f_name</td></tr>
             <tr><td>Student Id</td><td>$student_id</td></tr>
             <tr><td>Address</td><td>$address</td></tr>
             <tr><td>CNIC</td><td>$cnic</td></tr>
+            <tr><td>Father CNIC</td><td>$f_cnic</td></tr>
+            <tr><td>Program</td><td>$program</td></tr>
+            <tr><td>Telephone No.</td><td>$student_home_no</td></tr>
             <tr><td>Mobile No.</td><td>$student_mob</td></tr>
-            <tr><td>Preffered Hostel</td><td>$student_preffered_hostel</td></tr>
+            <tr><td>Email</td><td>$student_email</td></tr>
+            <tr><td>Blood Group</td><td>$student_bloodgroup</td></tr>
+            <tr><td>Domicile</td><td>$student_domicile</td></tr>
+            <tr><td>Religion</td><td>$religion</td></tr>
+            <tr><td>Father Occupation</td><td>$father_occupation</td></tr>
+            <tr><td>Father Income</td><td>$father_income</td></tr>
             <tr><td>Guardian in case of Emergency</td><td>$qaurdian</td></tr>
             <tr><td>Relation</td><td>$guardian_relation</td></tr>
             <tr><td>Contact No.</td><td>$gaurdian_No</td></tr>
-            <tr>
+
         ";
-        if($status != 1)
-            echo "<td></td><td><button type='button' class='btn btn-default' ><a href='Check.php?id=$application_no'>check</a></button></td></tr>";
-        else{
-            echo "<td></td><td><button type='button' class='btn btn-default' disabled>check</button></td></tr>";
-        }
     }
 
 }
 function getSelectedStudents(){
     global $connection;
-    $get_record = "select * from oldstudentform";
+    $get_record = "select * from oldstudentform WHERE selected = 1";
     $run = mysqli_query($connection, $get_record);
 
     while ($each_record = mysqli_fetch_array($run)) {
-        if($each_record['selected'] == true){
-            $application_no = $each_record['applicationNumber'];
+        $application_no = $each_record['applicationNumber'];
+        $get_rec = "select * from hostel WHERE applicationNumber = '$application_no'";
+        $run1 = mysqli_query($connection, $get_rec);
+
+        if(mysqli_num_rows($run1) == 0){
+
             $student_name = $each_record['name'];
             $student_f_name = $each_record['fathername'];
-            $degree = $each_record['degree'];
-            $year = $each_record['year'];
-            $program = $each_record['program'];
             $student_id = $each_record['studentid'];
             $student_preffered_hostel = $each_record['hostel'];
 
             echo "<tr><td>$application_no</td>
                   <td>$student_name</td>
                   <td>$student_f_name</td>
-                  <td>$degree-$year-$program-$student_id</td>
+                  <td>$student_id</td>
                   <td>$student_preffered_hostel</td>
                   <td><button type='button' class='btn btn-default' ><a href='Allocate.php?id=$application_no'>Allot</a></button> </td>
                   </tr>";
@@ -150,9 +173,6 @@ function checkRecord($applicationNo){
         $application_no = $each_record['applicationNumber'];
         $student_name = $each_record['name'];
         $father_name = $each_record['fathername'];
-        $degree = $each_record['degree'];
-        $year = $each_record['year'];
-        $program = $each_record['program'];
         $student_id = $each_record['studentid'];
         $semester_Fee_Slip = $each_record['feephoto'];
         $student_cell = $each_record['mobileNo'];
@@ -165,20 +185,20 @@ function checkRecord($applicationNo){
             <tr><td>First semester fee slip</td><td><img src='../IMAGES/$semester_Fee_Slip' width='100' height='150'></td></tr>
             <tr><td>Affidivat</td><td><img src='../IMAGES/$affidivat' width='100' height='150'></td></tr>
              ";
-            echo "<tr><td><button type='button'  class=\"btn btn-default\" ><a href='ApplicationProcessing.php?id=$application_no&state=1'>Select</a></button>
-              <button type='button'  class=\"btn btn-danger\" ><a href='ApplicationProcessing.php?id=$application_no&state=0'>Not Select</a></button></td></tr>";
+            echo "<tr><td style='float: right'><button type='button'  class=\"btn btn-default\" ><a href='ApplicationProcessing.php?id=$application_no&state=1'>Select</a></button>
+              </td><td><button type='button'  class=\"btn btn-danger\" ><a href='ApplicationProcessing.php?id=$application_no&state=0'>Not Select</a></button></td></tr>";
 
         }
         elseif($each_record['oldstudent'] == false){
             echo"
             <tr><td>Student Name</td><td>$student_name</td></tr>
             <tr><td>Father Name</td><td>$father_name</td></tr>
-            <tr><td>Student Id</td><td>$degree-$year-$program-$student_id</td></tr>
+            <tr><td>Student Id</td><td>$student_id</td></tr>
             <tr><td>Student Mobile No.</td><td>$student_cell</td></tr>
             <tr><td>Semester fee slip</td><td><img src='../IMAGES/$semester_Fee_Slip' width='100' height='150'></td></tr>
             ";
-            echo "<tr><td><button type='button'  class=\"btn btn-default\" ><a href='ApplicationProcessing.php?id=$application_no&state=1'>Select</a></button>
-              <button type='button'  class=\"btn btn-danger\" ><a href='ApplicationProcessing.php?id=$application_no&state=0'>Not Select</a></button></td></tr>";
+            echo "<tr><td style='float: right'><button type='button'  class=\"btn btn-default\" ><a href='ApplicationProcessing.php?id=$application_no&state=1'>Select</a></button>
+              </td><td><button type='button'  class=\"btn btn-danger\" ><a href='ApplicationProcessing.php?id=$application_no&state=0'>Not Select</a></button></td></tr>";
 
 
         }
@@ -188,13 +208,13 @@ function checkRecord($applicationNo){
                 echo"
                     <tr><td>Student Name</td><td>$student_name</td></tr>
                     <tr><td>Father Name</td><td>$father_name</td></tr>
-                    <tr><td>Student Id</td><td>$degree-$year-$program-$student_id</td></tr>
+                    <tr><td>Student Id</td><td>$student_id</td></tr>
                     <tr><td>Student Mobile No.</td><td>$student_cell</td></tr>
 
                     <tr><td>Semester fee slip</td><td><img src='../IMAGES/$semester_Fee_Slip' width='100' height='150'></td></tr>
             ";
-                echo "<tr><td><button type='button' class=\"btn btn-default\" ><a href='ApplicationProcessing.php?id=$application_no&state=1'>Select</a></button>
-              <button type='button'  class=\"btn btn-danger\" ><a href='ApplicationProcessing.php?id=$application_no&state=0'>Not Select</a></button></td></tr>";
+                echo "<tr><td style='float: right'><button type='button' class=\"btn btn-default\" ><a href='ApplicationProcessing.php?id=$application_no&state=1'>Select</a></button>
+              </td><td><button type='button'  class=\"btn btn-danger\" ><a href='ApplicationProcessing.php?id=$application_no&state=0'>Not Select</a></button></td></tr>";
 
 
         }
@@ -246,7 +266,7 @@ function getNotSelectedStudentsList(){
                   <td>$student_name</td>
                   <td>$student_f_name</td>
                   <td>$student_id</td>
-                  <td><button type='button' class='btn btn-default' ><a href='StudentCompleteDetails.php?id=$student_id'>Details</a></button> </td>
+                  <td><button type='button' class='btn btn-default' ><a href='StudentDetails.php?id=$application_no&chec=1'>Details</a></button> </td>
                   </tr>";
             }
 

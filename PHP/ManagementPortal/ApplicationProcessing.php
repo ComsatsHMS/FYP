@@ -1,5 +1,6 @@
 <?php
 include("../connection.php");
+session_start();
 error_reporting(0);
 if(isset($_GET['state'])){
     print_r($_GET);
@@ -20,7 +21,7 @@ if(isset($_GET['state'])){
 }
 
 if(isset($_POST['submit1'])) {
-
+print_r($_POST);
     $student_Fname = $_POST['fname'];
     $student_Name = $_POST['name'];
     $student_cnic = $_POST['cnic'];
@@ -29,7 +30,6 @@ if(isset($_POST['submit1'])) {
     $year = $_POST['year'];
     $student_program = $_POST['program'];
     $student_Id = $degree.'-'.$year.'-'.$student_program.'-'.$_POST['studentid'];
-    echo "$student_Id";
     $student_Address = $_POST['address'];
     $telephoneNumber = $_POST['telephoneNumber'];
     $mobileNumber = $_POST['mobileNumber'];
@@ -58,16 +58,16 @@ if(isset($_POST['submit1'])) {
 
 
     $insert = "insert into oldstudentform values ('','$student_Name','$student_Fname','$student_Id','$student_program','$student_Address',
-    '$student_cnic','$studentF_cnic','$telephoneNumber','$mobileNumber','$email','$domicile','$bloodGroup','$religion','$occupation',
-    '$income','$emergency','$relation','$cell','$student_hostel','$student_image','$student_image1','$student_image3','$student_image4','$student_image5','$student_old_hostel','$student_newstudent','','','')";
+    $student_cnic,$studentF_cnic,$telephoneNumber,$mobileNumber,'$email','$domicile','$bloodGroup','$religion','$occupation',
+    $income,'$emergency','$relation',$cell,'$student_hostel','$student_image','$student_image1','$student_image3','$student_image4','$student_image5','$student_old_hostel','$student_newstudent','','','')";
 
     $transport = mysqli_query($connection,$insert);
     if ($transport) {
-        echo "send";
+        $_SESSION['send'] = 'success';
     } else
-        echo "not send";
-
+        $_SESSION['send'] = 'error';
 }
+//header('Location: ApplicationForm.php');
 ?>
 
 
