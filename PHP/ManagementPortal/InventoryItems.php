@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!isset($_SESSION['UserId'])){
+    header('Location:OfficeLogin.php');
+}
 include "InventoryProcessing.php";
 error_reporting(0);
 include "../connection.php";
@@ -34,86 +37,121 @@ include "../connection.php";
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
-            <!--
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>-->
-            <!--            <a class="navbar-brand" href="index.html"><strong><i class="icon fa fa-plane"></i> BRILLIANT</strong></a>-->
             <a  class="navbar-brand" href="MainApplicationOffice.php" id="sidebar-title">Management Portal</a>
-
-            <div id="sideNav" href="">
-                <i class="fa fa-bars icon"></i>
-            </div>
         </div>
-
+        <ul class="nav navbar-top-links navbar-right">
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="Profile.php"><i class="fa fa-user fa-fw"></i>Profile</a>
+                    </li>
+                    <li><a href="ChangePassword.php"><i class="fa fa-lock fa-fw"></i> Change Password</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="Logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+            <!-- /.dropdown -->
+        </ul>
     </nav>
     <!--/. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
-        <!--        <a href="StudentPortal.php">-->
-        <!--            <img id="ciit_logo" src="../../IMAGES/CIITLogo_Plain.png" alt="COMSATS" />-->
-        <!--        </a>-->
+
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a class="active-menu" href="MainApplicationOffice.php"><i class="fa fa-user"></i> Profile</a>
+                    <a  href="MainApplicationOffice.php"><i class="fa fa-"></i>Home</a>
                 </li>
-
-                <li>
-                    <a href="ApplicationsDisplay.php"><i class="fa fa-user"></i> Hostel Applications</a>
-                </li>
-                <li>
-                    <a href="Allotment.php"><i class="fa fa-bell"></i> Allotment</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-"></i> Student's List<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
+                <?php
+                if($_SESSION['HostelApplications'] == 1){
+                    echo "<li>
+                    <a href=\"ApplicationsDisplay.php\"><i class=\"fa fa-\"></i> Hostel Applications</a>
+                </li>";
+                }
+                if($_SESSION['Allotment'] == 1){
+                    echo " <li>
+                    <a href=\"Allotment.php\"><i class=\"fa fa-\"></i> Allotment</a>
+                </li>";
+                }
+                if($_SESSION['StudentsList'] == 1){
+                    echo " <li>
+                    <a href=\"#\"><i class=\"fa fa-\"></i> Student's List<span class=\"fa arrow\"></span></a>
+                    <ul class=\"nav nav-second-level\">
                         <li>
-                            <a href="SelectedStudents.php">Selected</a>
+                            <a href=\"SelectedStudents.php\">Selected</a>
                         </li>
                         <li>
-                            <a href="NotSelectedStudents.php">Not Selected</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="ViewComplains.php"><i class="fa fa-"></i> View Complains</a>
-                </li>
-
-                <li>
-                    <a href="ViewStudentApps.php"><i class="fa fa-"></i> View Applications</a>
-                </li>
-                <li>
-                    <a href="StartVoting.php"><i class="fa fa-"></i> Voting </a>
-                </li>
-
-                <li>
-                    <a href="OffStatistics.php"><i class="fa fa-"></i> Statistics </a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-"></i> Fee/Fine <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="MessFeeChallan.php">Mess Fee Challan</a>
-                        </li>
-                        <li>
-                            <a href="Fine.php">Fine</a>
-                        </li>
-                        <li>
-                            <a href="MessFeePaidList.php">Mess Fee Paid Student's List</a>
-                        </li>
-                        <li>
-                            <a href="MessFeeUnPaidList.php">Mess Fee unPaid Student's List</a>
+                            <a href=\"NotSelectedStudents.php\">Not Selected</a>
                         </li>
                     </ul>
-                </li>
+                </li>";
+                }
+                if($_SESSION['Complains'] == 1){
+                    echo "<li>
+                    <a href=\"ViewComplains.php\"><i class=\"fa fa-\"></i> View Complains</a>
+                </li>";
+                }
+                if($_SESSION['Applications'] == 1){
+                    echo "<li>
+                    <a href=\"ViewStudentApps.php\"><i class=\"fa fa-\"></i> View Applications</a>
+                </li>";
+                }
+                if($_SESSION['Fine'] == 1){
+                    echo "<li>
+                    <a href=\"#\"><i class=\"fa fa-\"></i> Fee/Fine <span class=\"fa arrow\"></span></a>
+                    <ul class=\"nav nav-second-level\">
+                        <li>
+                            <a href=\"MessFeeChallan.php\">Mess Fee Challan</a>
+                        </li>
+                        <li>
+                            <a href=\"Fine.php\">Fine</a>
+                        </li>
+                        <li>
+                            <a href=\"MessFeePaidList.php\">Mess Fee Paid Student's List</a>
+                        </li>
+                        <li>
+                            <a href=\"MessFeeUnPaidList.php\">Mess Fee unPaid Student's List</a>
+                        </li>
+                    </ul>
+                </li>";
+                }
+                if($_SESSION['Inventory'] == 1){
+                    echo "<li>
+                    <a class=\"active-menu\" href=\"ViewInventory.php\"><i class=\"fa fa-\"></i> View Inventory</a>
+                </li>";
+                }
+                if($_SESSION['Parents'] == 1){
+                    echo "<li>
+                    <a href=\"#\"><i class=\"fa fa-\"></i> Parents Data<span class=\"fa arrow\"></span></a>
+                    <ul class=\"nav nav-second-level\">
+                        <li>
+                            <a href=\"ParentRequests.php\">Account Requests</a>
+                        </li>
+                        <li>
+                            <a href=\"ListOfParents.php\">List of Parent Accounts</a>
+                        </li>
+                    </ul>
+                </li>";
+                }
+                if($_SESSION['Voting'] == 1){
+                    echo " <li>
+                    <a href=\"StartVoting.php\"><i class=\"fa fa-\"></i> Voting </a>
+                </li>";
+                }
+                if($_SESSION['Statistics'] == 1){
+                    echo "<li>
+                    <a href=\"OffStatistics.php\"><i class=\"fa fa-\"></i> Statistics </a>
+                </li>";
+                }
+
+                ?>
                 <li>
-                    <a href="ViewInventory.php"><i class="fa fa-"></i> View Inventory</a>
-                </li>
-                <li>
-                    <a href="Logout.php.php"><i class="fa fa-"></i> Logout</a>
+                    <a href="Logout.php"><i class="fa fa-"></i> Logout</a>
                 </li>
             </ul>
 
@@ -127,13 +165,27 @@ include "../connection.php";
             <div class="page-header row">
                 <div class="col-md-3 col-xs-4 col-sm-4">
                     <a href="#">
-                        <img id="profile_pic" src="../../IMAGES/<?php echo"{$_SESSION['pic']}";?>" alt="profilepic" style="width: 100px; height: 100px";>
+                        <img id="profile_pic" src="../../IMAGES/<?php echo"{$_SESSION['UserPic']}";?>" alt="profilepic" style="width: 120px; height: 120px";>
                     </a>
                 </div>
-
-                <h1 class="col-md-3 col-xs-5 col-sm-5" style="padding-top:15px;">
-                    Welcome <small> <?php echo "{$_SESSION['LoggedUser']}"; ?></small>
-                </h1>
+                <div class="col-md-6 col-xs-8 col-sm-8">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <tr>
+                                <td>Name</td>
+                                <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Rank</td>
+                                <td><?php echo "{$_SESSION['UserRank'] }";?></td>
+                            </tr>
+                            <tr>
+                                <td>Hostel</td>
+                                <td><?php echo "{$_SESSION['UserHostel'] }";?></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
 
             </div>
             <ol class="breadcrumb">
@@ -146,13 +198,22 @@ include "../connection.php";
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading" > Inventory Items </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background-color: #999999"> Inventory Items </div>
                             <div class="panel-body">
-                                <div class="btn-group btn-group-lg">
-                                    <a href="ViewInventory.php" class="btn btn-primary">Return To Inventory</a>
+                                <div class="col-md-3">
+                                    <div class="btn-group btn-group-sm btn-group-vertical" style="padding-top: 40pt">
+                                        <a href="InventoryItems.php" class="btn btn-default active-menu" style="background-color: #999999;color: white">View All Items</a>
+                                        <a href="RemainingInventory.php" class="btn btn-default" style="background-color: #999999;color: white">Remaining Inventory</a>
+                                        <a href="PurchasedHistory.php" class="btn btn-default" style="background-color: #999999;color: white">Purchased History</a>
+                                        <a href="UsedItemsHistory.php" class="btn btn-default" style="background-color: #999999;color: white">Used Items History</a>
+                                        <a href="AccountPayable.php" class="btn btn-default" style="background-color: #999999;color: white">Account Payable</a>
+                                        <a href="AccountReceivable.php" class="btn btn-default" style="background-color: #999999;color: white">Account Receivable/Received</a>
+                                        <a href="BankAmount.php" class="btn btn-default" style="background-color: #999999;color: white">Bank Amount</a>
+                                        <a href="PayableHistory.php" class="btn btn-default" style="background-color: #999999;color: white">Payable/Paid History</a>
+                                    </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-9">
 
                                     <div class="form-group ">
                                         <br>
@@ -186,7 +247,7 @@ include "../connection.php";
 
                                     </div>
 
-                                    <table class="table" id="result">
+                                    <table class="table table-striped table-bordered table-hover" id="result">
                                         <tr>
                                             <th>Item No</th>
                                             <th>Item Name</th>
