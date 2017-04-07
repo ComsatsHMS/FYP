@@ -12,6 +12,7 @@
         header("location:http://localhost/FYP/PHP/AdminPortal/List_Emoloyees.php");
       }
       else if(isset($_GET['id1'])){
+          echo "pakistan";
          $value= $_GET['id1'];
          $sql="delete from users WHERE userid=$value";
          $run = mysqli_query($connection, $sql);
@@ -31,6 +32,8 @@
           $insert1 = "UPDATE   users SET status = TRUE WHERE userid='$value' ";
 
           mysqli_query($connection, $insert1);
+          $insert2 = "insert into emp_rights VALUES ('$value','1','1','1','1','1','1','1','1','1','1')";
+          mysqli_query($connection, $insert2);
           header("location:http://localhost/FYP/PHP/AdminPortal/Request.php");
 
 
