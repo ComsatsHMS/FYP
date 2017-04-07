@@ -96,21 +96,95 @@ include "../connection.php";
                         <div class="panel-heading" > Rights Assign to Employees </div>
                         <!--            Content Box Contents-->
                         <div class="panel-body">
-                            <h3>Check Tab Will only visible to Employee</h3>
-                        <form class="form-group form-horizontal" role="form" method="post" action="">
 
-                            <div><input type="checkbox" name="1"> <button class="btn btn-primary" >Hostel Application</button></div>
-                            <div><input type="checkbox" name="2"> <button class="btn btn-primary" >Allotment</button></div>
-                            <div><input type="checkbox" name="2"> <button class="btn btn-primary" >Student List</button></div>
-                            <div> <input type="checkbox" name3> <button class="btn btn-primary" >View Complain</button></div>
-                            <div> <input type="checkbox" name="4"> <button class="btn btn-primary" >View Application</button></div>
-                            <div>  <input type="checkbox" name="5"> <button class="btn btn-primary" >Statics</button></div>
-                            <div>  <input type="checkbox"name="6" > <button class="btn btn-primary" >Voting</button></div>
-                            <div>    <input type="checkbox" name="7" > <button class="btn btn-primary" >Fee/Fine</button></div>
-                            <div>    <input type="checkbox" name="8" > <button class="btn btn-primary" >View Inventory</button></div>
-                            <br>
-                            <br>
-                            <input type="submit" name="submit" value="Save" class="submit">
+                        <form class="form-group form-horizontal" role="form" method="post" action="update.php">
+                            <input type="hidden" name="h" value="<?php echo $_GET['id3'];?>">
+<?php
+                        $get_record = "select * from emp_rights  ";
+                        $run = mysqli_query($connection, $get_record);
+                        $value= $_GET["name"];
+                        $value1= $_GET["id3"];
+                        echo "<h3>Check Tab Will only visible to Employee $value </h3>";
+                        $get_record = "select * from emp_rights where userid=$value1";
+                        $run = mysqli_query($connection, $get_record);
+                        while ($each_record = mysqli_fetch_array($run)) {
+                            $app = $each_record['hostel_app'];
+                            $all = $each_record['allotment'];
+                            $list = $each_record['student_list'];
+                            $com = $each_record['view_com'];
+                            $view = $each_record['view_app'];
+                            $sat = $each_record['statics'];
+                            $voting = $each_record['voting'];
+                            $fee = $each_record['fee'];
+                            $inv = $each_record['inventry'];
+                            $par = $each_record['parents'];
+
+
+
+
+                            if ($app == 1) {
+                                echo "<div><input type=\"checkbox\" name=\"1\"  value='1' checked > <button class=\"btn btn-primary\"  >Hostel Application</button></div>";
+
+                            } else {
+                                echo "   <div><input type=\"checkbox\" name=\"1\"value='0' > <button class=\"btn btn-primary\"  >Hostel Application</button></div>";
+                            }
+                            if ($all == 1) {
+                                echo "<div><input type=\"checkbox\" name=\"2\" checked> <button class=\"btn btn-primary\" >Allotment</button></div>";
+                            } else {
+                                echo "<div><input type=\"checkbox\" name=\"2\" > <button class=\"btn btn-primary\" >Allotment</button></div>";
+                            }
+                            if ($list == 1) {
+                                echo " <div><input type=\"checkbox\" name=\"3\" checked> <button class=\"btn btn-primary\" >Student List</button></div>";
+                            } else {
+                                echo " <div><input type=\"checkbox\" name=\"3\"> <button class=\"btn btn-primary\" >Student List</button></div>";
+                            }
+                            if ($com == 1) {
+                                echo "<div><input type=\"checkbox\" name=\"4\" checked> <button class=\"btn btn-primary\" >View Complain</button></div>";
+                            }
+                            else{
+                                echo "<div><input type=\"checkbox\" name=\"4\" > <button class=\"btn btn-primary\" >View Complain</button></div>";
+                            }
+                            if ($view == 1) {
+                                echo " <div><input type=\"checkbox\" name=\"5\" checked> <button class=\"btn btn-primary\" >View Application</button></div>";
+                            } else {
+                                echo " <div><input type=\"checkbox\" name=\"5\" > <button class=\"btn btn-primary\" >View Application</button></div>";
+                            }
+                            if ($sat == 1) {
+                                echo "<div><input type=\"checkbox\" name=\"6\" checked> <button class=\"btn btn-primary\" >Statics</button></div>";
+                            } else {
+                                echo "<div><input type=\"checkbox\" name=\"6\" > <button class=\"btn btn-primary\" >Statics</button></div>";
+                            }
+                            if ($voting == 1) {
+                                echo " <div><input type=\"checkbox\"name=\"7\" checked> <button class=\"btn btn-primary\" >Voting</button></div>";
+
+                            } else {
+                                echo " <div><input type=\"checkbox\"name=\"7\"> <button class=\"btn btn-primary\" >Voting</button></div>";
+                            }
+                            if ($fee == 1) {
+                                echo "<div><input type=\"checkbox\" name=\"8\" checked > <button class=\"btn btn-primary\" >Fee/Fine</button></div>";
+                            } else {
+                                echo "<div><input type=\"checkbox\" name=\"8\" > <button class=\"btn btn-primary\" >Fee/Fine</button></div>";
+                            }
+                            if ($inv == 1) {
+                                echo " <div><input type=\"checkbox\" name=\"9\" checked > <button class=\"btn btn-primary\" >View Inventory</button></div>";
+                            } else {
+                                echo "<div><input type=\"checkbox\" name=\"9\"> <button class=\"btn btn-primary\" >View Inventory</button></div>";
+                            }
+                            if ($par == 1) {
+                                echo "<div><input type=\"checkbox\" name=\"10\" checked> <button class=\"btn btn-primary\" >Parents</button></div>";
+                            }
+                            else{
+                                echo "<div><input type=\"checkbox\" name=\"10\"> <button class=\"btn btn-primary\" >Parents</button></div>";
+                            }
+                        }
+
+echo '
+
+
+
+                            <input type="submit" name="submit" value="Update" class="submi">
+
+                            ';?>
 
                         </form>
 
