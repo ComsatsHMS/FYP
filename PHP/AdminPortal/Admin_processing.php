@@ -27,6 +27,12 @@
             $str =array_rand($charArray);
             $result=$charArray[$str];
          }
+          $result = "1234";
+          $sel = "select * from users where userid ='$value'";
+          $run =mysqli_query($connection,$sel);
+          while($rec = mysqli_fetch_array($run)){
+              $email = $rec['email'];
+          }
          $insert = "insert into user_login VALUES ('$value','$email','$result')";
          mysqli_query($connection, $insert);
           $insert1 = "UPDATE   users SET status = TRUE WHERE userid='$value' ";
