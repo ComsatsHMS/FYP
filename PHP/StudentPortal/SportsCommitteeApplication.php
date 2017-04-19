@@ -54,11 +54,8 @@ if(isset($_POST['submit'])){
                 <span class="icon-bar"></span>
             </button>
             <!--            <a class="navbar-brand" href="index.html"><strong><i class="icon fa fa-plane"></i> BRILLIANT</strong></a>-->
-            <a  class="navbar-brand" href="StudentPortal.php" id="sidebar-title">Student Portal</a>
+            <a class="navbar-brand" href="StudentPortal.php" id="sidebar-title">Student Portal</a>
 
-            <div id="sideNav" href="">
-                <i class="fa fa-bars icon"></i>
-            </div>
         </div>
 
         <ul class="nav navbar-top-links navbar-right">

@@ -64,8 +64,9 @@ if(isset($_POST['submit1'])) {
 
     } else
         $_SESSION['send'] = 'error';
+    header('Location: ApplicationForm.php');
 }
-header('Location: ApplicationForm.php');
+
 ?>
 
 

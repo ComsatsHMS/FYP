@@ -2,7 +2,6 @@
 include("../connection.php");
 
 if(isset($_POST['submit'])){
-echo "inside isset";
     $room_num = $_POST['num'];
     $hostel_Name = NULL;
     $application_no =$_POST['id'] ;
@@ -26,18 +25,19 @@ echo "inside isset";
     $insert="insert into hostel VALUES ('','$hostel_Name','$application_no','$room_num')";
     $transport = mysqli_query($connection,$insert);
     if($transport){
-        $select = "select * from oldstudentform where applicationNumber='$application_no'";
+        $select = "select o.*,h.HostelName from oldstudentform o,hostel h where o.applicationNumber='$application_no' AND h.applicationNumber='$application_no'";
         $run = mysqli_query($connection,$select);
         while ($each_record = mysqli_fetch_array($run)) {
             $student_name = $each_record['name'];
             $student_f_name = $each_record['fathername'];
+            $hostel_Name = $each_record['HostelName'];
             $student_contact = $each_record['mobileNo'];
             $student_contact_e = $each_record['cellNo'];
             $student_id = $each_record['studentid'];
             $student_program = $each_record['program'];
             $address = $each_record['address'];
             $pic = $each_record['photo'];
-            $insert = "insert into insertstudentprofile VALUES ('$student_name','$student_f_name','$student_id','$student_program','$room_num','','$student_contact',' $student_contact_e','$address','','$hostel_Name',$pic)";
+            $insert = "insert into insertstudentprofile VALUES ('$student_name','$student_f_name','$student_id','$student_program','$room_num','','$student_contact',' $student_contact_e','$address','','$hostel_Name','$pic')";
             $exec = mysqli_query($connection,$insert);
             if($exec){
                 $acc = "insert into loginoldstudent VALUES ('$student_id',12345)";
