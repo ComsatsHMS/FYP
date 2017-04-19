@@ -17,22 +17,6 @@
 </head>
 <body>
 <div id="wrapper" class="home-page">
-<div class="topbar">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-9">
-        <p class="pull-left hidden-xs"><?php echo date("  l,M Y ");?></p>
-		  </div>
-		  <div class="col-md-3">
-        <ul class="social-network">
-			  <li><a href="#" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-			  <li><a href="#" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-			  <li><a href="#" data-placement="bottom" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
-		  </ul>
-      </div>
-    </div>
-  </div>
-</div>
 	<!-- start header -->
 	<header>
         <div class="navbar navbar-default navbar-static-top">

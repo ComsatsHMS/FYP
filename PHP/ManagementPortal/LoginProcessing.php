@@ -60,7 +60,7 @@ if(isset($_POST['submit'])) {
                 }
 }
 else if(isset($_POST['SignUp'])) {
-    print_r($_POST);
+
     $FName = $_POST['FName'];
     $LName = $_POST['LName'];
     $Email = $_POST['Email'];
@@ -70,8 +70,8 @@ else if(isset($_POST['SignUp'])) {
     $ProfilePic=$_FILES["ProfilePic"]["name"];
     move_uploaded_file($_FILES["ProfilePic"]["tmp_name"],"../../IMAGES/".$ProfilePic);
     $PhoneNo = $_POST['PhoneNo'];
-    print_r($_FILES);
-    $q = "insert into users(userid,first_name,last_name,email,role,hostel,Address,picture,phone_no,status) VALUES ('','$FName' ,'$LName','$Email','$Rank','$hostel','$Address','$ProfilePic','$PhoneNo',0)";
+
+    $q = "insert into users(userid,first_name,last_name,email,role,hostel,address,picture,phone_no,status) VALUES ('','$FName' ,'$LName','$Email','$Rank','$hostel','$Address','$ProfilePic','$PhoneNo',0)";
     $query = mysqli_query($connection, $q);
     if($query){
         $_SESSION['SignUp'] = "OK";

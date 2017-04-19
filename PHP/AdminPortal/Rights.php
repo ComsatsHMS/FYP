@@ -147,9 +147,6 @@ include "../connection.php";
                                         $inv = $each_record['inventry'];
                                         $par = $each_record['parents'];
 
-
-
-
                                         if ($app == 1) {
                                             echo "<div><input type=\"checkbox\" name=\"1\"  value='1' checked > <button class=\"btn-justified btn btn-default\" style=\"background-color: #999999;color: white\"  >Hostel Application</button></div>";
 
