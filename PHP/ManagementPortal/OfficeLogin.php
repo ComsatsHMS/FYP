@@ -58,7 +58,7 @@ unset($_SESSION['SignUp']);
                     <div class="form-group">
                         <label class="control-label col-sm-2 textcolor" for="email">Email:</label>
                         <div class="col-md-6">
-                            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+                            <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
                         </div>
                     </div>
                     <div class="form-group">
