@@ -2,25 +2,7 @@
 session_start();
 error_reporting(0);
 ?>
-<?php
-if($_SESSION['LoginError']=="Error"){
-    echo "<script>
-     alert(\"Email or Password Incorrect!\");
-    </script>";
-}
-else if($_SESSION['SignUp']=="OK"){
-    echo "<script>
-     alert(\"Submitted! Temporary Password Will be sent to You on Email after Approval\");
-    </script>";
-}
-else if($_SESSION['SignUp']=="Error"){
-    echo "<script>
-     alert(\"Oops! Something Went Wrong\");
-    </script>";
-}
-unset($_SESSION['LoginError']);
-unset($_SESSION['SignUp']);
-?>
+
 <html lang="en">
 <head>
     <title>Management Login</title>
@@ -97,12 +79,6 @@ unset($_SESSION['SignUp']);
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label textcolor col-sm-2" for="profilepic">Picture:</label>
-                        <div class="col-md-6">
-                            <input type="file" class="form-control" id="ProfilePic" name="ProfilePic" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label class="control-label textcolor col-sm-2" for="pwd">Employment Rank:</label>
                         <div class="col-md-6">
                             <input type="text" class="form-control"  placeholder="Your Position" name="Rank" required>
@@ -128,6 +104,12 @@ unset($_SESSION['SignUp']);
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="control-label textcolor col-sm-2" for="profilepic">Picture:</label>
+                        <div class="col-md-6">
+                            <input type="file" class="form-control" id="ProfilePic" name="ProfilePic" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="col-md-6">
                             <input type="submit" value="Sign Up" name="SignUp">
                         </div>
@@ -138,3 +120,22 @@ unset($_SESSION['SignUp']);
 
 </body>
 </html>
+<?php
+if($_SESSION['LoginError']=="Error"){
+    echo "<script>
+     alert(\"Email or Password Incorrect!\");
+    </script>";
+}
+else if($_SESSION['SignUp']=="OK"){
+    echo "<script>
+     alert(\"Submitted! Temporary Password Will be sent to You on Email after Approval\");
+    </script>";
+}
+else if($_SESSION['SignUp']=="Error"){
+    echo "<script>
+     alert(\"Oops! Something Went Wrong\");
+    </script>";
+}
+unset($_SESSION['LoginError']);
+unset($_SESSION['SignUp']);
+?>

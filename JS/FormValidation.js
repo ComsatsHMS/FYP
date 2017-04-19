@@ -6,16 +6,17 @@ function Validate(){
         if (name.length==0) {
             document.getElementById("name_error").innerHTML = "Please fill out this field";
             document.getElementById("name").style.borderColor = "red";
+            return flase;
         }
         if (regexp1.test(document.forms["application"]["name"].value)) {
             document.getElementById("name_error").innerHTML = "Only Alphabats are Allowed";
             document.getElementById("name").style.borderColor = "red";
-
+            return flase;
         }
         if (name.length > 20) {
             document.getElementById("name").style.borderColor = "red";
             document.getElementById("name_error").innerHTML = "20 Alphabets are Allowed";
-
+            return flase;
         }
     }
     else{

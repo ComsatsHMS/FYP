@@ -61,13 +61,13 @@ else if(isset($_POST['SignUp'])) {
     $ProfilePic=$_FILES["ProfilePic"]["name"];
     move_uploaded_file($_FILES["ProfilePic"]["tmp_name"],"../../IMAGES/".$ProfilePic);
     $PhoneNo = $_POST['PhoneNo'];
-    $query = mysqli_query($connection, "insert into users VALUES ('','$FName' ,'$LName','$Email','$Rank','$hostel','$Address','$ProfilePic','$PhoneNo')");
-    /*if($query){
+    $query = mysqli_query($connection, "insert into users VALUES ('','$FName' ,'$LName','$Email','$Rank','$hostel','$Address','$ProfilePic','$PhoneNo','')");
+    if($query){
         $_SESSION['SignUp'] = "OK";
         header('Location:OfficeLogin.php');
     }else{
         $_SESSION['SignUp'] = "Error";
         header('Location:OfficeLogin.php');
-    }*/
+    }
 }
 ?>
