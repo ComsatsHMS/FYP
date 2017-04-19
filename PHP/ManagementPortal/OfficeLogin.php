@@ -97,12 +97,6 @@ unset($_SESSION['SignUp']);
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label textcolor col-sm-2" for="profilepic">Picture:</label>
-                        <div class="col-md-6">
-                            <input type="file" class="form-control" id="ProfilePic" name="ProfilePic" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label class="control-label textcolor col-sm-2" for="pwd">Employment Rank:</label>
                         <div class="col-md-6">
                             <input type="text" class="form-control"  placeholder="Your Position" name="Rank" required>
@@ -125,6 +119,12 @@ unset($_SESSION['SignUp']);
                         <label class="control-label textcolor col-sm-2" for="email">Phone No:</label>
                         <div class="col-md-6">
                             <input type="NUMBER" class="form-control"  placeholder="Enter Phone No" name="PhoneNo" required >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label textcolor col-sm-2" for="profilepic">Picture:</label>
+                        <div class="col-md-6">
+                            <input type="file" class="form-control" id="ProfilePic" name="ProfilePic" required>
                         </div>
                     </div>
                     <div class="form-group">
