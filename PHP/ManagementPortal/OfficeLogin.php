@@ -2,25 +2,7 @@
 session_start();
 error_reporting(0);
 ?>
-<?php
-if($_SESSION['LoginError']=="Error"){
-    echo "<script>
-     alert(\"Email or Password Incorrect!\");
-    </script>";
-}
-else if($_SESSION['SignUp']=="OK"){
-    echo "<script>
-     alert(\"Submitted! Temporary Password Will be sent to You on Email after Approval\");
-    </script>";
-}
-else if($_SESSION['SignUp']=="Error"){
-    echo "<script>
-     alert(\"Oops! Something Went Wrong\");
-    </script>";
-}
-unset($_SESSION['LoginError']);
-unset($_SESSION['SignUp']);
-?>
+
 <html lang="en">
 <head>
     <title>Management Login</title>
@@ -138,3 +120,22 @@ unset($_SESSION['SignUp']);
 
 </body>
 </html>
+<?php
+if($_SESSION['LoginError']=="Error"){
+    echo "<script>
+     alert(\"Email or Password Incorrect!\");
+    </script>";
+}
+else if($_SESSION['SignUp']=="OK"){
+    echo "<script>
+     alert(\"Submitted! Temporary Password Will be sent to You on Email after Approval\");
+    </script>";
+}
+else if($_SESSION['SignUp']=="Error"){
+    echo "<script>
+     alert(\"Oops! Something Went Wrong\");
+    </script>";
+}
+unset($_SESSION['LoginError']);
+unset($_SESSION['SignUp']);
+?>
