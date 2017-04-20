@@ -121,10 +121,10 @@ unset($_SESSION['Complain']);
             <ul class="nav" id="main-menu">
 
                 <li>
-                    <a href="StudentPortal.php"><i class="fa fa-user"></i> Profile</a>
+                    <a href="StudentPortal.php"><i class="fa fa-"></i> Profile</a>
                 </li>
                 <li>
-                    <a href="Notifications.php"><i class="fa fa-bell"></i> Notifications</a>
+                    <a href="Notifications.php"><i class="fa fa-"></i> Notifications</a>
                 </li>
 
                 <li>
@@ -180,19 +180,27 @@ unset($_SESSION['Complain']);
             <div class="page-header row">
                 <div class="col-md-3 col-xs-4 col-sm-4">
                     <a href="#">
-                        <img id="profile_pic" src="../../IMAGES/<?php echo"{$_SESSION['pic']}";?>" alt="profilepic" style="width: 100px; height: 100px";>
+                        <img id="profile_pic" src="../IMAGES/<?php echo"{$_SESSION['pic']}";?>" alt="profilepic" style="width: 100px; height: 100px";>
                     </a>
                 </div>
-
-                <h1 class="col-md-3 col-xs-5 col-sm-5" style="padding-top:15px;">
-                    Welcome <small> <?php echo "{$_SESSION['name']}"; ?></small>
-                </h1>
-                <h1 class="col-md-3 col-xs-3 col-sm-3"  style="padding-top:15px;">
-                    <?PHP echo "{$_SESSION['hostel']}";?>
-                </h1>
-                <h1 class="col-md-3 col-xs-12 col-sm-12" style="padding-top:15px;">
-                    Room No:<?php echo "{$_SESSION['room']}"; ?>
-                </h1>
+                <div class="col-md-6 col-xs-8 col-sm-8">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <tr>
+                                <td><strong>Welcome</strong></td>
+                                <td><?php echo "{$_SESSION['name'] }"; ?></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hostel</strong></td>
+                                <td><?php echo "{$_SESSION['hostelname'] }";?></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Room</strong></td>
+                                <td><?php echo "{$_SESSION['room'] }";?></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
             <ol class="breadcrumb">
                 <li><a href="../index.php">Home</a></li>
