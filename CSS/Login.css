@@ -175,6 +175,10 @@ textarea {
 .button:hover, .button:focus {
   background: #179b77;
 }
+.field-wrap {
+  position: relative;
+  margin-bottom: 40px;
+}
 
 .button-block {
   display: block;

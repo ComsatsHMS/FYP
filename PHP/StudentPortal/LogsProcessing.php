@@ -17,10 +17,11 @@ if(isset($_GET['SelectedLog'])){
 function getLogs()
 {
     $selected = $_SESSION['SelectedLog'];
+    $id       = $_SESSION['id'];
     global $connection;
     echo "Below are the LOGS for: " . "$selected";
 if($selected=='Complains') {
-    $get_record = "select ComplainID,ComplainType,ComplainText,Status,ViewBy from complaints where studentid={$_SESSION['id']}";
+    $get_record = "select ComplainID,ComplainType,ComplainText,Status,ViewBy from complaints where studentid='$id'";
     $run = mysqli_query($connection, $get_record);
     echo "<tr>
                                         <th>Complain ID</th>
@@ -51,7 +52,7 @@ if($selected=='Complains') {
     }
 }
 else{
-    $get_record = "select * from applications where studentid={$_SESSION['id']}";
+    $get_record = "select * from applications where studentid='$id'";
     $run = mysqli_query($connection, $get_record);
     echo "<tr>
                                         <th>Application No.</th>

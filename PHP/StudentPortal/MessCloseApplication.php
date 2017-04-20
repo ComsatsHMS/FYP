@@ -12,7 +12,7 @@ if(isset($_POST['messclose'])){
     $startDay = date('w', strtotime($firstdate));
     $endDay = date('w', strtotime($lastdate));
     if($firstdate >= $today  && $lastdate >= $firstdate && (($startDay==6 || $startDay==0) && ($endDay==6 || $endDay==0))){
-        $insert = "insert into applications VALUES ('','$s_id','$application_type','$application_details','$firstdate',' $lastdate','','')";
+        $insert = "insert into applications VALUES ('','$s_id','$application_type','$application_details','$firstdate','$lastdate','')";
         mysqli_query($connection, $insert);
         echo "<script type='text/javascript'>alert('Success! Application Submitted.');</script>";
     }else{

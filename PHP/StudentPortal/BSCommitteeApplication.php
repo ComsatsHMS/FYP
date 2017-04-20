@@ -6,7 +6,7 @@ if(isset($_POST['submit'])){
     $s_id = $_SESSION['id'];
     $application_type = "Blood Society";
     $application_details = $_POST['text'];
-    $insert = "insert into applications VALUES ('','$s_id','$application_type','$application_details','','','','')";
+    $insert = "insert into applications VALUES ('','$s_id','$application_type','$application_details','','','')";
     $query  = mysqli_query($connection, $insert);
     if($query){
         echo "<script type='text/javascript'>alert('Success! Application Submitted.');</script>";
