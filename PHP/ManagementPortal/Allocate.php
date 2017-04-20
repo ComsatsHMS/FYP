@@ -229,7 +229,7 @@ if (isset($_GET['selected'])){
                                                   <select name=\"hostels\" id=\"hostels\">
                                                         <option ><----Choose-----></option>
                                                         <option value=\"M.A Jinnah\" selected>M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\">Liaquat Hall</option>
+                                                        <option value=\"Liaquat Hall\">Liaqat Hall</option>
                                                         <option value=\"Jupitar Hall\" >Jupitar Hall</option>
                                                         <option value=\"Johar Hall\" >Johar Hall</option>
                                                   </select>
@@ -240,7 +240,7 @@ if (isset($_GET['selected'])){
                                                   <select name=\"hostels\" id=\"hostels\">
                                                         <option ><----Choose-----></option>
                                                         <option value=\"M.A Jinnah\" >M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\" selected>Liaquat Hall</option>
+                                                        <option value=\"Liaquat Hall\" selected>Liaqat Hall</option>
                                                         <option value=\"Jupitar Hall\" >Jupitar Hall</option>
                                                         <option value=\"Johar Hall\" >Johar Hall</option>
                                                   </select>
@@ -251,7 +251,7 @@ if (isset($_GET['selected'])){
                                                   <select name=\"hostels\" id=\"hostels\">
                                                         <option ><----Choose-----></option>
                                                         <option value=\"M.A Jinnah\" >M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\">Liaquat Hall</option>
+                                                        <option value=\"Liaquat Hall\">Liaqat Hall</option>
                                                         <option value=\"Jupitar Hall\" selected>Jupitar Hall</option>
                                                         <option value=\"Johar Hall\" >Johar Hall</option>
                                                   </select>
@@ -262,7 +262,7 @@ if (isset($_GET['selected'])){
                                                   <select name=\"hostels\" id=\"hostels\">
                                                         <option ><----Choose-----></option>
                                                         <option value=\"M.A Jinnah\" >M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\">Liaquat Hall</option>
+                                                        <option value=\"Liaquat Hall\">Liaqat Hall</option>
                                                         <option value=\"Jupitar Hall\" >Jupitar Hall</option>
                                                         <option value=\"Johar Hall\" selected>Johar Hall</option>
                                                   </select>
@@ -273,7 +273,7 @@ if (isset($_GET['selected'])){
                                                   <select name=\"hostels\" id=\"hostels\">
                                                         <option ><----Choose-----></option>
                                                         <option value=\"M.A Jinnah\" >M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\">Liaquat Hall</option>
+                                                        <option value=\"Liaquat Hall\">Liaqat Hall</option>
                                                         <option value=\"Jupitar Hall\" >Jupitar Hall</option>
                                                         <option value=\"Johar Hall\" >Johar Hall</option>
                                                   </select>
@@ -285,7 +285,7 @@ if (isset($_GET['selected'])){
                                                   <select name=\"hostels\" id=\"hostels\">
                                                         <option ><----Choose-----></option>
                                                         <option value=\"M.A Jinnah\" >M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\">Liaquat Hall</option>
+                                                        <option value=\"Liaquat Hall\">Liaqat Hall</option>
                                                         <option value=\"Jupitar Hall\" >Jupitar Hall</option>
                                                         <option value=\"Johar Hall\" >Johar Hall</option>
                                                   </select>

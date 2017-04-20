@@ -4,7 +4,7 @@ include "../connection.php";
 error_reporting(0);
 if(isset($_POST['messclose'])){
     $today = date("Y-m-d");
-    $application_type = "MessClose";
+    $application_type = "Mess Close";
     $application_details = $_POST['text'];
     $firstdate = $_POST['startdate'];
     $lastdate = $_POST['lastdate'];
