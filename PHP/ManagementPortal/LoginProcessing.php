@@ -12,6 +12,7 @@ if(isset($_POST['submit'])) {
         $db_password       = $db_data['password'];
         $db_userid = $db_data['userid'];
         if ($email == $db_email && $db_password == $password) {
+
             $query1 = mysqli_query($connection,"select * from users");
             while ($data = mysqli_fetch_array($query1)) {
                 $usrid = $data['userid'];

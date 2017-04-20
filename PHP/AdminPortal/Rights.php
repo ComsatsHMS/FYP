@@ -1,6 +1,8 @@
 <?php
 session_start();
-
+if(!isset($_SESSION['UserId'])){
+    header('Location: ../ManagementPortal/OfficeLogin.php');
+}
 include "../connection.php";
 ?>
 <!DOCTYPE html>
