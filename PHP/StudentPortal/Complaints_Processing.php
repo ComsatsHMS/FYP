@@ -5,10 +5,9 @@ error_reporting(0);
 if(isset($_POST['Submit'])) {
     $ComplainType = $_POST['ComplainType'];
     $ComplainText = $_POST['ComplainText'];
-    $StudentID =    $_SESSION['id'];
+    $StudentID    =    $_SESSION['id'];
     if(!empty($ComplainType) && !empty($ComplainText)){
-        $query = mysqli_query($connection, "insert into complaints VALUES ('','$ComplainType','$ComplainText',now(),$StudentID,'Pending','')");
-
+        $query = mysqli_query($connection, "insert into complaints VALUES ('','$ComplainType','$ComplainText',now(),'$StudentID','Pending','')");
         if($query){
             $_SESSION['Complain']="inserted";
         }

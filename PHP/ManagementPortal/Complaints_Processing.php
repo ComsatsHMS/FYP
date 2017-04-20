@@ -23,13 +23,13 @@ print_r($_POST);
 
 
 //for view complains on admin panel page
-if(isset($_GET['selected'])){
-    $_SESSION['selected'] = $_GET['selected'];
+if(isset($_GET['comphostel'])){
+    $_SESSION['comphostel'] = $_GET['comphostel'];
    header("location:http://localhost/FYP/PHP/ManagementPortal/ViewComplains.php");
 }
 
-if(isset($_GET['selected_'])){
-    $_SESSION['selected_'] = $_GET['selected_'];
+if(isset($_GET['comptype'])){
+    $_SESSION['comptype'] = $_GET['comptype'];
     echo "{$_SESSION['selected_']}";
    header("location:http://localhost/FYP/PHP/ManagementPortal/ViewComplains.php");
 }
@@ -42,15 +42,30 @@ if(isset($_POST['date'])){
 
 
 function getComplainDetails(){
-$selected_ = $_SESSION['selected_'];
-
-    $selected = $_SESSION['selected'];
-
+    $type = $_SESSION['comptype'];
+    $hostel = $_SESSION['comphostel'];
+    $date = $_SESSION['FetchDate'];
 global $connection;
-    if(isset($_SESSION['selected_'])){
-        echo "Below are the results for Choosen Type: "."$selected_";
-        $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid and c.ComplainType='$selected_' ORDER BY  ComplainID desc limit 5";
+    if(isset($_SESSION['comptype'])) {
+        $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid and c.ComplainType='$type' ORDER BY  ComplainID desc limit 5";
         $run = mysqli_query($connection, $get_record);
+        unset($_SESSION['comtype']);
+    }
+    else if(isset($_SESSION['comphostel'])) {
+        $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid and s.studentHostel='$hostel' ORDER BY  ComplainID desc limit 5";
+        $run = mysqli_query($connection, $get_record);
+        unset($_SESSION['comphostel']);
+    }
+
+    else if(isset($_SESSION['FetchDate'])){
+        $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid and c.Date like '$date%' ORDER BY  ComplainID desc limit 5";
+        $run = mysqli_query($connection, $get_record);
+        unset($_SESSION['FetchDate']);
+    }
+    else{
+        $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid ORDER BY  ComplainID desc limit 5";
+        $run = mysqli_query($connection, $get_record);
+    }
         while ($each_record = mysqli_fetch_array($run)){
 
             $Complain_ID = $each_record['ComplainID'];
@@ -79,107 +94,7 @@ global $connection;
             </tr>
         ";
         }
-    }
 
-  else if(isset($_SESSION['selected'])){
-        echo "Below are the results for Choosen Type: "."$selected";
-        $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid and s.studentHostel='$selected' ORDER BY  ComplainID desc limit 5";
-        $run = mysqli_query($connection, $get_record);
-        while ($each_record = mysqli_fetch_array($run)){
-
-            $Complain_ID = $each_record['ComplainID'];
-            $Complain_Type = $each_record['ComplainType'];
-            $Complain_Text = $each_record['ComplainText'];
-            $Complain_Date = $each_record['Date'];
-            $Student_Name  = $each_record['studentName'];
-            $Room_No  = $each_record['room'];
-            $Hostel= $each_record['studentHostel'];
-
-            $status = mysqli_query($connection, "select ViewBy,Status,ComplainID from complaints where ComplainID=$Complain_ID");
-            while ($each_record = mysqli_fetch_array($status)){
-                $status_ = $each_record['Status'];
-                $ViewBy  = $each_record['ViewBy'];
-
-            }
-            echo "
-            <tr><td> $Complain_ID </td>
-            <td> $Student_Name </td>
-            <td> $Room_No </td>
-            <td> $Complain_Type </td>
-            <td> $Complain_Date </td>
-            <td> $Hostel </td>
-            <td> <button type='button'  class='btn btn-success'><a href='ComplainsDisplay.php?id=$Complain_ID & room=$Room_No & name=$Student_Name & text=$Complain_Text'>$status_</a> </button> </td>
-             <td> $ViewBy </td>
-            </tr>
-        ";
-        }
-    }
-
-    else if(isset($_SESSION['FetchDate'])){
-        $date = $_SESSION['FetchDate'];
-        echo "Below are the results for Date: "."$date";
-        $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid and c.Date like '$date%' ORDER BY  ComplainID desc limit 5";
-        $run = mysqli_query($connection, $get_record);
-        while ($each_record = mysqli_fetch_array($run)){
-
-            $Complain_ID = $each_record['ComplainID'];
-            $Complain_Type = $each_record['ComplainType'];
-            $Complain_Text = $each_record['ComplainText'];
-            $Complain_Date = $each_record['Date'];
-            $Student_Name  = $each_record['studentName'];
-            $Room_No  = $each_record['room'];
-            $Hostel= $each_record['studentHostel'];
-            $status = mysqli_query($connection, "select ViewBy,Status,ComplainID from complaints where ComplainID=$Complain_ID");
-            while ($each_record = mysqli_fetch_array($status)){
-                $status_ = $each_record['Status'];
-                $ViewBy  = $each_record['ViewBy'];
-
-            }
-            echo "
-            <tr><td> $Complain_ID </td>
-            <td> $Student_Name </td>
-            <td> $Room_No </td>
-            <td> $Complain_Type </td>
-            <td> $Complain_Date </td>
-              <td> $Hostel </td>
-            <td> <button type='button'  class='btn btn-success'><a href='ComplainsDisplay.php?id=$Complain_ID & room=$Room_No & name=$Student_Name & text=$Complain_Text'>$status_</a> </button> </td>
-              <td> $ViewBy </td>
-            </tr>
-        ";
-        }
-
-    }
-    else{
-        $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid ORDER BY  ComplainID desc limit 5";
-        $run = mysqli_query($connection, $get_record);
-        while ($each_record = mysqli_fetch_array($run)){
-
-            $Complain_ID = $each_record['ComplainID'];
-            $Complain_Type = $each_record['ComplainType'];
-            $Complain_Text = $each_record['ComplainText'];
-            $Complain_Date = $each_record['Date'];
-            $Student_Name  = $each_record['studentName'];
-            $Room_No  = $each_record['room'];
-            $Hostel= $each_record['studentHostel'];
-            $status = mysqli_query($connection, "select ViewBy,Status,ComplainID from complaints where ComplainID=$Complain_ID");
-            while ($each_record = mysqli_fetch_array($status)){
-                $status_ = $each_record['Status'];
-                $ViewBy  = $each_record['ViewBy'];
-
-            }
-            echo "
-            <tr><td> $Complain_ID </td>
-            <td> $Student_Name </td>
-            <td> $Room_No </td>
-            <td> $Complain_Type </td>
-            <td> $Complain_Date </td>
-              <td> $Hostel </td>
-            <td> <button type='button'  class='btn btn-success'><a href='ComplainsDisplay.php?id=$Complain_ID & room=$Room_No & name=$Student_Name & text=$Complain_Text'>$status_</a> </button> </td>
-              <td> $ViewBy </td>
-            </tr>
-        ";
-        }
-    }
 
 
 }
