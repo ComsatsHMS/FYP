@@ -67,7 +67,7 @@ global $connection;
         $run = mysqli_query($connection, $get_record);
     }
         while ($each_record = mysqli_fetch_array($run)){
-
+            $Student_ID = $each_record['studentid'];
             $Complain_ID = $each_record['ComplainID'];
             $Complain_Type = $each_record['ComplainType'];
             $Complain_Text = $each_record['ComplainText'];
@@ -89,7 +89,7 @@ global $connection;
             <td> $Complain_Type </td>
             <td> $Complain_Date </td>
             <td> $Hostel </td>
-            <td> <button type='button'  class='btn btn-success'><a href='ComplainsDisplay.php?id=$Complain_ID & room=$Room_No & name=$Student_Name & text=$Complain_Text'>$status_</a> </button> </td>
+            <td> <button type='button'  class='btn btn-success'><a href='ComplainsDisplay.php?id=$Student_ID & room=$Room_No & name=$Student_Name & text=$Complain_Text'>$status_</a> </button> </td>
             <td> $ViewBy </td>
             </tr>
         ";

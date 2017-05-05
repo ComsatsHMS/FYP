@@ -280,3 +280,12 @@ unset($_SESSION['Complain']);
 
 </body>
 </html>
+<?php
+if ($_SESSION['Complain']=='inserted') {
+    echo "<script type='text/javascript'>alert('Complain Submitted');</script>";
+}
+else if ($_SESSION['Complain']=='error') {
+    echo "<script type='text/javascript'>alert('Error! Complain Cannot be Submitted');</script>";
+}
+unset($_SESSION['Complain']);
+?>

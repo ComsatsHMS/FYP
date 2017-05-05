@@ -10,7 +10,7 @@ $_type=$_GET['cause'];
 if(isset($_GET['naam'])){
     $_SESSION['hostel1']=$_hostel;
 
-    header("Location:http://localhost/FYP/PHP/UploadNotifications.php");
+    header("Location:http://localhost/FYP/PHP/ManagementPortal/MainApplicationOffice.php");
     die();
 
 
@@ -18,12 +18,8 @@ if(isset($_GET['naam'])){
 }
 if(isset($_GET['cause'])){
     $_SESSION['type1']=$_type;
-
-
-
-    header("Location:http://localhost/FYP/PHP/UploadNotifications.php");
+    header("Location:http://localhost/FYP/PHP/ManagementPortal/MainApplicationOffice.php");
     die();
-
 }
 
 
@@ -37,12 +33,15 @@ if(isset($_POST['upload'])) {
     $file = $_FILES["fileToUpload"]["name"];
     move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "../mydocs/" . $file);
 
-    $insert = "insert into notification VALUES ('','$_type','$_hostel','$date','$file')";
+    $insert = "insert into notification VALUES ('','$_type','$_hostel','$date','$file',0)";
     $transport = mysqli_query($connection, $insert);
     if ($transport) {
-        echo "true";
+        $_SESSION['Notification']="inserted";
     } else {
-        echo "false";
+        $_SESSION['Notification']="error";
     }
+    unset($_SESSION['hostel1']);
+    unset($_SESSION['type1']);
+    header("Location:http://localhost/FYP/PHP/ManagementPortal/MainApplicationOffice.php");
 }
 ?>

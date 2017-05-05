@@ -11,12 +11,9 @@ $query = mysqli_query($connection, "select ViewBy from complaints where Complain
 
 while ($db_data = mysqli_fetch_array($query)) {
     $ViewBy = $db_data['ViewBy'];
-    echo "in"."$ViewBy";
 }
 if($ViewBy==""){
-    echo "deep";
     $name = $_SESSION['UserFirstName']." ".$_SESSION['UserLastName'];
-    echo $name;
     $query = mysqli_query($connection, "update complaints set ViewBy='$name' where ComplainID='$ComplainID'");
 }
 ?>

@@ -222,6 +222,10 @@ include "../connection.php";
                                     <label>to</label>
                                     <input type=\"text\" name=\"end\">
                                 </div>
+                                <div class=\"col-md-3 col-xs-0\">
+                                    <label>Wing Name: </label>
+                                    <input type=\"text\" name=\"wingname\">
+                                </div>
                                  <div class=\"col-md-3 col-xs-0\">
                                 <input type=\"submit\" name=\"submit\" value=\"Select\">
                                 </div>";

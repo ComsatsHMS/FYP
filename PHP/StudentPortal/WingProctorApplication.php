@@ -3,7 +3,7 @@ session_start();
 include "../connection.php";
 error_reporting(0);
 if(isset($_POST['wingProctor'])){
-    $application_type = "WingProctor";
+    $application_type = "Wing Proctor";
     $application_details = $_POST['text'];
     $s_id = $_SESSION['id'];
     $insert = "insert into applications VALUES ('','$s_id','$application_type','$application_details','','','')";
