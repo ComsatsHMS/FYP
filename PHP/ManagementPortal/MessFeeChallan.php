@@ -120,10 +120,10 @@ if(isset($_POST['submit'])){
                 }
                 if($_SESSION['Fine'] == 1){
                     echo "<li>
-                    <a href=\"#\"><i class=\"fa fa-\"></i> Fee/Fine <span class=\"fa arrow\"></span></a>
+                    <a href=\"#\" class=\"active-menu\"><i class=\"fa fa-\"></i> Fee/Fine <span class=\"fa arrow\"></span></a>
                     <ul class=\"nav nav-second-level\">
                         <li>
-                            <a href=\"MessFeeChallan.php\">Mess Fee Challan</a>
+                            <a href=\"MessFeeChallan.php\" class=\"active-menu\">Mess Fee Challan</a>
                         </li>
                         <li>
                             <a href=\"Fine.php\">Fine</a>

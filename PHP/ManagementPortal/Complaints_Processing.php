@@ -49,7 +49,7 @@ global $connection;
     if(isset($_SESSION['comptype'])) {
         $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid and c.ComplainType='$type' ORDER BY  ComplainID desc limit 5";
         $run = mysqli_query($connection, $get_record);
-        unset($_SESSION['comtype']);
+        unset($_SESSION['comptype']);
     }
     else if(isset($_SESSION['comphostel'])) {
         $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid and s.studentHostel='$hostel' ORDER BY  ComplainID desc limit 5";
