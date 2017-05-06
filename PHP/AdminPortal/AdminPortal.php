@@ -1,6 +1,7 @@
 <?php
-session_start();
-
+include "../connection.php";
+include "Admin_processing.php";
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -118,8 +119,41 @@ session_start();
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
                         <div class="panel panel-primary">
-
-
+                            <?php
+                            if($_SESSION['InsertHostel'] == "inserted"){
+                                echo "<div class=\"alert alert-success\">
+                                        <strong>Success!</strong> Hostel Added Successfully!!!
+                                        </div>";
+                            }
+                            else if($_SESSION['InsertHostel']=="error"){
+                                echo "<div class=\"alert alert-danger\">
+                                    <strong>Not Inserted!</strong> error!!
+                                     </div>";
+                            }
+                            unset($_SESSION['InsertHostel']);
+                            ?>
+                            <div class="form-group">
+                                <form action="Admin_processing.php" method="post">
+                                    <label for="NewHostel">Enter Hostel Name: </label>
+                                    <input type="text" name="NewHostel" id="NewHostel">
+                                    <label for="NewHostel">Total Rooms: </label>
+                                    <input type="text" name="TotalRooms" id="TotalRooms">
+                                    <label for="NewHostel">Persons Space: </label>
+                                    <input type="text" name="TotalPersons" id="TotalPersons">
+                                    <input type="submit" value="Add Hostel" name="AddHostel">
+                                </form>
+                            </div>
+                                <table class="table table-striped table-bordered table-hover" id="hostels">
+                                    <tr>
+                                        <th>Hostel Name</th>
+                                        <th>Total Rooms</th>
+                                        <th>Persons Space</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                    <?php
+                                      getHostels();
+                                    ?>
+                                </table>
                         </div>
                     </div>
                 </div>
@@ -133,6 +167,7 @@ session_start();
 
     <!-- /. PAGE WRAPPER  -->
 </div>
+
 <!-- /. WRAPPER  -->
 <!-- JS Scripts-->
 <!-- jQuery Js -->

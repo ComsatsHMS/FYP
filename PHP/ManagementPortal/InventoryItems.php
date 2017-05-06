@@ -223,7 +223,6 @@ include "../connection.php";
                                             <input type="text" name="ItemName" id="ItemName">
                                             <input type="submit" name="SearchItem" value="search">
                                         </form>
-
                                     </div>
                                     <div class="form-group ">
                                         <form action="InventoryProcessing.php" method="post">
@@ -251,20 +250,13 @@ include "../connection.php";
                                         <tr>
                                             <th>Item No</th>
                                             <th>Item Name</th>
-
                                         </tr>
-
                                         <?php
                                         getItems();
-
                                         ?>
-
-
                                     </table>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>

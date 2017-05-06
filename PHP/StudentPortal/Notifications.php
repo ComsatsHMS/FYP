@@ -118,7 +118,7 @@ include "NotificationViewprocessing.php";
                     <a href="StudentPortal.php"><i class="fa fa-"></i> Profile</a>
                 </li>
                 <li>
-                    <a href="Notifications.php"><i class="fa fa-"></i> Notifications</a>
+                    <a class="active-menu" href="Notifications.php"><i class="fa fa-"></i> Notifications</a>
                 </li>
 
                 <li>
