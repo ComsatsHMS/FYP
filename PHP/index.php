@@ -9,9 +9,9 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 <!-- css -->
-<link href="css/bootstrap.min.css" rel="stylesheet" />
-<link href="css/flexslider.css" rel="stylesheet" /> 
-<link href="css/style.css" rel="stylesheet" />
+<link href="../CSS/bootstrap.min.css" rel="stylesheet" />
+<link href="../CSS/flexslider.css" rel="stylesheet" />
+<link href="../CSS/style.css" rel="stylesheet" />
 
 
 </head>

@@ -6,13 +6,14 @@ if(!isset($_SESSION['UserId'])){
 //error_reporting(0);
 include "../connection.php";
 $ComplainID = $_GET['id'];
+global $ViewBy;
 $query = mysqli_query($connection, "select ViewBy from complaints where ComplainID='$ComplainID'");
 
 while ($db_data = mysqli_fetch_array($query)) {
     $ViewBy = $db_data['ViewBy'];
 }
 if($ViewBy==""){
-    $name = $_SESSION['PName'];
+    $name = $_SESSION['UserFirstName']." ".$_SESSION['UserLastName'];
     $query = mysqli_query($connection, "update complaints set ViewBy='$name' where ComplainID='$ComplainID'");
 }
 ?>

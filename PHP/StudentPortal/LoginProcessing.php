@@ -3,13 +3,13 @@ include "../connection.php";
 error_reporting(0);
 session_start();
 if(isset($_POST['submit'])) {
+    print_r($_POST);
     $degreeProgram = $_POST['degree'];
     $year       = $_POST['fall'];
     $program    = $_POST['degreeProgram'];
     $rollNumber = $_POST['rollNumber'];
     $studentID  = $_POST['degree'].'-'.$_POST['fall'].'-'.$_POST['degreeProgram'].'-'.$_POST['rollNumber'];
     $password=$_POST['check'];
-    echo "$studentID";
 
     $query  = "select password from loginoldstudent where studentid = '$studentID' ";
     $result = mysqli_query($connection, $query);
@@ -29,7 +29,8 @@ if(isset($_POST['submit'])) {
             $_SESSION['contact']=$db_data['contact'];
             $_SESSION['phone']=$db_data['phone'];
             $_SESSION['address']=$db_data['adress'];
-            $_SESSION['hostel']=$db_data['studentHostel'];
+            $_SESSION['hostelname']=$db_data['studentHostel'];
+            echo "{$_SESSION['hostel']}";
             $_SESSION['pic']=$db_data['Pic'];
         }
         header('Location:StudentPortal.php');

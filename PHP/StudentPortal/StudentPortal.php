@@ -109,12 +109,9 @@ error_reporting(0);
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-<!--            <a class="navbar-brand" href="index.html"><strong><i class="icon fa fa-plane"></i> BRILLIANT</strong></a>-->
-            <a  class="navbar-brand" href="StudentPortal.php" id="sidebar-title">Student Portal</a>
+            <!--            <a class="navbar-brand" href="index.html"><strong><i class="icon fa fa-plane"></i> BRILLIANT</strong></a>-->
+            <a class="navbar-brand" href="StudentPortal.php" id="sidebar-title">Student Portal</a>
 
-            <div id="sideNav" href="">
-                <i class="fa fa-bars icon"></i>
-            </div>
         </div>
 
         <ul class="nav navbar-top-links navbar-right">
@@ -186,10 +183,10 @@ error_reporting(0);
             <ul class="nav" id="main-menu">
 
                 <li>
-                    <a class="active-menu" href="StudentPortal.php"><i class="fa fa-user"></i> Profile</a>
+                    <a href="StudentPortal.php"><i class="fa fa-"></i> Profile</a>
                 </li>
                 <li>
-                    <a href="Notifications.php"><i class="fa fa-bell"></i> Notifications</a>
+                    <a href="Notifications.php"><i class="fa fa-"></i> Notifications</a>
                 </li>
 
                 <li>
@@ -245,19 +242,27 @@ error_reporting(0);
           <div class="page-header row">
               <div class="col-md-3 col-xs-4 col-sm-4">
                   <a href="#">
-                      <img id="profile_pic" src="../../IMAGES/<?php echo"{$_SESSION['pic']}";?>" alt="profilepic" style="width: 100px; height: 100px";>
+                      <img id="profile_pic" src="../IMAGES/<?php echo"{$_SESSION['pic']}";?>" alt="profilepic" style="width: 100px; height: 100px";>
                   </a>
               </div>
-
-            <h1 class="col-md-3 col-xs-5 col-sm-5" style="padding-top:15px;">
-                Welcome <small> <?php echo "{$_SESSION['name']}"; ?></small>
-            </h1>
-              <h1 class="col-md-3 col-xs-3 col-sm-3"  style="padding-top:15px;">
-               <?PHP echo "{$_SESSION['hostel']}";?>
-              </h1>
-              <h1 class="col-md-3 col-xs-12 col-sm-12" style="padding-top:15px;">
-                  Room No:<?php echo "{$_SESSION['room']}"; ?>
-              </h1>
+              <div class="col-md-6 col-xs-8 col-sm-8">
+                  <div class="table-responsive">
+                      <table class="table table-striped table-bordered table-hover">
+                          <tr>
+                              <td><strong>Welcome</strong></td>
+                              <td><?php echo "{$_SESSION['name'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
+                          </tr>
+                          <tr>
+                              <td><strong>Hostel</strong></td>
+                              <td><?php echo "{$_SESSION['hostelname'] }";?></td>
+                          </tr>
+                          <tr>
+                              <td><strong>Room</strong></td>
+                              <td><?php echo "{$_SESSION['room'] }";?></td>
+                          </tr>
+                      </table>
+                  </div>
+              </div>
           </div>
             <ol class="breadcrumb">
                 <li><a href="../index.php">Home</a></li>

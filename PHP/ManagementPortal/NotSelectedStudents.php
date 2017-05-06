@@ -205,6 +205,7 @@ include ("phpFunctions.php");
                                         <th>Student Name</th>
                                         <th>Father Name</th>
                                         <th>Student id</th>
+                                        <th>Student Details</th>
                                     </tr>
                                     <?php
                                     getNotSelectedStudentsList();

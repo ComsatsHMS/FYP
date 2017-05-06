@@ -209,9 +209,9 @@ error_reporting(0);
                                     ?>
                                 </table>
                                 <?php
-                                    if(!isset($_GET['chec'])){
-                                        echo "<button type='button' class='btn btn-default' style=\"float: right\"><a href='Check.php?id=$applicationNo'>check</a></button>";
-                                    }
+                                   // if(!isset($_GET['chec'])){
+                                        echo "<a class='btn btn-default' style='float: right' href='Check.php?id=$applicationNo'>check</a>";
+                                 //   }
                                 ?>
 
                             </div>

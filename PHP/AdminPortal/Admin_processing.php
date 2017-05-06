@@ -1,6 +1,6 @@
 
 <?php
-
+    session_start();
    include "../connection.php";
 
      if(isset($_GET['id'])){
@@ -41,11 +41,46 @@
           $insert2 = "insert into emp_rights VALUES ('$value','1','1','1','1','1','1','1','1','1','1')";
           mysqli_query($connection, $insert2);
           header("location:http://localhost/FYP/PHP/AdminPortal/Request.php");
-
-
-
-
       }
+     else if(isset($_POST['AddHostel'])){
+
+         $HostelName = $_POST['NewHostel'];
+         $HostelRooms = $_POST['TotalRooms'];
+         $PersonsSpace = $_POST['TotalPersons'];
+
+        $insert = mysqli_query($connection,"insert into hostelslist VALUES ('$HostelName','$HostelRooms','$PersonsSpace')");
+         if($insert){
+             $_SESSION['InsertHostel'] = "inserted";
+         }
+         else{
+             $_SESSION['InsertHostel'] = "error";
+         }
+         header("location:http://localhost/FYP/PHP/AdminPortal/AdminPortal.php");
+     }
+     else if(isset($_GET['delete'])){
+         $HostelName = $_GET['delete'];
+         $delete = mysqli_query($connection,"delete from hostelslist where HostelName='$HostelName'");
+         header("location:http://localhost/FYP/PHP/AdminPortal/AdminPortal.php");
+     }
+function getHostels(){
+    global $connection;
+        $run = mysqli_query($connection, "select * from HostelsList");
+    while ($each_record = mysqli_fetch_array($run)) {
+        $HostelName = $each_record['HostelName'];
+        $TotalRooms = $each_record['TotalRooms'];
+        $TotalPersons = $each_record['TotalSpace'];
+        echo "
+            <tr>
+            <td> $HostelName </td>
+            <td> $TotalRooms </td>
+            <td> $TotalPersons </td>
+            <td><a class='btn btn-danger' href='Admin_processing.php?delete=$HostelName'>Delete</a></td>
+            </tr>
+        ";
+
+    }
+
+}
 ?>
 
 

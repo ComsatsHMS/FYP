@@ -204,7 +204,7 @@ include "../connection.php";
                                     <div class="form-group ">
                                         <table class="table table-striped table-bordered table-hover">
                                             <?php
-                                            $applicationNo = $_SESSION['applicationNo'];
+                                            $applicationNo = $_GET['id'];
                                             checkRecord($applicationNo);
                                             ?>
 

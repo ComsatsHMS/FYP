@@ -3,7 +3,7 @@ session_start();
 if(!isset($_SESSION['UserId'])){
     header('Location:OfficeLogin.php');
 }
-//include("phpFunctions.php");
+include("phpFunctions.php");
 include ("../connection.php");
 $studentsCount = 0;
 $applicationNumber = array();
@@ -214,9 +214,16 @@ if (isset($_GET['selected'])){
                             <div class="panel-heading" style="background-color: #999999"> Allocate Room And Hostel </div>
                             <div class="panel-body">
                                 <form role="form" action="phpFunctions.php" method="post" enctype="multipart/form-data">
+                                    <div class="col-md-6">
                                     <div class="form-group ">
                                         <label>Student Application no.</label>
                                         <input type="number" class="form-control" style="width: 80px" id="id" name="id" value="<?php echo $_GET['id'];?>" readonly>
+                                        <?php
+                                        if($_GET['newStd'] == 0)
+                                            echo "<strong> Old Student </strong>";
+                                        elseif($_GET['newStd'] == 1)
+                                            echo "<strong> New Student </strong>";
+                                        ?>
                                     </div>
                                     <div class="form-group">
                                         <label>choose Hostel: </label>
@@ -229,7 +236,7 @@ if (isset($_GET['selected'])){
                                                   <select name=\"hostels\" id=\"hostels\">
                                                         <option ><----Choose-----></option>
                                                         <option value=\"M.A Jinnah\" selected>M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\">Liaquat Hall</option>
+                                                        <option value=\"Liaquat Hall\">Liaqat Hall</option>
                                                         <option value=\"Jupitar Hall\" >Jupitar Hall</option>
                                                         <option value=\"Johar Hall\" >Johar Hall</option>
                                                   </select>
@@ -240,7 +247,7 @@ if (isset($_GET['selected'])){
                                                   <select name=\"hostels\" id=\"hostels\">
                                                         <option ><----Choose-----></option>
                                                         <option value=\"M.A Jinnah\" >M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\" selected>Liaquat Hall</option>
+                                                        <option value=\"Liaquat Hall\" selected>Liaqat Hall</option>
                                                         <option value=\"Jupitar Hall\" >Jupitar Hall</option>
                                                         <option value=\"Johar Hall\" >Johar Hall</option>
                                                   </select>
@@ -251,7 +258,7 @@ if (isset($_GET['selected'])){
                                                   <select name=\"hostels\" id=\"hostels\">
                                                         <option ><----Choose-----></option>
                                                         <option value=\"M.A Jinnah\" >M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\">Liaquat Hall</option>
+                                                        <option value=\"Liaquat Hall\">Liaqat Hall</option>
                                                         <option value=\"Jupitar Hall\" selected>Jupitar Hall</option>
                                                         <option value=\"Johar Hall\" >Johar Hall</option>
                                                   </select>
@@ -262,7 +269,7 @@ if (isset($_GET['selected'])){
                                                   <select name=\"hostels\" id=\"hostels\">
                                                         <option ><----Choose-----></option>
                                                         <option value=\"M.A Jinnah\" >M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\">Liaquat Hall</option>
+                                                        <option value=\"Liaquat Hall\">Liaqat Hall</option>
                                                         <option value=\"Jupitar Hall\" >Jupitar Hall</option>
                                                         <option value=\"Johar Hall\" selected>Johar Hall</option>
                                                   </select>
@@ -273,7 +280,7 @@ if (isset($_GET['selected'])){
                                                   <select name=\"hostels\" id=\"hostels\">
                                                         <option ><----Choose-----></option>
                                                         <option value=\"M.A Jinnah\" >M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\">Liaquat Hall</option>
+                                                        <option value=\"Liaquat Hall\">Liaqat Hall</option>
                                                         <option value=\"Jupitar Hall\" >Jupitar Hall</option>
                                                         <option value=\"Johar Hall\" >Johar Hall</option>
                                                   </select>
@@ -285,7 +292,7 @@ if (isset($_GET['selected'])){
                                                   <select name=\"hostels\" id=\"hostels\">
                                                         <option ><----Choose-----></option>
                                                         <option value=\"M.A Jinnah\" >M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\">Liaquat Hall</option>
+                                                        <option value=\"Liaquat Hall\">Liaqat Hall</option>
                                                         <option value=\"Jupitar Hall\" >Jupitar Hall</option>
                                                         <option value=\"Johar Hall\" >Johar Hall</option>
                                                   </select>
@@ -314,11 +321,16 @@ if (isset($_GET['selected'])){
                                             var roomNum = $(this).val();
                                             var sh = $("#hostels").val();
                                             var sid = $("#id").val();
-                                            self.location = "Allocate.php?selected="+roomNum+"&id="+sid+"&sh="+sh;
+                                            var newStd = $("#newStd").val();
+                                            self.location = "Allocate.php?selected="+roomNum+"&id="+sid+"&sh="+sh+"&newStd="+newStd;
                                         })
                                     </script
                                     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
+                                        <div class="form-group ">
+                                            <button type='submit' name="submit" class="btn btn-success">Allot</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
                                     <div class="form-group ">
                                         <label >Students Allocated to selected Room</label>
                                         <input type="number" class="form-control" style="width: 80px" value="<?php {echo $studentsCount;}?>" readonly>
@@ -360,10 +372,8 @@ if (isset($_GET['selected'])){
 
                                         </table>
                                     </div>
-                                    <div class="form-group ">
+                                        </div>
 
-                                        <button type='submit' name="submit" class="btn btn-success">allot</button>
-                                    </div>
 
                                 </form>
                             </div>

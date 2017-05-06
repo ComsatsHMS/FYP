@@ -198,7 +198,64 @@ include "../connection.php";
                     <div class="board">
                         <div class="panel panel-primary">
 
+                            <div class="row">
 
+                                <div class="col-md-4">
+                                    <label >Hostel Name</label>
+                                    <select class="form-control" id="hostel" name="hostel">
+                                        <option>
+                                            <?php
+                                            if(isset($_SESSION['hostel1'])){
+                                                echo $_SESSION['hostel1'];
+                                            }
+                                            ?>
+                                        </option>
+                                        <option>M.A Jinnah</option>
+                                        <option>Liaqat Hall</option>
+                                        <option>Johar Hall</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label >Notification Type</label>
+                                    <select class="form-control" id="type" name="type">
+                                        <option>
+                                            <?php
+                                            if(isset($_SESSION['type1'])){
+                                                echo $_SESSION['type1'];
+                                            }
+                                            ?>
+                                        </option>
+                                        <option>Mess Notification</option>
+                                        <option>Hostel Timing</option>
+                                        <option>Trip Notification</option>
+                                        <option>Guest Notification</option>
+                                    </select>
+                                </div>
+                                <script>
+                                    $("#hostel").on("change", function(){
+                                        var name = $(this).val();
+                                        window.location = "upload.php?naam="+name;
+                                    })
+                                </script>
+                                <script>
+                                    $("#type").on("change", function(){
+                                        var cause= $(this).val();
+                                        window.location = "upload.php?cause="+cause;
+                                    })
+                                </script>
+                                <div class="col-md-4" >
+                                    <label for="date">Date: </label>
+                                    <form method="POST" action="upload.php" enctype="multipart/form-data">
+
+                                        <input class="form-control" type="date" name="date" id="date">
+
+                                        <div class="form-group ">
+                                            *.txt file only  <input type="file"  name="fileToUpload" id="fileToUpload" >
+                                            <input type="submit" value="Upload Notification" name="upload" id="upload" style="float: right">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -242,3 +299,12 @@ include "../connection.php";
 
 </body>
 </html>
+<?php
+if ($_SESSION['Notification']=='inserted') {
+    echo "<script type='text/javascript'>alert('Notification Uploaded!!');</script>";
+}
+else if ($_SESSION['Notification']=='error') {
+    echo "<script type='text/javascript'>alert('Error! Notification Cannot be Uploaded!!');</script>";
+}
+unset($_SESSION['Notification']);
+?>

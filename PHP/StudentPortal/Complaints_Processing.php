@@ -5,10 +5,9 @@ error_reporting(0);
 if(isset($_POST['Submit'])) {
     $ComplainType = $_POST['ComplainType'];
     $ComplainText = $_POST['ComplainText'];
-    $StudentID =    $_SESSION['id'];
+    $StudentID    =    $_SESSION['id'];
     if(!empty($ComplainType) && !empty($ComplainText)){
-        $query = mysqli_query($connection, "insert into complaints VALUES ('','$ComplainType','$ComplainText',now(),$StudentID,'Pending','')");
-
+        $query = mysqli_query($connection, "insert into complaints VALUES ('','$ComplainType','$ComplainText',now(),'$StudentID','Pending','')");
         if($query){
             $_SESSION['Complain']="inserted";
         }
@@ -48,9 +47,10 @@ global $connection;
       unset($_SESSION['date']);
     }
     else{
-        $query = mysqli_query($connection,"select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid ORDER BY  ComplainID desc limit 5");
+        $query = mysqli_query($connection,"select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid ORDER BY  c.ComplainID desc limit 5");
     }
     while ($each_record = mysqli_fetch_array($query)){
+
             $Student_ID    = $each_record['studentid'];
             $Complain_ID   = $each_record['ComplainID'];
             $Complain_Type = $each_record['ComplainType'];
@@ -59,7 +59,7 @@ global $connection;
             $Student_Name  = $each_record['studentName'];
             $Room_No       = $each_record['room'];
             $Hostel= $each_record['studentHostel'];
-            $fetch = mysqli_query($connection, "select w.*,c.ComplainID from wingproctorslist w,complaints c where w.studentID=$check ORDER BY  ComplainID desc limit 5");
+            $fetch = mysqli_query($connection, "select w.*,c.ComplainID from wingproctorslist w,complaints c where w.studentID='$check' ORDER BY  ComplainID desc limit 5");
             while ($each = mysqli_fetch_array($fetch)) {
                 $start = $each['start'];
                 $end = $each['end'];}
