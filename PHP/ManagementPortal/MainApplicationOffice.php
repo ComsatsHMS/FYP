@@ -163,7 +163,7 @@ include "../connection.php";
             <div class="page-header row">
                 <div class="col-md-3 col-xs-4 col-sm-4">
                     <a href="#">
-                        <img id="profile_pic" src="../../IMAGES/<?php echo"{$_SESSION['UserPic']}";?>" alt="profilepic" style="width: 120px; height: 120px";>
+                        <img id="profile_pic" src="../../IMAGES/<?php echo $_SESSION['UserPic'];?>" alt="profilepic" style="width: 120px; height: 120px";>
                     </a>
                 </div>
                 <div class="col-md-6 col-xs-8 col-sm-8">
