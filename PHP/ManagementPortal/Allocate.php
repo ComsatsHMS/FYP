@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 if(!isset($_SESSION['UserId'])){
     header('Location:OfficeLogin.php');
 }
@@ -209,30 +210,31 @@ if (isset($_GET['selected'])){
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
 
-                            <div class="panel-heading" style="background-color: #999999"> Allocate Room And Hostel </div>
+                            <div class="panel-heading">Allocation</div>
                             <div class="panel-body">
                                 <form role="form" action="phpFunctions.php" method="post" enctype="multipart/form-data">
                                     <div class="col-md-6">
-                                    <div class="form-group ">
-                                        <label>Student Application no.</label>
-                                        <input type="number" class="form-control" style="width: 80px" id="id" name="id" value="<?php echo $_GET['id'];?>" readonly>
-                                        <?php
-                                        if($_GET['newStd'] == 0)
-                                            echo "<strong> Old Student </strong>";
-                                        elseif($_GET['newStd'] == 1)
-                                            echo "<strong> New Student </strong>";
-                                        ?>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>choose Hostel: </label>
-                                        <?php
+                                        <div class="form-group ">
+                                            <label>Student Application no.</label>
+                                            <input type="number" class="form-control" style="width: 80px" id="id"
+                                                   name="id" value="<?php echo $_GET['id'];?>" readonly>
+                                            <?php
+                                            if ($_GET['newStd'] == 0)
+                                                echo "<strong> Old Student </strong>";
+                                            elseif ($_GET['newStd'] == 1)
+                                                echo "<strong> New Student </strong>";
+                                            ?>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>choose Hostel: </label>
+                                            <?php
 
-                                        if(isset($_GET['sh'])){
-                                            $temp = $_GET['sh'];
-                                            if ($temp == 'M.A Jinnah'){
-                                                echo "
+                                            if (isset($_GET['sh'])) {
+                                                $temp = $_GET['sh'];
+                                                if ($temp == 'M.A Jinnah') {
+                                                    echo "
                                                   <select name=\"hostels\" id=\"hostels\">
                                                         <option ><----Choose-----></option>
                                                         <option value=\"M.A Jinnah\" selected>M.A Jinnah</option>
@@ -241,9 +243,8 @@ if (isset($_GET['selected'])){
                                                         <option value=\"Johar Hall\" >Johar Hall</option>
                                                   </select>
                                                 ";
-                                            }
-                                            elseif ($temp == 'Liaquat Hall'){
-                                                echo "
+                                                } elseif ($temp == 'Liaquat Hall') {
+                                                    echo "
                                                   <select name=\"hostels\" id=\"hostels\">
                                                         <option ><----Choose-----></option>
                                                         <option value=\"M.A Jinnah\" >M.A Jinnah</option>
@@ -252,9 +253,8 @@ if (isset($_GET['selected'])){
                                                         <option value=\"Johar Hall\" >Johar Hall</option>
                                                   </select>
                                                 ";
-                                            }
-                                            elseif ($temp == 'Jupitar Hall'){
-                                                echo "
+                                                } elseif ($temp == 'Jupitar Hall') {
+                                                    echo "
                                                   <select name=\"hostels\" id=\"hostels\">
                                                         <option ><----Choose-----></option>
                                                         <option value=\"M.A Jinnah\" >M.A Jinnah</option>
@@ -263,9 +263,8 @@ if (isset($_GET['selected'])){
                                                         <option value=\"Johar Hall\" >Johar Hall</option>
                                                   </select>
                                                 ";
-                                            }
-                                            elseif ($temp == 'Johar Hall'){
-                                                echo "
+                                                } elseif ($temp == 'Johar Hall') {
+                                                    echo "
                                                   <select name=\"hostels\" id=\"hostels\">
                                                         <option ><----Choose-----></option>
                                                         <option value=\"M.A Jinnah\" >M.A Jinnah</option>
@@ -274,8 +273,19 @@ if (isset($_GET['selected'])){
                                                         <option value=\"Johar Hall\" selected>Johar Hall</option>
                                                   </select>
                                                 ";
-                                            }
-                                            else{
+                                                } else {
+                                                    echo "
+                                                  <select name=\"hostels\" id=\"hostels\">
+                                                        <option ><----Choose-----></option>
+                                                        <option value=\"M.A Jinnah\" >M.A Jinnah</option>
+                                                        <option value=\"Liaquat Hall\">Liaqat Hall</option>
+                                                        <option value=\"Jupitar Hall\" >Jupitar Hall</option>
+                                                        <option value=\"Johar Hall\" >Johar Hall</option>
+                                                  </select>
+                                                ";
+                                                }
+
+                                            } else {
                                                 echo "
                                                   <select name=\"hostels\" id=\"hostels\">
                                                         <option ><----Choose-----></option>
@@ -286,60 +296,51 @@ if (isset($_GET['selected'])){
                                                   </select>
                                                 ";
                                             }
+                                            ?>
+                                        </div>
 
-                                        }else{
-                                            echo "
-                                                  <select name=\"hostels\" id=\"hostels\">
-                                                        <option ><----Choose-----></option>
-                                                        <option value=\"M.A Jinnah\" >M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\">Liaqat Hall</option>
-                                                        <option value=\"Jupitar Hall\" >Jupitar Hall</option>
-                                                        <option value=\"Johar Hall\" >Johar Hall</option>
-                                                  </select>
-                                                ";
-                                        }
-                                        ?>
-                                    </div>
+                                        <div class="form-group ">
+                                            <label>Room No.</label>
+                                            <?php
+                                            if (isset($_GET['selected'])) {
+                                                $selc = $_GET['selected'];
+                                                echo "<input type=\"text\" value=\"$selc\" style=\"width: 150px\" class=\"form-control\" name=\"num\" id=\"roomNo\">";
+                                            } else {
+                                                echo "<input type=\"text\"  style=\"width: 150px\" class=\"form-control\" name=\"num\" id=\"roomNo\">";
 
-                                    <div class="form-group ">
-                                        <label >Room No.</label>
-                                        <?php
-                                        if(isset($_GET['selected'])){
-                                            $selc = $_GET['selected'];
-                                            echo "<input type=\"text\" value=\"$selc\" style=\"width: 150px\" class=\"form-control\" name=\"num\" id=\"roomNo\">";
-                                        }
-                                        else{
-                                            echo "<input type=\"text\"  style=\"width: 150px\" class=\"form-control\" name=\"num\" id=\"roomNo\">";
+                                            }
+                                            ?>
 
-                                        }
-                                        ?>
+                                        </div>
 
-                                    </div>
-
-                                    <script>
-                                        $("#roomNo").on("change", function(){
-                                            var roomNum = $(this).val();
-                                            var sh = $("#hostels").val();
-                                            var sid = $("#id").val();
-                                            var newStd = $("#newStd").val();
-                                            self.location = "Allocate.php?selected="+roomNum+"&id="+sid+"&sh="+sh+"&newStd="+newStd;
-                                        })
-                                    </script
-                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+                                        <script>
+                                            $("#roomNo").on("change", function () {
+                                                var roomNum = $(this).val();
+                                                var sh = $("#hostels").val();
+                                                var sid = $("#id").val();
+                                                var newStd = $("#newStd").val();
+                                                self.location = "Allocate.php?selected=" + roomNum + "&id=" + sid + "&sh=" + sh + "&newStd=" + newStd;
+                                            })
+                                        </script
+                                        <script
+                                            src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
                                         <div class="form-group ">
                                             <button type='submit' name="submit" class="btn btn-success">Allot</button>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                    <div class="form-group ">
-                                        <label >Students Allocated to selected Room</label>
-                                        <input type="number" class="form-control" style="width: 80px" value="<?php {echo $studentsCount;}?>" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <table class="table table-striped" style="max-width: 200pt;border: 0.5pt solid">
-                                            <?php
-                                            if($studentsCount > 0){
-                                                echo "<thead>
+                                        <div class="form-group ">
+                                            <label>Students Allocated to selected Room</label>
+                                            <input type="number" class="form-control" style="width: 80px" value="<?php {
+                                                echo $studentsCount;
+                                            }?>" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <table class="table table-striped"
+                                                   style="max-width: 200pt;border: 0.5pt solid">
+                                                <?php
+                                                if ($studentsCount > 0) {
+                                                    echo "<thead>
                                                         <tr>
                                                         <th>Application No.</th>
                                                             <th>Name</th>
@@ -347,32 +348,32 @@ if (isset($_GET['selected'])){
                                                             <th>Student Id</th>
                                                         </tr>
                                                       </thead><tbody>";
-                                                $iteration=0;
-                                                while ($iteration < $studentsCount){
-                                                    $get_record = "select * from oldstudentform WHERE applicationNumber = '$applicationNumber[$iteration]'";
-                                                    $run = mysqli_query($connection, $get_record);
-                                                    while ($each_record = mysqli_fetch_array($run)){
-                                                        $studentName = $each_record['name'];
-                                                        $studentFName = $each_record['fathername'];
-                                                        $studentId = $each_record['studentid'];
-                                                        $app = $each_record['applicationNumber'];
-                                                        echo "<tr>
+                                                    $iteration = 0;
+                                                    while ($iteration < $studentsCount) {
+                                                        $get_record = "select * from oldstudentform WHERE applicationNumber = '$applicationNumber[$iteration]'";
+                                                        $run = mysqli_query($connection, $get_record);
+                                                        while ($each_record = mysqli_fetch_array($run)) {
+                                                            $studentName = $each_record['name'];
+                                                            $studentFName = $each_record['fathername'];
+                                                            $studentId = $each_record['studentid'];
+                                                            $app = $each_record['applicationNumber'];
+                                                            echo "<tr>
                                                                     <td>$app</td>
                                                                     <td>$studentName</td>
                                                                     <td>$studentFName</td>
                                                                     <td>$studentId</td>
                                                               </tr>
                                                         ";
+                                                        }
+                                                        $iteration = $iteration + 1;
                                                     }
-                                                    $iteration = $iteration+1;
+                                                    echo "</tbody>";
                                                 }
-                                                echo "</tbody>";
-                                            }
-                                            ?>
+                                                ?>
 
-                                        </table>
-                                    </div>
+                                            </table>
                                         </div>
+                                    </div>
 
 
                                 </form>

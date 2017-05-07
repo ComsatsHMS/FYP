@@ -196,7 +196,7 @@ while($record = mysqli_fetch_array($exec)){
                                 <td><strong>Welcome</strong></td>
                                 <td><?php echo "{$_SESSION['name'] }"; ?></td>
                             </tr>
-                            <tr>
+                            <tr style="background-color: #f36a5a">
                                 <td><strong>Hostel</strong></td>
                                 <td><?php echo "{$_SESSION['hostelname'] }";?></td>
                             </tr>

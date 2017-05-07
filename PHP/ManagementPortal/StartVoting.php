@@ -210,11 +210,12 @@ if(isset($_POST['submit'])){
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: #999999"> Start Voting </div>
+                        <div class="panel panel-primary">
+
+                            <div class="panel-heading">Voting Start Panel</div>
                             <div class="panel-body">
 
-                                <form  action="StartVoting.php" method="post" enctype="multipart/form-data">
+                                <form action="StartVoting.php" method="post" enctype="multipart/form-data">
                                     <div class="align col-md-12 col-xs-12">
                                         <div class="form-Horizontal">
                                             <div class="form-group">
@@ -225,13 +226,13 @@ if(isset($_POST['submit'])){
                                                     <option value="lunchBreakfast">Lunch/breakfast</option>
                                                     <option value="messMenu">Mess Menu</option>
                                                     <option value="forTrip">For a Trip</option>
-                                                </select  >
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <label class="textcolor"> Voting Last date</label>
                                             </div>
                                             <div class="form-group">
-                                                <input type="date" name="date"   class="form-control"   style="width: 200px"">
+                                                <input type="date" name="date" class="form-control" style="width: 200px"">
                                             </div>
                                             <div class="form-group">
                                                 <input type="submit" name="submit" value="Start">

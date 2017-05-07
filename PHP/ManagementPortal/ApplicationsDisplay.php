@@ -199,8 +199,9 @@ error_reporting(0)
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: #999999"> Hostel Applications </div>
+                        <div class="panel panel-primary">
+
+                            <div class="panel-heading">Received Applications</div>
                             <div class="panel-body">
                                 <table class="table table-striped table-bordered table-hover">
 

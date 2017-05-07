@@ -195,14 +195,15 @@ include("Complaints_Processing.php");
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: #999999"> View Complains </div>
+                        <div class="panel panel-primary">
+
+                            <div class="panel-heading">All Complains</div>
                             <!--            Content Box Contents-->
                             <div class="panel-body">
                                 <div class="form-group ">
                                     <?php
-                                    $check1 =  $_GET['id'];
-                                    if(!$check1){
+                                    $check1 = $_GET['id'];
+                                    if (!$check1) {
                                         echo '  <label for="complain">Complain Type: </label>
                             <select  id="complainType" name="ComplainType">
                                 <option><----Choose-----></option>
@@ -224,22 +225,23 @@ include("Complaints_Processing.php");
                                 <label for="date">Date: </label>
                                 <input type="date" name="date">
                                 <input type="submit" value="Go">
-                            </form>';} ?>
+                            </form>';
+                                    } ?>
 
                                 </div>
 
                                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
                                 <script>
-                                    $("#hostel").on("change", function(){
+                                    $("#hostel").on("change", function () {
                                         var selected = $(this).val();
-                                        window.location = "Complaints_Processing.php?comphostel="+selected;
+                                        window.location = "Complaints_Processing.php?comphostel=" + selected;
                                     })
                                 </script>
                                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
                                 <script>
-                                    $("#complainType").on("change", function(){
+                                    $("#complainType").on("change", function () {
                                         var selected = $(this).val();
-                                        window.location = "Complaints_Processing.php?comptype="+selected;
+                                        window.location = "Complaints_Processing.php?comptype=" + selected;
                                     })
                                 </script>
 
@@ -256,7 +258,7 @@ include("Complaints_Processing.php");
                                         <th>View By</th>
                                     </tr>
                                     <?php
-                                        getComplainDetails();
+                                    getComplainDetails();
                                     ?>
 
                                 </table>

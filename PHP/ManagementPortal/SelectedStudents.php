@@ -196,8 +196,9 @@ include ("phpFunctions.php");
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: #999999"> Students List </div>
+                        <div class="panel panel-primary">
+
+                            <div class="panel-heading">Hostel Alotted Students List</div>
                             <div class="panel-body">
                                 <div class="form-group">
                                     <?php
@@ -220,9 +221,9 @@ include ("phpFunctions.php");
                                 </div>
                                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
                                 <script>
-                                    $("#hostel").on("change", function(){
+                                    $("#hostel").on("change", function () {
                                         var selected = $(this).val();
-                                        window.location = "SelectedStudents.php?selected="+selected;
+                                        window.location = "SelectedStudents.php?selected=" + selected;
                                     })
                                 </script>
                                 <table class="table table-striped table-bordered table-hover">
@@ -235,14 +236,13 @@ include ("phpFunctions.php");
                                         <th>Actions</th>
                                     </tr>
                                     <?php
-                                    if(isset($_POST['search'])){
+                                    if (isset($_POST['search'])) {
                                         $temp = $_POST['studentName'];
                                         studentSearchByName($temp);
-                                    }elseif(isset($_GET['selected'])){
+                                    } elseif (isset($_GET['selected'])) {
                                         $temp1 = $_GET['selected'];
                                         studentSearchByHostel($temp1);
-                                    }
-                                    else{
+                                    } else {
                                         getSelectedStudentsList();
                                     }
                                     ?>

@@ -197,8 +197,9 @@ include "../connection.php";
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: #999999"> Check and Validation of Student Record </div>
+                        <div class="panel panel-primary">
+
+                            <div class="panel-heading">Record Checking</div>
                             <div class="panel-body">
                                 <form role="form">
                                     <div class="form-group ">

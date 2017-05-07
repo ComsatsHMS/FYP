@@ -121,7 +121,7 @@ include "../connection.php";
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
                         <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: #999999"> Rights Assign to Employees </div>
+                            <div class="panel-heading">
                             <!--            Content Box Contents-->
                             <div class="panel-body">
 
@@ -130,8 +130,8 @@ include "../connection.php";
                                     <?php
                                     $get_record = "select * from emp_rights  ";
                                     $run = mysqli_query($connection, $get_record);
-                                    $value= $_GET["name"];
-                                    $value1= $_GET["id3"];
+                                    $value = $_GET["name"];
+                                    $value1 = $_GET["id3"];
                                     echo "<h3>Check Tabs Will only visible to Employee $value </h3>";
                                     $get_record = "select * from emp_rights where userid=$value1";
                                     $run = mysqli_query($connection, $get_record);
@@ -165,8 +165,7 @@ include "../connection.php";
                                         }
                                         if ($com == 1) {
                                             echo "<div><input type=\"checkbox\" name=\"4\" checked> <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >View Complain</button></div>";
-                                        }
-                                        else{
+                                        } else {
                                             echo "<div><input type=\"checkbox\" name=\"4\" > <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >View Complain</button></div>";
                                         }
                                         if ($view == 1) {
@@ -197,8 +196,7 @@ include "../connection.php";
                                         }
                                         if ($par == 1) {
                                             echo "<div><input type=\"checkbox\" name=\"10\" checked> <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >Parents</button></div>";
-                                        }
-                                        else{
+                                        } else {
                                             echo "<div><input type=\"checkbox\" name=\"10\"> <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >Parents</button></div>";
                                         }
                                     }

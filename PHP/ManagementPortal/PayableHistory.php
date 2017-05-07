@@ -215,26 +215,41 @@ include "../connection.php";
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: #999999"> Inventory System </div>
+                        <div class="panel panel-primary">
+
+                            <div class="panel-heading">Payable History</div>
                             <div class="panel-body">
                                 <div class="col-md-3">
                                     <div class="btn-group btn-group-sm btn-group-vertical" style="padding-top: 40pt">
-                                        <a href="InventoryItems.php" class="btn btn-default" style="background-color: #999999;color: white">View All Items</a>
-                                        <a href="RemainingInventory.php" class="btn btn-default" style="background-color: #999999;color: white">Remaining Inventory</a>
-                                        <a href="PurchasedHistory.php" class="btn btn-default" style="background-color: #999999;color: white">Purchased History</a>
-                                        <a href="UsedItemsHistory.php" class="btn btn-default" style="background-color: #999999;color: white">Used Items History</a>
-                                        <a href="AccountPayable.php" class="btn btn-default" style="background-color: #999999;color: white">Account Payable</a>
-                                        <a href="AccountReceivable.php" class="btn btn-default" style="background-color: #999999;color: white">Account Receivable/Received</a>
-                                        <a href="BankAmount.php" class="btn btn-default" style="background-color: #999999;color: white">Bank Amount</a>
-                                        <a href="PayableHistory.php" class="btn btn-default active-menu" style="background-color: #999999;color: white">Payable/Paid History</a>
+                                        <a href="InventoryItems.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">View All Items</a>
+                                        <a href="RemainingInventory.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Remaining Inventory</a>
+                                        <a href="PurchasedHistory.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Purchased History</a>
+                                        <a href="UsedItemsHistory.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Used Items History</a>
+                                        <a href="AccountPayable.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Account Payable</a>
+                                        <a href="AccountReceivable.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Account
+                                            Receivable/Received</a>
+                                        <a href="BankAmount.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Bank Amount</a>
+                                        <a href="PayableHistory.php" class="btn btn-default active-menu"
+                                           style="background-color: #999999;color: white">Payable/Paid History</a>
                                     </div>
-                                </div><br><br>
+                                </div>
+                                <br><br>
 
                                 <div class="col-md-9">
                                     <div class="btn-group btn-group-md col-md-offset-2">
-                                        <a href="javascript:showhide('Payable','PaidHistory','btn')" class="btn btn-default" style="background-color: #999999;color: white">View Payable</a>
-                                        <a href="javascript:showhide('Payable','PaidHistory','btn1')" class="btn btn-default" style="background-color: #999999;color: white">Paid History</a>
+                                        <a href="javascript:showhide('Payable','PaidHistory','btn')"
+                                           class="btn btn-default" style="background-color: #999999;color: white">View
+                                            Payable</a>
+                                        <a href="javascript:showhide('Payable','PaidHistory','btn1')"
+                                           class="btn btn-default" style="background-color: #999999;color: white">Paid
+                                            History</a>
                                     </div>
 
 
@@ -262,8 +277,9 @@ include "../connection.php";
                                             ?>
 
 
-                                        </table></div>
-                                    <div  id="Payable" style="display: none">
+                                        </table>
+                                    </div>
+                                    <div id="Payable" style="display: none">
                                         <div class="form-group ">
                                             <br>
                                             <form method="post" action="#Search">
@@ -286,13 +302,10 @@ include "../connection.php";
                                             ?>
 
 
-
-                                        </table></div>
+                                        </table>
+                                    </div>
 
                                 </div>
-
-
-
 
 
                             </div>

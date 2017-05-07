@@ -198,19 +198,29 @@ include "../connection.php";
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: #999999"> Inventory Items </div>
+                        <div class="panel panel-primary">
+
+                            <div class="panel-heading">Inventory Items</div>
                             <div class="panel-body">
                                 <div class="col-md-3">
                                     <div class="btn-group btn-group-sm btn-group-vertical" style="padding-top: 40pt">
-                                        <a href="InventoryItems.php" class="btn btn-default active-menu" style="background-color: #999999;color: white">View All Items</a>
-                                        <a href="RemainingInventory.php" class="btn btn-default" style="background-color: #999999;color: white">Remaining Inventory</a>
-                                        <a href="PurchasedHistory.php" class="btn btn-default" style="background-color: #999999;color: white">Purchased History</a>
-                                        <a href="UsedItemsHistory.php" class="btn btn-default" style="background-color: #999999;color: white">Used Items History</a>
-                                        <a href="AccountPayable.php" class="btn btn-default" style="background-color: #999999;color: white">Account Payable</a>
-                                        <a href="AccountReceivable.php" class="btn btn-default" style="background-color: #999999;color: white">Account Receivable/Received</a>
-                                        <a href="BankAmount.php" class="btn btn-default" style="background-color: #999999;color: white">Bank Amount</a>
-                                        <a href="PayableHistory.php" class="btn btn-default" style="background-color: #999999;color: white">Payable/Paid History</a>
+                                        <a href="InventoryItems.php" class="btn btn-default active-menu"
+                                           style="background-color: #999999;color: white">View All Items</a>
+                                        <a href="RemainingInventory.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Remaining Inventory</a>
+                                        <a href="PurchasedHistory.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Purchased History</a>
+                                        <a href="UsedItemsHistory.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Used Items History</a>
+                                        <a href="AccountPayable.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Account Payable</a>
+                                        <a href="AccountReceivable.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Account
+                                            Receivable/Received</a>
+                                        <a href="BankAmount.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Bank Amount</a>
+                                        <a href="PayableHistory.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Payable/Paid History</a>
                                     </div>
                                 </div>
                                 <div class="col-md-9">
@@ -231,12 +241,11 @@ include "../connection.php";
                                             <input type="submit" value="Add Item" name="AddItem">
                                         </form>
                                         <?php
-                                        if($_SESSION['InsertItem'] == "inserted"){
+                                        if ($_SESSION['InsertItem'] == "inserted") {
                                             echo "<div class=\"alert alert-success\">
                                         <strong>Success!</strong> Item Added Successfully!!!
                                         </div>";
-                                        }
-                                        else if($_SESSION['InsertItem']=="error"){
+                                        } else if ($_SESSION['InsertItem'] == "error") {
                                             echo "<div class=\"alert alert-danger\">
                                     <strong>Not Inserted!</strong> error!!
                                      </div>";

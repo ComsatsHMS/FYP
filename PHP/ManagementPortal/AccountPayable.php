@@ -197,20 +197,29 @@ include "../connection.php";
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: #999999"> Inventory System </div>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Account Payable</div>
                             <div class="panel-body">
 
                                 <div class="col-md-3">
                                     <div class="btn-group btn-group-sm btn-group-vertical" style="padding-top: 40pt">
-                                        <a href="InventoryItems.php" class="btn btn-default" style="background-color: #999999;color: white">View All Items</a>
-                                        <a href="RemainingInventory.php" class="btn btn-default" style="background-color: #999999;color: white">Remaining Inventory</a>
-                                        <a href="PurchasedHistory.php" class="btn btn-default" style="background-color: #999999;color: white">Purchased History</a>
-                                        <a href="UsedItemsHistory.php" class="btn btn-default" style="background-color: #999999;color: white">Used Items History</a>
-                                        <a href="AccountPayable.php" class="btn btn-default active-menu" style="background-color: #999999;color: white">Account Payable</a>
-                                        <a href="AccountReceivable.php" class="btn btn-default" style="background-color: #999999;color: white">Account Receivable/Received</a>
-                                        <a href="BankAmount.php" class="btn btn-default" style="background-color: #999999;color: white">Bank Amount</a>
-                                        <a href="PayableHistory.php" class="btn btn-default" style="background-color: #999999;color: white">Payable/Paid History</a>
+                                        <a href="InventoryItems.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">View All Items</a>
+                                        <a href="RemainingInventory.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Remaining Inventory</a>
+                                        <a href="PurchasedHistory.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Purchased History</a>
+                                        <a href="UsedItemsHistory.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Used Items History</a>
+                                        <a href="AccountPayable.php" class="btn btn-default active-menu"
+                                           style="background-color: #999999;color: white">Account Payable</a>
+                                        <a href="AccountReceivable.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Account
+                                            Receivable/Received</a>
+                                        <a href="BankAmount.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Bank Amount</a>
+                                        <a href="PayableHistory.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Payable/Paid History</a>
                                     </div>
                                 </div>
                                 <div class="col-md-5">
@@ -224,22 +233,25 @@ include "../connection.php";
                                             <input type="text" name="PayableTo" id="PayableTo">
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-md-4" for="RefrenceNo">Reference No: </label>
+                                            <label class="control-label col-md-4" for="RefrenceNo">Reference
+                                                No: </label>
                                             <input type="text" name="RefrenceNo" id="RefrenceNo">
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-md-4" for="PayableAmount">Payable Amount: </label>
+                                            <label class="control-label col-md-4" for="PayableAmount">Payable
+                                                Amount: </label>
                                             <input type="number" name="PayableAmount" id="PayableAmount">
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-md-4" for="Description">Description: </label>
+                                            <label class="control-label col-md-4"
+                                                   for="Description">Description: </label>
                                             <textarea name="Description" class="col-md-4"
                                                       id="Description">
                                             </textarea>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-offset-4">
-                                                <input  type="submit" value="Submit" name="Payable">
+                                                <input type="submit" value="Submit" name="Payable">
                                             </div>
                                         </div>
                                     </form>
@@ -259,8 +271,9 @@ include "../connection.php";
                                             <input type="number" name="PaidAmount" id="PaidAmount">
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-md-4" for="PayementMethod">Payment Method: </label>
-                                            <select  id="PaymentMethod" name="PaymentMethod">
+                                            <label class="control-label col-md-4" for="PayementMethod">Payment
+                                                Method: </label>
+                                            <select id="PaymentMethod" name="PaymentMethod">
                                                 <option><----Choose-----></option>
                                                 <option>By Cheque</option>
                                                 <option>By Cash</option>
@@ -268,7 +281,7 @@ include "../connection.php";
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-offset-4">
-                                                <input  type="submit" value="Submit" name="Paid">
+                                                <input type="submit" value="Submit" name="Paid">
                                             </div>
                                         </div>
                                     </form>

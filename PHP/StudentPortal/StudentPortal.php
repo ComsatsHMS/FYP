@@ -183,7 +183,7 @@ error_reporting(0);
             <ul class="nav" id="main-menu">
 
                 <li>
-                    <a href="StudentPortal.php"><i class="fa fa-"></i> Profile</a>
+                    <a class="active-menu" href="StudentPortal.php"><i class="fa fa-"></i> Profile</a>
                 </li>
                 <li>
                     <a href="Notifications.php"><i class="fa fa-"></i> Notifications</a>
@@ -252,7 +252,7 @@ error_reporting(0);
                               <td><strong>Welcome</strong></td>
                               <td><?php echo "{$_SESSION['name'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
                           </tr>
-                          <tr>
+                          <tr  style="background-color: #f36a5a">
                               <td><strong>Hostel</strong></td>
                               <td><?php echo "{$_SESSION['hostelname'] }";?></td>
                           </tr>

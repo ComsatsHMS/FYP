@@ -197,9 +197,9 @@ include "../connection.php";
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
 
-                            <div class="panel-heading" style="background-color: #999999"> Application Details </div>
+                            <div class="panel-heading">Committee Member Request Application</div>
                             <!--            Content Box Contents-->
                             <div class="panel-body">
                                 <!--                Complaints-->
@@ -208,14 +208,17 @@ include "../connection.php";
                                 $StudentRoom = $_GET['room'];
                                 $StudentName = $_GET['name'];
 
-                                echo "<Strong>Student ID: </Strong>"."$StudentID"."<br>"."<Strong>Student Name: </Strong>"."$StudentName"."<br>"."<Strong>Student Room: </Strong>"."$StudentRoom"."<br>";
+                                echo "<Strong>Student ID: </Strong>" . "$StudentID" . "<br>" . "<Strong>Student Name: </Strong>" . "$StudentName" . "<br>" . "<Strong>Student Room: </Strong>" . "$StudentRoom" . "<br>";
                                 ?>
-                                <textarea readonly name="ComplainText" class="col-md-offset-1 col-md-8 col-md-offset-3 col-xs-4" id="complain_box"><?php $text = $_GET['text'];echo "$text" ?></textarea>
-                                <form action='SelectedApplicantsProcessing.php?<?php echo "type={$_GET['type']}"."& id={$_GET['id']}"; ?>' method="post">
+                                <textarea readonly name="ComplainText"
+                                          class="col-md-offset-1 col-md-8 col-md-offset-3 col-xs-4"
+                                          id="complain_box"><?php $text = $_GET['text'];echo "$text" ?></textarea>
+                                <form action='SelectedApplicantsProcessing.php?<?php echo "type={$_GET['type']}" . "& id={$_GET['id']}"; ?>'
+                                      method="post">
                                     <div class="form-inline">
                                         <?php
                                         $ApplicationType = $_GET['type'];
-                                        if($ApplicationType=='Wing Proctor'){
+                                        if ($ApplicationType == 'Wing Proctor') {
                                             echo "<div class=\"col-md-3 col-xs-0\">
                                     <label>Room from:</label>
                                     <input type=\"text\" name=\"start\">
@@ -229,9 +232,8 @@ include "../connection.php";
                                  <div class=\"col-md-3 col-xs-0\">
                                 <input type=\"submit\" name=\"submit\" value=\"Select\">
                                 </div>";
-                                        }
-                                        else if($ApplicationType!='Mess Close'){
-                                            echo"<div class=\"col-md-3 col-xs-0\">
+                                        } else if ($ApplicationType != 'Mess Close') {
+                                            echo "<div class=\"col-md-3 col-xs-0\">
                                     <label>Wing Name: </label>
                                     <input type=\"text\" name=\"wingname\">
                                 </div>

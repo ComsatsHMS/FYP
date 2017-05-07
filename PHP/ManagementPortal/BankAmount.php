@@ -196,19 +196,29 @@ include "../connection.php";
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: #999999"> Inventory System </div>
+                        <div class="panel panel-primary">
+
+                            <div class="panel-heading">Bank Amount</div>
                             <div class="panel-body">
                                 <div class="col-md-3">
                                     <div class="btn-group btn-group-sm btn-group-vertical" style="padding-top: 40pt">
-                                        <a href="InventoryItems.php" class="btn btn-default" style="background-color: #999999;color: white">View All Items</a>
-                                        <a href="RemainingInventory.php" class="btn btn-default" style="background-color: #999999;color: white">Remaining Inventory</a>
-                                        <a href="PurchasedHistory.php" class="btn btn-default" style="background-color: #999999;color: white">Purchased History</a>
-                                        <a href="UsedItemsHistory.php" class="btn btn-default" style="background-color: #999999;color: white">Used Items History</a>
-                                        <a href="AccountPayable.php" class="btn btn-default" style="background-color: #999999;color: white">Account Payable</a>
-                                        <a href="AccountReceivable.php" class="btn btn-default" style="background-color: #999999;color: white">Account Receivable/Received</a>
-                                        <a href="BankAmount.php" class="btn btn-default active-menu" style="background-color: #999999;color: white">Bank Amount</a>
-                                        <a href="PayableHistory.php" class="btn btn-default" style="background-color: #999999;color: white">Payable/Paid History</a>
+                                        <a href="InventoryItems.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">View All Items</a>
+                                        <a href="RemainingInventory.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Remaining Inventory</a>
+                                        <a href="PurchasedHistory.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Purchased History</a>
+                                        <a href="UsedItemsHistory.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Used Items History</a>
+                                        <a href="AccountPayable.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Account Payable</a>
+                                        <a href="AccountReceivable.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Account
+                                            Receivable/Received</a>
+                                        <a href="BankAmount.php" class="btn btn-default active-menu"
+                                           style="background-color: #999999;color: white">Bank Amount</a>
+                                        <a href="PayableHistory.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Payable/Paid History</a>
                                     </div>
                                 </div>
                                 <div class="col-md-5">
@@ -246,28 +256,25 @@ include "../connection.php";
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-offset-4">
-                                                <input  type="submit" value="Update" name="Update_">
+                                                <input type="submit" value="Update" name="Update_">
                                             </div>
                                         </div>
                                     </form>
 
                                     <?php
-                                    if($_SESSION['BalanceUpdate']=="Ok"){
+                                    if ($_SESSION['BalanceUpdate'] == "Ok") {
                                         echo "<script>
                                     alert(\"Success! Records are Updated!\");
                                     </script>";
-                                    }
-                                    else if($_SESSION['BalanceUpdate']=="error"){
+                                    } else if ($_SESSION['BalanceUpdate'] == "error") {
                                         echo "<script>
                                     alert(\"Error! Records Not Updated\");
                                     </script>";
-                                    }
-                                    else if($_SESSION['BalanceUpdate']=="cost"){
+                                    } else if ($_SESSION['BalanceUpdate'] == "cost") {
                                         echo "<script>
                                     alert(\"Error! Totoal Cost Not correct!\");
                                     </script>";
-                                    }
-                                    else if($_SESSION['BalanceUpdate']=="mismatch"){
+                                    } else if ($_SESSION['BalanceUpdate'] == "mismatch") {
                                         echo "<script>
                                     alert(\"Error! Item No or Name Not Correct!\");
                                     </script>";
@@ -294,7 +301,8 @@ include "../connection.php";
                                             <input type="text" name="ItemName" id="ItemName">
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-md-4" for="UnitsPurchased">Units Purchased: </label>
+                                            <label class="control-label col-md-4" for="UnitsPurchased">Units
+                                                Purchased: </label>
                                             <input type="number" name="UnitsPurchased" id="UnitsPurchased">
                                         </div>
                                         <div class="form-group">
@@ -307,27 +315,24 @@ include "../connection.php";
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-offset-4">
-                                                <input  type="submit" value="Update" name="Update">
+                                                <input type="submit" value="Update" name="Update">
                                             </div>
                                         </div>
                                     </form>
                                     <?php
-                                    if($_SESSION['BalanceUpdate']=="Ok"){
+                                    if ($_SESSION['BalanceUpdate'] == "Ok") {
                                         echo "<script>
                                     alert(\"Success! Records are Updated!\");
                                     </script>";
-                                    }
-                                    else if($_SESSION['BalanceUpdate']=="error"){
+                                    } else if ($_SESSION['BalanceUpdate'] == "error") {
                                         echo "<script>
                                     alert(\"Error! Records Not Updated\");
                                     </script>";
-                                    }
-                                    else if($_SESSION['BalanceUpdate']=="cost"){
+                                    } else if ($_SESSION['BalanceUpdate'] == "cost") {
                                         echo "<script>
                                     alert(\"Error! Totoal Cost Not correct!\");
                                     </script>";
-                                    }
-                                    else if($_SESSION['BalanceUpdate']=="mismatch"){
+                                    } else if ($_SESSION['BalanceUpdate'] == "mismatch") {
                                         echo "<script>
                                     alert(\"Error! Item No or Name Not Correct!\");
                                     </script>";

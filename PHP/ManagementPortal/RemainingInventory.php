@@ -198,56 +198,66 @@ include "../connection.php";
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: #999999"> Remaining Stock </div>
+                        <div class="panel panel-primary">
+
+                            <div class="panel-heading">Remaining Inventory</div>
                             <div class="panel-body">
                                 <div class="col-md-3">
                                     <div class="btn-group btn-group-sm btn-group-vertical" style="padding-top: 40pt">
-                                        <a href="InventoryItems.php" class="btn btn-default" style="background-color: #999999;color: white">View All Items</a>
-                                        <a href="RemainingInventory.php" class="btn btn-default active-menu" style="background-color: #999999;color: white">Remaining Inventory</a>
-                                        <a href="PurchasedHistory.php" class="btn btn-default" style="background-color: #999999;color: white">Purchased History</a>
-                                        <a href="UsedItemsHistory.php" class="btn btn-default" style="background-color: #999999;color: white">Used Items History</a>
-                                        <a href="AccountPayable.php" class="btn btn-default" style="background-color: #999999;color: white">Account Payable</a>
-                                        <a href="AccountReceivable.php" class="btn btn-default" style="background-color: #999999;color: white">Account Receivable/Received</a>
-                                        <a href="BankAmount.php" class="btn btn-default" style="background-color: #999999;color: white">Bank Amount</a>
-                                        <a href="PayableHistory.php" class="btn btn-default" style="background-color: #999999;color: white">Payable/Paid History</a>
+                                        <a href="InventoryItems.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">View All Items</a>
+                                        <a href="RemainingInventory.php" class="btn btn-default active-menu"
+                                           style="background-color: #999999;color: white">Remaining Inventory</a>
+                                        <a href="PurchasedHistory.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Purchased History</a>
+                                        <a href="UsedItemsHistory.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Used Items History</a>
+                                        <a href="AccountPayable.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Account Payable</a>
+                                        <a href="AccountReceivable.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Account
+                                            Receivable/Received</a>
+                                        <a href="BankAmount.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Bank Amount</a>
+                                        <a href="PayableHistory.php" class="btn btn-default"
+                                           style="background-color: #999999;color: white">Payable/Paid History</a>
                                     </div>
                                 </div>
                                 <div class="col-md-9">
                                     <div class="form-group ">
-                                    <br>
-                                    <form method="post" action="#Search">
-                                        <label for="Balance">Serach By Date: From </label>
-                                        <input type="date" name="StartDate" id="StartDate">
-                                        <label for="Balance">To </label>
-                                        <input type="date" name="EndDate" id="EndDate">
-                                        <input type="submit" name="search" value="search">
-                                    </form>
-                                    <form method="post" action="#Search">
-                                        <label for="Balance">Serach By Item No: </label>
-                                        <input type="date" name="SearchItemNo">
-                                        <input type="submit" name="SearchByItemNo" value="Search">
-                                    </form>
+                                        <br>
+                                        <form method="post" action="#Search">
+                                            <label for="Balance">Serach By Date: From </label>
+                                            <input type="date" name="StartDate" id="StartDate">
+                                            <label for="Balance">To </label>
+                                            <input type="date" name="EndDate" id="EndDate">
+                                            <input type="submit" name="search" value="search">
+                                        </form>
+                                        <form method="post" action="#Search">
+                                            <label for="Balance">Serach By Item No: </label>
+                                            <input type="date" name="SearchItemNo">
+                                            <input type="submit" name="SearchByItemNo" value="Search">
+                                        </form>
 
-                                </div>
+                                    </div>
 
                                     <table class="table table-striped table-bordered table-hover" id="Search">
-                                    <tr>
-                                        <th>Item No</th>
-                                        <th>Item Name</th>
-                                        <th>Units</th>
-                                        <th>Unit Cost</th>
-                                        <th>Total Cost</th>
-                                        <th>Date</th>
+                                        <tr>
+                                            <th>Item No</th>
+                                            <th>Item Name</th>
+                                            <th>Units</th>
+                                            <th>Unit Cost</th>
+                                            <th>Total Cost</th>
+                                            <th>Date</th>
 
-                                    </tr>
+                                        </tr>
 
-                                    <?php
-                                    getBalance();
-                                    ?>
+                                        <?php
+                                        getBalance();
+                                        ?>
 
 
-                                </table>
+                                    </table>
                                 </div>
                             </div>
 

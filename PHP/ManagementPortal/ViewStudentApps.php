@@ -249,14 +249,15 @@ function getApps(){
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: #999999"> View Applications </div>
+                        <div class="panel panel-primary">
+
+                            <div class="panel-heading">Applications List</div>
                             <!--            Content Box Contents-->
                             <div class="panel-body">
                                 <div class="form-group ">
                                     <?php
-                                    $check =  $_GET['id'];
-                                    if(!$check){
+                                    $check = $_GET['id'];
+                                    if (!$check) {
                                         echo '  <label for="appType">Application Type: </label>
                                         <select  id="appType" name="appType">
                                             <option><----Choose-----></option>
@@ -283,22 +284,24 @@ function getApps(){
                                     ?>
 
                                 </div>
-                                <div >
-                                    <a href="SelectedCommitteeMembers.php"><button class="btn-primary"> View Selected Applicants </button></a>
+                                <div>
+                                    <a href="SelectedCommitteeMembers.php">
+                                        <button class="btn-primary"> View Selected Applicants</button>
+                                    </a>
                                 </div>
 
                                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
                                 <script>
-                                    $("#hostel").on("change", function(){
+                                    $("#hostel").on("change", function () {
                                         var selected = $(this).val();
-                                        window.location = "ViewStudentApps.php?selectedHostel="+selected;
+                                        window.location = "ViewStudentApps.php?selectedHostel=" + selected;
                                     })
                                 </script>
                                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
                                 <script>
-                                    $("#appType").on("change", function(){
+                                    $("#appType").on("change", function () {
                                         var selected = $(this).val();
-                                        window.location = "ViewStudentApps.php?selectedType="+selected;
+                                        window.location = "ViewStudentApps.php?selectedType=" + selected;
                                     })
                                 </script>
 

@@ -122,7 +122,7 @@ include "../connection.php";
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
                         <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: #999999"> Account Requests </div>
+                            <div class="panel-heading">
                             <!--            Content Box Contents-->
                             <div class="panel-body">
                                 <!--                Complaints-->
@@ -145,19 +145,19 @@ include "../connection.php";
 
                                     $get_record = "select u.* from users u";
                                     $run = mysqli_query($connection, $get_record);
-                                    while ($each_record = mysqli_fetch_array($run)){
-                                        $id=$each_record['userid'];
-                                        $first   = $each_record['first_name'];
-                                        $last=$each_record['last_name'];
-                                        $email=$each_record['email'];
-                                        $role=$each_record['role'];
-                                        $address=$each_record['address'];
-                                        $phone=$each_record['phone_no'];
-                                        $hostel=$each_record['Hostel'];
-                                        $status=$each_record['status'];
+                                    while ($each_record = mysqli_fetch_array($run)) {
+                                        $id = $each_record['userid'];
+                                        $first = $each_record['first_name'];
+                                        $last = $each_record['last_name'];
+                                        $email = $each_record['email'];
+                                        $role = $each_record['role'];
+                                        $address = $each_record['address'];
+                                        $phone = $each_record['phone_no'];
+                                        $hostel = $each_record['Hostel'];
+                                        $status = $each_record['status'];
 
 
-                                        if($status==0){
+                                        if ($status == 0) {
                                             echo "
             <tr><td> $first </td>
             <td> $last </td>
@@ -175,8 +175,6 @@ include "../connection.php";
             </tr>
         ";
                                         }
-
-
 
 
                                     }

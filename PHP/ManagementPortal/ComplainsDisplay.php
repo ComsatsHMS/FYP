@@ -209,17 +209,20 @@ if($ViewBy==""){
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: #999999"> View Complains </div>
+                        <div class="panel panel-primary">
+
+                            <div class="panel-heading">Complain Display</div>
                             <!--            Content Box Contents-->
                             <div class="panel-body">
                                 <!--                Complaints-->
                                 <?php $StudentID = $_GET['id'];
                                 $StudentRoom = $_GET['room'];
                                 $StudentName = $_GET['name'];
-                                echo "<Strong>Student ID: </Strong>"."$StudentID"."<br>"."<Strong>Student Name: </Strong>"."$StudentName"."<br>"."<Strong>Student Room: </Strong>"."$StudentRoom"."<br>";
+                                echo "<Strong>Student ID: </Strong>" . "$StudentID" . "<br>" . "<Strong>Student Name: </Strong>" . "$StudentName" . "<br>" . "<Strong>Student Room: </Strong>" . "$StudentRoom" . "<br>";
                                 ?>
-                                <textarea readonly name="ComplainText" class="col-md-offset-1 col-md-8 col-md-offset-3 col-xs-4" id="complain_box"><?php $text = $_GET['text'];echo "$text" ?></textarea>
+                                <textarea readonly name="ComplainText"
+                                          class="col-md-offset-1 col-md-8 col-md-offset-3 col-xs-4"
+                                          id="complain_box"><?php $text = $_GET['text'];echo "$text" ?></textarea>
                             </div>
 
                         </div>
