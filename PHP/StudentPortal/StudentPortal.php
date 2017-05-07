@@ -364,7 +364,7 @@ error_reporting(0);
                                             <div class="col-sm-offset-2 col-sm-10 col-xs-10">
                                                 <?php
                                                 if($_SESSION['id']!='')
-                                                    echo "<input type=\"submit\" value=\"Update Profile\" name=\"update\">";
+                                                    echo "<input id='button' type=\"submit\" value=\"Update Profile\" name=\"update\">";
                                                 ?>
                                                 <?php
                                                 if($_SESSION['id']=='')

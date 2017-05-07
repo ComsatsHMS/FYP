@@ -39,6 +39,46 @@ body {
     padding: 0px 30px;
     min-height:1200px;
 }
+#button{
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #3E3E3E;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+#button:hover {background-color: #3e8e41}
+#button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+#view{
+    display: inline-block;
+    padding: 7px 20px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #3E3E3E;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 3px #999;
+}
+#view:hover {background-color: #3e8e41}
+#view:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
 .header .container-fluid{
 padding:0;
 }

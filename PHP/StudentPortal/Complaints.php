@@ -234,7 +234,7 @@ unset($_SESSION['Complain']);
                                     </div>
                                     <div class="form-group col-md-offset-9 col-md-2 col-sm-offset-9 col-xs-offset-9">
                                         <div class="" style=" padding: 15px 15px;">
-                                            <button  type="submit" name="Submit" class="btn btn-default">Submit</button>
+                                            <button id="button" type="submit" name="Submit" class="btn btn-default">Submit</button>
                                         </div>
                                     </div>
                                 </form>

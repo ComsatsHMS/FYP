@@ -47,7 +47,7 @@ function getNotifications(){
                                                          <td>$type</td>
                                                          <td> $nameHostel</td>
                                                          <td>$date</td>
-                                                         <td><a href='DisplayNotification.php?id=$id'>view</a></td>
+                                                         <td><a href='DisplayNotification.php?id=$id' id='view'>view</a></td>
                                                     </tr> ";
     }
 }

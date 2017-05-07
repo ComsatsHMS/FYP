@@ -214,31 +214,22 @@ include "../connection.php";
                             <!--            Content Box Contents-->
                             <div class="panel-body">
                                 <!--                Available Applications      -->
-                                <form role="form">
-                                    <div class="form-group">
-                                        <button class="btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="MessCloseApplication.php">Mess Close Application</button><br>
-                                    </div>
+                                <div class="btn-group-vertical">
 
-                                    <div class="form-group">
-                                        <button class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="TransportCommitteeApplication.php">Transport Committee</button><br>
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="BSCommitteeApplication.php">Blood Society Committee</button><br>
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="NetworkAnalystApplication.php">Network Analyst</button><br>
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="SportsCommitteeApplication.php">Sports Comitee</button><br>
-                                    </div>
+                                        <button id="button" class="btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="MessCloseApplication.php">Mess Close Application</button><br><br>
 
-                                    <div class="form-group">
-                                        <button class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="MessCommitteeApplication.php">Mess Committee</button><br>
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="WingProctorApplication.php">Wing Proctor</button><br>
-                                    </div>
-                                </form>
+                                        <button id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="TransportCommitteeApplication.php">Transport Committee</button><br><br>
+
+                                        <button id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="BSCommitteeApplication.php">Blood Society Committee</button><br><br>
+
+                                        <button id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="NetworkAnalystApplication.php">Network Analyst</button><br><br>
+
+                                        <button id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="SportsCommitteeApplication.php">Sports Comitee</button><br><br>
+
+                                        <button id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="MessCommitteeApplication.php">Mess Committee</button><br><br>
+
+                                        <button id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="WingProctorApplication.php">Wing Proctor</button><br><br>
+                                </div>
                             </div>
 
                         </div>
