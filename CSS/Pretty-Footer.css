@@ -4,7 +4,7 @@ footer{
   width:100%;
   text-align:left;
   font:bold 16px sans-serif;
-  padding:55px 50px;
+  padding:50px 100px;
   margin-top:80px;
   bottom:0;
   color:#fff;
@@ -112,3 +112,20 @@ div.social-links{
   margin-bottom:5px;
 }
 
+hr{
+  height: 30px;
+  border-style: solid;
+  border-color: darkorange;
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+}
+hr:before {
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: darkorange;
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}

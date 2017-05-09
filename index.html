@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
+    <title>COMSATS institute of information and technology, Lahore campus</title>
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
     <link rel="stylesheet" href="fonts/font-awesome.min.css">
@@ -34,7 +33,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Login<span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-menu-right" role="menu" style="border: 1px solid">
                             <li role="presentation" style="font-size: 22px"><a href="#">Student Portal </a></li>
-                            <li role="presentation" style="font-size: 22px"><a href="OfficeLogin.html">Management Portal </a></li>
+                            <li role="presentation" style="font-size: 22px"><a href="PHP/ManagementPortal/OfficeLogin.php">Management Portal </a></li>
                             <li role="presentation" style="font-size: 22px"><a href="#">Parent Portal </a></li>
                         </ul>
                     </li>
@@ -44,12 +43,13 @@
         </div>
     </nav>
     <div class="container">
+        <!--
         <div class="jumbotron jumbotron-fluid">
             <div class="container-fluid">
             <h1 style="font-size: 35px;text-align: center">Welcome to CIIT lahore hostels</h1>
             <p class="lead" style="font-size: 20px">COMSATS institue of information and technology, Lahore Campus, provides hostel facilities essentially to the outstation students on first come first serve basis. The hostels are equipped with all the facilities necessary for comfortable living.The hostel routine allows the students to utilize their time in the best possible manner. The management is at their service round the clock. The mess is run on a no-profit no-loss basis and a student mess committee regulates the weekly menu and the quality of the food.</p>
             </div>
-        </div>
+        </div>-->
         <div class="carousel slide" data-ride="carousel" id="carousel-1">
             <div class="carousel-inner" role="listbox">
                 <div class="item active"><img src="IMAGES/m1.JPG" alt="Slide Image"></div>
@@ -70,7 +70,7 @@
         </div>
         <br>
         <h1 style="text-align: center">Faclilites</h1>
-        <hr>
+        <hr >
         <br>
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -101,6 +101,8 @@
         <h1 style="text-align: center">Hostels</h1>
         <br>
         <hr>
+        <p >COMSATS institue of information and technology, Lahore Campus, provides hostel facilities essentially to the outstation students on first come first serve basis. The hostels are equipped with all the facilities necessary for comfortable living.The hostel routine allows the students to utilize their time in the best possible manner. The management is at their service round the clock. The mess is run on a no-profit no-loss basis and a student mess committee regulates the weekly menu and the quality of the food.</p>
+
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="panel-group" role="tablist" aria-multiselectable="true" id="accordion-1">
@@ -181,7 +183,13 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="carousel slide" data-ride="carousel" id="carousel-2">
                     <div class="carousel-inner" role="listbox">
-                        <div class="item active"><img src="IMAGES/m2.JPG" alt="Slide Image"></div>
+                        <div class="item active">
+                            <img src="IMAGES/m2.JPG" alt="Slide Image">
+                            <div class="carousel-caption">
+                                <h3>Los Angeles</h3>
+                                <p>LA is always so much fun!</p>
+                            </div>
+                        </div>
                         <div class="item"><img src="IMAGES/s2.JPG" alt="Slide Image"></div>
                         <div class="item"><img src="IMAGES/s3.JPG" alt="Slide Image"></div>
                         <div class="item"><img src="IMAGES/s4.JPG" alt="Slide Image"></div>
@@ -203,20 +211,20 @@
                 </div>
             </div>
         </div>
-        <hr>
-
+        <br>
+        <br>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13621.618136978204!2d74.2105955!3d31.4029787!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x879e9b82857bcd94!2sCOMSATS!5e0!3m2!1sen!2s!4v1440585923460" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
         </div>
-        <br>
     </div>
     <footer>
         <div class="row">
+
             <div class="col-md-4 col-sm-6 footer-navigation">
                 <h3><a href="#"><img src="IMAGES/comsatslogo.png" height="70" width="200" alt="Comsats logo"></a></h3>
-                <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Hostel Form</a><strong> · </strong><a href="#">Student Login</a><strong> · </strong><a href="#">Management Login</a><strong> · </strong><a href="#">Parent Login</a><strong></p>
+                <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Hostel Form</a><strong> · </strong><a href="#">Student Login</a><strong> · </strong><a href="#">Management Login</a><strong> · </strong><a href="#">Parent Login</a></p>
                 <p class="company-name">&copy; COMSATS lahore. All right reserved. </p>
             </div>
             <div class="col-md-4 col-sm-6 footer-contacts">
