@@ -24,8 +24,6 @@ error_reporting(0);
     <link rel="stylesheet" href="../../CSS/style.css">
     <link rel="stylesheet" href="../../CSS/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="../../CSS/Pretty-Footer.css">
-    <link rel="stylesheet" href="../../CSS/styles.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
     <script type="text/javascript" src="../../JS/FormValidation.js"> </script>
 </head>
 <body>
@@ -57,7 +55,7 @@ error_reporting(0);
     </div>
 </div>
 <br><br>
-<div class="container" >
+<!--<div class="container" >-->
     <div class="panel panel-primary">
         <div class="panel-heading"><h2 class="panelheading">Boys Hostel Admission Form</h2></div>
         <div class="panel-body " >
@@ -73,7 +71,7 @@ error_reporting(0);
                 ?>
                 <form action="ApplicationProcessing.php" role="form" method="post" enctype="multipart/form-data" name="application" id="application" onsubmit="return Validate()  && Validate1() && Validate2() && Validate3() && Validate4() && Validate5() && Validate6() && Validate7() &&Validate8() &&Validate9() &&Validate10() &&Validate11() &&Validate12() &&Validate13() &&Validate14() &&Validate15() &&Validate16()">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="col-md-offset-8">
                                     <h5><label>Name</label></h5>
                             </div>
@@ -91,7 +89,7 @@ error_reporting(0);
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="col-md-offset-8">
                                 <h5><label>Father Name</label></h5>
                             </div>
@@ -109,7 +107,7 @@ error_reporting(0);
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="col-md-offset-8">
                                 <h5><label>Student CNIC</label></h5>
                             </div>
@@ -127,7 +125,7 @@ error_reporting(0);
 
                     </div>
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="col-md-offset-8">
                                 <h5><label>Father CNIC</label></h5>
                             </div>
@@ -147,7 +145,7 @@ error_reporting(0);
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="col-md-offset-8">
                                 <h5><label>Email</label></h5>
                             </div>
@@ -168,7 +166,7 @@ error_reporting(0);
 
 
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="col-md-offset-8">
                                 <h5><label>Mobile No.</label></h5>
                             </div>
@@ -188,7 +186,7 @@ error_reporting(0);
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="col-md-offset-8">
                                 <h5><label>Student ID</label></h5>
                             </div>
@@ -282,8 +280,8 @@ error_reporting(0);
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3">
-                            <div class="col-md-offset-7">
+                        <div class="col-md-4">
+                            <div class="col-md-offset-8">
                                 <h5><label>Postal Address</label></h5>
                             </div>
                         </div>
@@ -303,7 +301,7 @@ error_reporting(0);
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="col-md-offset-8">
                                 <h5><label>Domicile</label></h5>
                             </div>
@@ -322,8 +320,8 @@ error_reporting(0);
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3">
-                            <div class="col-md-offset-7">
+                        <div class="col-md-4">
+                            <div class="col-md-offset-8">
                                 <h5><label>Blood Group</label></h5>
                             </div>
                         </div>
@@ -341,7 +339,7 @@ error_reporting(0);
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="col-md-offset-8">
                                 <h5><label>Regilion</label></h5>
                             </div>
@@ -361,8 +359,8 @@ error_reporting(0);
 
 
                     <div class="row">
-                        <div class="col-md-3">
-                            <div class="col-md-offset-5">
+                        <div class="col-md-4">
+                            <div class="col-md-offset-8">
                                 <h5><label>Parent Occupation</label></h5>
                             </div>
                         </div>
@@ -380,8 +378,8 @@ error_reporting(0);
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3">
-                            <div class="col-md-offset-5">
+                        <div class="col-md-4">
+                            <div class="col-md-offset-8">
                                 <h5><label>Monthly income(Rs.)</label></h5>
                             </div>
                         </div>
@@ -399,9 +397,9 @@ error_reporting(0);
                     </div>
 
                     <div class="row">
-                        <div class="col-md-5">
-                            <div class="col-md-offset-2">
-                                <h5><label>Name of person to be contacted on case of Emergency</label></h5>
+                        <div class="col-md-4">
+                            <div class="col-md-offset-8">
+                                <h5><label>Name of person to be contacted in case of Emergency</label></h5>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -418,38 +416,33 @@ error_reporting(0);
                     </div>
 
                     <div class="row">
-                        <div class="col-md-2">
-                            <div class="col-md-offset-6">
+                        <div class="col-md-4">
+                            <div class="col-md-offset-8">
                                 <h4><label>Relation</label></h4>
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                             <div class="input-group">
-                                <input class="form-control" type="text" name="relation" style="width: 150px" id="rel" onchange="return Validate12();">
+                                <input class="form-control" type="text" name="relation"id="rel" onchange="return Validate12();">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                             </div>
-
                         </div>
                         <div class="col-md-2">
                             <p id="rel_e" style="color: red " ></p>
                         </div>
-
-
-
-                        <div class="col-md-1">
-                            <div class="col-md-offset-1">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-offset-8">
                                 <h4><label>Mobile#</label></h4>
                             </div>
                         </div>
 
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                             <div class="input-group">
-
-
                                 <input class="form-control" type="text" name="cell" id="cell"  onchange="return Validate13();">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
                             </div>
-
                         </div>
                         <div class="col-md-2">
                             <p id="cell_error" style="color: red " ></p>
@@ -459,8 +452,8 @@ error_reporting(0);
                     <br>
 
                     <div class="row">
-                        <div class="col-md-3">
-                            <div class="col-md-offset-2">
+                        <div class="col-md-4">
+                            <div class="col-md-offset-8">
                                 <h4><label>Preferred Hostel: </label></h4>
                             </div>
                         </div>
@@ -485,8 +478,8 @@ error_reporting(0);
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3">
-                            <div class="col-md-offset-2">
+                        <div class="col-md-4">
+                            <div class="col-md-offset-8">
                                 <h4><label> Old Resident</label></h4>
                             </div>
                         </div>
@@ -510,8 +503,8 @@ error_reporting(0);
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3">
-                            <div class="col-md-offset-2">
+                        <div class="col-md-4">
+                            <div class="col-md-offset-8">
                                 <h4><label>New Student </label></h4>
                             </div>
                         </div>
@@ -531,8 +524,8 @@ error_reporting(0);
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3">
-                            <div class="col-md-offset-2">
+                        <div class="col-md-4">
+                            <div class="col-md-offset-8">
                                 <h4><label>Required Documents </label></h4>
                             </div>
                         </div>
@@ -569,7 +562,7 @@ error_reporting(0);
                         <div class="col-md-3">
 
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2 col-md-offset-1">
                             <br>
                             <div class="form-group">
                                 <label>Domicile Certificate</label>
@@ -588,27 +581,25 @@ error_reporting(0);
                     <br>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="col-md-offset-0">
+                            <div class="col-md-offset-0" style="padding: 1px 2px 2px 0px;">
                                 <label><input type="checkbox" required>I certify that the aforementioned information given by me is correct. I understand that if any part of this information is found false/incorrect,my allotment will stand cancelled. I also undertake to strictly observe all rules & regulations of the hostel. I shall also comply with the direction and orders issued by the hostel authorities from time to time during the period of my stay in the hostel. I undertake further to pay all dues in time.</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-offset-10 col-md-1" style="padding-right: 1px">
-                            <input type="submit" class="btn btn-success" value="submit" name="submit1">
+                        <div class="col-md-offset-9 col-md-1" >
+                            <input type="submit" class="btn btn-success" value="submit" name="submit1" id="button">
                             </div>
                         <div class="col-md-1" >
-                            <input class="btn btn-success" type="reset" value="Reset" name="reset">
+                            <input class="btn btn-success" type="reset" value="Reset" name="reset" id="button">
                             </div>
                     </div>
             </div>
 
         </div>
                 </form>
-
     </div>
 
-    </div>
 <footer>
     <div class="row">
         <div class="col-md-4 col-sm-6 footer-navigation">
