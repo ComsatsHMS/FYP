@@ -19,22 +19,45 @@ error_reporting(0);
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../CSS/bootstrap.min1.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
     <link rel="stylesheet" href="../../CSS/style.css">
+    <link rel="stylesheet" href="../../CSS/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../../CSS/Pretty-Footer.css">
+    <link rel="stylesheet" href="../../CSS/styles.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
     <script type="text/javascript" src="../../JS/FormValidation.js"> </script>
 </head>
 <body>
 <div class="container-fluid">
-    <div class="inner-wrap">
-        <div class="row">
-            <div class="col-md-offset-2 small-12 medium-4 large-4 columns small-only-text-center">
-                <a href="ApplicationForm.php"><img src="../../IMAGES/FormLogo.png" style="margin-bottom:0.5em; margin-top:0.2em"></a>
-            </div>
-        </div>
+    <div class="navbar-header"><a class="navbar-brand navbar-link" href="index.html"><img src="../../IMAGES/comsatslogo.png" height="70" width="200" alt="Comsats logo"></a></h6>
+        <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse" style="float: right;padding-top: 15px">
+        <ul class="nav navbar-nav">
+            <li role="presentation" style="font-size: 25px"><a href="index.html">Home </a></li>
+            <li role="presentation" style="font-size: 25px"><a href="#">Hostel Form </a></li>
+            <li class="dropdown" style="font-size: 25px">
+                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Downloads<span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu" style="border: 1px solid">
+                    <li role="presentation" style="font-size: 22px"><a href="#">item 1 </a></li>
+                    <li role="presentation" style="font-size: 22px"><a href="#">item 2 </a></li>
+                    <li role="presentation" style="font-size: 22px"><a href="#">item 3 </a></li>
+                </ul>
+            </li>
+            <li class="dropdown" style="font-size: 25px">
+                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Login<span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu" style="border: 1px solid">
+                    <li role="presentation" style="font-size: 22px"><a href="#">Student Portal </a></li>
+                    <li role="presentation" style="font-size: 22px"><a href="OfficeLogin.html">Management Portal </a></li>
+                    <li role="presentation" style="font-size: 22px"><a href="#">Parent Portal </a></li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </div>
-<div class="container">
-
+<br><br>
+<div class="container" >
     <div class="panel panel-primary">
         <div class="panel-heading"><h2 class="panelheading">Boys Hostel Admission Form</h2></div>
         <div class="panel-body " >
@@ -586,15 +609,32 @@ error_reporting(0);
     </div>
 
     </div>
-
-
-
-</div>
-</div>
-
-</div>
-</div>
-</div>
-
+<footer>
+    <div class="row">
+        <div class="col-md-4 col-sm-6 footer-navigation">
+            <h3><a href="#"><img src="../../IMAGES/comsatslogo.png" height="70" width="200" alt="Comsats logo"></a></h3>
+            <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Hostel Form</a><strong> · </strong><a href="#">Student Login</a><strong> · </strong><a href="#">Management Login</a><strong> · </strong><a href="#">Parent Login</a><strong></p>
+            <p class="company-name">&copy; COMSATS lahore. All right reserved. </p>
+        </div>
+        <div class="col-md-4 col-sm-6 footer-contacts">
+            <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
+                <p><span class="new-line-span">1.5 KM Defence Road,Off Raiwind Road</span> Lahore, Pakistan</p>
+            </div>
+            <div><i class="fa fa-phone footer-contacts-icon"></i>
+                <p class="footer-center-info email text-left"> +92 (42) 111-001-007</p>
+            </div>
+            <div><i class="fa fa-envelope footer-contacts-icon"></i>
+                <p> <a href="#" target="_blank">info@ciitlahore.edu.pk</a></p>
+            </div>
+        </div>
+        <div class="clearfix visible-sm-block"></div>
+        <div class="col-md-4 footer-about">
+            <h4>Social Links</h4>
+            <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
+        </div>
+    </div>
+</footer>
+<script src="../../JS/jquery.min.js"></script>
+<script src="../../JS/bootstrap.min (2).js"></script>
 </body>
 </html>

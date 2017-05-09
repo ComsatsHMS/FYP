@@ -484,9 +484,9 @@ while ($each = mysqli_fetch_array($run)) {
                         <div class="panel panel-primary">
                             <div class="panel-heading" > Statistics </div>
                               <div class="panel-body">
-                                <button onclick="lunchBreakfast();">lunch/Breakfast</button>
-                                <button onclick="messMenu();">Mess Menu</button>
-                                <button  id="my_button" >one day Trip</button>
+                                <button id = "button" onclick="lunchBreakfast();">lunch/Breakfast</button>
+                                <button id = "button" onclick="messMenu();">Mess Menu</button>
+                                <button id = "button" id="my_button" >one day Trip</button>
                                 <div id="chartContainer" style="height: 300px; width: 90%;"></div>
                               </div>
                              </div>
