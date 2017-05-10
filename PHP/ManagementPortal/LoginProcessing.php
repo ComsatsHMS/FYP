@@ -1,6 +1,7 @@
 <?php
 include "../connection.php";
 session_start();
+print_r($_POST);
 if(isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
