@@ -232,8 +232,8 @@ include "NotificationViewprocessing.php";
                                              </div>
                                                 <form method="post" action="NotificationViewProcessing.php">
                                                     <label for="date">Date: </label>
-                                                        <input type="date" name="date" value='<?php echo "{$_SESSION['date']}"; ?>'>
-                                                        <input type="submit" value="Go">
+                                                        <input id="dateField" type="date" name="date" value='<?php echo "{$_SESSION['date']}"; ?>'>
+                                                        <input type="submit" id="search" value="Go">
                                                 </form>
                                    </div>
                                         <div class="table-responsive">

@@ -59,7 +59,7 @@ body {
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
-#view{
+#view,#search{
     display: inline-block;
     padding: 7px 20px;
     font-size: 12px;
@@ -73,12 +73,27 @@ body {
     border-radius: 5px;
     box-shadow: 0 3px #999;
 }
-#view:hover {background-color: #3e8e41}
-#view:active {
+#view:hover,#search:hover {background-color: #3e8e41}
+#view:active,#search:active {
     background-color: #3e8e41;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
+select,#dateField {
+    outline: none;
+    padding: 0.5em 1em 0.05em 2em;
+    margin: 0;
+    transition: border-color 0.2s;
+    /*border: 2px solid #f36a5a;*/
+    border: 2px double #f36a5a;
+    border-radius: 4px;
+    background:#f9f9f9;
+    color: #555;
+    line-height: normal;
+    font-family: inherit;
+    font-size: inherit;
+}
+
 img{
     background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid #CFCFCF;

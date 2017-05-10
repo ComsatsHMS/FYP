@@ -223,8 +223,8 @@ include "../connection.php";
 
                                             <form method="post" action="Complaints_Processing.php">
                                                 <label for="date">Date: </label>
-                                                <input type="date" name="date" value='<?php echo "{$_SESSION['date']}"; ?>'>
-                                                <input type="submit" value="Go">
+                                                <input id="dateField" type="date" name="date" value='<?php echo "{$_SESSION['date']}"; ?>'>
+                                                <input type="submit" id="search" value="Go">
                                             </form>
 
                                    </div>
