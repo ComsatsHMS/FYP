@@ -19,46 +19,51 @@ error_reporting(0);
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../../CSS/bootstrap.min1.css">
+    <link rel="stylesheet" href="../../CSS/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-    <link rel="stylesheet" href="../../CSS/style.css">
-    <link rel="stylesheet" href="../../CSS/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../../fonts/font-awesome.min.css">
     <link rel="stylesheet" href="../../CSS/Pretty-Footer.css">
+    <link rel="stylesheet" href="../../CSS/Pretty-Registration-Form.css">
+    <link rel="stylesheet" href="../../CSS/Google-Style-Login.css">
+    <link href="../../CSS/style.css" rel="stylesheet" />
     <script type="text/javascript" src="../../JS/FormValidation.js"> </script>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="navbar-header"><a class="navbar-brand navbar-link" href="index.html"><img src="../../IMAGES/comsatslogo.png" height="70" width="200" alt="Comsats logo"></a></h6>
-        <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+<nav class="navbar navbar-default " style="height: 90px;padding-left: 85px;padding-right: 85px;background: #e95420;margin-bottom: 0px;">
+    <div class="container-fluid">
+        <div class="navbar-header"><a class="navbar-brand navbar-link" href="../../index.html"><img src="../../IMAGES/comsatslogo.png" height="70" width="200" alt="Comsats logo"></a></h6>
+            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse" style="float: right;padding-top: 15px">
+            <ul class="nav navbar-nav">
+                <li role="presentation" style="font-size: 25px"><a href="../../index.html">Home </a></li>
+                <li role="presentation" style="font-size: 25px"><a href="#">Hostel Form </a></li>
+                <li class="dropdown" style="font-size: 25px">
+                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Downloads<span class="caret"></span></a>
+                    <ul class="dropdown-menu dropdown-menu-right" role="menu" style="border: 1px solid">
+                        <li role="presentation" style="font-size: 22px"><a href="#">item 1 </a></li>
+                        <li role="presentation" style="font-size: 22px"><a href="#">item 2 </a></li>
+                        <li role="presentation" style="font-size: 22px"><a href="#">item 3 </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown" style="font-size: 25px">
+                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Login<span class="caret"></span></a>
+                    <ul class="dropdown-menu dropdown-menu-right" role="menu" style="border: 1px solid">
+                        <li role="presentation" style="font-size: 22px"><a href="../StudentPortal/Login.php">Student Portal </a></li>
+                        <li role="presentation" style="font-size: 22px"><a href="OfficeLogin.php">Management Portal </a></li>
+                        <li role="presentation" style="font-size: 22px"><a href="../ParentPortal/ParentLogin.php">Parent Portal </a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
     </div>
-    <div class="collapse navbar-collapse" id="navbar-collapse" style="float: right;padding-top: 15px">
-        <ul class="nav navbar-nav">
-            <li role="presentation" style="font-size: 25px"><a href="index.html">Home </a></li>
-            <li role="presentation" style="font-size: 25px"><a href="#">Hostel Form </a></li>
-            <li class="dropdown" style="font-size: 25px">
-                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Downloads<span class="caret"></span></a>
-                <ul class="dropdown-menu dropdown-menu-right" role="menu" style="border: 1px solid">
-                    <li role="presentation" style="font-size: 22px"><a href="#">item 1 </a></li>
-                    <li role="presentation" style="font-size: 22px"><a href="#">item 2 </a></li>
-                    <li role="presentation" style="font-size: 22px"><a href="#">item 3 </a></li>
-                </ul>
-            </li>
-            <li class="dropdown" style="font-size: 25px">
-                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Login<span class="caret"></span></a>
-                <ul class="dropdown-menu dropdown-menu-right" role="menu" style="border: 1px solid">
-                    <li role="presentation" style="font-size: 22px"><a href="#">Student Portal </a></li>
-                    <li role="presentation" style="font-size: 22px"><a href="OfficeLogin.html">Management Portal </a></li>
-                    <li role="presentation" style="font-size: 22px"><a href="#">Parent Portal </a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</div>
-<br><br>
+</nav>
+
 <!--<div class="container" >-->
-    <div class="panel panel-primary">
-        <div class="panel-heading"><h2 class="panelheading">Boys Hostel Admission Form</h2></div>
-        <div class="panel-body " >
+    <div class="panel panel-primary" style="background-color: #F7F7F7;">
+        <div class="panel-heading" style="background-image: linear-gradient(to bottom,#292c2f 0,#292c2f 100%) "><h2 class="panelheading" style="text-align: center">Boys Hostel Admission Form</h2></div>
+        <div class="panel-body" >
             <div class="row">
                 <?php
                 if($_SESSION['send'] == 'success'){
@@ -267,10 +272,8 @@ error_reporting(0);
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" type="text" name="studentid" id="id" style="width: 94px" onchange="Validate2()">
-
-
-                                    </div>
+                                    <input class="form-control" type="text" name="studentid" id="id" style="width: 170px" onchange="Validate2()">
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -581,7 +584,7 @@ error_reporting(0);
                     <br>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="col-md-offset-0" style="padding: 1px 2px 2px 0px;">
+                            <div class="col-md-offset-0" style="padding-left: 10px">
                                 <label><input type="checkbox" required>I certify that the aforementioned information given by me is correct. I understand that if any part of this information is found false/incorrect,my allotment will stand cancelled. I also undertake to strictly observe all rules & regulations of the hostel. I shall also comply with the direction and orders issued by the hostel authorities from time to time during the period of my stay in the hostel. I undertake further to pay all dues in time.</label>
                             </div>
                         </div>
@@ -594,13 +597,11 @@ error_reporting(0);
                             <input class="btn btn-success" type="reset" value="Reset" name="reset" id="button">
                             </div>
                     </div>
-            </div>
-
+            </form>
         </div>
-                </form>
     </div>
-
-<footer>
+        </div>
+<footer style="margin-top: 0px;">
     <div class="row">
         <div class="col-md-4 col-sm-6 footer-navigation">
             <h3><a href="#"><img src="../../IMAGES/comsatslogo.png" height="70" width="200" alt="Comsats logo"></a></h3>
@@ -626,6 +627,6 @@ error_reporting(0);
     </div>
 </footer>
 <script src="../../JS/jquery.min.js"></script>
-<script src="../../JS/bootstrap.min (2).js"></script>
+<script src="../../JS/bootstrap.min.js"></script>
 </body>
 </html>
