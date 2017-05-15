@@ -250,7 +250,7 @@ error_reporting(0);
                       <table class="table table-striped table-bordered table-hover">
                           <tr>
                               <td><strong>Welcome</strong></td>
-                              <td><?php echo "{$_SESSION['name'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
+                              <td><?php echo "{$_SESSION['name'] }";?></td>
                           </tr>
                           <tr  style="background-color: #f36a5a">
                               <td><strong>Hostel</strong></td>
@@ -351,8 +351,8 @@ error_reporting(0);
                                         <div class="form-group">
                                             <label class="control-label col-sm-2 col-xs-2" for="hostel">Your Hostel: </label>
                                             <div class="col-md-4 col-xs-4">
-                                                <select  id="select" name="hostel" class="form-control" <?php if($_SESSION['name']!='') echo"readonly"; ?>>
-                                                    <option><?PHP echo "{$_SESSION['hostel']}";?></option>
+                                                <select  id="select" name="hostel" class="form-control" <?php if($_SESSION['hostelname']!='') echo "readonly"; ?>>
+                                                    <option><?PHP echo "{$_SESSION['hostelname']}";?></option>
                                                     <option>Liaqat Hall</option>
                                                     <option>M.A Jinnah</option>
                                                     <option>Johar Hall</option>

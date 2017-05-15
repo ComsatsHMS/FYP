@@ -7,6 +7,7 @@
 error_reporting(0);
 session_start();
 include("../connection.php");
+include("phpFunctions.php");
 //for view Applications on admin panel page
 if(isset($_GET['selectedHostel'])){
     $_SESSION['selectedHostel'] = $_GET['selectedHostel'];
@@ -252,10 +253,7 @@ function getMembers(){
                             <!--            Content Box Contents-->
                             <div class="panel-body">
                                 <div class="form-group ">
-                                    <?php
-                                    $check =  $_GET['id'];
-                                    if(!$check){
-                                        echo '  <label for="appType">Application Type: </label>
+                                <label for="appType">Application Type: </label>
                                         <select  id="appType" name="appType">
                                             <option><----Choose-----></option>
                                             <option>Mess Close</option>
@@ -268,15 +266,17 @@ function getMembers(){
                                         </select>
 
                                         <label>Specify Hostel: </label>
-                                        <select  id="hostel" name="hostel">
-                                            <option><----Choose-----></option>
-                                            <option>M.A Jinnah</option>
-                                            <option>Liaqat Hall</option>
-                                            <option>Johar Hall</option>
-                                        </select>
-                                ';
+                                            <select  id="hostel" name="hostel">
+                                                <option><?php echo"{$_SESSION['selectedHostel']}" ?></option>;
+                                                <?php $loop=0;
+                                                getHostels();
+                                                while($_SESSION['list'][$loop]){
+                                                    echo "<option>{$_SESSION['list'][$loop]}</option>";
+                                                    $loop++;
+                                                }
+                                                ?>
+                                            </select>
                                     }
-                                    ?>
 
                                 </div>
                                 <div >

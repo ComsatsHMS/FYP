@@ -214,6 +214,7 @@ if (isset($_GET['selected'])){
 
                             <div class="panel-heading">Allocation</div>
                             <div class="panel-body">
+
                                 <form role="form" action="phpFunctions.php" method="post" enctype="multipart/form-data">
                                     <div class="col-md-6">
                                         <div class="form-group ">
@@ -229,74 +230,16 @@ if (isset($_GET['selected'])){
                                         </div>
                                         <div class="form-group">
                                             <label>choose Hostel: </label>
-                                            <?php
-
-                                            if (isset($_GET['sh'])) {
-                                                $temp = $_GET['sh'];
-                                                if ($temp == 'M.A Jinnah') {
-                                                    echo "
-                                                  <select name=\"hostels\" id=\"hostels\">
-                                                        <option ><----Choose-----></option>
-                                                        <option value=\"M.A Jinnah\" selected>M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\">Liaqat Hall</option>
-                                                        <option value=\"Jupitar Hall\" >Jupitar Hall</option>
-                                                        <option value=\"Johar Hall\" >Johar Hall</option>
-                                                  </select>
-                                                ";
-                                                } elseif ($temp == 'Liaquat Hall') {
-                                                    echo "
-                                                  <select name=\"hostels\" id=\"hostels\">
-                                                        <option ><----Choose-----></option>
-                                                        <option value=\"M.A Jinnah\" >M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\" selected>Liaqat Hall</option>
-                                                        <option value=\"Jupitar Hall\" >Jupitar Hall</option>
-                                                        <option value=\"Johar Hall\" >Johar Hall</option>
-                                                  </select>
-                                                ";
-                                                } elseif ($temp == 'Jupitar Hall') {
-                                                    echo "
-                                                  <select name=\"hostels\" id=\"hostels\">
-                                                        <option ><----Choose-----></option>
-                                                        <option value=\"M.A Jinnah\" >M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\">Liaqat Hall</option>
-                                                        <option value=\"Jupitar Hall\" selected>Jupitar Hall</option>
-                                                        <option value=\"Johar Hall\" >Johar Hall</option>
-                                                  </select>
-                                                ";
-                                                } elseif ($temp == 'Johar Hall') {
-                                                    echo "
-                                                  <select name=\"hostels\" id=\"hostels\">
-                                                        <option ><----Choose-----></option>
-                                                        <option value=\"M.A Jinnah\" >M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\">Liaqat Hall</option>
-                                                        <option value=\"Jupitar Hall\" >Jupitar Hall</option>
-                                                        <option value=\"Johar Hall\" selected>Johar Hall</option>
-                                                  </select>
-                                                ";
-                                                } else {
-                                                    echo "
-                                                  <select name=\"hostels\" id=\"hostels\">
-                                                        <option ><----Choose-----></option>
-                                                        <option value=\"M.A Jinnah\" >M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\">Liaqat Hall</option>
-                                                        <option value=\"Jupitar Hall\" >Jupitar Hall</option>
-                                                        <option value=\"Johar Hall\" >Johar Hall</option>
-                                                  </select>
-                                                ";
+                                            <select  id="hostels" name="hostels">
+                                                <option><?php echo"{$_GET['sh']}"; ?></option>
+                                                <?php $loop=0;
+                                                getHostels();
+                                                while($_SESSION['list'][$loop]){
+                                                    echo "<option>{$_SESSION['list'][$loop]}</option>";
+                                                    $loop++;
                                                 }
-
-                                            } else {
-                                                echo "
-                                                  <select name=\"hostels\" id=\"hostels\">
-                                                        <option ><----Choose-----></option>
-                                                        <option value=\"M.A Jinnah\" >M.A Jinnah</option>
-                                                        <option value=\"Liaquat Hall\">Liaqat Hall</option>
-                                                        <option value=\"Jupitar Hall\" >Jupitar Hall</option>
-                                                        <option value=\"Johar Hall\" >Johar Hall</option>
-                                                  </select>
-                                                ";
-                                            }
-                                            ?>
+                                                ?>
+                                            </select>
                                         </div>
 
                                         <div class="form-group ">

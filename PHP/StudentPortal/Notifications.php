@@ -210,16 +210,7 @@ include "NotificationViewprocessing.php";
                         <div class="panel panel-primary">
                             <div class="panel-heading" > Latest News </div>
                                 <div class="panel-body">
-                                   <div class="form-group  ">
-                                        <div class="col-md-4">
-                                            <label >Hostel Name</label>
-                                                <select  id="hostelName" name="hostelName">
-                                                    <option><?php echo "{$_SESSION['hostel']}"; ?></option>
-                                                    <option>M.A Jinnah</option>
-                                                    <option>Liaqat Hall</option>
-                                                    <option>Johar Hall</option>
-                                                </select>
-                                        </div>
+                                   <div class="form-group">
                                             <div class="col-md-4">
                                               <label >Notice Type</label>
                                                     <select  id="notificationType" name="notificationType">

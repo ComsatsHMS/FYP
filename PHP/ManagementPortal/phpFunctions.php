@@ -1,30 +1,17 @@
 <?php
 include("../connection.php");
+session_start();
+error_reporting(0);
 
 if(isset($_POST['submit'])){
     $room_num = $_POST['num'];
     $hostel_Name = NULL;
     $application_no =$_POST['id'] ;
-
-    if(isset($_POST['hostels'])){
-        switch ($_POST['hostels']){
-            case 'M.A Jinnah':
-                $hostel_Name=$_POST['hostels'];
-                break;
-            case 'Liaquat Hall':
-                $hostel_Name=$_POST['hostels'];
-                break;
-            case 'Jupitar Hall':
-                $hostel_Name=$_POST['hostels'];
-                break;
-            case 'Johar Hall':
-                $hostel_Name=$_POST['hostels'];
-                break;
-        }
-    }
+    $hostel_Name=$_POST['hostels'];
     $insert="insert into hostel VALUES ('','$hostel_Name','$application_no','$room_num')";
     $transport = mysqli_query($connection,$insert);
     if($transport){
+        $_SESSION['Allocation'] = 'OK';
         $select = "select o.*,h.HostelName from oldstudentform o,hostel h where o.applicationNumber='$application_no' AND h.applicationNumber='$application_no'";
         $run = mysqli_query($connection,$select);
         while ($each_record = mysqli_fetch_array($run)) {
@@ -44,6 +31,8 @@ if(isset($_POST['submit'])){
                 $exec = mysqli_query($connection,$acc);
             }
         }
+    }else{
+        $_SESSION['Allocation'] = 'error';
     }
     header('Location: Allotment.php');
 }
@@ -440,5 +429,14 @@ function getFeeUnPaidStudentsList(){
                   </tr>";
     }
 
+}
+function getHostels(){
+    global $connection;
+     $Hostel = array();
+    $run = mysqli_query($connection,  "select * from hostelslist");
+    while ($each_record = mysqli_fetch_array($run)) {
+        $Hostel[] = $each_record['HostelName'];
+    }
+    $_SESSION['list'] = $Hostel;
 }
 ?>
