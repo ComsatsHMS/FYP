@@ -2,31 +2,12 @@
 session_start();
 error_reporting(0);
 ?>
-<?php
-if($_SESSION['LoginError']=="Error"){
-    echo "<script>
-     alert(\"Email or Password Incorrect!\");
-    </script>";
-}
-else if($_SESSION['SignUp']=="OK"){
-    echo "<script>
-     alert(\"Submitted! Temporary Password Will be sent to You on Email after Approval\");
-    </script>";
-}
-else if($_SESSION['SignUp']=="Error"){
-    echo "<script>
-     alert(\"Oops! Something Went Wrong\");
-    </script>";
-}
-unset($_SESSION['LoginError']);
-unset($_SESSION['SignUp']);
-?>
     <!DOCTYPE html>
     <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>home</title>
+        <title>Office Login Page</title>
         <link rel="stylesheet" href="../../CSS/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
         <link rel="stylesheet" href="../../fonts/font-awesome.min.css">
@@ -48,17 +29,17 @@ unset($_SESSION['SignUp']);
                     <li class="dropdown" style="font-size: 25px">
                         <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Downloads<span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-menu-right" role="menu" style="border: 1px solid">
-                            <li role="presentation" style="font-size: 22px"><a href="#">item 1 </a></li>
-                            <li role="presentation" style="font-size: 22px"><a href="#">item 2 </a></li>
-                            <li role="presentation" style="font-size: 22px"><a href="#">item 3 </a></li>
+                            <li role="presentation" style="font-size: 16px"><a href="#">item 1 </a></li>
+                            <li role="presentation" style="font-size: 16px"><a href="#">item 2 </a></li>
+                            <li role="presentation" style="font-size: 16px"><a href="#">item 3 </a></li>
                         </ul>
                     </li>
                     <li class="dropdown" style="font-size: 25px">
                         <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Login<span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-menu-right" role="menu" style="border: 1px solid">
-                            <li role="presentation" style="font-size: 22px"><a href="../StudentPortal/Login.php">Student Portal </a></li>
-                            <li role="presentation" style="font-size: 22px"><a href="OfficeLogin.php">Management Portal </a></li>
-                            <li role="presentation" style="font-size: 22px"><a href="../ParentPortal/ParentLogin.php">Parent Portal </a></li>
+                            <li role="presentation" style="font-size: 16px"><a href="../StudentPortal/Login.php">Student Portal </a></li>
+                            <li role="presentation" style="font-size: 16px"><a href="OfficeLogin.php">Management Portal </a></li>
+                            <li role="presentation" style="font-size: 16px"><a href="../ParentPortal/ParentLogin.php">Parent Portal </a></li>
                         </ul>
                     </li>
                 </ul>
