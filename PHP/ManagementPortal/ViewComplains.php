@@ -204,10 +204,12 @@ include("Complaints_Processing.php");
                                 <div class="form-group ">
                                     <label for="complain">Complain Type: </label>
                             <select  id="complainType" name="ComplainType">
-                                <option><----Choose-----></option>
+                                <option></option>
                                 <option>Mess Complain</option>
                                 <option>Water Complain</option>
                                 <option>Sweeper Complain</option>
+                                <option>Electrician Complain</option>
+                                <option>Carpenter Complain</option>
                                 <option>Other Complain</option>
                             </select>
 

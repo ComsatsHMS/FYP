@@ -1,11 +1,12 @@
 <?php
+error_reporting(0);
 session_start();
 if(!isset($_SESSION['UserId'])){
     header('Location:OfficeLogin.php');
 }
 include("phpFunctions.php");
 include "../connection.php";
-error_reporting(0);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -276,7 +276,7 @@ function getMembers(){
                                                 }
                                                 ?>
                                             </select>
-                                    }
+
 
                                 </div>
                                 <div >

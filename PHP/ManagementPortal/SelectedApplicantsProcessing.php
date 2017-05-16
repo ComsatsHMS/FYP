@@ -18,7 +18,9 @@ if($_POST['submit']) {
             echo "in";
             $update = mysqli_query($connection, "update applications set Status=1 where applicationtype='$ApplicationType' and studentid='$StudentID'");
             $run = mysqli_query($connection, "insert into wingproctorslist values('$StudentName','$StudentID','$StudentRoom','$StudentHostel','$WingName','$Start','$End')");
-       if($run){
+            $query= mysqli_query($connection, "insert into selectedmembers values('$StudentID','$StudentName','$StudentRoom','$StudentHostel','$WingName','$ApplicationType',CURRENT_DATE)");
+
+            if($run && $query){
            header("location:http://localhost/FYP/PHP/ManagementPortal/ViewStudentApps.php?status=OK");
        }
         }
