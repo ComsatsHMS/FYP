@@ -175,7 +175,7 @@ include("phpFunctions.php");
                                 <td>Name</td>
                                 <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
                             </tr>
-                            <tr>
+                            <tr style="background-color: #f36a5a">
                                 <td>Rank</td>
                                 <td><?php echo "{$_SESSION['UserRank'] }";?></td>
                             </tr>
@@ -203,14 +203,7 @@ include("phpFunctions.php");
                             <div class="panel-heading">Selected Students for Allotment</div>
                             <div class="panel-body">
                                 <table class="table table-striped table-bordered table-hover">
-                                    <tr>
-                                        <th>Sr. No</th>
-                                        <th>Name</th>
-                                        <th>Father Name</th>
-                                        <th>Student id</th>
-                                        <th>preffered hostel</th>
-                                        <th></th>
-                                    </tr>
+
                                     <?php
                                     getSelectedStudents();
                                     ?>

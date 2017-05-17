@@ -28,16 +28,15 @@ body {
 }
 
 #page-wrapper {
-    padding: 15px 15px;
-    min-height: 600px;
+    padding: 0px 0px;
+    min-height: 500px;
+    width: 80%;
     background: rgba(211, 227, 228, 0.77);
 }
 #page-inner {
     width:100%;
-    margin:0px 0px 0px 0px;
     background-color:transparent;
-    /*padding: 0px 30px;*/
-    min-height:1200px;
+    min-height:300px;
 }
 #button{
     display: inline-block;
@@ -135,9 +134,7 @@ p {
 .navbar-side {
     z-index: 0;
 }
-.panel{
-border-radius:0px;
-}
+
 .navbar-side .nav > li > a > i{color: #8C8C8C;padding: 8px;width: 30px;text-align: center;}
 .top-navbar{
 position: fixed;
@@ -255,11 +252,16 @@ text-shadow: none;}
 .panel-heading {
   /* padding: 15px 15px 0px; */
   border-bottom: 1px solid transparent;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 .header {
-    margin: 0 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-right: -10px;
+
 }
 h1.page-header small {
     color: #7E7E7E;
@@ -281,8 +283,11 @@ i.fa.fa-bars:hover {
 	color: #F36A5A;
 }
 .board .panel {
-    padding: 25px 15px;
-	border:none;
+    padding-bottom: 15px;
+    padding-top: 25px;
+    padding-left: 0px;
+    padding-right: 0px;
+	border: none;
 	background:#fff;
 }
 .board .number{

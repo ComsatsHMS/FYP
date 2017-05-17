@@ -173,7 +173,7 @@ include ("phpFunctions.php");
                                 <td>Name</td>
                                 <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
                             </tr>
-                            <tr>
+                            <tr style="background-color: #f36a5a">
                                 <td>Rank</td>
                                 <td><?php echo "{$_SESSION['UserRank'] }";?></td>
                             </tr>
@@ -200,7 +200,7 @@ include ("phpFunctions.php");
 
                             <div class="panel-heading">Hostel Alotted Students List</div>
                             <div class="panel-body">
-                                <div class="form-group">
+
                                     <?php
 
                                     echo '
@@ -211,14 +211,14 @@ include ("phpFunctions.php");
                                             <option>Liaquat Hall</option>
                                             <option>Johar Hall</option>
                                             <option>Jupitar Hall</option>
-                                        </select><form method="post" action="SelectedStudents.php">
+                                        </select>';
+                                    echo '<form method="post" action="SelectedStudents.php">
                                             <label for="name">Serach Student By Name: </label>
                                             <input type="text" name="studentName">
                                             <input type="submit" name="search" value="search">
                                         </form>';
                                     ?>
 
-                                </div>
                                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
                                 <script>
                                     $("#hostel").on("change", function () {
@@ -227,14 +227,7 @@ include ("phpFunctions.php");
                                     })
                                 </script>
                                 <table class="table table-striped table-bordered table-hover">
-                                    <tr>
-                                        <th>Student Name</th>
-                                        <th>Father Name</th>
-                                        <th>Student id</th>
-                                        <th>Student Hostel</th>
-                                        <th>Room No</th>
-                                        <th>Actions</th>
-                                    </tr>
+
                                     <?php
                                     if (isset($_POST['search'])) {
                                         $temp = $_POST['studentName'];

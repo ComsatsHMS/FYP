@@ -79,10 +79,10 @@ function getStudentApplications(){
 
              ";
         if($status == 1){
-            echo "<td><button type='button'     disabled>check</button></td></tr>";
+            echo "<td><button id='view' type='button'     disabled>check</button></td></tr>";
         }
         else{
-            echo "<td><a class='btn btn-default' href='Check.php?id=$application_no'>check</a></td></tr>";
+            echo "<td><a class='btn btn-default' id='view' href='Check.php?id=$application_no'>check</a></td></tr>";
         }
     }
 }
@@ -140,14 +140,22 @@ function getSelectedStudents(){
     global $connection;
     $get_record = "select * from oldstudentform WHERE selected = 1";
     $run = mysqli_query($connection, $get_record);
-
-    while ($each_record = mysqli_fetch_array($run)) {
+    if(mysqli_num_rows($run) > 0) {
+        echo "<tr>
+                                        <th>Sr. No</th>
+                                        <th>Name</th>
+                                        <th>Father Name</th>
+                                        <th>Student id</th>
+                                        <th>preffered hostel</th>
+                                        <th></th>
+                                    </tr>";
+        while ($each_record = mysqli_fetch_array($run)) {
         $application_no = $each_record['applicationNumber'];
         $new_student = $each_record['newstudent'];
         $get_rec = "select * from hostel WHERE applicationNumber = '$application_no'";
         $run1 = mysqli_query($connection, $get_rec);
 
-        if(mysqli_num_rows($run1) == 0){
+        if (mysqli_num_rows($run1) == 0) {
 
             $student_name = $each_record['name'];
             $student_f_name = $each_record['fathername'];
@@ -159,10 +167,15 @@ function getSelectedStudents(){
                   <td>$student_f_name</td>
                   <td>$student_id</td>
                   <td>$student_preffered_hostel</td>
-                  <td><button type='button' class='btn btn-default' ><a href='Allocate.php?id=$application_no&newStd=$new_student'>Allot</a></button> </td>
+                  <td><button type='button' id='view' class='btn btn-default' ><a href='Allocate.php?id=$application_no&newStd=$new_student'>Allot Room</a></button> </td>
                   </tr>";
         }
     }
+    }
+    else{
+        echo "No Student Record Found";
+    }
+
 }
 function checkRecord($applicationNo){
     global $connection;
@@ -184,8 +197,50 @@ function checkRecord($applicationNo){
             <tr><td>First semester fee slip</td><td><img src='../IMAGES/$semester_Fee_Slip' width='100' height='150'></td></tr>
             <tr><td>Affidivat</td><td><img src='../IMAGES/$affidivat' width='100' height='150'></td></tr>
              ";
-            echo "<tr><td style='float: right'><a class=\"btn btn-default\" href='ApplicationProcessing.php?id=$application_no&state=1'>Select</a>
-              </td><td><a class=\"btn btn-danger\" href='ApplicationProcessing.php?id=$application_no&state=0'>Not Select</a></td></tr>";
+            echo "<tr><td style='float: right'><a class=\"btn btn-default\" id='view'  data-toggle=\"modal\" data-target=\"#yesdialog\">Select</a>
+              </td><td><a class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#nodialog\">Not Select</a></td></tr>";
+//yes confirmation echo
+            echo" <div class=\"modal fade\" id=\"yesdialog\" role=\"dialog\">
+    <div class=\"modal-dialog\">
+
+      <!-- Modal content-->
+      <div class=\"modal-content\">
+        <div class=\"modal-header\" style='background-color: #f36a5a'>
+          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>
+          <h4 class=\"modal-title\">Confirmation</h4>
+        </div>
+        <div class=\"modal-body\" >
+          <p>Are you sure you want to Select this student for hostel allotment?</p>
+        </div>
+        <div class=\"modal-footer\">
+          <button type=\"button\" id='view' class=\"btn btn-success\"><a href='ApplicationProcessing.php?id=$application_no&state=1' >Yes</a></button>
+          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>";
+            //no confirmation echo
+            echo" <div class=\"modal fade\" id=\"nodialog\" role=\"dialog\">
+    <div class=\"modal-dialog\">
+
+      <!-- Modal content-->
+      <div class=\"modal-content\">
+        <div class=\"modal-header\" style='background-color: #f36a5a'>
+          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>
+          <h4 class=\"modal-title\">Confirmation</h4>
+        </div>
+        <div class=\"modal-body\" >
+          <p>Are you sure you want to Not Select this student for hostel allotment?</p>
+        </div>
+        <div class=\"modal-footer\">
+          <button type=\"button\" class=\"btn btn-danger\"><a href='ApplicationProcessing.php?id=$application_no&state=0'>Yes! sure</a> </button>
+          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>";
         }
         elseif($each_record['oldstudent'] == false){
             echo"
@@ -195,10 +250,50 @@ function checkRecord($applicationNo){
             <tr><td>Student Mobile No.</td><td>$student_cell</td></tr>
             <tr><td>Semester fee slip</td><td><img src='../IMAGES/$semester_Fee_Slip' width='100' height='150'></td></tr>
             ";
-            echo "<tr><td style='float: right'><a class=\"btn btn-default\" href='ApplicationProcessing.php?id=$application_no&state=1'>Select</a>
-              </td><td><a class=\"btn btn-danger\" href='ApplicationProcessing.php?id=$application_no&state=0'>Not Select</a></td></tr>";
+            echo "<tr><td style='float: right'><a class=\"btn btn-default\" id='view'  data-toggle=\"modal\" data-target=\"#yesdialog\">Select</a>
+              </td><td><a class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#nodialog\">Not Select</a></td></tr>";
+//yes confirmation echo
+            echo" <div class=\"modal fade\" id=\"yesdialog\" role=\"dialog\">
+    <div class=\"modal-dialog\">
 
+      <!-- Modal content-->
+      <div class=\"modal-content\">
+        <div class=\"modal-header\" style='background-color: #f36a5a'>
+          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>
+          <h4 class=\"modal-title\">Confirmation</h4>
+        </div>
+        <div class=\"modal-body\" >
+          <p>Are you sure you want to Select this student for hostel allotment?</p>
+        </div>
+        <div class=\"modal-footer\">
+          <button type=\"button\" id='view' class=\"btn btn-success\"><a href='ApplicationProcessing.php?id=$application_no&state=1' >Yes</a></button>
+          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>
+        </div>
+      </div>
 
+    </div>
+  </div>";
+            //no confirmation echo
+            echo" <div class=\"modal fade\" id=\"nodialog\" role=\"dialog\">
+    <div class=\"modal-dialog\">
+
+      <!-- Modal content-->
+      <div class=\"modal-content\">
+        <div class=\"modal-header\" style='background-color: #f36a5a'>
+          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>
+          <h4 class=\"modal-title\">Confirmation</h4>
+        </div>
+        <div class=\"modal-body\" >
+          <p>Are you sure you want to Not Select this student for hostel allotment?</p>
+        </div>
+        <div class=\"modal-footer\">
+          <button type=\"button\" class=\"btn btn-danger\"><a href='ApplicationProcessing.php?id=$application_no&state=0'>Yes! sure</a> </button>
+          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>";
         }
         elseif($each_record['oldstudent'] == 1){
             global $connection;
@@ -211,8 +306,50 @@ function checkRecord($applicationNo){
 
                     <tr><td>Semester fee slip</td><td><img src='../IMAGES/$semester_Fee_Slip' width='100' height='150'></td></tr>
             ";
-            echo "<tr><td style='float: right'><a class=\"btn btn-default\" href='ApplicationProcessing.php?id=$application_no&state=1'>Select</a>
-              </td><td><a class=\"btn btn-danger\" href='ApplicationProcessing.php?id=$application_no&state=0'>Not Select</a></td></tr>";
+            echo "<tr><td style='float: right'><a class=\"btn btn-default\" id='view'  data-toggle=\"modal\" data-target=\"#yesdialog\">Select</a>
+              </td><td><a class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#nodialog\">Not Select</a></td></tr>";
+//yes confirmation echo
+            echo" <div class=\"modal fade\" id=\"yesdialog\" role=\"dialog\">
+    <div class=\"modal-dialog\">
+
+      <!-- Modal content-->
+      <div class=\"modal-content\">
+        <div class=\"modal-header\" style='background-color: #f36a5a'>
+          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>
+          <h4 class=\"modal-title\">Confirmation</h4>
+        </div>
+        <div class=\"modal-body\" >
+          <p>Are you sure you want to Select this student for hostel allotment?</p>
+        </div>
+        <div class=\"modal-footer\">
+          <button type=\"button\" id='view' class=\"btn btn-success\"><a href='ApplicationProcessing.php?id=$application_no&state=1' >Yes</a></button>
+          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>";
+            //no confirmation echo
+            echo" <div class=\"modal fade\" id=\"nodialog\" role=\"dialog\">
+    <div class=\"modal-dialog\">
+
+      <!-- Modal content-->
+      <div class=\"modal-content\">
+        <div class=\"modal-header\" style='background-color: #f36a5a'>
+          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>
+          <h4 class=\"modal-title\">Confirmation</h4>
+        </div>
+        <div class=\"modal-body\" >
+          <p>Are you sure you want to Not Select this student for hostel allotment?</p>
+        </div>
+        <div class=\"modal-footer\">
+          <button type=\"button\" class=\"btn btn-danger\"><a href='ApplicationProcessing.php?id=$application_no&state=0'>Yes! sure</a> </button>
+          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>";
 
 
         }
@@ -223,12 +360,20 @@ function getSelectedStudentsList(){
     global $connection;
     $get_record = "select * from oldstudentform";
     $run = mysqli_query($connection, $get_record);
-
-    while ($each_record = mysqli_fetch_array($run)) {
+    if(mysqli_num_rows($run)>0) {
+        echo "<tr>
+                                        <th>Student Name</th>
+                                        <th>Father Name</th>
+                                        <th>Student id</th>
+                                        <th>Student Hostel</th>
+                                        <th>Room No</th>
+                                        <th>Actions</th>
+                                    </tr>";
+        while ($each_record = mysqli_fetch_array($run)) {
         $rec = "select * from hostel";
         $exec = mysqli_query($connection, $rec);
         while ($each_rec = mysqli_fetch_array($exec)) {
-            if($each_record['applicationNumber'] == $each_rec['applicationNumber']){
+            if ($each_record['applicationNumber'] == $each_rec['applicationNumber']) {
                 $application_no = $each_record['applicationNumber'];
                 $student_name = $each_record['name'];
                 $student_f_name = $each_record['fathername'];
@@ -242,20 +387,23 @@ function getSelectedStudentsList(){
                   <td>$student_id</td>
                   <td>$student_hostel</td>
                   <td>$student_room</td>
-                  <td><button type='button' class='btn btn-default' ><a href='StudentCompleteDetails.php?id=$student_id'>Details</a></button> </td>
+                  <td><button type='button' id='view' class='btn btn-default' ><a href='StudentCompleteDetails.php?id=$student_id'>Details</a></button> </td>
                   </tr>";
             }
 
         }
     }
-
+    }
+    else{
+        echo"No Student Record Found";
+    }
 }
 function getNotSelectedStudentsList(){
     global $connection;
     $get_record = "select * from oldstudentform where selected = 0";
     $run = mysqli_query($connection, $get_record);
-
-    while ($each_record = mysqli_fetch_array($run)) {
+    if(mysqli_num_rows($run)>0){
+        while ($each_record = mysqli_fetch_array($run)) {
                 $application_no = $each_record['applicationNumber'];
                 $student_name = $each_record['name'];
                 $student_f_name = $each_record['fathername'];
@@ -264,17 +412,29 @@ function getNotSelectedStudentsList(){
                   <td>$student_name</td>
                   <td>$student_f_name</td>
                   <td>$student_id</td>
-                  <td><button type='button' class='btn btn-default' ><a href='StudentDetails.php?id=$application_no&chec=1'>Details</a></button> </td>
+                  <td><button type='button' id='view' class='btn btn-default' ><a href='StudentDetails.php?id=$application_no&chec=1'>Details</a></button> </td>
                   </tr>";
             }
+    }
+    else{
+        echo"No Student Record Found";
+    }
 
 }
 function studentSearchByName($temp){
     global $connection;
     $get_record = "select * from oldstudentform WHERE name like '%$temp%'";
     $run = mysqli_query($connection, $get_record);
-
-    while ($each_record = mysqli_fetch_array($run)) {
+    if(mysqli_num_rows($run)>0){
+        echo "<tr>
+                                        <th>Student Name</th>
+                                        <th>Father Name</th>
+                                        <th>Student id</th>
+                                        <th>Student Hostel</th>
+                                        <th>Room No</th>
+                                        <th>Actions</th>
+                                    </tr>";
+        while ($each_record = mysqli_fetch_array($run)) {
         $t_no =$each_record['applicationNumber'];
         $rec = "select * from hostel where applicationNumber = '$t_no'";
         $exec = mysqli_query($connection, $rec);
@@ -292,27 +452,40 @@ function studentSearchByName($temp){
                   <td>$student_id</td>
                   <td>$student_hostel</td>
                   <td>$student_room</td>
-                  <td><button type='button' class='btn btn-default' ><a href='StudentCompleteDetails.php?id=$student_id'>Details</a></button> </td>
+                  <td><button type='button' id='view' class='btn btn-default' ><a href='StudentCompleteDetails.php?id=$student_id'>Details</a></button> </td>
                   </tr>";
             }
 
         }
     }
+    }
+    else{
+        echo"No Student Record Found";
+    }
+
 }
 
 function studentSearchByHostel($temp){
     global $connection;
     $get_record = "select * from oldstudentform f,hostel h where f.applicationNumber = h.applicationNumber AND h.HostelName = '$temp'" ;
     $run = mysqli_query($connection, $get_record);
+    if(mysqli_num_rows($run)>0) {
+        echo "<tr>
+                                        <th>Student Name</th>
+                                        <th>Father Name</th>
+                                        <th>Student id</th>
+                                        <th>Student Hostel</th>
+                                        <th>Room No</th>
+                                        <th>Actions</th>
+                                    </tr>";
+        while ($each_record = mysqli_fetch_array($run)) {
+        $student_name = $each_record['name'];
+        $student_f_name = $each_record['fathername'];
+        $student_id = $each_record['studentid'];
+        $student_hostel = $each_record['HostelName'];
+        $student_room = $each_record['roomNumber'];
 
-    while ($each_record = mysqli_fetch_array($run)) {
-                $student_name = $each_record['name'];
-                $student_f_name = $each_record['fathername'];
-                $student_id = $each_record['studentid'];
-                $student_hostel = $each_record['HostelName'];
-                $student_room = $each_record['roomNumber'];
-
-                echo "<tr>
+        echo "<tr>
                   <td>$student_name</td>
                   <td>$student_f_name</td>
                   <td>$student_id</td>
@@ -321,8 +494,13 @@ function studentSearchByHostel($temp){
                   <td><button type='button' class='btn btn-default' ><a href='StudentCompleteDetails.php?id=$student_id'>Details</a></button> </td>
                   </tr>";
     }
+    }
+    else{
+        echo"No Student Record Found";
+    }
 
 }
+
 function getStudentCompleteDetails($applicationNo){
     global $connection;
     $get_record = "select * from oldstudentform WHERE studentid = '$applicationNo'";
@@ -391,6 +569,47 @@ function getStudentCompleteDetails($applicationNo){
         foreach ($challan_copy as $challan){
             echo "<tr><td>Mess Fee Slip</td><td><img src='../IMAGES/$challan' height='150px' width='100px' ></td></tr>";
         }
+        echo "<td><button id=\"view\" style=\"float: right\" data-toggle=\"modal\" data-target=\"#update\">Update Hostel data</button></td>";
+        echo" <div class=\"modal fade\" id=\"update\" role=\"dialog\">
+    <div class=\"modal-dialog\">
+
+      <!-- Modal content-->
+      <div class=\"modal-content\">
+        <div class=\"modal-header\" style='background-color: #f36a5a'>
+          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>
+          <h4 class=\"modal-title\">Hostel Record Update</h4>
+        </div>
+        <div class=\"modal-body\" >
+        <form method=\"post\" action=\"StudentCompleteDetails.php?id=$applicationNo\">
+            <label for=\"oldhostel\">Current Hostel: </label>
+            <input type='text' id='oldhostel' value='$hostel_name' readonly>
+             <label for=\"oldroom\">Current Room No: </label>
+            <input type='text' id='oldroom' value='$room_no' readonly>
+            <br>
+            <label for=\"newhostel\">Changed Hostel: </label>
+            <select  id=\"newhostel\" name=\"newhostel\">
+                                            <option><----Choose----></option>
+                                            <option>M.A Jinnah</option>
+                                            <option>Liaquat Hall</option>
+                                            <option>Johar Hall</option>
+                                            <option>Jupitar Hall</option>
+                                        </select>
+             <label for=\"newroom\">New Room No: </label>
+            <input type='text' id='newroom' name='newroom' value='$room_no'>
+
+
+
+        </div>
+        <div class=\"modal-footer\">
+          <input type=\"submit\" id='view' name='updaterecord' class=\"btn btn-success\" value='Update'>
+          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cancel</button>
+        </div>
+        </form>
+      </div>
+
+    </div>
+  </div>";
+
     }
 }
 

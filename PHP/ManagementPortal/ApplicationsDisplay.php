@@ -176,7 +176,7 @@ error_reporting(0)
                                 <td>Name</td>
                                 <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
                             </tr>
-                            <tr>
+                            <tr style="background-color: #f36a5a">
                                 <td>Rank</td>
                                 <td><?php echo "{$_SESSION['UserRank'] }";?></td>
                             </tr>
@@ -190,8 +190,8 @@ error_reporting(0)
 
             </div>
             <ol class="breadcrumb">
-                <li><a href="../index.php">Home</a></li>
-                <li><a href="OfficeLogin.php">Login</a></li>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="Logout.php">Login</a></li>
                 <li class="active">Student Applications</li>
             </ol>
         </div>
@@ -199,7 +199,7 @@ error_reporting(0)
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
-                        <div class="panel panel-primary">
+                        <div class="panel panel-primary" style="padding-left: 0px; padding-right: 0px">
 
                             <div class="panel-heading">Received Applications</div>
                             <div class="panel-body">

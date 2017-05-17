@@ -36,6 +36,12 @@ include "../connection.php";
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <a  class="navbar-brand" href="MainApplicationOffice.php" id="sidebar-title">Management Portal</a>
         </div>
         <ul class="nav navbar-top-links navbar-right">
@@ -159,8 +165,8 @@ include "../connection.php";
     </nav>
     <!-- /. NAV SIDE  -->
 
-    <div id="page-wrapper">
-        <div class="header row">
+    <div id="page-wrapper" style="margin-right: -10px">
+        <div class="header row" style="margin-right: -10px">
             <div class="page-header row">
                 <div class="col-md-3 col-xs-4 col-sm-4">
                     <a href="#">
@@ -199,42 +205,66 @@ include "../connection.php";
                     <div class="board">
                         <div class="panel panel-primary">
 
-                            <div class="panel-heading">Inventory System</div>
-                            <div class="panel-body">
-                                <div class="col-md-3">
-                                    <div class="btn-group btn-group-sm btn-group-vertical" style="padding-top: 40pt">
-                                        <a href="InventoryItems.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">View All Items</a>
-                                        <a href="RemainingInventory.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Remaining Inventory</a>
-                                        <a href="PurchasedHistory.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Purchased History</a>
-                                        <a href="UsedItemsHistory.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Used Items History</a>
-                                        <a href="AccountPayable.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Account Payable</a>
-                                        <a href="AccountReceivable.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Account
-                                            Receivable/Received</a>
-                                        <a href="BankAmount.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Bank Amount</a>
-                                        <a href="PayableHistory.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Payable/Paid History</a>
-                                    </div>
+                            <div class="panel-heading nav navbar-inverse" style="max-height: 70px; padding-left: 0px;padding-right: 0px">
+                                <div class="col-md-5">
+                                    <h3 class="panel-title" style="padding-top: 15px">Inventory System</h3>
+                                </div>
+                                <div class="col-md-7">
+                                    <ul class="nav navbar-nav">
+                                        <li class="active"><a href="ViewInventory.php">Update Inventory <span class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventory Items <span class="caret"></span></a>
+
+                                            <ul class="dropdown-menu">
+                                                <li><a href="InventoryItems.php">View All Items</a>
+                                                </li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="RemainingInventory.php">Remaining Inventory Items</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">History <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="PurchasedHistory.php">Purchased History</a>
+                                                </li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="UsedItemsHistory.php">Used Items History</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Accounts <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li> <a href="AccountPayable.php">Account Payable</a>
+                                                </li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="AccountReceivable.php">Account Receivable/Received</a>
+                                                </li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="BankAmount.php">Bank Amount</a>
+                                                </li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="PayableHistory.php">Payable/Paid History</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 </div>
 
 
-                                <div class="col-md-4">
+                            </div>
+                            <div class="panel-body">
+
+                                <div class="col-md-6">
                                     <div class="col-md-offset-2">
                                         <h2> Used Items </h2>
                                     </div>
 
-
+                                    <br>
                                     <form class="form-horizontal" method="post" action="InventoryProcessing.php">
                                         <div class="form-group">
                                             <label class="control-label col-md-4" for="ItemNo">Item No: </label>
 
-                                            <input type="number" name="ItemNo_" id="ItemNo_">
+                                            <input type="text" name="ItemNo_" id="ItemNo_">
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-4" for="ItemName">Item Name: </label>
@@ -242,15 +272,15 @@ include "../connection.php";
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-4" for="UnitsUsed">Units Used: </label>
-                                            <input type="number" name="UnitsUsed_" id="UnitsUsed_">
+                                            <input type="text" name="UnitsUsed_" id="UnitsUsed_">
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-4" for="UnitCost">Per Unit Cost: </label>
-                                            <input type="number" name="UnitCost_" id="UnitCost_">
+                                            <input type="text" name="UnitCost_" id="UnitCost_">
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-4" for="TotalCost">Total Cost: </label>
-                                            <input type="number" name="TotalCost_" id="TotalCost_">
+                                            <input type="text" name="TotalCost_" id="TotalCost_">
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-4" for="TotalCost">Used for: </label>
@@ -260,7 +290,7 @@ include "../connection.php";
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-offset-4">
-                                                <input type="submit" value="Update" name="Update_">
+                                                <input id="button" type="submit" value="Update" name="Update_">
                                             </div>
                                         </div>
                                     </form>
@@ -269,17 +299,17 @@ include "../connection.php";
                                 </div>
 
 
-                                <div class="col-md-5">
+                                <div class="col-md-6">
                                     <div class="col-md-offset-2">
                                         <h2> Purchased Items </h2>
                                     </div>
-
+                                    <br>
 
                                     <form class="form-horizontal" method="post" action="InventoryProcessing.php">
                                         <div class="form-group">
                                             <label class="control-label col-md-4" for="ItemNo">Item No: </label>
 
-                                            <input type="number" name="ItemNo" id="ItemNo">
+                                            <input type="text" name="ItemNo" id="ItemNo">
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-4" for="ItemName">Item Name: </label>
@@ -288,19 +318,19 @@ include "../connection.php";
                                         <div class="form-group">
                                             <label class="control-label col-md-4" for="UnitsPurchased">Units
                                                 Purchased: </label>
-                                            <input type="number" name="UnitsPurchased" id="UnitsPurchased">
+                                            <input type="text" name="UnitsPurchased" id="UnitsPurchased">
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-4" for="UnitCost">Per Unit Cost: </label>
-                                            <input type="number" name="UnitCost" id="UnitCost">
+                                            <input type="text" name="UnitCost" id="UnitCost">
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-4" for="TotalCost">Total Cost: </label>
-                                            <input type="number" name="TotalCost" id="TotalCost">
+                                            <input type="text" name="TotalCost" id="TotalCost">
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-offset-4">
-                                                <input type="submit" value="Update" name="Update">
+                                                <input  id="button" type="submit" value="Update" name="Update">
                                             </div>
                                         </div>
                                     </form>
@@ -313,13 +343,15 @@ include "../connection.php";
                     </div>
                 </div>
             </div>
-            <footer><p>All right reserved. By: <a href="http://lahore.comsats.edu.pk/">COMSATS LAHORE</a></p>
-            </footer>
+
         </div>
         <!-- /. PAGE INNER  -->
     </div>
     <!-- /. PAGE WRAPPER  -->
+    <footer><p>All right reserved. By: <a href="http://lahore.comsats.edu.pk/">COMSATS LAHORE</a></p>
+    </footer>
 </div>
+
 <!-- /. WRAPPER  -->
 <!-- JS Scripts-->
 <!-- jQuery Js -->

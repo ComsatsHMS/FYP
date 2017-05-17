@@ -138,7 +138,7 @@ include "../connection.php";
                 }
                 if($_SESSION['Voting'] == 1){
                     echo " <li>
-                    <a href=\"StartVoting.php\"><i class=\"fa fa-\"></i> Voting </a>
+                    <a href=\"StartVoting.php\"><i class=\"fa fa-vote\"></i> Voting </a>
                 </li>";
                 }
                 if($_SESSION['Statistics'] == 1){
@@ -173,8 +173,8 @@ include "../connection.php";
                             <td>Name</td>
                             <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
                         </tr>
-                        <tr>
-                            <td>Rank</td>
+                        <tr style="background-color: #f36a5a">
+                            <td >Rank</td>
                             <td><?php echo "{$_SESSION['UserRank'] }";?></td>
                         </tr>
                         <tr>
