@@ -130,6 +130,32 @@ include "../connection.php";
                 </li>
                 <li>
                     <a href="Applications.php"><i class="fa fa-"></i> Applications </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="Challan.php">Challan</a>
+                        </li>
+                        <li>
+                            <a href="FeeHistory.php">Fee History</a>
+                        </li>
+                        <li>
+                            <a href="Challan.php">Challan</a>
+                        </li>
+                        <li>
+                            <a href="FeeHistory.php">Fee History</a>
+                        </li>
+                        <li>
+                            <a href="Challan.php">Challan</a>
+                        </li>
+                        <li>
+                            <a href="FeeHistory.php">Fee History</a>
+                        </li> <li>
+                            <a href="Challan.php">Challan</a>
+                        </li>
+                        <li>
+                            <a href="FeeHistory.php">Fee History</a>
+                        </li>
+                    </ul>
+
                 </li>
                 <?php
                 $fetch= "select studentID from wingproctorslist where studentID='{$_SESSION["id"]}'";
