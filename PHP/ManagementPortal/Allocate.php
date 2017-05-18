@@ -187,7 +187,7 @@ if (isset($_GET['selected'])){
                                 <td>Name</td>
                                 <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
                             </tr>
-                            <tr>
+                            <tr style="background-color: #f36a5a">
                                 <td>Rank</td>
                                 <td><?php echo "{$_SESSION['UserRank'] }";?></td>
                             </tr>
@@ -223,9 +223,9 @@ if (isset($_GET['selected'])){
                                                    name="id" value="<?php echo $_GET['id'];?>" readonly>
                                             <?php
                                             if ($_GET['newStd'] == 0)
-                                                echo "<strong> Old Student </strong>";
+                                                echo "<br><strong> Old Student  </strong>";
                                             elseif ($_GET['newStd'] == 1)
-                                                echo "<strong> New Student </strong>";
+                                                echo "<br><strong> First Semester Student </strong>";
                                             ?>
                                         </div>
                                         <div class="form-group">
@@ -268,7 +268,7 @@ if (isset($_GET['selected'])){
                                         <script
                                             src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
                                         <div class="form-group ">
-                                            <button type='submit' name="submit" class="btn btn-success">Allot</button>
+                                            <button type='submit' id="button" name="submit" class="btn btn-success">Allot</button>
                                         </div>
                                     </div>
                                     <div class="col-md-6">

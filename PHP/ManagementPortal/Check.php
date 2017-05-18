@@ -174,7 +174,7 @@ include "../connection.php";
                                 <td>Name</td>
                                 <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
                             </tr>
-                            <tr>
+                            <tr style="background-color: #f36a5a">
                                 <td>Rank</td>
                                 <td><?php echo "{$_SESSION['UserRank'] }";?></td>
                             </tr>
@@ -188,7 +188,7 @@ include "../connection.php";
 
             </div>
             <ol class="breadcrumb">
-                <li><a href="../index.php">Home</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="OfficeLogin.php">Login</a></li>
                 <li class="active">Record Verification</li>
             </ol>

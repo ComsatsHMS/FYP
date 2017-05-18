@@ -1,5 +1,4 @@
 <?php
-error_reporting(0);
 session_start();
 if(!isset($_SESSION['UserId'])){
     header('Location:OfficeLogin.php');
@@ -202,24 +201,22 @@ include ("phpFunctions.php");
                             <div class="panel-heading">Hostel Alotted Students List</div>
                             <div class="panel-body">
                                 <div class="form-group">
+                                    <?php
 
+                                    echo '
                                         <label>Search by Hostel: </label>
-                                           <select  id="hostel" name="hostel">
-                                            <option><?php echo"{$_GET['selected']}" ?></option>;
-                                            <?php $loop=0;
-                                            getHostels();
-                                            while($_SESSION['list'][$loop]){
-                                         echo "<option>{$_SESSION['list'][$loop]}</option>";
-                                            $loop++;
-                                            }
-                                            ?>
-                                           </select>
-                                        <form method="post" action="SelectedStudents.php">
+                                        <select  id="hostel" name="hostel">
+                                            <option><----Choose-----></option>
+                                            <option>M.A Jinnah</option>
+                                            <option>Liaquat Hall</option>
+                                            <option>Johar Hall</option>
+                                            <option>Jupitar Hall</option>
+                                        </select><form method="post" action="SelectedStudents.php">
                                             <label for="name">Serach Student By Name: </label>
                                             <input type="text" name="studentName">
                                             <input type="submit" name="search" value="search">
-                                        </form>;
-
+                                        </form>';
+                                    ?>
 
                                 </div>
                                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

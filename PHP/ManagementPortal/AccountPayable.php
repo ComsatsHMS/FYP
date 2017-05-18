@@ -198,34 +198,60 @@ include "../connection.php";
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
                         <div class="panel panel-primary">
-                            <div class="panel-heading">Account Payable</div>
+                            <div class="panel-heading nav navbar-inverse" style="max-height: 70px; padding-left: 0px;padding-right: 0px">
+                                <div class="col-md-5">
+                                    <h3 class="panel-title" style="padding-top: 15px">Accounts Payables</h3>
+                                </div>
+                                <div class="col-md-7">
+                                    <ul class="nav navbar-nav">
+                                        <li ><a href="ViewInventory.php">Update Inventory </a>
+                                        </li>
+                                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventory Items <span class="caret"></span></a>
+
+                                            <ul class="dropdown-menu">
+                                                <li><a href="InventoryItems.php">View All Items</a>
+                                                </li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="RemainingInventory.php">Remaining Inventory Items</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">History <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="PurchasedHistory.php">Purchased History</a>
+                                                </li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="UsedItemsHistory.php">Used Items History</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown active"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Accounts <span class="caret"></span><span class="sr-only">(current)</span></a>
+                                            <ul class="dropdown-menu">
+                                                <li> <a href="AccountPayable.php">Account Payable</a>
+                                                </li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="AccountReceivable.php">Account Receivable/Received</a>
+                                                </li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="BankAmount.php">Bank Amount</a>
+                                                </li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="PayableHistory.php">Payable/Paid History</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                            </div>
                             <div class="panel-body">
 
-                                <div class="col-md-3">
-                                    <div class="btn-group btn-group-sm btn-group-vertical" style="padding-top: 40pt">
-                                        <a href="InventoryItems.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">View All Items</a>
-                                        <a href="RemainingInventory.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Remaining Inventory</a>
-                                        <a href="PurchasedHistory.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Purchased History</a>
-                                        <a href="UsedItemsHistory.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Used Items History</a>
-                                        <a href="AccountPayable.php" class="btn btn-default active-menu"
-                                           style="background-color: #999999;color: white">Account Payable</a>
-                                        <a href="AccountReceivable.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Account
-                                            Receivable/Received</a>
-                                        <a href="BankAmount.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Bank Amount</a>
-                                        <a href="PayableHistory.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Payable/Paid History</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-5">
+                                <div class="col-md-6">
                                     <div class="col-md-offset-2">
                                         <h2> Payable Details </h2>
                                     </div>
+                                    <br>
                                     <form class="form-horizontal" method="post" action="InventoryProcessing.php">
                                         <div class="form-group">
                                             <label class="control-label col-md-4" for="PayableTo">Payable To: </label>
@@ -251,16 +277,17 @@ include "../connection.php";
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-offset-4">
-                                                <input type="submit" value="Submit" name="Payable">
+                                                <input type="submit" id="button" value="Submit" name="Payable">
                                             </div>
                                         </div>
                                     </form>
 
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="col-md-offset-2">
                                         <h2> Paid Amount </h2>
                                     </div>
+                                    <br>
                                     <form class="form-horizontal" method="post" action="InventoryProcessing.php">
                                         <div class="form-group">
                                             <label class="control-label col-md-4" for="RefrenceNo">Refrence No: </label>
@@ -281,7 +308,7 @@ include "../connection.php";
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-offset-4">
-                                                <input type="submit" value="Submit" name="Paid">
+                                                <input type="submit" id="button" value="Submit" name="Paid">
                                             </div>
                                         </div>
                                     </form>

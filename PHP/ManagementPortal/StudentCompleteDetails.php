@@ -1,8 +1,28 @@
 <?php
 error_reporting(0);
 session_start();
+include("../connection.php");
 if(!isset($_SESSION['UserId'])){
     header('Location:OfficeLogin.php');
+}
+$applicationNo = $_GET['id'];
+
+if(isset($_POST['updaterecord'])){
+   $room = $_POST['newroom'];
+    $hostel = $_POST['newhostel'];
+    $query ="update hostel set HostelName='$hostel',roomNumber='$room' where applicationNumber='$applicationNo'";
+    $run1 = mysqli_query($connection,$query);
+    if($run1){
+        $select = "select studentid from oldstudentform where applicationNumber = '$applicationNo'";
+
+        $run = mysqli_query($connection,$select);
+        while ($each_record = mysqli_fetch_array($run)){
+            $studentid = $each_record['studentid'];
+            $query2 ="update insertstudentprofile set studentHostel='$hostel',room='$room' where studentid='$studentid'";
+            $run2 = mysqli_query($connection,$query2);
+        }
+
+    }
 }
 include("phpFunctions.php");
 include "../connection.php";
@@ -176,7 +196,7 @@ include "../connection.php";
                                 <td>Name</td>
                                 <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
                             </tr>
-                            <tr>
+                            <tr style="background-color: #f36a5a">
                                 <td>Rank</td>
                                 <td><?php echo "{$_SESSION['UserRank'] }";?></td>
                             </tr>
@@ -202,9 +222,8 @@ include "../connection.php";
                         <div class="panel panel-primary">
                             <div class="panel-heading" > Student Details </div>
                             <div class="panel-body">
-                                <table class="table">
+                                <table class="table table-striped table-bordered table-hover">
                                     <?php
-                                    $applicationNo = $_GET['id'];
                                     getStudentCompleteDetails($applicationNo);
                                     ?>
                                 </table>
