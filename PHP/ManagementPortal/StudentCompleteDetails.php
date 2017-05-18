@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 session_start();
 include("../connection.php");
 if(!isset($_SESSION['UserId'])){
@@ -25,7 +26,7 @@ if(isset($_POST['updaterecord'])){
 }
 include("phpFunctions.php");
 include "../connection.php";
-error_reporting(0);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -28,77 +28,8 @@ error_reporting(0);
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="../../JS/Lightweight-Chart/cssCharts.css">
+    <script type="text/javascript" src="../../JS/profileValidation.js"> </script>
 </head>
-<script>
-    function validateForm() {
-        var name_error = document.getElementById("name_error");
-        var studentName = document.forms["studentForm"]["studentName"].value;
-
-        var fatherName = document.forms["studentForm"]["fatherName"].value;
-        var f_error = document.getElementById("f_error");
-
-        var Reg = document.forms["studentForm"]["Regid"].value;
-        var reg_error = document.getElementById("reg_error");
-
-        var room = document.forms["studentForm"]["room"].value;
-        var room_error = document.getElementById("room_error");
-
-        var program = document.forms["studentForm"]["program"].value;
-        var program_error = document.getElementById("program_error");
-
-        var cgpa = document.forms["studentForm"]["cgpa"].value;
-        var cgpa_error = document.getElementById("cgpa_error");
-
-        var contact = document.forms["studentForm"]["contact"].value;
-        var contact_error = document.getElementById("contact_error");
-
-        var phone = document.forms["studentForm"]["phone"].value;
-        var phone_error = document.getElementById("phone_error");
-
-        var address = document.forms["studentForm"]["address"].value;
-        alert(address);
-        var address_error = document.getElementById("address_error");
-
-        var hostel = document.forms["studentForm"]["hostel"].value;
-        var hostel_error = document.getElementById("hostel_error");
-
-        if(studentName == "" || fatherName=="" || Reg=="" || room=="" || program==""|| cgpa=="" ||contact=="" || phone=="" || address=="" || hostel==""){
-            if(fatherName== ""){
-                f_error.textContent = "Father Name is required ";
-            }
-            if(studentName == "") {
-                name_error.textContent = "Username is required ";
-            }
-            if(Reg==""){
-                reg_error.textContent = "Registration is required ";
-            }
-            if(room==""){
-                room_error.textContent = "Room Number is required ";
-            }
-            if (program==""){
-                program_error.textContent="Program is required"
-            }
-            if (cgpa==""){
-                cgpa_error.textContent="CGPA is required"
-            }
-            if (contact==""){
-                contact_error.textContent="Contact is required"
-            }
-            if (phone==""){
-                phone_error.textContent="Phone is required"
-            }
-            if (address==""){
-                address_error.textContent="Address is required"
-            }
-            if (hostel==""){
-                hostel_error.textContent="Select hostel name"
-            }
-            return false;
-        }
-        return true;
-    }
-
-</script>
 <body>
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
@@ -250,7 +181,7 @@ error_reporting(0);
                       <table class="table table-striped table-bordered table-hover">
                           <tr>
                               <td><strong>Welcome</strong></td>
-                              <td><?php echo "{$_SESSION['name'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
+                              <td><?php echo "{$_SESSION['name'] }";?></td>
                           </tr>
                           <tr  style="background-color: #f36a5a">
                               <td><strong>Hostel</strong></td>
@@ -277,7 +208,7 @@ error_reporting(0);
                         <div class="panel panel-primary">
                             <div class="panel-heading" >Profile</div>
                                 <div class="panel-body">
-                                    <form class="form-horizontal" role="form" method="post" action="ProfileProcessing.php" onsubmit="return validateForm()" name="studentForm">
+                                    <form class="form-horizontal" role="form" name="studentForm" method="post" action="ProfileProcessing.php"  >
                                         <?php
                                         if($_SESSION['update']){
                                             echo "<h3 style='color:green'> Profile Updated!! </h3><br>";
@@ -323,36 +254,36 @@ error_reporting(0);
                                         <div class="form-group">
                                             <label class="control-label col-sm-2 col-xs-2" for="CGPA">CGPA:</label>
                                             <div class="col-md-4 col-xs-4">
-                                                <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['cgpa']}";?>" id="cgpa" name="cgpa">
+                                                <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['cgpa']}";?>" id="cgpa" name="cgpa" onchange="validateCgpa()">
                                                 <div id="cgpa_error" class="val_error" style="color: red "></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-2 col-xs-2" for="Econtact">Emergency Contact No.:</label>
                                             <div class="col-md-4 col-xs-4">
-                                                <input type="number" class="form-control"  value="<?PHP echo "{$_SESSION['contact']}";?>" id="Econtact" name="econtact">
+                                                <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['contact']}";?>" id="Econtact" name="econtact" onchange="validateEcontact()">
                                                 <div id="contact_error" class="val_error" style="color: red "></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-2 col-xs-2" for="phone">Personal NO.:</label>
                                             <div class="col-md-4 col-xs-4">
-                                                <input type="number" class="form-control"  value="<?PHP echo "{$_SESSION['phone']}";?>" id="phoneno" name="phone">
+                                                <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['phone']}";?>" id="phoneno" name="phone" onchange="validatePcontact()">
                                                 <div id="phone_error" class="val_error" style="color: red "></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-2 col-xs-2" for="Address">Address:</label>
                                             <div class="col-md-4 col-xs-4">
-                                                <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['address']}";?>" id="address" name="address">
+                                                <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['address']}";?>" id="address" name="address" onchange="validateAddress()">
                                                 <div id="address_error" class="val_error" style="color: red "></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-2 col-xs-2" for="hostel">Your Hostel: </label>
                                             <div class="col-md-4 col-xs-4">
-                                                <select  id="select" name="hostel" class="form-control" <?php if($_SESSION['name']!='') echo"readonly"; ?>>
-                                                    <option><?PHP echo "{$_SESSION['hostel']}";?></option>
+                                                <select  id="select" name="hostel" class="form-control" <?php if($_SESSION['hostelname']!='') echo "readonly"; ?>>
+                                                    <option><?PHP echo "{$_SESSION['hostelname']}";?></option>
                                                     <option>Liaqat Hall</option>
                                                     <option>M.A Jinnah</option>
                                                     <option>Johar Hall</option>
@@ -362,14 +293,7 @@ error_reporting(0);
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10 col-xs-10">
-                                                <?php
-                                                if($_SESSION['id']!='')
-                                                    echo "<input id='button' type=\"submit\" value=\"Update Profile\" name=\"update\">";
-                                                ?>
-                                                <?php
-                                                if($_SESSION['id']=='')
-                                                    echo"<input type=\"submit\" value=\"Create Profile\" name=\"submit\">"
-                                                ?>
+                                                <input id="button" type="submit" value="Update Profile" name="update">
                                             </div>
                                         </div>
                                     </form>

@@ -30,7 +30,6 @@ if(isset($_POST['submit'])) {
             $_SESSION['phone']=$db_data['phone'];
             $_SESSION['address']=$db_data['adress'];
             $_SESSION['hostelname']=$db_data['studentHostel'];
-            echo "{$_SESSION['hostel']}";
             $_SESSION['pic']=$db_data['Pic'];
         }
         header('Location:StudentPortal.php');

@@ -28,15 +28,16 @@ body {
 }
 
 #page-wrapper {
-    padding: 0px 0px;
-    min-height: 500px;
-    width: 80%;
+    padding: 15px 15px;
+    /*min-height: 600px;*/
     background: rgba(211, 227, 228, 0.77);
 }
 #page-inner {
     width:100%;
+    margin:0px 0px 0px 0px;
     background-color:transparent;
-    min-height:300px;
+    /*padding: 0px 30px;*/
+    /*min-height:1200px;*/
 }
 #button{
     display: inline-block;
@@ -47,7 +48,7 @@ body {
     text-decoration: none;
     outline: none;
     color: #fff;
-    background-color: #3E3E3E;
+    background-color: #F36A5A;
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
@@ -67,7 +68,7 @@ body {
     text-decoration: none;
     outline: none;
     color: #fff;
-    background-color: #3E3E3E;
+    background-color:#F36A5A;;
     border: none;
     border-radius: 5px;
     box-shadow: 0 3px #999;
@@ -134,7 +135,9 @@ p {
 .navbar-side {
     z-index: 0;
 }
-
+.panel{
+border-radius:0px;
+}
 .navbar-side .nav > li > a > i{color: #8C8C8C;padding: 8px;width: 30px;text-align: center;}
 .top-navbar{
 position: fixed;
@@ -161,11 +164,15 @@ position: fixed;
 .top-navbar .nav > li > a:hover, .top-navbar .nav > li > a:focus {text-decoration: none;background-color: #4D4D4D;color: #fff;}
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {background-color: #656565;border-color: #F36A5A;color: #fff !important;}
 .breadcrumb {
-padding: 12px 10px 12px 20px;
-margin-bottom: 20px;
+    padding: 10px 15px;
+margin-bottom: 0px;
 list-style: none;
-
 border-radius: 0;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);    box-shadow: 0 1px 1px rgba(0,0,0,.05);background: #3E3E3E;}
 .breadcrumb>li>a {
     color:white;
@@ -252,16 +259,12 @@ text-shadow: none;}
 .panel-heading {
   /* padding: 15px 15px 0px; */
   border-bottom: 1px solid transparent;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 .header {
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-right: -10px;
-
+    margin: 0 0px;
+    background-color: white;
 }
 h1.page-header small {
     color: #7E7E7E;
@@ -283,11 +286,8 @@ i.fa.fa-bars:hover {
 	color: #F36A5A;
 }
 .board .panel {
-    padding-bottom: 15px;
-    padding-top: 25px;
-    padding-left: 0px;
-    padding-right: 0px;
-	border: none;
+    padding: 25px 15px;
+	border:none;
 	background:#fff;
 }
 .board .number{
@@ -508,6 +508,8 @@ color: #8d8888;
 }
 footer p{
 font-size: 14px;
+    text-align: center;
+    margin: 0 0 0px;
 }
 /*----------------------------------------------
     MENU STYLES    
@@ -598,11 +600,11 @@ padding-top: 4px;
 }
 
 .nav-second-level li a {
-    padding-left: 37px;
+    padding-left: 80px;
 }
 
 .nav-third-level li a {
-    padding-left: 55px;
+    padding-left: 100px;
 }
 .sidebar-collapse , .sidebar-collapse .nav{
 	background:none;
@@ -710,7 +712,7 @@ line-height: 1.428571429;
      #page-wrapper{
                margin: 0 0 0 260px;
                padding: 0;
-               min-height: 1200px;
+               min-height: 600px;
     }
 	
 	

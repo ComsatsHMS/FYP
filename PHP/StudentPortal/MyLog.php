@@ -216,7 +216,7 @@ include "LogsProcessing.php";
                                   <div class="form-group ">
                                     <label for="complain">Please Choose: </label>
                                       <select id="Log" name="Log">
-                                        <option></option>
+                                        <option><?php echo "{$_SESSION['SelectedLog']}" ?> </option>
                                         <option>Complains</option>
                                         <option>Applications</option>
                                      </select>

@@ -11,7 +11,6 @@ if(isset($_POST['progress'])) {
 
 if(isset($_GET['SelectedLog'])){
     $_SESSION['SelectedLog'] = $_GET['SelectedLog'];
-    echo "{$_SESSION['SelectedLog']}";
     header("location:http://localhost/FYP/PHP/StudentPortal/MyLog.php");
 }
 function getLogs()

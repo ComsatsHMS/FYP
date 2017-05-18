@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 session_start();
 if(!isset($_SESSION['UserId'])){
     header('Location:OfficeLogin.php');
@@ -6,7 +7,7 @@ if(!isset($_SESSION['UserId'])){
 include("phpFunctions.php");
 
 include "../connection.php";
-error_reporting(0)
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

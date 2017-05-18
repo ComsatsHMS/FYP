@@ -2,6 +2,7 @@
 session_start();
 error_reporting(0);
 include "../connection.php";
+include("phpFunctions.php");
 include("Complaints_Processing.php");
 ?>
 <!DOCTYPE html>
@@ -201,32 +202,35 @@ include("Complaints_Processing.php");
                             <!--            Content Box Contents-->
                             <div class="panel-body">
                                 <div class="form-group ">
-                                    <?php
-                                    $check1 = $_GET['id'];
-                                    if (!$check1) {
-                                        echo '  <label for="complain">Complain Type: </label>
+                                    <label for="complain">Complain Type: </label>
                             <select  id="complainType" name="ComplainType">
-                                <option><----Choose-----></option>
+                                <option></option>
                                 <option>Mess Complain</option>
                                 <option>Water Complain</option>
                                 <option>Sweeper Complain</option>
+                                <option>Electrician Complain</option>
+                                <option>Carpenter Complain</option>
                                 <option>Other Complain</option>
                             </select>
 
-                            <label>Specify Hostel: </label>
+
+                        <label>Specify Hostel: </label>
                             <select  id="hostel" name="hostel">
-                                <option><----Choose-----></option>
-                                <option>M.A Jinnah</option>
-                                <option>Liaqat Hall</option>
-                                <option>Johar Hall</option>
-                            </select>
+                                <option><?php echo"{$_SESSION['comphostel']}" ?></option>;
+                                <?php $loop=0;
+                                getHostels();
+                                while($_SESSION['list'][$loop]){
+                             echo "<option>{$_SESSION['list'][$loop]}</option>";
+                                $loop++;
+                                }
+                                ?>
+                        </select>
 
                             <form method="post" action="Complaints_Processing.php">
                                 <label for="date">Date: </label>
                                 <input type="date" name="date">
                                 <input type="submit" value="Go">
-                            </form>';
-                                    } ?>
+                            </form>
 
                                 </div>
 

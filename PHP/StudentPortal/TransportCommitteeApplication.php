@@ -228,7 +228,7 @@ if(isset($_POST['Submit'])){
                                                <textarea class="form-control" name="text" rows="9" cols="20" required></textarea>
                                          </div>
                                            <div class="form-group ">
-                                               <button type='submit' name="Submit" class="btn btn-success">submit</button>
+                                               <button id="button" style="float: right" type='submit' name="Submit" class="btn btn-success">submit</button>
                                            </div>
                                      </form>
                                 </div>

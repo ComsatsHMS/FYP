@@ -202,6 +202,14 @@ include("phpFunctions.php");
 
                             <div class="panel-heading">Selected Students for Allotment</div>
                             <div class="panel-body">
+                                <?php
+                                if($_SESSION['Allocation']=='OK'){
+                                    echo "<h3 style='color:green'> Room and Hostel Allocated!! </h3><br>";
+                                }else if($_SESSION['Allocation']=='error'){
+                                    echo "<h3 style='color:red'> Oops, Something went wrong!! </h3><br>";
+                                }
+                                unset($_SESSION['Allocation']);
+                                ?>
                                 <table class="table table-striped table-bordered table-hover">
 
                                     <?php

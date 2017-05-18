@@ -216,19 +216,19 @@ include "../connection.php";
                                 <!--                Available Applications      -->
                                 <div class="btn-group-vertical">
 
-                                        <button id="button" class="btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="MessCloseApplication.php">Mess Close Application</button><br><br>
+                                        <a id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" href="MessCloseApplication.php">Mess Close Application</a><br><br>
 
-                                        <button id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="TransportCommitteeApplication.php">Transport Committee</button><br><br>
+                                        <a id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" href="TransportCommitteeApplication.php">Transport Committee</a><br><br>
 
-                                        <button id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="BSCommitteeApplication.php">Blood Society Committee</button><br><br>
+                                        <a id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" href="BSCommitteeApplication.php">Blood Society Committee</a><br><br>
 
-                                        <button id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="NetworkAnalystApplication.php">Network Analyst</button><br><br>
+                                        <a id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" href="NetworkAnalystApplication.php">Network Analyst</a><br><br>
 
-                                        <button id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="SportsCommitteeApplication.php">Sports Comitee</button><br><br>
+                                        <a id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" href="SportsCommitteeApplication.php">Sports Comitee</a><br><br>
 
-                                        <button id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="MessCommitteeApplication.php">Mess Committee</button><br><br>
+                                        <a id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" href="MessCommitteeApplication.php">Mess Committee</a><br><br>
 
-                                        <button id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" formaction="WingProctorApplication.php">Wing Proctor</button><br><br>
+                                        <a id="button" class="btn btn-primary btn btn-primary col-sm-offset-2 col-sm-4 col-xs-10" href="WingProctorApplication.php">Wing Proctor</a><br><br>
                                 </div>
                             </div>
 
