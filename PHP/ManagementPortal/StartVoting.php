@@ -11,11 +11,17 @@ if(isset($_POST['submit'])){
     $date = $_POST['date'];
     $query = "select Sr from votingtime where votingFor = '$votingtype' ";
     $result = mysqli_query($connection, $query);
-    while ($db_data = mysqli_fetch_array($result)) {
-        $Sr = $db_data['Sr'];
+    if(mysqli_num_rows($result) == 0){
+        $query2 = "insert into votingtime VALUES ('','$votingtype','$date')";
+        $result = mysqli_query($connection, $query2);
+    }else{
+        while ($db_data = mysqli_fetch_array($result)) {
+            $Sr = $db_data['Sr'];
+        }
+        $query2 = "UPDATE votingtime SET endtime='$date' WHERE Sr='$Sr'";
+        $result = mysqli_query($connection, $query2);
     }
-    $query2 = "UPDATE votingtime SET endtime='$date' WHERE Sr='$Sr'";
-    $result = mysqli_query($connection, $query2);
+
 }
 
 ?>
