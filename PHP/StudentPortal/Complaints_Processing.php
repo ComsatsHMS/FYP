@@ -8,7 +8,7 @@ if(isset($_POST['Submit'])) {
     $StudentID    =    $_SESSION['id'];
     $StudentRoom  =    $_SESSION['room'];
     if(!empty($ComplainType) && !empty($ComplainText)){
-        $query = mysqli_query($connection, "insert into complaints VALUES ('','$ComplainType','$ComplainText','$StudentRoom',now(),'$StudentID','Pending','')");
+        $query = mysqli_query($connection, "insert into complaints VALUES ('','$ComplainType','$ComplainText',now(),'$StudentID','Pending','')");
         if($query){
             $_SESSION['Complain']="inserted";
         }
