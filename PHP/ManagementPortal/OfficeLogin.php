@@ -51,6 +51,14 @@ error_reporting(0);
     <hr width="370px">
     <div class="login-card">
         <p class="profile-name-card"></p>
+        <?php
+        if($_SESSION['LoginError']=="Error"){
+            echo  '<div>
+    <p id="error" style="color: red;text-align: center " >Sign in failure: Invalid Login or bad password</p>
+</div>';
+            unset($_SESSION['LoginError']);
+        }
+        ?>
         <form class="form-signin" action="LoginProcessing.php" method="post" enctype="multipart/form-data">
             <input class="form-control" type="text"  placeholder="Email address" name="email">
             <input class="form-control" type="password" placeholder="Password"  name="password">
@@ -91,22 +99,3 @@ error_reporting(0);
     </body>
 
     </html>
-<?php
-if($_SESSION['LoginError']=="Error"){
-    echo "<script>
-     alert(\"Email or Password Incorrect!\");
-    </script>";
-}
-else if($_SESSION['SignUp']=="OK"){
-    echo "<script>
-     alert(\"Submitted! Temporary Password Will be sent to You on Email after Approval\");
-    </script>";
-}
-else if($_SESSION['SignUp']=="Error"){
-    echo "<script>
-     alert(\"Oops! Something Went Wrong\");
-    </script>";
-}
-unset($_SESSION['LoginError']);
-unset($_SESSION['SignUp']);
-?>

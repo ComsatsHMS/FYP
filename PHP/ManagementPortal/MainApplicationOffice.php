@@ -198,11 +198,27 @@ include "../connection.php";
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
                         <div class="panel panel-primary">
-
+                            <?php
+                            if($_SESSION['Notification']=='inserted'){
+                                echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Success!</strong> Notification Uploaded!!
+                                                </div>";
+                            }
+                            elseif($_SESSION['Notification']=='empty'){
+                                echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Error!</strong> All fields Required!!
+                                                </div>";
+                            } elseif($_SESSION['Notification']=='error'){
+                                echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Error!</strong> Something went wrong!!
+                                                </div>";
+                            }
+                            unset($_SESSION['Notification']);
+                            ?>
                             <div class="row">
 
                                 <div class="col-md-4">
-                                    <label >Hostel Name</label>
+                                    <label for="hostel">Hostel Name</label>
                                     <select class="form-control" id="hostel" name="hostel">
                                         <option>
                                             <?php
@@ -217,7 +233,7 @@ include "../connection.php";
                                     </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <label >Notification Type</label>
+                                    <label for="type">Notification Type</label>
                                     <select class="form-control" id="type" name="type">
                                         <option>
                                             <?php
@@ -251,7 +267,7 @@ include "../connection.php";
                                         <input class="form-control" type="date" name="date" id="date">
 
                                         <div class="form-group ">
-                                            *.txt file only  <input type="file"  name="fileToUpload" id="fileToUpload" >
+                                            *.txt file only  <input type="file" name="fileToUpload" id="fileToUpload" >
                                             <input type="submit" value="Upload Notification" name="upload" id="upload" style="float: right">
                                         </div>
                                     </form>

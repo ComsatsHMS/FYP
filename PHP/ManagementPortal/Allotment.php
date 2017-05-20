@@ -204,9 +204,14 @@ include("phpFunctions.php");
                             <div class="panel-body">
                                 <?php
                                 if($_SESSION['Allocation']=='OK'){
-                                    echo "<h3 style='color:green'> Room and Hostel Allocated!! </h3><br>";
-                                }else if($_SESSION['Allocation']=='error'){
-                                    echo "<h3 style='color:red'> Oops, Something went wrong!! </h3><br>";
+                                    echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Success!</strong> Hostel and Room Allocated!!
+                                                </div>";
+                                }
+                              elseif($_SESSION['Allocation']=='error'){
+                                    echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Error!</strong> Something went wrong!!
+                                                </div>";
                                 }
                                 unset($_SESSION['Allocation']);
                                 ?>

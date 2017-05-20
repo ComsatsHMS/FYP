@@ -229,8 +229,8 @@ if (isset($_GET['selected'])){
                                             ?>
                                         </div>
                                         <div class="form-group">
-                                            <label>choose Hostel: </label>
-                                            <select  id="hostels" name="hostels">
+                                            <label for="hostels">choose Hostel: </label>
+                                            <select  id="hostels" name="hostels" required>
                                                 <option><?php echo"{$_GET['sh']}"; ?></option>
                                                 <?php $loop=0;
                                                 getHostels();
@@ -249,7 +249,7 @@ if (isset($_GET['selected'])){
                                                 $selc = $_GET['selected'];
                                                 echo "<input type=\"text\" value=\"$selc\" style=\"width: 150px\" class=\"form-control\" name=\"num\" id=\"roomNo\">";
                                             } else {
-                                                echo "<input type=\"text\"  style=\"width: 150px\" class=\"form-control\" name=\"num\" id=\"roomNo\">";
+                                                echo "<input type=\"text\"  style=\"width: 150px\" class=\"form-control\" name=\"num\" id=\"roomNo\" required>";
 
                                             }
                                             ?>

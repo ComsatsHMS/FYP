@@ -25,12 +25,12 @@ if(isset($_GET['cause'])){
 
 if(isset($_POST['upload'])) {
 
-    echo $_hostel = $_SESSION['hostel1'];
-    echo $_type = $_SESSION['type1'];
-    echo $date = $_POST['date'];
-
-
+    $_hostel = $_SESSION['hostel1'];
+    $_type = $_SESSION['type1'];
+    $date = $_POST['date'];
     $file = $_FILES["fileToUpload"]["name"];
+if(!empty($_hostel) && !empty($_type) && !empty($file) && !empty($date)){
+
     move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "../mydocs/" . $file);
 
     $insert = "insert into notification VALUES ('','$_type','$_hostel','$date','$file',0)";
@@ -43,5 +43,10 @@ if(isset($_POST['upload'])) {
     unset($_SESSION['hostel1']);
     unset($_SESSION['type1']);
     header("Location:http://localhost/FYP/PHP/ManagementPortal/MainApplicationOffice.php");
+}
+    else{
+        $_SESSION['Notification']="empty";
+        header("Location:http://localhost/FYP/PHP/ManagementPortal/MainApplicationOffice.php");
+    }
 }
 ?>
