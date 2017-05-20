@@ -1,9 +1,9 @@
 <?php
 include "../connection.php";
-error_reporting(0);
+//error_reporting(0);
 session_start();
 if(isset($_POST['submit'])) {
-    print_r($_POST);
+    $db_password;
     $degreeProgram = $_POST['degree'];
     $year       = $_POST['fall'];
     $program    = $_POST['degreeProgram'];
@@ -35,7 +35,8 @@ if(isset($_POST['submit'])) {
         header('Location:StudentPortal.php');
     }
     else{
-        echo "Username or Password Mismatch";
+       $_SESSION['error'] = "error";
+        header('Location:Login.php');
     }
 }
 ?>

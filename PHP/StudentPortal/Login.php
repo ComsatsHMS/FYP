@@ -15,7 +15,6 @@ error_reporting(0);
     <link rel="stylesheet" href="../../CSS/Pretty-Registration-Form.css">
     <link rel="stylesheet" href="../../CSS/Google-Style-Login.css">
 </head>
-
 <body>
 <nav class="navbar navbar-default " style="height: 90px;padding-left: 85px;padding-right: 85px">
     <div class="container-fluid">
@@ -47,11 +46,20 @@ error_reporting(0);
         </div>
     </div>
 </nav>
+
+
 <h2 style="text-align: center">Student Portal Login</h2>
 <hr width="330px">
 <div class="login-card">
     <p class="profile-name-card"></p>
-
+    <?php
+    if($_SESSION['error'] == 'error'){
+        echo  '<div>
+    <p id="error" style="color: red;text-align: center " >Sign in failure: Invalid Login or bad password</p>
+</div>';
+        unset($_SESSION['error']);
+    }
+    ?>
     <form class="form-signin" action="LoginProcessing.php" method="post" enctype="multipart/form-data">
         <select name="degree" class="degree form-control col-sm-4" style="width: 33%">
             <option>DDP</option>
@@ -118,7 +126,7 @@ error_reporting(0);
             <option value="PSTAT">PSTAT</option>
         </select>
         <input name="rollNumber" placeholder="Student ID" class="form-control col-sm-4 control-label" type="text"required autocomplete="off">
-        <input class="form-control" type="password" placeholder="Password"  name="check">
+        <input class="form-control" type="password" placeholder="Password" id="pw" name="check">
         <input class="btn btn-primary btn-block btn-lg btn-signin" type="submit" value="Sign in" name="submit" id="submit">
     </form>
     <p class="forgot"><a href="#">Forgot Password?</a></p>

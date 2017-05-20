@@ -210,8 +210,19 @@ error_reporting(0);
                                 <div class="panel-body">
                                     <form class="form-horizontal" role="form" name="studentForm" method="post" action="ProfileProcessing.php"  >
                                         <?php
-                                        if($_SESSION['update']){
-                                            echo "<h3 style='color:green'> Profile Updated!! </h3><br>";
+                                        if($_SESSION['update']=='OK'){
+                                            echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Success!</strong> Profile Updated!!
+                                                </div>";
+                                        }
+                                        elseif($_SESSION['update']=='empty'){
+                                            echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Error!</strong> Something went wrong!!
+                                                </div>";
+                                        } elseif($_SESSION['update']=='error'){
+                                            echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Error!</strong> Something went wrong!!
+                                                </div>";
                                         }
                                         unset($_SESSION['update']);
                                         ?>

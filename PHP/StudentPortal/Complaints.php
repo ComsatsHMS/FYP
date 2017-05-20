@@ -2,13 +2,7 @@
 session_start();
 include "../connection.php";
 error_reporting(0);
-if ($_SESSION['Complain']=='inserted') {
-    echo "<script type='text/javascript'>alert('Complain Submitted');</script>";
-}
-else if ($_SESSION['Complain']=='error') {
-    echo "<script type='text/javascript'>alert('Error! Complain Cannot be Submitted');</script>";
-}
-unset($_SESSION['Complain']);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -218,6 +212,19 @@ unset($_SESSION['Complain']);
                               <div class="panel-body">
                                 <form role="form" method="post" action="Complaints_Processing.php">
                                     <div class="form-group ">
+                                        <?php
+                                        if ($_SESSION['Complain']=='inserted') {
+                                            echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Success!</strong> Complain Submitted!!
+                                                </div>";
+                                        }
+                                        else if ($_SESSION['Complain']=='error') {
+                                            echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Error!</strong> Something went wrong!!
+                                                </div>";
+                                        }
+                                        unset($_SESSION['Complain']);
+                                        ?>
                                         <label for="complain">Please Choose Complain Type: </label>
                                         <select id="complain" name="ComplainType" required>
                                             <option></option>

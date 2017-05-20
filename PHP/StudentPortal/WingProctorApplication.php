@@ -8,11 +8,6 @@ if(isset($_POST['wingProctor'])){
     $s_id = $_SESSION['id'];
     $insert = "insert into applications VALUES ('','$s_id','$application_type','$application_details','','','')";
     $query  = mysqli_query($connection, $insert);
-    if($query){
-        echo "<script type='text/javascript'>alert('Success! Application Submitted.');</script>";
-    }else{
-        echo "<script type='text/javascript'>alert('Error! Something Went Wrong.');</script>";
-    }
 }
 ?>
 <!DOCTYPE html>
@@ -222,6 +217,19 @@ if(isset($_POST['wingProctor'])){
                         <div class="panel panel-primary">
                             <div class="panel-heading" > Wing Proctor Application </div>
                               <div class="panel-body">
+                                  <?php
+                                  if(isset($_POST['wingProctor'])) {
+                                      if ($query) {
+                                          echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Success!</strong> Application Submitted!!
+                                                </div>";
+                                      } else {
+                                          echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Error!</strong> Something went wrong!!
+                                                </div>";
+                                      }
+                                  }
+                                  ?>
                                 <form role="form" action="WingProctorApplication.php" method="post" enctype="multipart/form-data">
                                     <div class="form-group ">
                                         <label for="text">Application content</label>
