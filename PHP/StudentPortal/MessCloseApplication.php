@@ -13,10 +13,11 @@ if(isset($_POST['messclose'])){
     $endDay = date('w', strtotime($lastdate));
     if($firstdate >= $today  && $lastdate >= $firstdate && (($startDay==6 || $startDay==0) && ($endDay==6 || $endDay==0))){
         $insert = "insert into applications VALUES ('','$s_id','$application_type','$application_details','$firstdate','$lastdate','')";
-        mysqli_query($connection, $insert);
-        echo "<script type='text/javascript'>alert('Success! Application Submitted.');</script>";
-    }else{
-        echo "<script type='text/javascript'>alert('Error! Please Provide Correct Close Dates.');</script>";
+        $query  = mysqli_query($connection, $insert);
+        $_SESSION['insert'] = "inserted";
+    }
+    else{
+        $_SESSION['insert'] = "error";
     }
 }
 ?>
@@ -227,6 +228,19 @@ if(isset($_POST['messclose'])){
                         <div class="panel panel-primary">
                             <div class="panel-heading" > Mess Close Application </div>
                               <div class="panel-body">
+                                  <?php
+                                      if ($_SESSION['insert']=='inserted') {
+                                          echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Success!</strong> Application Submitted!!
+                                                </div>";
+                                      }
+                                      elseif($_SESSION['insert']=='error'){
+                                          echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Error!</strong> Mess can be closed only for weekend!!
+                                                </div>";
+                                      }
+                                     unset($_SESSION['insert']);
+                                  ?>
                                 <form role="form" action="MessCloseApplication.php" method="post" enctype="multipart/form-data">
                                     <div class="form-group ">
                                         <label class="control-label col-md-2 col-xs-6 col-sm-6" for="startdate">Close from</label>
