@@ -283,7 +283,7 @@ function getApps(){
                                 </div>
                                 <div>
                                     <a href="SelectedCommitteeMembers.php">
-                                        <button class="btn-primary"> View Selected Applicants</button>
+                                        <button class="btn-primary" > View Selected Applicants</button>
                                     </a>
                                 </div>
 
