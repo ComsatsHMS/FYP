@@ -5,25 +5,6 @@ if(!isset($_SESSION['UserId'])){
 }
 error_reporting(0);
 include("../connection.php");
-if(isset($_POST['submit'])){
-    $Sr;
-    $votingtype = $_POST['voting'];
-    $date = $_POST['date'];
-    $query = "select Sr from votingtime where votingFor = '$votingtype' ";
-    $result = mysqli_query($connection, $query);
-    if(mysqli_num_rows($result) == 0){
-        $query2 = "insert into votingtime VALUES ('','$votingtype','$date')";
-        $result = mysqli_query($connection, $query2);
-    }else{
-        while ($db_data = mysqli_fetch_array($result)) {
-            $Sr = $db_data['Sr'];
-        }
-        $query2 = "UPDATE votingtime SET endtime='$date' WHERE Sr='$Sr'";
-        $result = mysqli_query($connection, $query2);
-    }
-
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +32,50 @@ if(isset($_POST['submit'])){
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="../../JS/Lightweight-Chart/cssCharts.css">
 </head>
+
 <body>
+<?php
+if(isset($_POST['submit'])){
+    $Sr;
+    $votingtype = $_POST['voting'];
+    $date = $_POST['date'];
+    $query = "select Sr from votingtime where votingFor = '$votingtype' ";
+    $result = mysqli_query($connection, $query);
+    if(mysqli_num_rows($result) == 0){
+        $query2 = "insert into votingtime VALUES ('','$votingtype','$date')";
+        $result = mysqli_query($connection, $query2);
+
+    }else{
+        while ($db_data = mysqli_fetch_array($result)) {
+            $Sr = $db_data['Sr'];
+        }
+        $query2 = "UPDATE votingtime SET endtime='$date' WHERE Sr='$Sr'";
+        $result = mysqli_query($connection, $query2);
+    }
+
+    if($result){
+        if($votingtype == 'lunchBreakfast'){
+
+            echo "<script type=\"text/javascript\">
+                    $(document).ready(function(){
+                    ShowSuccesMessage();
+                    });
+                    </script>";
+        }
+        elseif($votingtype == 'messMenu'){
+            header('Location:MessMenu.php');
+        }
+        elseif($votingtype == 'forTrip'){
+            header('Location:TripOptions.php');
+        }
+        elseif($votingtype == 'dinner'){
+            header('Location:DinnerMessMenu.php');
+        }
+    }
+}
+
+
+?>
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
@@ -193,7 +217,7 @@ if(isset($_POST['submit'])){
                                 <td>Name</td>
                                 <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
                             </tr>
-                            <tr>
+                            <tr style="background-color: #f36a5a">
                                 <td>Rank</td>
                                 <td><?php echo "{$_SESSION['UserRank'] }";?></td>
                             </tr>
@@ -230,7 +254,8 @@ if(isset($_POST['submit'])){
                                             <div class="form-group">
                                                 <select name="voting" class="voitng form-control" style="width: 200px;">
                                                     <option value="lunchBreakfast">Lunch/breakfast</option>
-                                                    <option value="messMenu">Mess Menu</option>
+                                                    <option value="messMenu">Lunch/Breakfast Mess Menu</option>
+                                                    <option value="dinner">Dinner Mess Menu</option>
                                                     <option value="forTrip">For a Trip</option>
                                                 </select>
                                             </div>
@@ -241,7 +266,7 @@ if(isset($_POST['submit'])){
                                                 <input type="date" name="date" class="form-control" style="width: 200px"">
                                             </div>
                                             <div class="form-group">
-                                                <input type="submit" name="submit" value="Start">
+                                                <input type="submit" id="view" name="submit" value="Start">
                                             </div>
 
                                         </div>
@@ -287,6 +312,7 @@ if(isset($_POST['submit'])){
 <!-- Chart Js -->
 <script type="text/javascript" src="../../JS/chart.min.js"></script>
 <script type="text/javascript" src="../../JS/chartjs.js"></script>
+
 
 
 </body>
