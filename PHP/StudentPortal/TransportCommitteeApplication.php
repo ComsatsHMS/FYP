@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!isset($_SESSION['name'])){
+    header('Location:Login.php');
+}
 include "../connection.php";
 error_reporting(0);
 if(isset($_POST['Submit'])){
@@ -134,17 +137,41 @@ if(isset($_POST['Submit'])){
                 <li>
                     <a href="Voting.php"><i class="fa fa-"></i> Votes</a>
                 </li>
+
                 <li>
-                    <a class="active-menu" href="Applications.php"><i class="fa fa-"></i> Applications </a>
+                    <a class="active-menu" href="Applications.php"><i class="fa fa-"></i> Applications<span class="fa arrow"></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="MessCloseApplication.php">Mess Close</a>
+                        </li>
+                        <li>
+                            <a class="active-menu" href="TransportCommitteeApplication.php">Trnasport Committee</a>
+                        </li>
+                        <li>
+                            <a href="BSCommitteeApplication.php">Blood Society Committee</a>
+                        </li>
+                        <li>
+                            <a href="NetworkAnalystApplication.php">Network Analyst</a>
+                        </li>
+                        <li>
+                            <a href="SportsCommitteeApplication.php">Sports Comitee</a>
+                        </li>
+                        <li>
+                            <a href="MessCommitteeApplication.php">Mess Committee</a>
+                        </li>
+                        <li>
+                            <a href="WingProctorApplication.php">Wing Proctor</a>
+                        </li>
+                    </ul>
                 </li>
                 <?php
-                $fetch= "select studentID from wingproctorslist where studentID='{$_SESSION["id"]}'";
+                $fetch = "select studentID from wingproctorslist where studentID='{$_SESSION["id"]}'";
                 $studentID;
-                $transport = mysqli_query($connection,$fetch);
-                while ($each_record = mysqli_fetch_array($transport)){
+                $transport = mysqli_query($connection, $fetch);
+                while ($each_record = mysqli_fetch_array($transport)) {
                     $studentID = $each_record['studentID'];
                 }
-                if($studentID == $_SESSION['id']){
+                if ($studentID == $_SESSION['id']) {
                     echo '
                 <li>
                     <a href="ViewComplains.php"><i class="fa fa-"></i> Wing Complaints </a>

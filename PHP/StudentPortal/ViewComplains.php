@@ -1,6 +1,9 @@
 <?php
 error_reporting(0);
 session_start();
+if(!isset($_SESSION['name'])){
+    header('Location:Login.php');
+}
 include("Complaints_Processing.php");
 include "../connection.php";
 ?>
@@ -129,33 +132,30 @@ include "../connection.php";
                     <a href="Voting.php"><i class="fa fa-"></i> Votes</a>
                 </li>
                 <li>
-                    <a href="Applications.php"><i class="fa fa-"></i> Applications </a>
+                    <a href="Applications.php"><i class="fa fa-"></i> Applications<span class="fa arrow"></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="Challan.php">Challan</a>
+                            <a href="MessCloseApplication.php">Mess Close</a>
                         </li>
                         <li>
-                            <a href="FeeHistory.php">Fee History</a>
+                            <a href="TransportCommitteeApplication.php">Trnasport Committee</a>
                         </li>
                         <li>
-                            <a href="Challan.php">Challan</a>
+                            <a href="BSCommitteeApplication.php">Blood Society Committee</a>
                         </li>
                         <li>
-                            <a href="FeeHistory.php">Fee History</a>
+                            <a href="NetworkAnalystApplication.php">Network Analyst</a>
                         </li>
                         <li>
-                            <a href="Challan.php">Challan</a>
+                            <a href="SportsCommitteeApplication.php">Sports Comitee</a>
                         </li>
                         <li>
-                            <a href="FeeHistory.php">Fee History</a>
-                        </li> <li>
-                            <a href="Challan.php">Challan</a>
+                            <a href="MessCommitteeApplication.php">Mess Committee</a>
                         </li>
                         <li>
-                            <a href="FeeHistory.php">Fee History</a>
+                            <a href="WingProctorApplication.php">Wing Proctor</a>
                         </li>
                     </ul>
-
                 </li>
                 <?php
                 $fetch= "select studentID from wingproctorslist where studentID='{$_SESSION["id"]}'";
