@@ -27,13 +27,11 @@ include "../connection.php";
     <link href="../../CSS/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
     <link href="../../CSS/font-awesome.css" rel="stylesheet" />
-    <!-- Morris Chart Styles-->
-    <link href="../../JS/morris/morris-0.4.3.min.css" rel="stylesheet" />
+
     <!-- Custom Styles-->
     <link href="../../CSS/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="../../JS/Lightweight-Chart/cssCharts.css">
 </head>
 <body>
 <div id="wrapper">
@@ -200,7 +198,7 @@ include "../connection.php";
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
-                        <div class="panel panel-primary" style="padding-left: 0px; padding-right: 0px">
+                        <div class="panel panel-primary">
 
                             <div class="panel-heading">Received Applications</div>
                             <div class="panel-body">
@@ -235,24 +233,9 @@ include "../connection.php";
 
 <!-- Metis Menu Js -->
 <script src="../../JS/jquery.metisMenu.js"></script>
-<!-- Morris Chart Js -->
-<script src="../../JS/morris/raphael-2.1.0.min.js"></script>
-<script src="../../JS/morris/morris.js"></script>
-
-
-<script src="../../JS/easypiechart.js"></script>
-<script src="../../JS/easypiechart-data.js"></script>
-
-<script src="../../JS/Lightweight-Chart/jquery.chart.js"></script>
 
 <!-- Custom Js -->
 <script src="../../JS/custom-scripts.js"></script>
-
-
-<!-- Chart Js -->
-<script type="text/javascript" src="../../JS/chart.min.js"></script>
-<script type="text/javascript" src="../../JS/chartjs.js"></script>
-
 
 </body>
 </html>
