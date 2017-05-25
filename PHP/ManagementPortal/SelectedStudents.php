@@ -24,13 +24,12 @@ include ("phpFunctions.php");
     <link href="../../CSS/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
     <link href="../../CSS/font-awesome.css" rel="stylesheet" />
-    <!-- Morris Chart Styles-->
-    <link href="../../JS/morris/morris-0.4.3.min.css" rel="stylesheet" />
+
     <!-- Custom Styles-->
     <link href="../../CSS/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="../../JS/Lightweight-Chart/cssCharts.css">
+
 </head>
 <body>
 <div id="wrapper">
@@ -174,7 +173,7 @@ include ("phpFunctions.php");
                                 <td>Name</td>
                                 <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
                             </tr>
-                            <tr>
+                            <tr style="background-color: #f36a5a">
                                 <td>Rank</td>
                                 <td><?php echo "{$_SESSION['UserRank'] }";?></td>
                             </tr>
@@ -188,7 +187,7 @@ include ("phpFunctions.php");
 
             </div>
             <ol class="breadcrumb">
-                <li><a href="../index.php">Home</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="OfficeLogin.php">Login</a></li>
                 <li class="active">Students List</li>
             </ol>
@@ -205,17 +204,21 @@ include ("phpFunctions.php");
                                     <?php
 
                                     echo '
+                                    <div class="col-md-6 col-offset-1">
                                         <label>Search by Hostel: </label>
-                                        <select  id="hostel" name="hostel">
+                                        <select  id="hostel" name="hostel" >
                                             <option><----Choose-----></option>
-                                            <option>M.A Jinnah</option>
-                                            <option>Liaquat Hall</option>
-                                            <option>Johar Hall</option>
-                                            <option>Jupitar Hall</option>
-                                        </select><form method="post" action="SelectedStudents.php">
+                                            <?php $loop=0;
+                                                getHostels();
+                                                while($_SESSION[\'list\'][$loop]){
+                                                    echo "<option>{$_SESSION[\'list\'][$loop]}</option>";
+                                                    $loop++;
+                                                }
+                                                ?>
+                                        </select></div><form method="post" action="SelectedStudents.php">
                                             <label for="name">Serach Student By Name: </label>
                                             <input type="text" name="studentName">
-                                            <input type="submit" name="search" value="search">
+                                            <input type="submit" name="search" id="search" value="search">
                                         </form>';
                                     ?>
 
@@ -228,6 +231,7 @@ include ("phpFunctions.php");
                                     })
                                 </script>
                                 <table class="table table-striped table-bordered table-hover">
+                                    <!--
                                     <tr>
                                         <th>Student Name</th>
                                         <th>Father Name</th>
@@ -235,7 +239,7 @@ include ("phpFunctions.php");
                                         <th>Student Hostel</th>
                                         <th>Room No</th>
                                         <th>Actions</th>
-                                    </tr>
+                                    </tr>-->
                                     <?php
                                     if (isset($_POST['search'])) {
                                         $temp = $_POST['studentName'];

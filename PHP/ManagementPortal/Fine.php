@@ -7,6 +7,12 @@ if(isset($_POST['submit'])){
     $reason =$_POST['reason'];
     $insert="insert into fine VALUES ('','$student_id','$amount','$reason')";
     $transport = mysqli_query($connection,$insert);
+    if($transport){
+        $_SESSION['finemessage'] = "ok";
+    }
+    else{
+        $_SESSION['finemessage'] = "notok";
+    }
 }
 
 
@@ -178,7 +184,7 @@ if(isset($_POST['submit'])){
                                 <td>Name</td>
                                 <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
                             </tr>
-                            <tr>
+                            <tr style="background-color: #f36a5a">
                                 <td>Rank</td>
                                 <td><?php echo "{$_SESSION['UserRank'] }";?></td>
                             </tr>
@@ -204,19 +210,31 @@ if(isset($_POST['submit'])){
                         <div class="panel panel-primary">
                             <div class="panel-heading" > Fine </div>
                             <div class="panel-body">
-
+                                <?php
+                                if($_SESSION['finemessage'] == "ok"){
+                                    echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Success!</strong> Student Fined!!
+                                                </div>";
+                                }
+                                elseif($_SESSION['finemessage'] =="notok"){
+                                    echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Failed!</strong> Student Not Fined Try Again!!
+                                                </div>";
+                                }
+                                unset($_SESSION['finemessage']);
+                                ?>
                                 <form  action="Fine.php" method="post" enctype="multipart/form-data">
                                     <div class="align col-md-12 col-xs-12">
                                         <div class="form-horizontal">
 
                                             <div class="form-group">
                                                 <label for="id">Student ID</label>
-                                                <input class="form-control" type="number" name="id" style="width: 200px" required>
+                                                <input class="form-control" type="text" name="id" style="width: 200px" required>
                                             </div>
                                             <br>
                                             <div class="form-group">
                                                 <label for="amount">Fine Amount</label>
-                                                <input class="form-control" type="number" name="amount" style="width: 200px" required>
+                                                <input class="form-control" type="text" name="amount" style="width: 200px" required>
                                             </div>
 
                                             <br>
@@ -227,7 +245,7 @@ if(isset($_POST['submit'])){
 
                                             <br>
                                             <div class="form-group">
-                                                <input type="submit" class="btn btn-success" name="submit" id="submit" value="submit">
+                                                <input type="submit" class="btn btn-success" name="submit" id="button" value="submit">
                                             </div>
                                         </div>
 

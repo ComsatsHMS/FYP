@@ -55,26 +55,28 @@ if(isset($_POST['submit'])){
 
     if($result){
         if($votingtype == 'lunchBreakfast'){
-            echo" <div class=\"modal fade\" id=\"yesdialog\" role=\"dialog\">
-    <div class=\"modal-dialog\">
+            $query = "SHOW TABLES IN  fyp WHERE Tables_in_fyp = 'voting'";
+            $result = mysqli_query($connection, $query);
+            if(mysqli_num_rows($result) == 1){
+                $query = "UPDATE voting SET Breakfast = 0, Lunch=0,LunchBreakfast =0";
+                $result = mysqli_query($connection, $query);
 
-      <!-- Modal content-->
-      <div class=\"modal-content\">
-        <div class=\"modal-header\" style='background-color: #f36a5a'>
-          <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>
-          <h4 class=\"modal-title\">Confirmation</h4>
-        </div>
-        <div class=\"modal-body\" >
-          <p>Are you sure you want to Select this student for hostel allotment?</p>
-        </div>
-        <div class=\"modal-footer\">
-          <button type=\"button\" id='view' class=\"btn btn-success\"><a href='ApplicationProcessing.php?id=$application_no&state=1' >Yes</a></button>
-          <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>
-        </div>
-      </div>
+            }
+            else{
+                $query = "create table voting(Breakfast INTEGER (255),Lunch INTEGER (255), LunchBreakfast INTEGER (255))";
+                $result1 = mysqli_query($connection, $query);
+                if($result1){
+                    $queryinsert= "insert into voting VALUES (0,0,0)";
+                    $result = mysqli_query($connection, $queryinsert);
+                }
 
-    </div>
-  </div>";
+            }
+            if($result){
+                $_SESSION['votingmessage'] = "ok";
+            }
+            else{
+                $_SESSION['votingmessage'] = "notok";
+            }
         }
         elseif($votingtype == 'messMenu'){
             header('Location:MessMenu.php');
@@ -258,7 +260,19 @@ if(isset($_POST['submit'])){
 
                             <div class="panel-heading">Voting Start Panel</div>
                             <div class="panel-body">
-
+<?php
+if($_SESSION['votingmessage'] == "ok"){
+    echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Success!</strong> Voting For Lunch / Breakfast selection started!!
+                                                </div>";
+}
+elseif($_SESSION['votingmessage'] =="notok"){
+    echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Failed!</strong> Voting For Lunch / Breakfast selection not started!!
+                                                </div>";
+}
+unset($_SESSION['votingmessage']);
+?>
                                 <form action="StartVoting.php" method="post" enctype="multipart/form-data">
                                     <div class="align col-md-12 col-xs-12">
                                         <div class="form-Horizontal">
