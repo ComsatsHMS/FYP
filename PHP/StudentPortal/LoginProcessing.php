@@ -35,8 +35,48 @@ if(isset($_POST['submit'])) {
         header('Location:StudentPortal.php');
     }
     else{
-       $_SESSION['error'] = "error";
+        $_SESSION['error'] = "error";
         header('Location:Login.php');
     }
+}
+elseif(isset($_POST['forget'])){
+    $email    = $_POST['email'];
+    echo "$email";
+    $query = mysqli_query($connection,"select studentid from oldstudentform where  email='$email'");
+    while ($db_data = mysqli_fetch_array($query)) {
+        $studentID = $db_data['studentid'];
+    }
+    if(!empty($studentID)){
+        $admin_email = "ahmadmukhtar@CHMS.gwiddle.co.uk";
+        $email_ = $email;
+        $subject = "Password Reset";
+        $tempPW = randomPassword();
+        $comment = "New Password is: ".$tempPW;
+        mail($email_, "$subject", $comment, "From:" . $admin_email);
+
+        $query = mysqli_query($connection,"update loginoldstudent set password='$tempPW' where  studentid='$studentID'");
+        if($query){
+            $_SESSION['resetPW'] = "Ok";
+        }
+        else{
+            $_SESSION['resetPW'] = "error";
+        }
+
+    }else{
+        $_SESSION['resetPW'] = "empty";
+    }
+    header('Location:Login.php');
+
+}
+
+function randomPassword() {
+    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    $pass = array(); //remember to declare $pass as an array
+    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+    for ($i = 0; $i < 8; $i++) {
+        $n = rand(0, $alphaLength);
+        $pass[] = $alphabet[$n];
+    }
+    return implode($pass); //turn the array into a string
 }
 ?>

@@ -73,6 +73,22 @@ error_reporting(0);
 </div>';
         unset($_SESSION['error']);
     }
+    elseif($_SESSION['resetPW']=='Ok'){
+        echo  '<div>
+    <p id="error" style="color: green;text-align: center " >Please! Check your email for temporary password.</p>
+</div>';
+    }
+    elseif($_SESSION['resetPW']=='error'){
+        echo  '<div>
+    <p id="error" style="color: red;text-align: center " >OOPss! Something went wrong, Try after sometime</p>
+</div>';
+    }
+    elseif($_SESSION['resetPW']=='empty'){
+        echo  '<div>
+    <p id="error" style="color: red;text-align: center " >Provided Email is not linked to any account.</p>
+</div>';
+    }
+    unset($_SESSION['resetPW']);
     ?>
     <form class="form-signin" action="LoginProcessing.php" method="post" enctype="multipart/form-data" id="signin">
         <select name="degree" class="degree form-control col-sm-4" style="width: 33%">
@@ -145,9 +161,9 @@ error_reporting(0);
         <p class="forgot"><a href="javascript:showhide('pwreset','signin','forget')">Forgot Password?</a></p>
     </form>
 
-    <form id="pwreset"  method="post" enctype="multipart/form-data" style="display: none">
-        <input name="rollNumber" placeholder="Provide Your Email for Password Reset" class="form-control col-sm-4 control-label" type="text"required autocomplete="off">
-        <input class="btn btn-primary btn-block btn-lg btn-signin" type="submit" value="Send" name="submit" id="submit">
+    <form id="pwreset"  method="post" action="LoginProcessing.php" enctype="multipart/form-data" style="display: none">
+        <input name="email" placeholder="Provide Email for Password Reset" class="form-control col-sm-4 control-label" type="text"required autocomplete="off">
+        <input class="btn btn-primary btn-block btn-lg btn-signin" type="submit" value="Send" name="forget" id="submit">
         <p class="forgot"><a href="javascript:showhide('pwreset','signin','')">Return to login</a></p>
     </form>
 
