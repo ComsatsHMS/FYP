@@ -1,6 +1,7 @@
 <?php
 error_reporting(0);
 session_start();
+include "../connection.php";
 if(!isset($_SESSION['name'])){
     header('Location:Login.php');
 }
@@ -123,7 +124,7 @@ if(!isset($_SESSION['name'])){
                 </li>
 
                 <li>
-                    <a class="active-menu" href="Complaints.php"><i class="fa fa-"></i> Complains</a>
+                    <a href="Complaints.php"><i class="fa fa-"></i> Complains</a>
                 </li>
 
                 <li>
@@ -157,16 +158,18 @@ if(!isset($_SESSION['name'])){
                     </ul>
                 </li>
                 <?php
+
                 $fetch = "select studentID from wingproctorslist where studentID='{$_SESSION["id"]}'";
-                $studentID;
+                $studentid;
+//                echo"$studentid"."ss";
                 $transport = mysqli_query($connection, $fetch);
                 while ($each_record = mysqli_fetch_array($transport)) {
-                    $studentID = $each_record['studentID'];
+                    $studentid = $each_record['studentID'];
                 }
-                if ($studentID == $_SESSION['id']) {
+                if ($studentid == $_SESSION['id']) {
                     echo '
                 <li>
-                    <a href="ViewComplains.php"><i class="fa fa-"></i> Wing Complaints </a>
+                    <a class="active-menu" href="ViewComplains.php"><i class="fa fa-"></i> Wing Complaints </a>
                 </li>';
                 }
                 ?>

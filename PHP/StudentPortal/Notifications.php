@@ -133,7 +133,7 @@ include "NotificationViewprocessing.php";
                 </li>
 
                 <li>
-                    <a href="Applications.php"><i class="fa fa-"></i> Applications<span class="fa arrow"></a>
+                    <a href="#"><i class="fa fa-"></i> Applications<span class="fa arrow"></a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="MessCloseApplication.php">Mess Close</a>
