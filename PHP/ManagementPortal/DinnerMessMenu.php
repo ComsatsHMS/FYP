@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 if(!isset($_SESSION['UserId'])){
     header('Location:OfficeLogin.php');
 }
@@ -23,13 +24,11 @@ include("../connection.php");
     <link href="../../CSS/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
     <link href="../../CSS/font-awesome.css" rel="stylesheet" />
-    <!-- Morris Chart Styles-->
-    <link href="../../JS/morris/morris-0.4.3.min.css" rel="stylesheet" />
+
     <!-- Custom Styles-->
     <link href="../../CSS/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="../../JS/Lightweight-Chart/cssCharts.css">
 </head>
 <body>
 <?php
@@ -55,6 +54,27 @@ if(isset($_POST['messmenuD'])){
     else{
         $query = "create table messmenud(days VARCHAR (15),`$op1` VARCHAR(80), `$op2` VARCHAR(80),`$op3` VARCHAR(80),`$op4` VARCHAR(80),`$op5` VARCHAR(80),`$op6` VARCHAR(80),`$op7` VARCHAR(80))";
         $result = mysqli_query($connection, $query);
+    }
+    if($result){
+        $queryinsert= "insert into messmenud VALUES (Monday,0,0,0,0,0,0,0)";
+        $resultinsert = mysqli_query($connection, $queryinsert);
+        $queryinsert= "insert into messmenud VALUES (Tuesday,0,0,0,0,0,0,0)";
+        $resultinsert = mysqli_query($connection, $queryinsert);
+        $queryinsert= "insert into messmenud VALUES (Wednesday,0,0,0,0,0,0,0)";
+        $resultinsert = mysqli_query($connection, $queryinsert);
+        $queryinsert= "insert into messmenud VALUES (Thursday,0,0,0,0,0,0,0)";
+        $resultinsert = mysqli_query($connection, $queryinsert);
+        $queryinsert= "insert into messmenud VALUES (Friday,0,0,0,0,0,0,0)";
+        $resultinsert = mysqli_query($connection, $queryinsert);
+        $queryinsert= "insert into messmenud VALUES (Saturday,0,0,0,0,0,0,0)";
+        $resultinsert = mysqli_query($connection, $queryinsert);
+        $queryinsert= "insert into messmenud VALUES (Sunday,0,0,0,0,0,0,0)";
+        $resultinsert = mysqli_query($connection, $queryinsert);
+
+        $_SESSION['votingmessage'] = "ok";
+    }
+    else{
+        $_SESSION['votingmessage'] = "notok";
     }
 }
 
@@ -228,6 +248,20 @@ if(isset($_POST['messmenuD'])){
                         <div class="panel panel-primary">
 
                             <div class="panel-heading">Possible Options Of Mess Menu For Dinner</div>
+                            <br>
+                            <?php
+                            if($_SESSION['votingmessage'] == "ok"){
+                                echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Success!</strong> Voting started!!
+                                                </div>";
+                            }
+                            elseif($_SESSION['votingmessage'] =="notok"){
+                                echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Failed!</strong> Voting not started!!
+                                                </div>";
+                            }
+                            unset($_SESSION['votingmessage']);
+                            ?>
                             <div class="panel-body">
                                 <form action="DinnerMessMenu.php" method="post" enctype="multipart/form-data">
 
@@ -298,23 +332,9 @@ if(isset($_POST['messmenuD'])){
 
 <!-- Metis Menu Js -->
 <script src="../../JS/jquery.metisMenu.js"></script>
-<!-- Morris Chart Js -->
-<script src="../../JS/morris/raphael-2.1.0.min.js"></script>
-<script src="../../JS/morris/morris.js"></script>
-
-
-<script src="../../JS/easypiechart.js"></script>
-<script src="../../JS/easypiechart-data.js"></script>
-
-<script src="../../JS/Lightweight-Chart/jquery.chart.js"></script>
-
 <!-- Custom Js -->
 <script src="../../JS/custom-scripts.js"></script>
 
-
-<!-- Chart Js -->
-<script type="text/javascript" src="../../JS/chart.min.js"></script>
-<script type="text/javascript" src="../../JS/chartjs.js"></script>
 
 
 </body>

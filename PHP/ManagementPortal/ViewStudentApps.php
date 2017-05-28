@@ -50,7 +50,7 @@ function getApps(){
             <td> $Room_No </td>
             <td> $app_Type </td>
             <td> $Hostel </td>
-            <td> <button type='button'  class='btn btn-success'><a href='AppDisplaytemp.php?id=$Student_ID & room=$Room_No & name=$Student_Name & text=$app_Text &type=$app_Type'>View</a></button> </td>
+            <td> <button type='button'  id='view' class='btn btn-success'><a href='AppDisplaytemp.php?id=$Student_ID & room=$Room_No & name=$Student_Name & text=$app_Text &type=$app_Type'>View</a></button> </td>
             </tr>
         ";
     }
@@ -227,7 +227,7 @@ function getApps(){
                                 <td>Name</td>
                                 <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
                             </tr>
-                            <tr>
+                            <tr style="background-color: #f36a5a">
                                 <td>Rank</td>
                                 <td><?php echo "{$_SESSION['UserRank'] }";?></td>
                             </tr>
@@ -279,11 +279,8 @@ function getApps(){
                                                 }
                                                 ?>
                                              </select>
-
-                                </div>
-                                <div>
                                     <a href="SelectedCommitteeMembers.php">
-                                        <button class="btn-primary" > View Selected Applicants</button>
+                                        <button class="btn-primary" id="search"> View Selected Applicants</button>
                                     </a>
                                 </div>
 

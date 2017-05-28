@@ -173,7 +173,7 @@ include("Complaints_Processing.php");
                                 <td>Name</td>
                                 <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
                             </tr>
-                            <tr>
+                            <tr style="background-color: #f36a5a">
                                 <td>Rank</td>
                                 <td><?php echo "{$_SESSION['UserRank'] }";?></td>
                             </tr>
@@ -202,6 +202,7 @@ include("Complaints_Processing.php");
                             <!--            Content Box Contents-->
                             <div class="panel-body">
                                 <div class="form-group ">
+                                    <div class="col-md-8 col-offset-3">
                                     <label for="complain">Complain Type: </label>
                             <select  id="complainType" name="ComplainType">
                                 <option></option>
@@ -225,14 +226,15 @@ include("Complaints_Processing.php");
                                 }
                                 ?>
                         </select>
+                                        </div>
 
                             <form method="post" action="Complaints_Processing.php">
                                 <label for="date">Date: </label>
                                 <input type="date" name="date">
-                                <input type="submit" value="Go">
+                                <input type="submit" id="search" value="Go">
                             </form>
-
                                 </div>
+
 
                                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
                                 <script>

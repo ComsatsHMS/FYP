@@ -1,60 +1,14 @@
 <?php
+error_reporting(0);
 session_start();
 if(!isset($_SESSION['name'])){
     header('Location:Login.php');
 }
-error_reporting(0);
 include "../connection.php";
-//lunch arrays
-$Rice = array();
-$Mutton = array();
-$Chicken = array();
-$Biryani = array();
-$Karahi = array();
-$Korma = array();
-//breakfast arrays
-$halwaPuri = array();
-$nanChana = array();
-$andaParatha = array();
-$haleem = array();
-$eggBread = array();
-$alooParatha = array();
-//fetch lunch voted data
-$fetch1 = "select * from messmenu";
-$run1 = mysqli_query($connection, $fetch1);
-while ($each = mysqli_fetch_array($run1)) {
-    $Rice[] = $each['Rice'];
-    $Mutton[] = $each['Mutton'];
-    $Chicken[] = $each['Chicken'];
-    $Biryani[] = $each['Biryani'];
-    $Karahi[] = $each['Karahi'];
-    $Korma[] = $each['Korma'];
-
-}
-//fetch breakfast voted data
-$fetch2 = "select * from messmenub";
-$run2 = mysqli_query($connection, $fetch2);
-while ($each = mysqli_fetch_array($run2)) {
-    $halwaPuri[] = $each['halwaPuri'];
-    $nanChana[] = $each['nanChana'];
-    $andaParatha[] = $each['andaParatha'];
-    $haleem[] = $each['haleem'];
-    $eggBread[] = $each['eggBread'];
-    $alooParatha[] = $each['alooParatha'];
-
-}
-$fetch = "select * from voting";
-$run = mysqli_query($connection, $fetch);
-while ($each = mysqli_fetch_array($run)) {
-    $val = $each['Lunch'];
-    $val1 = $each['Breakfast'];
-    $val2 = $each['LunchBreakfast'];
-}
+include "../fusioncharts.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -71,243 +25,13 @@ while ($each = mysqli_fetch_array($run)) {
     <link href="../../CSS/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
     <link href="../../CSS/font-awesome.css" rel="stylesheet" />
-    <!-- Morris Chart Styles-->
-    <link href="../../JS/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
     <link href="../../CSS/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="../../JS/Lightweight-Chart/cssCharts.css">
+    <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+    <script type="text/javascript" src="../../JS/fusioncharts.theme.ocean.js"></script>
 </head>
-
-<script type="text/javascript">
-    function lunchBreakfast(){
-        var chart = new CanvasJS.Chart("chartContainer",
-            {
-                animationEnabled: true,
-                title:{
-                    text: "Survey Chart"
-                },
-                data: [
-                    {
-                        type: "column", //change type to bar, line, area, pie, etc
-                        dataPoints:[
-                            { label: "Breakfast", y: <?php echo "$val1"; ?> },
-                            { label: "Lunch", y:  <?php echo "$val"; ?> },
-                            { label: "Both", y:  <?php echo "$val2"; ?> }
-                        ]
-
-                    }
-                ]
-            });
-
-        chart.render();
-    }
-
-    function messMenu(){
-        var lvalue = <?php echo $val ?>;
-        var bvalue = <?php echo $val1 ?>;
-        var both = <?php echo $val2 ?>;
-        //lunch have more votes
-        if(lvalue > bvalue && lvalue > both){
-            var chart = new CanvasJS.Chart("chartContainer",
-                {
-                    animationEnabled: true,
-                    title:{
-                        text: "Lunch Mess Menu Statistics"
-                    },
-                    data: [
-                        {
-                            type: "column", //change type to bar, line, area, pie, etc
-                            legendText: "Rice",
-                            showInLegend: true,
-                            dataPoints:[
-                                { label: "Monday",  y: <?php echo $Rice[0] ?> },
-                                { label: "Tuesday",  y: <?php echo $Rice[1] ?> },
-                                { label: "Wednesday",  y: <?php echo $Rice[2] ?> },
-                                { label: "Thursday",  y: <?php echo $Rice[3] ?> },
-                                { label: "Friday",  y: <?php echo $Rice[4] ?> },
-                                { label: "Saturday",  y: <?php echo $Rice[5] ?> },
-                                { label: "Sunday",  y: <?php echo $Rice[6] ?> }
-                            ]
-                        },
-                        {
-                            type: "column", //change type to bar, line, area, pie, etc
-                            legendText: "Mutton",
-                            showInLegend: true,
-                            dataPoints:[
-                                { label: "Monday",  y: <?php echo $Mutton[0] ?> },
-                                { label: "Tuesday",  y: <?php echo $Mutton[1] ?> },
-                                { label: "Wednesday",  y: <?php echo $Mutton[2] ?> },
-                                { label: "Thursday",  y: <?php echo $Mutton[3] ?> },
-                                { label: "Friday",  y: <?php echo $Mutton[4] ?> },
-                                { label: "Saturday",  y: <?php echo $Mutton[5] ?> },
-                                { label: "Sunday",  y: <?php echo $Mutton[6] ?> }
-                            ]
-                        },
-                        {
-                            type: "column", //change type to bar, line, area, pie, etc
-                            legendText: "Chicken",
-                            showInLegend: true,
-                            dataPoints:[
-                                { label: "Monday",  y: <?php echo $Chicken[0] ?> },
-                                { label: "Tuesday",  y: <?php echo $Chicken[1] ?> },
-                                { label: "Wednesday",  y: <?php echo $Chicken[2] ?> },
-                                { label: "Thursday",  y: <?php echo $Chicken[3] ?> },
-                                { label: "Friday",  y: <?php echo $Chicken[4] ?> },
-                                { label: "Saturday",  y: <?php echo $Chicken[5] ?> },
-                                { label: "Sunday",  y: <?php echo $Chicken[6] ?> }
-                            ]
-                        },
-                        {
-                            type: "column", //change type to bar, line, area, pie, etc
-                            legendText: "Briyani",
-                            showInLegend: true,
-                            dataPoints:[
-                                { label: "Monday",  y: <?php echo $Biryani[0] ?> },
-                                { label: "Tuesday",  y: <?php echo $Biryani[1] ?> },
-                                { label: "Wednesday",  y: <?php echo $Biryani[2] ?> },
-                                { label: "Thursday",  y: <?php echo $Biryani[3] ?> },
-                                { label: "Friday",  y: <?php echo $Biryani[4] ?> },
-                                { label: "Saturday",  y: <?php echo $Biryani[5] ?> },
-                                { label: "Sunday",  y: <?php echo $Biryani[6] ?> }
-                            ]
-                        },
-                        {
-                            type: "column", //change type to bar, line, area, pie, etc
-                            legendText: "Korma",
-                            showInLegend: true,
-                            dataPoints:[
-                                { label: "Monday",  y: <?php echo $Korma[0] ?> },
-                                { label: "Tuesday",  y: <?php echo $Korma[1] ?> },
-                                { label: "Wednesday",  y: <?php echo $Korma[2] ?> },
-                                { label: "Thursday",  y: <?php echo $Korma[3] ?> },
-                                { label: "Friday",  y: <?php echo $Korma[4] ?> },
-                                { label: "Saturday",  y: <?php echo $Korma[5] ?> },
-                                { label: "Sunday",  y: <?php echo $Korma[6] ?> }
-                            ]
-                        },
-                        {
-                            type: "column", //change type to bar, line, area, pie, etc
-                            legendText: "Karahi",
-                            showInLegend: true,
-                            dataPoints:[
-                                { label: "Monday",  y: <?php echo $Karahi[0] ?> },
-                                { label: "Tuesday",  y: <?php echo $Karahi[1] ?> },
-                                { label: "Wednesday",  y: <?php echo $Karahi[2] ?> },
-                                { label: "Thursday",  y: <?php echo $Karahi[3] ?> },
-                                { label: "Friday",  y: <?php echo $Karahi[4] ?> },
-                                { label: "Saturday",  y: <?php echo $Karahi[5] ?> },
-                                { label: "Sunday",  y: <?php echo $Karahi[6] ?> }
-                            ]
-                        }
-                    ]
-                });
-
-            chart.render();
-
-        }
-        // breakfast have more votes
-        else if(bvalue > lvalue && bvalue > both){
-            var chart = new CanvasJS.Chart("chartContainer",
-                {
-                    animationEnabled: true,
-                    title:{
-                        text: "Breakfast Mess Menu Statistics"
-                    },
-                    data: [
-                        {
-                            type: "column", //change type to bar, line, area, pie, etc
-                            legendText: "Halwa Puri",
-                            showInLegend: true,
-                            dataPoints:[
-                                { label: "Monday",  y: <?php echo $halwaPuri[0] ?> },
-                                { label: "Tuesday",  y: <?php echo $halwaPuri[1] ?> },
-                                { label: "Wednesday",  y: <?php echo $halwaPuri[2] ?> },
-                                { label: "Thursday",  y: <?php echo $halwaPuri[3] ?> },
-                                { label: "Friday",  y: <?php echo $halwaPuri[4] ?> },
-                                { label: "Saturday",  y: <?php echo $halwaPuri[5] ?> },
-                                { label: "Sunday",  y: <?php echo $halwaPuri[6] ?> }
-                            ]
-                        },
-                        {
-                            type: "column", //change type to bar, line, area, pie, etc
-                            legendText: "naan Chana",
-                            showInLegend: true,
-                            dataPoints:[
-                                { label: "Monday",  y: <?php echo $nanChana[0] ?> },
-                                { label: "Tuesday",  y: <?php echo $nanChana[1] ?> },
-                                { label: "Wednesday",  y: <?php echo $nanChana[2] ?> },
-                                { label: "Thursday",  y: <?php echo $nanChana[3] ?> },
-                                { label: "Friday",  y: <?php echo $nanChana[4] ?> },
-                                { label: "Saturday",  y: <?php echo $nanChana[5] ?> },
-                                { label: "Sunday",  y: <?php echo $nanChana[6] ?> }
-                            ]
-                        },
-                        {
-                            type: "column", //change type to bar, line, area, pie, etc
-                            legendText: "Ommlete Paratha",
-                            showInLegend: true,
-                            dataPoints:[
-                                { label: "Monday",  y: <?php echo $andaParatha[0] ?> },
-                                { label: "Tuesday",  y: <?php echo $andaParatha[1] ?> },
-                                { label: "Wednesday",  y: <?php echo $andaParatha[2] ?> },
-                                { label: "Thursday",  y: <?php echo $andaParatha[3] ?> },
-                                { label: "Friday",  y: <?php echo $andaParatha[4] ?> },
-                                { label: "Saturday",  y: <?php echo $andaParatha[5] ?> },
-                                { label: "Sunday",  y: <?php echo $andaParatha[6] ?> }
-                            ]
-                        },
-                        {
-                            type: "column", //change type to bar, line, area, pie, etc
-                            legendText: "Naan Haleem",
-                            showInLegend: true,
-                            dataPoints:[
-                                { label: "Monday",  y: <?php echo $haleem[0] ?> },
-                                { label: "Tuesday",  y: <?php echo $haleem[1] ?> },
-                                { label: "Wednesday",  y: <?php echo $haleem[2] ?> },
-                                { label: "Thursday",  y: <?php echo $haleem[3] ?> },
-                                { label: "Friday",  y: <?php echo $haleem[4] ?> },
-                                { label: "Saturday",  y: <?php echo $haleem[5] ?> },
-                                { label: "Sunday",  y: <?php echo $haleem[6] ?> }
-                            ]
-                        },
-                        {
-                            type: "column", //change type to bar, line, area, pie, etc
-                            legendText: "Egg Slice",
-                            showInLegend: true,
-                            dataPoints:[
-                                { label: "Monday",  y: <?php echo $eggBread[0] ?> },
-                                { label: "Tuesday",  y: <?php echo $eggBread[1] ?> },
-                                { label: "Wednesday",  y: <?php echo $eggBread[2] ?> },
-                                { label: "Thursday",  y: <?php echo $eggBread[3] ?> },
-                                { label: "Friday",  y: <?php echo $eggBread[4] ?> },
-                                { label: "Saturday",  y: <?php echo $eggBread[5] ?> },
-                                { label: "Sunday",  y: <?php echo $eggBread[6] ?> }
-                            ]
-                        },
-                        {
-                            type: "column", //change type to bar, line, area, pie, etc
-                            legendText: "aloo wala paratha",
-                            showInLegend: true,
-                            dataPoints:[
-                                { label: "Monday",  y: <?php echo $alooParatha[0] ?> },
-                                { label: "Tuesday",  y: <?php echo $alooParatha[1] ?> },
-                                { label: "Wednesday",  y: <?php echo $alooParatha[2] ?> },
-                                { label: "Thursday",  y: <?php echo $alooParatha[3] ?> },
-                                { label: "Friday",  y: <?php echo $alooParatha[4] ?> },
-                                { label: "Saturday",  y: <?php echo $alooParatha[5] ?> },
-                                { label: "Sunday",  y: <?php echo $alooParatha[6] ?> }
-                            ]
-                        }
-                    ]
-                });
-
-            chart.render();
-        }
-    }
-</script>
-<script type="text/javascript" src="../../JS Functions/canvasjs.min.js"></script>
 <body>
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
@@ -509,22 +233,1398 @@ while ($each = mysqli_fetch_array($run)) {
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
                         <div class="panel panel-primary">
-                            <div class="panel-heading" > Statistics </div>
-                              <div class="panel-body">
-                                <button id = "button" onclick="lunchBreakfast();">lunch/Breakfast</button>
-                                <button id = "button" onclick="messMenu();">Mess Menu</button>
-                                <button id = "button" id="my_button" >one day Trip</button>
-                                <div id="chartContainer" style="height: 300px; width: 90%;"></div>
-                              </div>
-                             </div>
-                         </div>
+
+                            <div class="panel-heading">Statistics</div>
+                            <div class="panel-body">
+                                <form action="Statistics.php" method="post" enctype="multipart/form-data">
+
+                                    <input type="submit" id="view" name="LBvoting" VALUE="Lunch Or Breakfast">
+                                    <input type="submit" id="view" name="DinnerMess" VALUE="Dinner Mess Menu">
+                                    <input type="submit" id="view" name="trip" VALUE="Trip Votings">
+                                    <?php
+                                    $fetch = "select * from voting";
+                                    $run = mysqli_query($connection, $fetch);
+                                    while ($each = mysqli_fetch_array($run)) {
+                                        $lunch = $each['Lunch'];
+                                        $breakfast = $each['Breakfast'];
+                                        $both = $each['LunchBreakfast'];
+                                    }
+                                    if(($lunch > $breakfast) && ($lunch > $both)){
+                                        echo "<input type=\"submit\" id=\"view\" name=\"Lmessmenu\" VALUE=\"Lunch Mess Menu\" >";
+                                    }
+                                    elseif(($breakfast > $lunch) && ($breakfast > $both)){
+                                        echo "<input type=\"submit\" id=\"view\" name=\"Bmessmenu\" VALUE=\"Breakfast Mess Menu\" >";
+                                    }
+                                    elseif(($both >$lunch) && ($both > $breakfast) || ($lunch == $breakfast) ){
+                                        echo "<input type=\"submit\" id=\"view\" name=\"Lmessmenu\" VALUE=\"Lunch Mess Menu\" >";
+                                        echo "<input type=\"submit\" id=\"view\" name=\"Bmessmenu\" VALUE=\"Breakfast Mess Menu\" >";
+                                    }
+                                    ?>
+
+                                </form>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6" id="monday">
+
+                                    </div>
+                                    <div class="col-md-6" id="tuesday">
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6" id="wednesday">
+
+                                    </div>
+                                    <div class="col-md-6" id="thursday">
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6" id="friday">
+
+                                    </div>
+                                    <div class="col-md-6" id="saturday">
+
+                                    </div>
+                                </div>
+                                <div id="votingresults"></div>
+                                <?php
+                                if(isset($_POST['LBvoting'])){
+                                    $fetch = "select * from voting";
+                                    $run = mysqli_query($connection, $fetch);
+                                    while ($each = mysqli_fetch_array($run)) {
+                                        $lunch = $each['Lunch'];
+                                        $breakfast = $each['Breakfast'];
+                                        $both = $each['LunchBreakfast'];
+                                    }
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "ex1" ,
+                                        "600",
+                                        "400",
+                                        "votingresults",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":"Lunch or breakfast Selection votes",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"Lunch",
+					                                        "value":'.$lunch.'
+				                                        },
+				                                         {
+					                                        "label":"BreakFast",
+					                                        "value":'.$breakfast.'
+				                                        },
+				                                         {
+					                                        "label":"Both",
+					                                        "value":'.$breakfast.'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+                                }
+
+                                if(isset($_POST['trip'])){
+                                    $tripoptions = array();
+                                    $sql = "SHOW COLUMNS FROM tripvotes";
+                                    $result = mysqli_query($connection,$sql);
+                                    while($row = mysqli_fetch_array($result)){
+                                        $tripoptions[] = $row['Field'];
+                                    }
+                                    $fetch = "select * from tripvotes";
+                                    $run = mysqli_query($connection, $fetch);
+                                    while ($each = mysqli_fetch_array($run)) {
+                                        $option1 = $each[$tripoptions[0]];
+                                        $option2 = $each[$tripoptions[1]];
+                                        $option3 = $each[$tripoptions[2]];
+                                        $option4 = $each[$tripoptions[3]];
+                                        $option5 = $each[$tripoptions[4]];
+                                    }
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "ex" ,
+                                        "600",
+                                        "400",
+                                        "votingresults",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Votes For Trip Places",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$tripoptions[0].'",
+					                                        "value":'.$option1.'
+				                                        },
+				                                         {
+					                                        "label":"'.$tripoptions[1].'",
+					                                        "value":'.$option2.'
+				                                        },
+				                                         {
+					                                        "label":"'.$tripoptions[2].'",
+					                                        "value":'.$option3.'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$tripoptions[3].'",
+					                                        "value":'.$option4.'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$tripoptions[4].'",
+					                                        "value":'.$option5.'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+                                }
+
+                                if(isset($_POST['DinnerMess'])){
+                                    $dinneroptions = array();
+                                    $option1 = array();
+                                    $option2 = array();
+                                    $option3 = array();
+                                    $option4 = array();
+                                    $option5 = array();
+                                    $option6 = array();
+                                    $option7 = array();
+                                    $sql = "SHOW COLUMNS FROM messmenud";
+                                    $result = mysqli_query($connection,$sql);
+                                    while($row = mysqli_fetch_array($result)){
+                                        $dinneroptions[] = $row['Field'];
+                                    }
+                                    $fetch = "select * from messmenud";
+                                    $run = mysqli_query($connection, $fetch);
+                                    while ($each = mysqli_fetch_array($run)) {
+                                        $option1[] = $each[$dinneroptions[1]];
+                                        $option2[] = $each[$dinneroptions[2]];
+                                        $option3[] = $each[$dinneroptions[3]];
+                                        $option4[] = $each[$dinneroptions[4]];
+                                        $option5[] = $each[$dinneroptions[5]];
+                                        $option6[] = $each[$dinneroptions[6]];
+                                        $option7[] = $each[$dinneroptions[7]];
+                                    }
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "dm" ,
+                                        "500",
+                                        "400",
+                                        "monday",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Dinner Mess menu Votes For Monday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[0].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[0].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[0].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[0].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[0].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[0].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[0].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "dt" ,
+                                        "500",
+                                        "400",
+                                        "tuesday",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Dinner Mess menu Votes For Tuesday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[1].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[1].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[1].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[1].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[1].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[1].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[1].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "dw" ,
+                                        "500",
+                                        "400",
+                                        "wednesday",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Dinner Mess menu Votes For Wednesday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[2].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[2].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[2].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[2].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[2].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[2].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[2].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "dth" ,
+                                        "500",
+                                        "400",
+                                        "thursday",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Dinner Mess menu Votes For Thursday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[3].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[3].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[3].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[3].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[3].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[3].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[3].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "df" ,
+                                        "500",
+                                        "400",
+                                        "friday",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Dinner Mess menu Votes For Friday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[4].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[4].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[4].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[4].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[4].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[4].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[4].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "ds" ,
+                                        "500",
+                                        "400",
+                                        "saturday",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Dinner Mess menu Votes For Saturday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[5].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[5].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[5].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[5].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[5].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[5].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[5].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "dwdu" ,
+                                        "500",
+                                        "400",
+                                        "votingresults",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Dinner Mess menu Votes For Sunday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[6].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[6].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[6].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[6].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[6].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[6].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[6].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+
+                                }
+                                if(isset($_POST['Lmessmenu'])){
+                                    $dinneroptions = array();
+                                    $option1 = array();
+                                    $option2 = array();
+                                    $option3 = array();
+                                    $option4 = array();
+                                    $option5 = array();
+                                    $option6 = array();
+                                    $option7 = array();
+                                    $sql = "SHOW COLUMNS FROM messmenu";
+                                    $result = mysqli_query($connection,$sql);
+                                    while($row = mysqli_fetch_array($result)){
+                                        $dinneroptions[] = $row['Field'];
+                                    }
+                                    $fetch = "select * from messmenu";
+                                    $run = mysqli_query($connection, $fetch);
+                                    while ($each = mysqli_fetch_array($run)) {
+                                        $option1[] = $each[$dinneroptions[1]];
+                                        $option2[] = $each[$dinneroptions[2]];
+                                        $option3[] = $each[$dinneroptions[3]];
+                                        $option4[] = $each[$dinneroptions[4]];
+                                        $option5[] = $each[$dinneroptions[5]];
+                                        $option6[] = $each[$dinneroptions[6]];
+                                        $option7[] = $each[$dinneroptions[7]];
+                                    }
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "dm" ,
+                                        "500",
+                                        "400",
+                                        "monday",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Lunch Mess menu Votes For Monday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[0].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[0].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[0].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[0].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[0].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[0].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[0].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "dt" ,
+                                        "500",
+                                        "400",
+                                        "tuesday",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Lunch Mess menu Votes For Tuesday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[1].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[1].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[1].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[1].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[1].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[1].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[1].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "dw" ,
+                                        "500",
+                                        "400",
+                                        "wednesday",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Lunch Mess menu Votes For Wednesday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[2].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[2].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[2].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[2].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[2].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[2].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[2].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "dth" ,
+                                        "500",
+                                        "400",
+                                        "thursday",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Lunch Mess menu Votes For Thursday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[3].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[3].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[3].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[3].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[3].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[3].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[3].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "df" ,
+                                        "500",
+                                        "400",
+                                        "friday",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Lunch Mess menu Votes For Friday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[4].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[4].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[4].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[4].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[4].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[4].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[4].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "ds" ,
+                                        "500",
+                                        "400",
+                                        "saturday",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Lunch Mess menu Votes For Saturday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[5].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[5].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[5].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[5].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[5].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[5].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[5].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "dwdu" ,
+                                        "500",
+                                        "400",
+                                        "votingresults",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Lunch Mess menu Votes For Sunday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[6].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[6].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[6].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[6].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[6].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[6].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[6].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+                                }
+                                if(isset($_POST['Bmessmenu'])){
+                                    $dinneroptions = array();
+                                    $option1 = array();
+                                    $option2 = array();
+                                    $option3 = array();
+                                    $option4 = array();
+                                    $option5 = array();
+                                    $option6 = array();
+                                    $option7 = array();
+                                    $sql = "SHOW COLUMNS FROM messmenub";
+                                    $result = mysqli_query($connection,$sql);
+                                    while($row = mysqli_fetch_array($result)){
+                                        $dinneroptions[] = $row['Field'];
+                                    }
+                                    $fetch = "select * from messmenub";
+                                    $run = mysqli_query($connection, $fetch);
+                                    while ($each = mysqli_fetch_array($run)) {
+                                        $option1[] = $each[$dinneroptions[1]];
+                                        $option2[] = $each[$dinneroptions[2]];
+                                        $option3[] = $each[$dinneroptions[3]];
+                                        $option4[] = $each[$dinneroptions[4]];
+                                        $option5[] = $each[$dinneroptions[5]];
+                                        $option6[] = $each[$dinneroptions[6]];
+                                        $option7[] = $each[$dinneroptions[7]];
+                                    }
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "dm" ,
+                                        "500",
+                                        "400",
+                                        "monday",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Breakfast Mess menu Votes For Monday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[0].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[0].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[0].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[0].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[0].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[0].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[0].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "dt" ,
+                                        "500",
+                                        "400",
+                                        "tuesday",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Breakfast Mess menu Votes For Tuesday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[1].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[1].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[1].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[1].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[1].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[1].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[1].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "dw" ,
+                                        "500",
+                                        "400",
+                                        "wednesday",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Breakfast Mess menu Votes For Wednesday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[2].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[2].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[2].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[2].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[2].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[2].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[2].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "dth" ,
+                                        "500",
+                                        "400",
+                                        "thursday",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Breakfast Mess menu Votes For Thursday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[3].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[3].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[3].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[3].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[3].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[3].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[3].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "df" ,
+                                        "500",
+                                        "400",
+                                        "friday",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Breakfast Mess menu Votes For Friday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[4].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[4].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[4].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[4].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[4].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[4].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[4].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "ds" ,
+                                        "500",
+                                        "400",
+                                        "saturday",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Breakfast Mess menu Votes For Saturday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[5].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[5].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[5].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[5].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[5].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[5].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[5].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+                                    $columnChart = new FusionCharts(
+                                        "column2d",
+                                        "dwdu" ,
+                                        "500",
+                                        "400",
+                                        "votingresults",
+                                        "json",
+                                        '{
+			                                        "chart":
+			                                                {
+				                                                "caption":" Breakfast Mess menu Votes For Sunday",
+				                                                "theme":"ocean"
+
+			                                                },
+			                                        "data":
+			                                        [
+				                                        {
+					                                        "label":"'.$dinneroptions[1].'",
+					                                        "value":'.$option1[6].'
+				                                        },
+
+				                                         {
+					                                        "label":"'.$dinneroptions[2].'",
+					                                        "value":'.$option2[6].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[3].'",
+					                                        "value":'.$option3[6].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[4].'",
+					                                        "value":'.$option4[6].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[5].'",
+					                                        "value":'.$option5[6].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[6].'",
+					                                        "value":'.$option6[6].'
+				                                        }
+				                                        ,
+				                                         {
+					                                        "label":"'.$dinneroptions[7].'",
+					                                        "value":'.$option7[6].'
+				                                        }
+
+			                                         ]
+		                                        }');
+                                    $columnChart->render();
+                                }
+                                ?>
+
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
-            <footer><p>All right reserved. By: <a href="http://lahore.comsats.edu.pk/">COMSATS LAHORE</a></p>
+            <footer><p>All copy rights reserved By: <a href="http://lahore.comsats.edu.pk/">COMSATS LAHORE</a></p>
             </footer>
         </div>
+
         <!-- /. PAGE INNER  -->
     </div>
+
     <!-- /. PAGE WRAPPER  -->
 </div>
 <!-- /. WRAPPER  -->
@@ -536,25 +1636,12 @@ while ($each = mysqli_fetch_array($run)) {
 
 <!-- Metis Menu Js -->
 <script src="../../JS/jquery.metisMenu.js"></script>
-<!-- Morris Chart Js -->
-<script src="../../JS/morris/raphael-2.1.0.min.js"></script>
-<script src="../../JS/morris/morris.js"></script>
-
-
-<script src="../../JS/easypiechart.js"></script>
-<script src="../../JS/easypiechart-data.js"></script>
-
-<script src="../../JS/Lightweight-Chart/jquery.chart.js"></script>
 
 <!-- Custom Js -->
 <script src="../../JS/custom-scripts.js"></script>
 
 
-<!-- Chart Js -->
-<script type="text/javascript" src="../../JS/chart.min.js"></script>
-<script type="text/javascript" src="../../JS/chartjs.js"></script>
 
 
 </body>
 </html>
-

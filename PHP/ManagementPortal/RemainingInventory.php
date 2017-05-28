@@ -25,13 +25,10 @@ include "../connection.php";
     <link href="../../CSS/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
     <link href="../../CSS/font-awesome.css" rel="stylesheet" />
-    <!-- Morris Chart Styles-->
-    <link href="../../JS/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
     <link href="../../CSS/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="../../JS/Lightweight-Chart/cssCharts.css">
 </head>
 <body>
 <div id="wrapper">
@@ -175,7 +172,7 @@ include "../connection.php";
                                 <td>Name</td>
                                 <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
                             </tr>
-                            <tr>
+                            <tr style="background-color: #f36a5a">
                                 <td>Rank</td>
                                 <td><?php echo "{$_SESSION['UserRank'] }";?></td>
                             </tr>
@@ -199,44 +196,70 @@ include "../connection.php";
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
                         <div class="panel panel-primary">
-
-                            <div class="panel-heading">Remaining Inventory</div>
-                            <div class="panel-body">
-                                <div class="col-md-3">
-                                    <div class="btn-group btn-group-sm btn-group-vertical" style="padding-top: 40pt">
-                                        <a href="InventoryItems.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">View All Items</a>
-                                        <a href="RemainingInventory.php" class="btn btn-default active-menu"
-                                           style="background-color: #999999;color: white">Remaining Inventory</a>
-                                        <a href="PurchasedHistory.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Purchased History</a>
-                                        <a href="UsedItemsHistory.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Used Items History</a>
-                                        <a href="AccountPayable.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Account Payable</a>
-                                        <a href="AccountReceivable.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Account
-                                            Receivable/Received</a>
-                                        <a href="BankAmount.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Bank Amount</a>
-                                        <a href="PayableHistory.php" class="btn btn-default"
-                                           style="background-color: #999999;color: white">Payable/Paid History</a>
-                                    </div>
+                            <div class="panel-heading nav navbar-inverse" style="max-height: 70px;">
+                                <div class="col-md-5">
+                                    <h3 class="panel-title" style="padding-top: 15px">Remaining Inventory</h3>
                                 </div>
-                                <div class="col-md-9">
+                                <div class="col-md-7">
+                                    <ul class="nav navbar-nav">
+                                        <li ><a href="ViewInventory.php">Update Inventory </a>
+                                        </li>
+                                        <li class="dropdown active"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inventory Items <span class="caret"></span></a>
+
+                                            <ul class="dropdown-menu">
+                                                <li><a href="InventoryItems.php">View All Items</a>
+                                                </li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="RemainingInventory.php">Remaining Inventory Items</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown "> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">History <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="PurchasedHistory.php">Purchased History</a>
+                                                </li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="UsedItemsHistory.php">Used Items History</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown "> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Accounts <span class="caret"></span><span class="sr-only">(current)</span></a>
+                                            <ul class="dropdown-menu">
+                                                <li> <a href="AccountPayable.php">Account Payable</a>
+                                                </li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="AccountReceivable.php">Account Receivable/Received</a>
+                                                </li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="BankAmount.php">Bank Amount</a>
+                                                </li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="PayableHistory.php">Payable/Paid History</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <div class="panel-body">
+                                <div class="col-md-12">
                                     <div class="form-group ">
                                         <br>
+                                        <div class="col-md-8 col-offset-3">
                                         <form method="post" action="#Search">
                                             <label for="Balance">Serach By Date: From </label>
-                                            <input type="date" name="StartDate" id="StartDate">
+                                            <input type="date" name="StartDate" id="StartDate" style="max-width: 130px">
                                             <label for="Balance">To </label>
-                                            <input type="date" name="EndDate" id="EndDate">
-                                            <input type="submit" name="search" value="search">
+                                            <input type="date" name="EndDate" id="EndDate" style="max-width: 130px">
+                                            <br>
+                                            <input type="submit" name="search" id="search" value="search">
                                         </form>
+                                        </div>
                                         <form method="post" action="#Search">
                                             <label for="Balance">Serach By Item No: </label>
-                                            <input type="date" name="SearchItemNo">
-                                            <input type="submit" name="SearchByItemNo" value="Search">
+                                            <input type="text" name="SearchItemNo" >
+                                            <input type="submit" name="SearchByItemNo" id="search" value="Search">
                                         </form>
 
                                     </div>
@@ -281,24 +304,7 @@ include "../connection.php";
 
 <!-- Metis Menu Js -->
 <script src="../../JS/jquery.metisMenu.js"></script>
-<!-- Morris Chart Js -->
-<script src="../../JS/morris/raphael-2.1.0.min.js"></script>
-<script src="../../JS/morris/morris.js"></script>
-
-
-<script src="../../JS/easypiechart.js"></script>
-<script src="../../JS/easypiechart-data.js"></script>
-
-<script src="../../JS/Lightweight-Chart/jquery.chart.js"></script>
-
 <!-- Custom Js -->
 <script src="../../JS/custom-scripts.js"></script>
-
-
-<!-- Chart Js -->
-<script type="text/javascript" src="../../JS/chart.min.js"></script>
-<script type="text/javascript" src="../../JS/chartjs.js"></script>
-
-
 </body>
 </html>

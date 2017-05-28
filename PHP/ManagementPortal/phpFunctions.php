@@ -392,6 +392,12 @@ function getNotSelectedStudentsList(){
     $get_record = "select * from oldstudentform where selected = 0";
     $run = mysqli_query($connection, $get_record);
     if(mysqli_num_rows($run)>0){
+       echo"<tr>
+                                        <th>Student Name</th>
+                                        <th>Father Name</th>
+                                        <th>Student id</th>
+                                        <th>Student Details</th>
+                                    </tr>";
         while ($each_record = mysqli_fetch_array($run)) {
                 $application_no = $each_record['applicationNumber'];
                 $student_name = $each_record['name'];
@@ -621,17 +627,17 @@ function getFeePaidStudentsList(){
                   <td>$student_f_name</td>
                   <td>$student_id</td>
                   <td>$submit_date</td>
-                  <td><button type='button' class='btn btn-default' ><a href='StudentCompleteDetails.php?id=$student_id'>Details</a></button> </td>
+                  <td><button type='button' id='view' class='btn btn-default' ><a href='StudentCompleteDetails.php?id=$student_id'>Details</a></button> </td>
                   </tr>";
     }
 
 }
 
 function getFeeUnPaidStudentsList(){
+
     global $connection;
     $get_record = "select DISTINCT m.challanNo,m.studentid,s.name,s.fathername from messchallandetails m,oldstudentform s where m.status =false AND m.studentid =s.studentid" ;
     $run = mysqli_query($connection, $get_record);
-
     while ($each_record = mysqli_fetch_array($run)) {
         $challan_no = $each_record['challanNo'];
         $student_name = $each_record['name'];
@@ -643,8 +649,8 @@ function getFeeUnPaidStudentsList(){
                   <td>$student_name</td>
                   <td>$student_f_name</td>
                   <td>$student_id</td>
-                  <td><button type='button' class='btn btn-default' ><a href='../MessChallan.php?id=$student_id'>Mess Challan</a></button> </td>
-                  <td><button type='button' class='btn btn-default' ><a href='StudentCompleteDetails.php?id=$student_id'>Details</a></button> </td>
+                  <td><button type='button' id='view' class='btn btn-default' ><a href='../MessChallan.php?id=$student_id'>Mess Challan</a></button> </td>
+                  <td><button type='button' id='view' class='btn btn-default' ><a href='StudentCompleteDetails.php?id=$student_id'>Details</a></button> </td>
                   </tr>";
     }
 

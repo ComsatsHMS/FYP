@@ -1,5 +1,6 @@
 <?php
 session_start();
+    error_reporting(0);
 include("../connection.php");
 include ("phpFunctions.php");
 ?><!DOCTYPE html>
@@ -170,7 +171,7 @@ include ("phpFunctions.php");
                                 <td>Name</td>
                                 <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
                             </tr>
-                            <tr>
+                            <tr style="background-color: #f36a5a">
                                 <td>Rank</td>
                                 <td><?php echo "{$_SESSION['UserRank'] }";?></td>
                             </tr>
@@ -200,6 +201,8 @@ include ("phpFunctions.php");
                                     <?php
 
                                     echo '
+
+                                        <div class="col-md-6 col-offset-2">
                                         <label>Search by Hostel: </label>
                                         <select  id="hostel" name="hostel">
                                             <option><----Choose-----></option>
@@ -208,11 +211,11 @@ include ("phpFunctions.php");
                                             <option>Johar Hall</option>
                                             <option>Jupitar Hall</option>
                                         </select>
-
+                                        </div>
                                         <form method="post" action="MessUnFeePaidList.php">
                                             <label for="name">Serach Student By Name: </label>
                                             <input type="text" name="studentName">
-                                            <input type="submit" name="search" value="search">
+                                            <input type="submit" name="search" id="search" value="search">
                                         </form>';
                                     ?>
 

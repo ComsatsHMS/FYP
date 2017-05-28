@@ -55,12 +55,28 @@ if(isset($_POST['submit'])){
 
     if($result){
         if($votingtype == 'lunchBreakfast'){
+            $query = "SHOW TABLES IN  fyp WHERE Tables_in_fyp = 'voting'";
+            $result = mysqli_query($connection, $query);
+            if(mysqli_num_rows($result) == 1){
+                $query = "UPDATE voting SET Breakfast = 0, Lunch=0,LunchBreakfast =0";
+                $result = mysqli_query($connection, $query);
 
-            echo "<script type=\"text/javascript\">
-                    $(document).ready(function(){
-                    ShowSuccesMessage();
-                    });
-                    </script>";
+            }
+            else{
+                $query = "create table voting(Breakfast INTEGER (255),Lunch INTEGER (255), LunchBreakfast INTEGER (255))";
+                $result1 = mysqli_query($connection, $query);
+                if($result1){
+                    $queryinsert= "insert into voting VALUES (0,0,0)";
+                    $result = mysqli_query($connection, $queryinsert);
+                }
+
+            }
+            if($result){
+                $_SESSION['votingmessage'] = "ok";
+            }
+            else{
+                $_SESSION['votingmessage'] = "notok";
+            }
         }
         elseif($votingtype == 'messMenu'){
             header('Location:MessMenu.php');
@@ -244,7 +260,19 @@ if(isset($_POST['submit'])){
 
                             <div class="panel-heading">Voting Start Panel</div>
                             <div class="panel-body">
-
+<?php
+if($_SESSION['votingmessage'] == "ok"){
+    echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Success!</strong> Voting For Lunch / Breakfast selection started!!
+                                                </div>";
+}
+elseif($_SESSION['votingmessage'] =="notok"){
+    echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Failed!</strong> Voting For Lunch / Breakfast selection not started!!
+                                                </div>";
+}
+unset($_SESSION['votingmessage']);
+?>
                                 <form action="StartVoting.php" method="post" enctype="multipart/form-data">
                                     <div class="align col-md-12 col-xs-12">
                                         <div class="form-Horizontal">
@@ -295,25 +323,10 @@ if(isset($_POST['submit'])){
 
 <!-- Metis Menu Js -->
 <script src="../../JS/jquery.metisMenu.js"></script>
-<!-- Morris Chart Js -->
-<script src="../../JS/morris/raphael-2.1.0.min.js"></script>
-<script src="../../JS/morris/morris.js"></script>
 
-
-<script src="../../JS/easypiechart.js"></script>
-<script src="../../JS/easypiechart-data.js"></script>
-
-<script src="../../JS/Lightweight-Chart/jquery.chart.js"></script>
 
 <!-- Custom Js -->
 <script src="../../JS/custom-scripts.js"></script>
-
-
-<!-- Chart Js -->
-<script type="text/javascript" src="../../JS/chart.min.js"></script>
-<script type="text/javascript" src="../../JS/chartjs.js"></script>
-
-
 
 </body>
 </html>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+    error_reporting(0);
 include("../connection.php");
 if(isset($_POST['submit'])){
 
@@ -23,6 +24,30 @@ if(isset($_POST['submit'])){
             $transport1 = mysqli_query($connection,$insert1);
         }
     }
+    if($transport1){
+        $selectquery ="select * from studentmesschallanrecord";
+        $run = mysqli_query($connection,$selectquery);
+        if($run){
+            $messBill =$_POST['messBill']/$students;
+            $service =$_POST['service']/$students;
+            $internet =$_POST['internet']/$students;
+            $gasElectric =$_POST['gasElectric']/$students;
+            $water =$_POST['water']/$students;
+
+            while ($record = mysqli_fetch_array($run)){
+                $s_id =$record['student_id'];
+                $challan_id =$record['challanNo'];
+                $insert1="insert into messchallandetails VALUES ('$challan_id','$s_id','$messBill','$service','$internet','$gasElectric','$semesterDinner','$water','$issue','$due','','','false')";
+                $transport1 = mysqli_query($connection,$insert1);
+            }
+            $_SESSION['challanissuemessage'] = "ok";
+        }
+
+    }
+    else{
+        $_SESSION['challanissuemessage'] = "notok";
+    }
+
 }
 ?><!DOCTYPE html>
 <html lang="en">
@@ -192,7 +217,7 @@ if(isset($_POST['submit'])){
                                 <td>Name</td>
                                 <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
                             </tr>
-                            <tr>
+                            <tr style="background-color: #f36a5a">
                                 <td>Rank</td>
                                 <td><?php echo "{$_SESSION['UserRank'] }";?></td>
                             </tr>
@@ -217,42 +242,57 @@ if(isset($_POST['submit'])){
                     <div class="board">
                         <div class="panel panel-primary">
                             <div class="panel-heading" > Issue Mess Fee Challan </div>
+                            <?php
+                            if($_SESSION['challanissuemessage'] == "ok"){
+                                echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Success!</strong> Student Mess Bill challan issued!!
+                                                </div>";
+                            }
+                            elseif($_SESSION['challanissuemessage'] =="notok"){
+                                echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Failed!</strong> Student Mess Bill challan not issued Try Again!!
+                                                </div>";
+                            }
+                            unset($_SESSION['challanissuemessage']);
+                            ?>
                             <div class="panel-body">
                                 <form  action="MessFeeChallan.php" method="post" enctype="multipart/form-data">
-                                    <div class="form-horizontal">
+                                    <div class="form-vertical ">
+                                        <div class="col-md-6">
                                         <div class="form-group">
                                             <label >Total Number of Students</label>
-                                            <input class="form-control" type="number" name="students" style="width: 200px" required>
+                                            <input class="form-control" type="text" name="students" style="width: 200px" required>
                                         </div>
                                         <br>
                                         <div class="form-group">
                                             <label >Total Mess Bill</label>
-                                            <input class="form-control" type="number" name="messBill" style="width: 200px" required>
+                                            <input class="form-control" type="text" name="messBill" style="width: 200px" required>
                                         </div>
                                         <br>
                                         <div class="form-group">
                                             <label >Total Service Charges</label>
-                                            <input class="form-control" type="number" name="service" style="width: 200px" required>
+                                            <input class="form-control" type="text" name="service" style="width: 200px" required>
                                         </div>
                                         <br>
                                         <div class="form-group">
                                             <label >Total  Sui Gas & Electric Bill</label>
-                                            <input class="form-control" type="number" name="gasElectric" style="width: 200px" required>
+                                            <input class="form-control" type="text" name="gasElectric" style="width: 200px" required>
                                         </div>
                                         <br>
                                         <div class="form-group">
                                             <label >Total Internet Bill</label>
-                                            <input class="form-control" type="number" name="internet" style="width: 200px" required>
+                                            <input class="form-control" type="text" name="internet" style="width: 200px" required>
                                         </div>
-                                        <br>
+                                        </div>
+                                        <div class="col-md-6">
                                         <div class="form-group">
                                             <label >Total Water Bill</label>
-                                            <input class="form-control" type="number" name="water" style="width: 200px" required>
+                                            <input class="form-control" type="text" name="water" style="width: 200px" required>
                                         </div>
                                         <br>
                                         <div class="form-group">
                                             <label >Semester Dinner</label>
-                                            <input class="form-control" type="number" name="semesterDinner" style="width: 200px" required>
+                                            <input class="form-control" type="text" name="semesterDinner" style="width: 200px" required>
                                         </div>
                                         <br>
                                         <div class="form-group">
@@ -265,8 +305,8 @@ if(isset($_POST['submit'])){
                                             <input class="form-control" type="date" name="due" style="width: 200px" required>
                                         </div>
                                         <br>
-
-                                        <button type="submit" class="btn btn-success" name="submit">Issue Challan</button>
+                                        </div>
+                                        <button type="submit" class="btn btn-success" id="button" name="submit">Issue Challan</button>
 
                                     </div>
                                 </form>
