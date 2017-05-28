@@ -223,7 +223,7 @@ if(!isset($_SESSION['name'])){
                 </div>
             </div>
             <ol class="breadcrumb">
-                <li><a href="../index.php">Home</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="Logout.php">Login</a></li>
                 <li><a href="StudentPortal.php">Student Portal</a></li>
                 <li class="active">View Notification</a></li>

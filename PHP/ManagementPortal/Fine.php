@@ -192,7 +192,7 @@ if(isset($_POST['submit'])){
 
             </div>
             <ol class="breadcrumb">
-                <li><a href="../index.php">Home</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="OfficeLogin.php">Login</a></li>
                 <li class="active">Student Details</li>
             </ol>

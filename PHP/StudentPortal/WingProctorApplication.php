@@ -230,7 +230,7 @@ if(isset($_POST['wingProctor'])){
                 </div>
             </div>
             <ol class="breadcrumb">
-                <li><a href="../index.php">Home</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="Login.php">Login</a></li>
                 <li><a href="StudentPortal.php">Student Portal</a></li>
                 <li><a href="Applications.php">Applications</a></li>

@@ -188,7 +188,7 @@ include "../connection.php";
 
             </div>
             <ol class="breadcrumb">
-                <li><a href="../index.php">Home</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="OfficeLogin.php">Login</a></li>
                 <li class="active"> Office Home</li>
             </ol>
@@ -316,12 +316,3 @@ include "../connection.php";
 
 </body>
 </html>
-<?php
-if ($_SESSION['Notification']=='inserted') {
-    echo "<script type='text/javascript'>alert('Notification Uploaded!!');</script>";
-}
-else if ($_SESSION['Notification']=='error') {
-    echo "<script type='text/javascript'>alert('Error! Notification Cannot be Uploaded!!');</script>";
-}
-unset($_SESSION['Notification']);
-?>

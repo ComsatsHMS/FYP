@@ -222,7 +222,7 @@ error_reporting(0);
               </div>
           </div>
             <ol class="breadcrumb">
-                <li><a href="../index.php">Home</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="Logout.php">Login</a></li>
                 <li class="active">Student</li>
             </ol>
@@ -333,7 +333,7 @@ error_reporting(0);
                                                 <input id="button" type="submit" value="Update Profile" name="update">
                                             </div>
                                         </div>
-                                    </form>
+                                    </form
                                 </div>
                         </div>
                     </div>

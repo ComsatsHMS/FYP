@@ -77,12 +77,13 @@ function getItems(){
             $ItemNo = $each_record['ItemNo'];
             $ItemName = $each_record['ItemName'];
 
-        }
+
         echo "
             <tr><td> $ItemNo </td>
             <td> $ItemName </td>
             </tr>
         ";
+        }
 }
 function getBalance(){
     global $connection;
@@ -97,7 +98,7 @@ function getBalance(){
         $run = mysqli_query($connection, "select m.ItemNo,m.ItemName,b.* from messitems m,balance b where m.ItemNo=b.ItemNo and b.ItemNo='$ItemNo'");
     }
       else{
-            $run = mysqli_query($connection, "select m.ItemNo,m.ItemName,b.* from messitems m,balance b where m.ItemNo=b.ItemNo ORDER BY  b.ItemNo desc limit 15");
+            $run = mysqli_query($connection, "select m.ItemNo,m.ItemName,b.* from messitems m,balance b where m.ItemNo=b.ItemNo ORDER BY  b.ItemNo limit 15");
         }
         while ($each_record = mysqli_fetch_array($run)){
             $ItemNo = $each_record['ItemNo'];
@@ -269,22 +270,18 @@ else if(isset($_POST['Update_'])) {
             $query = mysqli_query($connection, "insert into cgs VALUES ('$ItemNo','$UnitsUsed','$UnitCost','$TotalCost',CURRENT_DATE,'$UsedFor' )");
 
             if ($query) {
-                $run = mysqli_query($connection, "select Units,UnitCost,TotalCost from balance where ItemNo='$ItemNo' ORDER BY ItemNo DESC limit 1");
-                $each_record = mysqli_fetch_array($run);
-
+                $Units_ = 0; $TotalCost_ = 0;
+                $run = mysqli_query($connection, "select Units,UnitCost,TotalCost from balance where ItemNo='$ItemNo'");
+               while ($each_record = mysqli_fetch_array($run)){
                 $Units_ = $each_record['Units'];
                 $UnitCost_ = $each_record['UnitCost'];
                 $TotalCost_ = $each_record['TotalCost'];
+            }
                 $Units_ = $Units_ - $UnitsUsed;
                 $UnitCost_ = $UnitCost;
                 $TotalCost_ = $TotalCost_ - $TotalCost;
                 $query = mysqli_query($connection, "insert into balance VALUES ('$ItemNo' ,'$Units_','$UnitCost_','$TotalCost_',CURRENT_DATE )");
-
-
                 $_SESSION['BalanceUpdate']="Ok";
-
-
-
             } else{
                 $_SESSION['BalanceUpdate']="error";
             }

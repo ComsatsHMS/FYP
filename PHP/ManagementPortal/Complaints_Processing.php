@@ -47,23 +47,23 @@ function getComplainDetails(){
     $date = $_SESSION['FetchDate'];
 global $connection;
     if(isset($_SESSION['comptype'])) {
-        $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid and c.ComplainType='$type' ORDER BY  ComplainID desc limit 5";
+        $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid and c.ComplainType='$type' ORDER BY  ComplainID desc limit 10";
         $run = mysqli_query($connection, $get_record);
         unset($_SESSION['comptype']);
     }
     else if(isset($_SESSION['comphostel'])) {
-        $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid and s.studentHostel='$hostel' ORDER BY  ComplainID desc limit 5";
+        $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid and s.studentHostel='$hostel' ORDER BY  ComplainID desc limit 10";
         $run = mysqli_query($connection, $get_record);
         unset($_SESSION['comphostel']);
     }
 
     else if(isset($_SESSION['FetchDate'])){
-        $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid and c.Date like '$date%' ORDER BY  ComplainID desc limit 5";
+        $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid and c.Date like '$date%' ORDER BY  ComplainID desc limit 10";
         $run = mysqli_query($connection, $get_record);
         unset($_SESSION['FetchDate']);
     }
     else{
-        $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid ORDER BY  ComplainID desc limit 5";
+        $get_record = "select c.*,s.studentName,s.room,s.studentHostel from complaints c,insertstudentprofile s where c.studentid=s.studentid ORDER BY  ComplainID desc limit 10";
         $run = mysqli_query($connection, $get_record);
     }
         while ($each_record = mysqli_fetch_array($run)){

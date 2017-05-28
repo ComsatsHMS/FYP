@@ -109,7 +109,7 @@ include "../connection.php";
 
             </div>
             <ol class="breadcrumb">
-                <li><a href="../index.php">Home</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="../ManagementPortal/OfficeLogin.php">Login</a></li>
                 <li><a href="AdminPortal.php">Admin Portal</a></li>
                 <li ><a href="List_Emoloyees.php">List of Employees</a></li>

@@ -236,7 +236,7 @@ while($record = mysqli_fetch_array($exec)){
                 </div>
             </div>
             <ol class="breadcrumb">
-                <li><a href="../index.php">Home</a></li>
+                <li><a href="../../index.html">Home</a></li>
                 <li><a href="Login.php">Login</a></li>
                 <li><a href="StudentPortal.php">Student Portal</a></li>
                 <li class="active">Statistics</li>

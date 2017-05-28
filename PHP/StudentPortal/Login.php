@@ -15,6 +15,20 @@ error_reporting(0);
     <link rel="stylesheet" href="../../CSS/Pretty-Registration-Form.css">
     <link rel="stylesheet" href="../../CSS/Google-Style-Login.css">
 </head>
+<script>
+    function showhide(id,id1,id2) {
+        var e = document.getElementById(id);
+        var e1 = document.getElementById(id1);
+        if(id2 == 'forget'){
+            e.style.display = 'block';
+            e1.style.display = 'none';
+        }
+        else{
+            e.style.display = 'none';
+            e1.style.display = 'block';
+        }
+    }
+</script>
 <body>
 <nav class="navbar navbar-default " style="height: 90px;padding-left: 85px;padding-right: 85px">
     <div class="container-fluid">
@@ -60,7 +74,7 @@ error_reporting(0);
         unset($_SESSION['error']);
     }
     ?>
-    <form class="form-signin" action="LoginProcessing.php" method="post" enctype="multipart/form-data">
+    <form class="form-signin" action="LoginProcessing.php" method="post" enctype="multipart/form-data" id="signin">
         <select name="degree" class="degree form-control col-sm-4" style="width: 33%">
             <option>DDP</option>
             <option>SDP</option>
@@ -128,8 +142,15 @@ error_reporting(0);
         <input name="rollNumber" placeholder="Student ID" class="form-control col-sm-4 control-label" type="text"required autocomplete="off">
         <input class="form-control" type="password" placeholder="Password" id="pw" name="check">
         <input class="btn btn-primary btn-block btn-lg btn-signin" type="submit" value="Sign in" name="submit" id="submit">
+        <p class="forgot"><a href="javascript:showhide('pwreset','signin','forget')">Forgot Password?</a></p>
     </form>
-    <p class="forgot"><a href="#">Forgot Password?</a></p>
+
+    <form id="pwreset"  method="post" enctype="multipart/form-data" style="display: none">
+        <input name="rollNumber" placeholder="Provide Your Email for Password Reset" class="form-control col-sm-4 control-label" type="text"required autocomplete="off">
+        <input class="btn btn-primary btn-block btn-lg btn-signin" type="submit" value="Send" name="submit" id="submit">
+        <p class="forgot"><a href="javascript:showhide('pwreset','signin','')">Return to login</a></p>
+    </form>
+
 </div>
 <footer>
     <div class="row">
