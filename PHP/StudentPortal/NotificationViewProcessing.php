@@ -5,11 +5,11 @@ include "../connection.php";
 error_reporting(0);
 if(isset($_GET['type'])){
     $_SESSION['type'] = $_GET['type'];
-    header("Location:http://localhost/fyp/php/StudentPortal/Notifications.php");
+    header("Location:Notifications.php");
 }
 else if(isset($_POST['date'])){
     $_SESSION['date'] = $_POST['date'];
-    header("Location:http://localhost/fyp/php/StudentPortal/Notifications.php");
+    header("Location:Notifications.php");
 }
 function getNotifications(){
     global $connection;

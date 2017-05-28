@@ -13,7 +13,7 @@ print_r($_POST);
 
     if($query){
         $_SESSION['insert']="inserted";
-        header("location:http://localhost/FYP/PHP/ManagementPortal/Complaints.php");
+        header("location:Complaints.php");
     }
     else {
 
@@ -25,19 +25,19 @@ print_r($_POST);
 //for view complains on admin panel page
 if(isset($_GET['comphostel'])){
     $_SESSION['comphostel'] = $_GET['comphostel'];
-   header("location:http://localhost/FYP/PHP/ManagementPortal/ViewComplains.php");
+   header("location:ViewComplains.php");
 }
 
 if(isset($_GET['comptype'])){
     $_SESSION['comptype'] = $_GET['comptype'];
     echo "{$_SESSION['selected_']}";
-   header("location:http://localhost/FYP/PHP/ManagementPortal/ViewComplains.php");
+   header("location:ViewComplains.php");
 }
 
 if(isset($_POST['date'])){
     $_SESSION['FetchDate'] = $_POST['date'];
     echo "{$_SESSION['FetchDate']}";
-    header("location:http://localhost/FYP/PHP/ManagementPortal/ViewComplains.php");
+    header("location:ViewComplains.php");
 }
 
 

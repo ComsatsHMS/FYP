@@ -19,17 +19,17 @@ if(isset($_POST['Submit'])) {
     else{
         $_SESSION['Complain']="error";
     }
-    header("location:http://localhost/FYP/PHP/StudentPortal/Complaints.php");
+    header("location:Complaints.php");
 }
 
 //for view complains on admin panel page
 if(isset($_GET['type'])){
     $_SESSION['type'] = $_GET['type'];
-   header("location:http://localhost/FYP/PHP/StudentPortal/ViewComplains.php");
+   header("location:ViewComplains.php");
 }
 else if(isset($_POST['date'])){
     $_SESSION['date'] = $_POST['date'];
-    header("location:http://localhost/FYP/PHP/StudentPortal/ViewComplains.php");
+    header("location:ViewComplains.php");
 }
 function getComplainDetails(){
     $type = $_SESSION['type'];

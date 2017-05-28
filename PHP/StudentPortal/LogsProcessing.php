@@ -6,12 +6,12 @@ if(isset($_POST['progress'])) {
     $id = $_GET['id'];
 
     $query = mysqli_query($connection, "update complaints set Status='Done' where ComplainID='$id'");
-    header("location:http://localhost/FYP/PHP/StudentPortal/MyLog.php");
+    header("location:MyLog.php");
 }
 
 if(isset($_GET['SelectedLog'])){
     $_SESSION['SelectedLog'] = $_GET['SelectedLog'];
-    header("location:http://localhost/FYP/PHP/StudentPortal/MyLog.php");
+    header("location:MyLog.php");
 }
 function getLogs()
 {

@@ -18,7 +18,7 @@ if(isset($_POST['submit'])) {
     $flag = "true";
     $update1 = "update insertstudentprofile set flag =  'true'";
     $query1 = mysqli_query($connection, $update1);
-    header("location:http://localhost/FYP/PHP/Voting.php");
+    header("location:Voting.php");
 
 }
 if(isset($_POST['submit_1'])){
@@ -121,7 +121,7 @@ if($Monday){
 
 
     }
-    header("location:http://localhost/FYP/PHP/Voting.php");
+    header("location:Voting.php");
 }
 if(isset($_POST['submit_2'])){
 
@@ -223,6 +223,6 @@ if(isset($_POST['submit_2'])){
 
 
     }
-    header("location:http://localhost/FYP/PHP/Voting.php");
+    header("location:Voting.php");
 }
 ?>

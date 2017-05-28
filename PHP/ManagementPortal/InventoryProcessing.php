@@ -210,7 +210,7 @@ if(isset($_POST['AddItem'])) {
     }else {
         $_SESSION['InsertItem'] = "error";
     }
-    header("location:http://localhost/FYP/PHP/ManagementPortal/InventoryItems.php");
+    header("location:InventoryItems.php");
 }
 else if(isset($_POST['Update'])) {
     print_r($_POST);
@@ -250,7 +250,7 @@ else if(isset($_POST['Update'])) {
     else{
         $_SESSION['BalanceUpdate']="mismatch";
     }
-    header("location:http://localhost/FYP/PHP/ManagementPortal/ViewInventory.php");
+    header("location:ViewInventory.php");
 }
 //Balance subtracting ... for used items
 else if(isset($_POST['Update_'])) {
@@ -293,7 +293,7 @@ else if(isset($_POST['Update_'])) {
     else{
         $_SESSION['BalanceUpdate']="mismatch";
     }
-    header("location:http://localhost/FYP/PHP/ManagementPortal/ViewInventory.php");
+    header("location:ViewInventory.php");
 }
 
 //for payable details
@@ -311,7 +311,7 @@ else if(isset($_POST['Payable'])) {
             } else{
                 $_SESSION['PayableDetails']="error";
             }
-    header("location:http://localhost/FYP/PHP/ManagementPortal/AccountPayable.php");
+    header("location:AccountPayable.php");
 }
 
 //for paid details...
@@ -342,7 +342,7 @@ else if(isset($_POST['Paid'])) {
     } else{
         $_SESSION['PaidDetails']="error";
     }
-    header("location:http://localhost/FYP/PHP/ManagementPortal/AccountPayable.php");
+    header("location:AccountPayable.php");
 }
 
 /*

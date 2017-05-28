@@ -9,14 +9,14 @@
         $run = mysqli_query($connection, $sql);
         $sql="delete from users WHERE userid=$value";
         $run = mysqli_query($connection, $sql);
-        header("location:http://localhost/FYP/PHP/AdminPortal/List_Emoloyees.php");
+        header("location:List_Emoloyees.php");
       }
       else if(isset($_GET['id1'])){
           echo "pakistan";
          $value= $_GET['id1'];
          $sql="delete from users WHERE userid=$value";
          $run = mysqli_query($connection, $sql);
-         header("location:http://localhost/FYP/PHP/AdminPortal/Request.php");
+         header("location:Request.php");
       }
       else if(isset($_GET['id2'])){
          $value= $_GET['id2'];
@@ -40,7 +40,7 @@
           mysqli_query($connection, $insert1);
           $insert2 = "insert into emp_rights VALUES ('$value','1','1','1','1','1','1','1','1','1','1')";
           mysqli_query($connection, $insert2);
-          header("location:http://localhost/FYP/PHP/AdminPortal/Request.php");
+          header("location:Request.php");
       }
      else if(isset($_POST['AddHostel'])){
 
@@ -55,12 +55,12 @@
          else{
              $_SESSION['InsertHostel'] = "error";
          }
-         header("location:http://localhost/FYP/PHP/AdminPortal/AdminPortal.php");
+         header("location:AdminPortal.php");
      }
      else if(isset($_GET['delete'])){
          $HostelName = $_GET['delete'];
          $delete = mysqli_query($connection,"delete from hostelslist where HostelName='$HostelName'");
-         header("location:http://localhost/FYP/PHP/AdminPortal/AdminPortal.php");
+         header("location:AdminPortal.php");
      }
 function getHostels(){
     global $connection;
@@ -77,9 +77,7 @@ function getHostels(){
             <td><a class='btn btn-danger' href='Admin_processing.php?delete=$HostelName'>Delete</a></td>
             </tr>
         ";
-
     }
-
 }
 ?>
 
