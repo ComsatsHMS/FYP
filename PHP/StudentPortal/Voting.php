@@ -94,7 +94,7 @@ while($record = mysqli_fetch_array($exec)){
                     ?>
 
                     <li>
-                        <a class="text-center" href="Notifications.php">
+                        <a class="text-center" href="../ParentPortal/Notifications.php">
                             <strong>View All New Notifications</strong>
                             <i class="fa fa-angle-right"></i>
                         </a>
@@ -133,7 +133,7 @@ while($record = mysqli_fetch_array($exec)){
                     <a href="StudentPortal.php"><i class="fa fa-"></i> Profile</a>
                 </li>
                 <li>
-                    <a href="Notifications.php"><i class="fa fa-"></i> Notifications</a>
+                    <a href="../ParentPortal/Notifications.php"><i class="fa fa-"></i> Notifications</a>
                 </li>
 
                 <li>
@@ -185,7 +185,7 @@ while($record = mysqli_fetch_array($exec)){
                 }
                 ?>
                 <li>
-                    <a href="Statistics.php"><i class="fa fa-"></i> Statistics </a>
+                    <a href="../ParentPortal/Statistics.php"><i class="fa fa-"></i> Statistics </a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-"></i> Fee <span class="fa arrow"></span></a>
@@ -194,12 +194,12 @@ while($record = mysqli_fetch_array($exec)){
                             <a href="Challan.php">Challan</a>
                         </li>
                         <li>
-                            <a href="FeeHistory.php">Fee History</a>
+                            <a href="../ParentPortal/FeeHistory.php">Fee History</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="MyLog.php"><i class="fa fa-"></i> My Logs</a>
+                    <a href="../ParentPortal/MyLog.php"><i class="fa fa-"></i> My Logs</a>
                 </li>
             </ul>
 

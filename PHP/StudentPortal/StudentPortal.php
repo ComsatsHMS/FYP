@@ -81,7 +81,7 @@ error_reporting(0);
                         ?>
 
                     <li>
-                        <a class="text-center" href="Notifications.php">
+                        <a class="text-center" href="../ParentPortal/Notifications.php">
                             <strong>View All New Notifications</strong>
                             <i class="fa fa-angle-right"></i>
                         </a>
@@ -120,7 +120,7 @@ error_reporting(0);
                     <a class="active-menu" href="StudentPortal.php"><i class="fa fa-"></i> Profile</a>
                 </li>
                 <li>
-                    <a href="Notifications.php"><i class="fa fa-"></i> Notifications</a>
+                    <a href="../ParentPortal/Notifications.php"><i class="fa fa-"></i> Notifications</a>
                 </li>
 
                 <li>
@@ -171,7 +171,7 @@ error_reporting(0);
 }
 ?>
                 <li>
-                    <a href="Statistics.php"><i class="fa fa-"></i> Statistics </a>
+                    <a href="../ParentPortal/Statistics.php"><i class="fa fa-"></i> Statistics </a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-"></i> Fee <span class="fa arrow"></span></a>
@@ -180,12 +180,12 @@ error_reporting(0);
                             <a href="Challan.php">Challan</a>
                         </li>
                         <li>
-                            <a href="FeeHistory.php">Fee History</a>
+                            <a href="../ParentPortal/FeeHistory.php">Fee History</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="MyLog.php"><i class="fa fa-"></i> My Logs</a>
+                    <a href="../ParentPortal/MyLog.php"><i class="fa fa-"></i> My Logs</a>
                 </li>
             </ul>
 
@@ -234,7 +234,7 @@ error_reporting(0);
                         <div class="panel panel-primary">
                             <div class="panel-heading" >Profile</div>
                                 <div class="panel-body">
-                                    <form class="form-horizontal" role="form" name="studentForm" method="post" action="ProfileProcessing.php"  >
+                                    <form class="form-horizontal" role="form" name="studentForm" method="post" action="../ParentPortal/ProfileProcessing.php"  >
                                         <?php
                                         if($_SESSION['update']=='OK'){
                                             echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
