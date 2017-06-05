@@ -158,7 +158,7 @@ error_reporting(0);
         <input name="rollNumber" placeholder="Student ID" class="form-control col-sm-4 control-label" type="text"required autocomplete="off">
         <input class="form-control" type="password" placeholder="Password" id="pw" name="check">
         <input class="btn btn-primary btn-block btn-lg btn-signin" type="submit" value="Sign in" name="submit" id="submit">
-        <p class="forgot"><a href="javascript:showhide('pwreset','signin','forget')">Forgot Password?</a></p>
+<!--        <p class="forgot"><a href="javascript:showhide('pwreset','signin','forget')">Forgot Password?</a></p>-->
     </form>
 
     <form id="pwreset"  method="post" action="LoginProcessing.php" enctype="multipart/form-data" style="display: none">

@@ -175,7 +175,7 @@ function getMembers(){
                     <a href=\"ViewInventory.php\"><i class=\"fa fa-\"></i> View Inventory</a>
                 </li>";
                 }
-                if($_SESSION['Parents'] == 1){
+                /* if($_SESSION['Parents'] == 1){
                     echo "<li>
                     <a href=\"#\"><i class=\"fa fa-\"></i> Parents Data<span class=\"fa arrow\"></span></a>
                     <ul class=\"nav nav-second-level\">
@@ -187,7 +187,7 @@ function getMembers(){
                         </li>
                     </ul>
                 </li>";
-                }
+                } */
                 if($_SESSION['Voting'] == 1){
                     echo " <li>
                     <a href=\"StartVoting.php\"><i class=\"fa fa-\"></i> Voting </a>

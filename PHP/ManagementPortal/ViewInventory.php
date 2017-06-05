@@ -130,7 +130,7 @@ include "../connection.php";
                     <a class=\"active-menu\" href=\"ViewInventory.php\"><i class=\"fa fa-\"></i> View Inventory</a>
                 </li>";
                 }
-                if($_SESSION['Parents'] == 1){
+                /* if($_SESSION['Parents'] == 1){
                     echo "<li>
                     <a href=\"#\"><i class=\"fa fa-\"></i> Parents Data<span class=\"fa arrow\"></span></a>
                     <ul class=\"nav nav-second-level\">
@@ -142,7 +142,7 @@ include "../connection.php";
                         </li>
                     </ul>
                 </li>";
-                }
+                } */
                 if($_SESSION['Voting'] == 1){
                     echo " <li>
                     <a href=\"StartVoting.php\"><i class=\"fa fa-\"></i> Voting </a>
@@ -235,13 +235,14 @@ include "../connection.php";
                                         <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Accounts <span class="caret"></span></a>
                                             <ul class="dropdown-menu">
                                                 <li> <a href="AccountPayable.php">Account Payable</a>
-                                                </li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="AccountReceivable.php">Account Receivable/Received</a>
-                                                </li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="BankAmount.php">Bank Amount</a>
-                                                </li>
+                                               </li>
+
+<!--                                                <li role="separator" class="divider"></li>-->
+<!--                                                <li><a href="AccountReceivable.php">Account Receivable/Received</a>-->
+<!--                                                </li>-->
+<!--                                                <li role="separator" class="divider"></li>-->
+<!--                                                <li><a href="BankAmount.php">Bank Amount</a>-->
+<!--                                                </li>  -->
                                                 <li role="separator" class="divider"></li>
                                                 <li><a href="PayableHistory.php">Payable/Paid History</a>
                                                 </li>

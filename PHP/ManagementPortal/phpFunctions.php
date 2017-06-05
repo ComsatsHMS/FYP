@@ -21,14 +21,57 @@ if(isset($_POST['submit'])){
             $student_contact = $each_record['mobileNo'];
             $student_contact_e = $each_record['cellNo'];
             $student_id = $each_record['studentid'];
+            $student_email = $each_record['email'];
             $student_program = $each_record['program'];
             $address = $each_record['address'];
             $pic = $each_record['photo'];
             $insert = "insert into insertstudentprofile VALUES ('$student_name','$student_f_name','$student_id','$student_program','$room_num','','$student_contact',' $student_contact_e','$address','','$hostel_Name','$pic')";
             $exec = mysqli_query($connection,$insert);
             if($exec){
-                $acc = "insert into loginoldstudent VALUES ('$student_id',12345)";
+                $password = randomPassword();
+                $acc = "insert into loginoldstudent VALUES ('$student_id','$password')";
                 $exec = mysqli_query($connection,$acc);
+                if($exec){
+                    //send mail
+                    $regards = "{$_SESSION['UserFirstName']}"." "."{$_SESSION['UserLastName']}";
+                    $to = $student_email;
+                    $subject = 'Congragulations!! You have been selected.';
+                    $message = '
+        <html>
+        <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title></title>
+        </head>
+        <body>
+            <div id="email-wrap">
+            <p>Hy, <strong> '.$student_name.'</strong></p>
+            <p>This email is to inform you that, you have been selected for comsats hostels.</p>
+            <p>Below are your login details, Use these details to login and check your allocated room and Hostel.</p>
+            <p>Username:'.$student_id.'</p>
+             <p>Password:'.$password.'</p>
+             <p>Thannks!!</p>
+             <p>Best Regards,</p>
+             <p>'.$regards.'</p>
+            </div>
+        </body>
+        </html>';
+
+                    $from ="ahmadmukhtar@CHMS.gwiddle.co.uk";
+                    //$Bcc = "example@example.com";
+
+                    // To send HTML mail, the Content-type header must be set
+                    $headers  = 'MIME-Version: 1.0' . "\r\n";
+                    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+                    // Additional headers
+                    $headers .= 'To: ' .$to. "\r\n";
+                    $headers .= 'From: ' .$from. "\r\n";
+                    //  $headers .= 'Bcc: '.$Bcc. "\r\n";
+
+                    // Send the email
+                    mail($to,$subject,$message,$headers);
+
+                }
             }
         }
     }else{
@@ -139,27 +182,27 @@ function getSelectedStudents(){
                                         <th></th>
                                     </tr>";
         while ($each_record = mysqli_fetch_array($run)) {
-        $application_no = $each_record['applicationNumber'];
-        $new_student = $each_record['newstudent'];
-        $get_rec = "select * from hostel WHERE applicationNumber = '$application_no'";
-        $run1 = mysqli_query($connection, $get_rec);
+            $application_no = $each_record['applicationNumber'];
+            $new_student = $each_record['newstudent'];
+            $get_rec = "select * from hostel WHERE applicationNumber = '$application_no'";
+            $run1 = mysqli_query($connection, $get_rec);
 
-        if (mysqli_num_rows($run1) == 0) {
+            if (mysqli_num_rows($run1) == 0) {
 
-            $student_name = $each_record['name'];
-            $student_f_name = $each_record['fathername'];
-            $student_id = $each_record['studentid'];
-            $student_preffered_hostel = $each_record['hostel'];
+                $student_name = $each_record['name'];
+                $student_f_name = $each_record['fathername'];
+                $student_id = $each_record['studentid'];
+                $student_preffered_hostel = $each_record['hostel'];
 
-            echo "<tr><td>$application_no</td>
+                echo "<tr><td>$application_no</td>
                   <td>$student_name</td>
                   <td>$student_f_name</td>
                   <td>$student_id</td>
                   <td>$student_preffered_hostel</td>
                   <td><button type='button' id='view' class='btn btn-default' ><a href='Allocate.php?id=$application_no&newStd=$new_student'>Allot Room</a></button> </td>
                   </tr>";
+            }
         }
-    }
     }
     else{
         echo "No Student Record Found";
@@ -287,7 +330,7 @@ function checkRecord($applicationNo){
         elseif($each_record['oldstudent'] == 1){
             global $connection;
 
-                echo"
+            echo"
                     <tr><td>Student Name</td><td>$student_name</td></tr>
                     <tr><td>Father Name</td><td>$father_name</td></tr>
                     <tr><td>Student Id</td><td>$student_id</td></tr>
@@ -359,18 +402,18 @@ function getSelectedStudentsList(){
                                         <th>Actions</th>
                                     </tr>";
         while ($each_record = mysqli_fetch_array($run)) {
-        $rec = "select * from hostel";
-        $exec = mysqli_query($connection, $rec);
-        while ($each_rec = mysqli_fetch_array($exec)) {
-            if ($each_record['applicationNumber'] == $each_rec['applicationNumber']) {
-                $application_no = $each_record['applicationNumber'];
-                $student_name = $each_record['name'];
-                $student_f_name = $each_record['fathername'];
-                $student_id = $each_record['studentid'];
-                $student_hostel = $each_rec['HostelName'];
-                $student_room = $each_rec['roomNumber'];
+            $rec = "select * from hostel";
+            $exec = mysqli_query($connection, $rec);
+            while ($each_rec = mysqli_fetch_array($exec)) {
+                if ($each_record['applicationNumber'] == $each_rec['applicationNumber']) {
+                    $application_no = $each_record['applicationNumber'];
+                    $student_name = $each_record['name'];
+                    $student_f_name = $each_record['fathername'];
+                    $student_id = $each_record['studentid'];
+                    $student_hostel = $each_rec['HostelName'];
+                    $student_room = $each_rec['roomNumber'];
 
-                echo "<tr>
+                    echo "<tr>
                   <td>$student_name</td>
                   <td>$student_f_name</td>
                   <td>$student_id</td>
@@ -378,10 +421,10 @@ function getSelectedStudentsList(){
                   <td>$student_room</td>
                   <td><button type='button' id='view' class='btn btn-default' ><a href='StudentCompleteDetails.php?id=$student_id'>Details</a></button> </td>
                   </tr>";
-            }
+                }
 
+            }
         }
-    }
     }
     else{
         echo"No Student Record Found";
@@ -392,24 +435,24 @@ function getNotSelectedStudentsList(){
     $get_record = "select * from oldstudentform where selected = 0";
     $run = mysqli_query($connection, $get_record);
     if(mysqli_num_rows($run)>0){
-       echo"<tr>
+        echo"<tr>
                                         <th>Student Name</th>
                                         <th>Father Name</th>
                                         <th>Student id</th>
                                         <th>Student Details</th>
                                     </tr>";
         while ($each_record = mysqli_fetch_array($run)) {
-                $application_no = $each_record['applicationNumber'];
-                $student_name = $each_record['name'];
-                $student_f_name = $each_record['fathername'];
-                $student_id = $each_record['studentid'];
-                echo "<tr>
+            $application_no = $each_record['applicationNumber'];
+            $student_name = $each_record['name'];
+            $student_f_name = $each_record['fathername'];
+            $student_id = $each_record['studentid'];
+            echo "<tr>
                   <td>$student_name</td>
                   <td>$student_f_name</td>
                   <td>$student_id</td>
                   <td><button type='button' id='view' class='btn btn-default' ><a href='StudentDetails.php?id=$application_no&chec=1'>Details</a></button> </td>
                   </tr>";
-            }
+        }
     }
     else{
         echo"No Student Record Found";
@@ -430,18 +473,18 @@ function studentSearchByName($temp){
                                         <th>Actions</th>
                                     </tr>";
         while ($each_record = mysqli_fetch_array($run)) {
-        $t_no =$each_record['applicationNumber'];
-        $rec = "select * from hostel where applicationNumber = '$t_no'";
-        $exec = mysqli_query($connection, $rec);
-        while ($each_rec = mysqli_fetch_array($exec)) {
-            if($each_record['applicationNumber'] == $each_rec['applicationNumber']){
-                $student_name = $each_record['name'];
-                $student_f_name = $each_record['fathername'];
-                $student_id = $each_record['studentid'];
-                $student_hostel = $each_rec['HostelName'];
-                $student_room = $each_rec['roomNumber'];
+            $t_no =$each_record['applicationNumber'];
+            $rec = "select * from hostel where applicationNumber = '$t_no'";
+            $exec = mysqli_query($connection, $rec);
+            while ($each_rec = mysqli_fetch_array($exec)) {
+                if($each_record['applicationNumber'] == $each_rec['applicationNumber']){
+                    $student_name = $each_record['name'];
+                    $student_f_name = $each_record['fathername'];
+                    $student_id = $each_record['studentid'];
+                    $student_hostel = $each_rec['HostelName'];
+                    $student_room = $each_rec['roomNumber'];
 
-                echo "<tr>
+                    echo "<tr>
                   <td>$student_name</td>
                   <td>$student_f_name</td>
                   <td>$student_id</td>
@@ -449,10 +492,10 @@ function studentSearchByName($temp){
                   <td>$student_room</td>
                   <td><button type='button' id='view' class='btn btn-default' ><a href='StudentCompleteDetails.php?id=$student_id'>Details</a></button> </td>
                   </tr>";
-            }
+                }
 
+            }
         }
-    }
     }
     else{
         echo"No Student Record Found";
@@ -474,13 +517,13 @@ function studentSearchByHostel($temp){
                                         <th>Actions</th>
                                     </tr>";
         while ($each_record = mysqli_fetch_array($run)) {
-        $student_name = $each_record['name'];
-        $student_f_name = $each_record['fathername'];
-        $student_id = $each_record['studentid'];
-        $student_hostel = $each_record['HostelName'];
-        $student_room = $each_record['roomNumber'];
+            $student_name = $each_record['name'];
+            $student_f_name = $each_record['fathername'];
+            $student_id = $each_record['studentid'];
+            $student_hostel = $each_record['HostelName'];
+            $student_room = $each_record['roomNumber'];
 
-        echo "<tr>
+            echo "<tr>
                   <td>$student_name</td>
                   <td>$student_f_name</td>
                   <td>$student_id</td>
@@ -488,7 +531,7 @@ function studentSearchByHostel($temp){
                   <td>$student_room</td>
                   <td><button type='button' class='btn btn-default' ><a href='StudentCompleteDetails.php?id=$student_id'>Details</a></button> </td>
                   </tr>";
-    }
+        }
     }
     else{
         echo"No Student Record Found";
@@ -657,11 +700,22 @@ function getFeeUnPaidStudentsList(){
 }
 function getHostels(){
     global $connection;
-     $Hostel = array();
+    $Hostel = array();
     $run = mysqli_query($connection,  "select * from hostelslist");
     while ($each_record = mysqli_fetch_array($run)) {
         $Hostel[] = $each_record['HostelName'];
     }
     $_SESSION['list'] = $Hostel;
+}
+
+function randomPassword() {
+    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    $pass = array(); //remember to declare $pass as an array
+    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+    for ($i = 0; $i < 8; $i++) {
+        $n = rand(0, $alphaLength);
+        $pass[] = $alphabet[$n];
+    }
+    return implode($pass); //turn the array into a string
 }
 ?>

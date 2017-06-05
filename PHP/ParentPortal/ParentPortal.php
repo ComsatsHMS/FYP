@@ -10,28 +10,32 @@ error_reporting(0);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Parent Portal</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+          integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
     <!--    <script type="text/javascript" src="../../JS/Validation.js"> </script>-->
     <!-- Bootstrap Styles-->
-    <link href="../../CSS/bootstrap.css" rel="stylesheet" />
+    <link href="../../CSS/bootstrap.css" rel="stylesheet"/>
     <!-- FontAwesome Styles-->
-    <link href="../../CSS/font-awesome.css" rel="stylesheet" />
+    <link href="../../CSS/font-awesome.css" rel="stylesheet"/>
     <!-- Morris Chart Styles-->
-    <link href="../../JS/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <link href="../../JS/morris/morris-0.4.3.min.css" rel="stylesheet"/>
     <!-- Custom Styles-->
-    <link href="../../CSS/custom-styles.css" rel="stylesheet" />
+    <link href="../../CSS/custom-styles.css" rel="stylesheet"/>
     <!-- Google Fonts-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" href="../../JS/Lightweight-Chart/cssCharts.css">
-    <script type="text/javascript" src="../../JS/profileValidation.js"> </script>
+    <script type="text/javascript" src="../../JS/profileValidation.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -117,7 +121,7 @@ error_reporting(0);
             <ul class="nav" id="main-menu">
 
                 <li>
-                    <a class="active-menu" href="StudentPortal.php"><i class="fa fa-"></i> Profile</a>
+                    <a class="active-menu" href="ParentPortal.php"><i class="fa fa-"></i> Profile</a>
                 </li>
                 <li>
                     <a href="Notifications.php"><i class="fa fa-"></i> Notifications</a>
@@ -176,7 +180,7 @@ error_reporting(0);
             <ol class="breadcrumb">
                 <li><a href="../../index.html">Home</a></li>
                 <li><a href="Logout.php">Login</a></li>
-                <li class="active">Student</li>
+                <li class="active">Studet Profile</li>
             </ol>
         </div>
         <div id="page-inner">
