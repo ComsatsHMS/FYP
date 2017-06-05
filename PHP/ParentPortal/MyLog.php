@@ -1,7 +1,7 @@
 <?php
 session_start();
-if(!isset($_SESSION['name'])){
-    header('Location:Login.php');
+if(!isset($_SESSION['name'])) {
+    header('Location:ParentLogin.php');
 }
 error_reporting(0);
 include "../connection.php";
@@ -47,7 +47,7 @@ include "LogsProcessing.php";
                 <span class="icon-bar"></span>
             </button>
             <!--            <a class="navbar-brand" href="index.html"><strong><i class="icon fa fa-plane"></i> BRILLIANT</strong></a>-->
-            <a class="navbar-brand" href="../StudentPortal/StudentPortal.php" id="sidebar-title">Student Portal</a>
+            <a class="navbar-brand" href="ParentPortal.php" id="sidebar-title">Parent Portal</a>
 
         </div>
 
@@ -98,12 +98,12 @@ include "LogsProcessing.php";
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="../StudentPortal/StudentPortal.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <li><a href="ParentPortal.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     </li>
                     <li><a href="Settings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="../StudentPortal/Logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="Logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -125,55 +125,6 @@ include "LogsProcessing.php";
                 <li>
                     <a href="Notifications.php"><i class="fa fa-"></i> Notifications</a>
                 </li>
-
-                <li>
-                    <a href="../StudentPortal/Complaints.php"><i class="fa fa-"></i> Complains</a>
-                </li>
-
-                <li>
-                    <a href="../StudentPortal/Voting.php"><i class="fa fa-"></i> Votes</a>
-                </li>
-
-                <li>
-                    <a href="Applications.php"><i class="fa fa-"></i> Applications<span class="fa arrow"></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="../StudentPortal/MessCloseApplication.php">Mess Close</a>
-                        </li>
-                        <li>
-                            <a href="../StudentPortal/TransportCommitteeApplication.php">Trnasport Committee</a>
-                        </li>
-                        <li>
-                            <a href="../StudentPortal/BSCommitteeApplication.php">Blood Society Committee</a>
-                        </li>
-                        <li>
-                            <a href="../StudentPortal/NetworkAnalystApplication.php">Network Analyst</a>
-                        </li>
-                        <li>
-                            <a href="../StudentPortal/SportsCommitteeApplication.php">Sports Comitee</a>
-                        </li>
-                        <li>
-                            <a href="../StudentPortal/MessCommitteeApplication.php">Mess Committee</a>
-                        </li>
-                        <li>
-                            <a href="../StudentPortal/WingProctorApplication.php">Wing Proctor</a>
-                        </li>
-                    </ul>
-                </li>
-                <?php
-                $fetch = "select studentID from wingproctorslist where studentID='{$_SESSION["id"]}'";
-                $studentID;
-                $transport = mysqli_query($connection, $fetch);
-                while ($each_record = mysqli_fetch_array($transport)) {
-                    $studentID = $each_record['studentID'];
-                }
-                if ($studentID == $_SESSION['id']) {
-                    echo '
-                <li>
-                    <a href="../StudentPortal/ViewComplains.php"><i class="fa fa-"></i> Wing Complaints </a>
-                </li>';
-                }
-                ?>
                 <li>
                     <a href="Statistics.php"><i class="fa fa-"></i> Statistics </a>
                 </li>
@@ -227,8 +178,8 @@ include "LogsProcessing.php";
             </div>
             <ol class="breadcrumb">
                 <li><a href="../../index.html">Home</a></li>
-                <li><a href="../StudentPortal/Login.php">Login</a></li>
-                <li><a href="../StudentPortal/StudentPortal.php">Student Portal</a></li>
+                <li><a href="ParentLogin.php">Login</a></li>
+                <li><a href="ParentPortal.php">Parent Portal</a></li>
                 <li class="active">Logs</li>
             </ol>
         </div>

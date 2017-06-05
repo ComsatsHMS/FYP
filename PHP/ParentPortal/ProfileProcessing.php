@@ -56,12 +56,12 @@ if(isset($_POST['update'])) {
         }
     }else{
         $_SESSION['update'] = 'error';
-        header('Location:StudentPortal.php');
+        header('Location:ParentPortal.php');
     }
 }
     else{
         $_SESSION['update'] = 'empty';
-        header('Location:StudentPortal.php');
+        header('Location:ParentPortal.php');
     }
 }
 ?>
