@@ -6,17 +6,17 @@ function Validate(){
         if (name.length==0) {
             document.getElementById("name_error").innerHTML = "Please fill out this field";
             document.getElementById("name").style.borderColor = "red";
-            return flase;
+            return false;
         }
         if (regexp1.test(document.forms["application"]["name"].value)) {
             document.getElementById("name_error").innerHTML = "Only Alphabats are Allowed";
             document.getElementById("name").style.borderColor = "red";
-            return flase;
+            return false;
         }
         if (name.length > 20) {
             document.getElementById("name").style.borderColor = "red";
             document.getElementById("name_error").innerHTML = "20 Alphabets are Allowed";
-            return flase;
+            return false;
         }
     }
     else{
@@ -83,15 +83,18 @@ function Validate3() {
         if(mail.length==0){
             document.getElementById("mail_error").innerHTML = "Please fill out this field";
             document.getElementById("mail").style.borderColor="red";
+            return false;
         }
         if(!regexp3.test(document.forms["application"]["mail"].value)){
             document.getElementById("mail_error").innerHTML = "Invalid Email";
             document.getElementById("mail").style.borderColor="red";
+            return false;
         }
     }
     else {
         document.getElementById("mail_error").innerHTML= '<span style="color:green;font-size:20px;" class="glyphicon glyphicon-ok-sign "></span>';
         document.getElementById("mail").style.borderColor="green";
+        return true;
     }
 
 }
@@ -101,9 +104,11 @@ function Validate4() {
     var regexp2=new RegExp("[^0-9]");
     if(tele.length==0 ||regexp2.test(document.forms["application"]["tele"].value)){
         document.getElementById("tele").style.borderColor="red";
+        return false;
     }
     else {
         document.getElementById("tele").style.borderColor="green";
+        return true;
     }
 }
 function Validate5() {
@@ -114,19 +119,23 @@ function Validate5() {
         if(phone.length==0){
             document.getElementById("m_error").innerHTML = "Please fill out this field";
             document.getElementById("phone").style.borderColor="red";
+            return false;
         }
         if(regexp2.test(document.forms["application"]["phone"].value)){
             document.getElementById("m_error").innerHTML = "Alphabats are not allowed";
             document.getElementById("phone").style.borderColor="red";
+            return false;
         }
     }
     else if(phone.length==11) {
         document.getElementById("m_error").innerHTML= '<span style="color:green;font-size:20px;" class="glyphicon glyphicon-ok-sign "></span>';
         document.getElementById("phone").style.borderColor="green";
+        return true;
     }
     else{
         document.getElementById("m_error").innerHTML = "length is not correct";
         document.getElementById("phone").style.borderColor="red";
+        return false;
     }
 
 }
@@ -139,16 +148,19 @@ function Validate6() {
         if(dom.length==0){
             document.getElementById("dom_e").innerHTML = "Please fill out this field";
             document.getElementById("dom").style.borderColor="red";
+            return false;
         }
         if(regexp2.test(document.forms["application"]["dom"].value)){
             document.getElementById("dom_e").innerHTML = "Numerics are not allowed";
             document.getElementById("dom").style.borderColor="red";
+            return false;
         }
     }
 
     else{
         document.getElementById("dom_e").innerHTML= '<span style="color:green;font-size:20px;" class="glyphicon glyphicon-ok-sign "></span>';
         document.getElementById("dom").style.borderColor="green";
+        return true;
     }
 
 }
@@ -161,15 +173,18 @@ function Validate7() {
         if(regi.length==0 ){
             document.getElementById("regi_e").innerHTML = "Please fill out this field";
             document.getElementById("regi").style.borderColor="red";
+            return false;
         }
         if(regexp2.test(document.forms["application"]["regi"].value) ){
-            document.getElementById("regi_e").innerHTML = "Numerics are not allowed";
+            document.getElementById("regi_e").innerHTML = "Space/numeric is not allowed";
             document.getElementById("regi").style.borderColor="red";
+            return false;
         }
     }
     else {
         document.getElementById("regi_e").innerHTML= '<span style="color:green;font-size:20px;" class="glyphicon glyphicon-ok-sign "></span>';
         document.getElementById("regi").style.borderColor="green";
+        return true;
     }
 
 }
@@ -181,7 +196,7 @@ function Validate8() {
     if(blood.length==0){
         document.getElementById("blood_e").innerHTML = "Please fill out this field";
         document.getElementById("blood").style.borderColor="red";
-        return flase;
+        return false;
     }
     if(regexp2.test(document.forms["application"]["blood"].value)){
         document.getElementById("blood_e").innerHTML = "Numerics are not allowed";
@@ -207,7 +222,7 @@ function Validate9() {
             document.getElementById("occ").style.borderColor="red";
         }
         if(regexp2.test(document.forms["application"]["occ"].value)){
-            document.getElementById("occ_e").innerHTML = "Numeric are not allowed";
+            document.getElementById("occ_e").innerHTML = "Space/numeric is not allowed";
             document.getElementById("occ").style.borderColor="red";
         }
     }

@@ -25,7 +25,7 @@ error_reporting(0);
             <div class="collapse navbar-collapse" id="navbar-collapse" style="float: right;padding-top: 15px">
                 <ul class="nav navbar-nav">
                     <li role="presentation" style="font-size: 25px"><a href="../../index.html">Home </a></li>
-                    <li role="presentation" style="font-size: 25px"><a href="#">Hostel Form </a></li>
+                    <li role="presentation" style="font-size: 25px"><a href="ApplicationForm.php">Hostel Form </a></li>
                     <li class="dropdown" style="font-size: 25px">
                         <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Downloads<span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-menu-right" role="menu" style="border: 1px solid">

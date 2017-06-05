@@ -41,17 +41,17 @@ error_reporting(0);
                 <li class="dropdown" style="font-size: 25px">
                     <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Downloads<span class="caret"></span></a>
                     <ul class="dropdown-menu dropdown-menu-right" role="menu" style="border: 1px solid">
-                        <li role="presentation" style="font-size: 22px"><a href="#">item 1 </a></li>
-                        <li role="presentation" style="font-size: 22px"><a href="#">item 2 </a></li>
-                        <li role="presentation" style="font-size: 22px"><a href="#">item 3 </a></li>
+                        <li role="presentation" style="font-size: 16px"><a href="#">item 1 </a></li>
+                        <li role="presentation" style="font-size: 16px"><a href="#">item 2 </a></li>
+                        <li role="presentation" style="font-size: 16px"><a href="#">item 3 </a></li>
                     </ul>
                 </li>
                 <li class="dropdown" style="font-size: 25px">
                     <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Login<span class="caret"></span></a>
                     <ul class="dropdown-menu dropdown-menu-right" role="menu" style="border: 1px solid">
-                        <li role="presentation" style="font-size: 22px"><a href="../StudentPortal/Login.php">Student Portal </a></li>
-                        <li role="presentation" style="font-size: 22px"><a href="OfficeLogin.php">Management Portal </a></li>
-                        <li role="presentation" style="font-size: 22px"><a href="../ParentPortal/ParentLogin.php">Parent Portal </a></li>
+                        <li role="presentation" style="font-size: 16px"><a href="../StudentPortal/Login.php">Student Portal </a></li>
+                        <li role="presentation" style="font-size: 16px"><a href="OfficeLogin.php">Management Portal </a></li>
+                        <li role="presentation" style="font-size: 16px"><a href="../ParentPortal/ParentLogin.php">Parent Portal </a></li>
                     </ul>
                 </li>
             </ul>
@@ -66,11 +66,15 @@ error_reporting(0);
         <div class="panel-body" >
             <div class="row">
                 <?php
-                if($_SESSION['send'] == 'success'){
-                    echo "<h2 style='color: green;text-align: center'> Application Successfully Submitted!! </h2>";
+                if ($_SESSION['send'] == 'success') {
+                    echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Success!</strong>  Application Successfully Submitted!!
+                                                </div>";
                 }
-                else if($_SESSION['send'] == 'error'){
-                    echo "<h2 style='color: red;text-align: center'> OOPS!! Error Occured. </h2>";
+                else if ($_SESSION['send'] == 'error') {
+                    echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Error!</strong> Something went wrong!!
+                                                </div>";
                 }
                 unset($_SESSION['send']);
                 ?>
@@ -583,7 +587,7 @@ error_reporting(0);
 
                     <br>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-offset-2 col-md-8 col-md-offset-2">
                             <div class="col-md-offset-0" style="padding-left: 10px">
                                 <label><input type="checkbox" required>I certify that the aforementioned information given by me is correct. I understand that if any part of this information is found false/incorrect,my allotment will stand cancelled. I also undertake to strictly observe all rules & regulations of the hostel. I shall also comply with the direction and orders issued by the hostel authorities from time to time during the period of my stay in the hostel. I undertake further to pay all dues in time.</label>
                             </div>

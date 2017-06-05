@@ -140,7 +140,7 @@ error_reporting(0);
                                     <input type="text" name="TotalRooms" id="TotalRooms">
                                     <label for="NewHostel">Persons Space: </label>
                                     <input type="text" name="TotalPersons" id="TotalPersons">
-                                    <input type="submit" value="Add Hostel" name="AddHostel">
+                                    <input type="submit" value="Add Hostel" id="view" name="AddHostel">
                                 </form>
                             </div>
                                 <table class="table table-striped table-bordered table-hover" id="hostels">
