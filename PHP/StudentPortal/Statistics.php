@@ -125,7 +125,7 @@ include "../fusioncharts.php";
                     <a href="StudentPortal.php"><i class="fa fa-"></i> Profile</a>
                 </li>
                 <li>
-                    <a class="active-menu" href="Notifications.php"><i class="fa fa-"></i> Notifications</a>
+                    <a href="Notifications.php"><i class="fa fa-"></i> Notifications</a>
                 </li>
 
                 <li>
@@ -177,7 +177,7 @@ include "../fusioncharts.php";
                 }
                 ?>
                 <li>
-                    <a class="active-menu" href="../ParentPortal/Statistics.php"><i class="fa fa-"></i> Statistics </a>
+                    <a class="active-menu" href="Statistics.php"><i class="fa fa-"></i> Statistics </a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-"></i> Fee <span class="fa arrow"></span></a>

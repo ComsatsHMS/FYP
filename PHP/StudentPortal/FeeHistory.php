@@ -126,7 +126,7 @@ error_reporting(0);
                     <a href="StudentPortal.php"><i class="fa fa-"></i> Profile</a>
                 </li>
                 <li>
-                    <a class="active-menu" href="Notifications.php"><i class="fa fa-"></i> Notifications</a>
+                    <a href="Notifications.php"><i class="fa fa-"></i> Notifications</a>
                 </li>
 
                 <li>
@@ -178,7 +178,7 @@ error_reporting(0);
                 }
                 ?>
                 <li>
-                    <a href="../ParentPortal/Statistics.php"><i class="fa fa-"></i> Statistics </a>
+                    <a href="Statistics.php"><i class="fa fa-"></i> Statistics </a>
                 </li>
                 <li>
                     <a class="active-menu" href="#"><i class="fa fa-"></i> Fee <span class="fa arrow"></span></a>

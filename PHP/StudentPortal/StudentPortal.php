@@ -171,7 +171,7 @@ error_reporting(0);
 }
 ?>
                 <li>
-                    <a href="../ParentPortal/Statistics.php"><i class="fa fa-"></i> Statistics </a>
+                    <a href="Statistics.php"><i class="fa fa-"></i> Statistics </a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-"></i> Fee <span class="fa arrow"></span></a>
@@ -224,7 +224,7 @@ error_reporting(0);
             <ol class="breadcrumb">
                 <li><a href="../../index.html">Home</a></li>
                 <li><a href="Logout.php">Login</a></li>
-                <li class="active">Student</li>
+                <li class="active">Student Profile</li>
             </ol>
         </div>
         <div id="page-inner">

@@ -180,7 +180,7 @@ if(isset($_POST['submit'])){
                 }
                 ?>
                 <li>
-                    <a href="../ParentPortal/Statistics.php"><i class="fa fa-"></i> Statistics </a>
+                    <a href="Statistics.php"><i class="fa fa-"></i> Statistics </a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-"></i> Fee <span class="fa arrow"></span></a>

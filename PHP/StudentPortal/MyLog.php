@@ -130,7 +130,7 @@ include "LogsProcessing.php";
                     <a href="StudentPortal.php"><i class="fa fa-"></i> Profile</a>
                 </li>
                 <li>
-                    <a class="active-menu" href="Notifications.php"><i class="fa fa-"></i> Notifications</a>
+                    <a href="Notifications.php"><i class="fa fa-"></i> Notifications</a>
                 </li>
 
                 <li>
@@ -182,7 +182,7 @@ include "LogsProcessing.php";
                 }
                 ?>
                 <li>
-                    <a href="../ParentPortal/Statistics.php"><i class="fa fa-"></i> Statistics </a>
+                    <a href="Statistics.php"><i class="fa fa-"></i> Statistics </a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-"></i> Fee <span class="fa arrow"></span></a>
@@ -196,7 +196,7 @@ include "LogsProcessing.php";
                     </ul>
                 </li>
                 <li>
-                    <a href="MyLog.php"><i class="fa fa-"></i> My Logs</a>
+                    <a class="active-menu" href="MyLog.php"><i class="fa fa-"></i> My Logs</a>
                 </li>
             </ul>
 

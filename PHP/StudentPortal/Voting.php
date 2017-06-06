@@ -185,7 +185,7 @@ while($record = mysqli_fetch_array($exec)){
                 }
                 ?>
                 <li>
-                    <a href="../ParentPortal/Statistics.php"><i class="fa fa-"></i> Statistics </a>
+                    <a href="Statistics.php"><i class="fa fa-"></i> Statistics </a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-"></i> Fee <span class="fa arrow"></span></a>
@@ -239,7 +239,7 @@ while($record = mysqli_fetch_array($exec)){
                 <li><a href="../../index.html">Home</a></li>
                 <li><a href="Login.php">Login</a></li>
                 <li><a href="StudentPortal.php">Student Portal</a></li>
-                <li class="active">Statistics</li>
+                <li class="active">Voting</li>
             </ol>
         </div>
         <div id="page-inner">
