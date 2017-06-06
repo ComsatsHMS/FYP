@@ -120,7 +120,7 @@ error_reporting(0);
                     <a class="active-menu" href="StudentPortal.php"><i class="fa fa-"></i> Profile</a>
                 </li>
                 <li>
-                    <a href="../ParentPortal/Notifications.php"><i class="fa fa-"></i> Notifications</a>
+                    <a href="Notifications.php"><i class="fa fa-"></i> Notifications</a>
                 </li>
 
                 <li>
@@ -180,12 +180,12 @@ error_reporting(0);
                             <a href="Challan.php">Challan</a>
                         </li>
                         <li>
-                            <a href="../ParentPortal/FeeHistory.php">Fee History</a>
+                            <a href="FeeHistory.php">Fee History</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="../ParentPortal/MyLog.php"><i class="fa fa-"></i> My Logs</a>
+                    <a href="MyLog.php"><i class="fa fa-"></i> My Logs</a>
                 </li>
             </ul>
 

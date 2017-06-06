@@ -169,20 +169,20 @@ include ("phpFunctions.php");
                 </div>
                 <div class="col-md-6 col-xs-8 col-sm-8">
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover">
-                            <tr>
-                                <td>Name</td>
-                                <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Rank</td>
-                                <td><?php echo "{$_SESSION['UserRank'] }";?></td>
-                            </tr>
-                            <tr>
-                                <td>Hostel</td>
-                                <td><?php echo "{$_SESSION['UserHostel'] }";?></td>
-                            </tr>
-                        </table>
+                         <table class="table table-striped table-bordered table-hover">
+                                <tr>
+                                    <td>Name</td>
+                                    <td><?php echo "{$_SESSION['name'] }"; ?></td>
+                                </tr>
+                                <tr style="background-color: #f36a5a">
+                                    <td >Rank</td>
+                                    <td><?php echo "{$_SESSION['role'] }";?></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td><?php echo "{$_SESSION['email'] }";?></td>
+                                </tr>
+                            </table>
                     </div>
                 </div>
 

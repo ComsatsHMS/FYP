@@ -9,7 +9,7 @@
         $run = mysqli_query($connection, $sql);
         $sql="delete from users WHERE userid=$value";
         $run = mysqli_query($connection, $sql);
-        header("location:List_Emoloyees.php");
+        header("location:List_Employees.php");
       }
       else if(isset($_GET['id1'])){
           echo "pakistan";
@@ -62,6 +62,7 @@
          $delete = mysqli_query($connection,"delete from hostelslist where HostelName='$HostelName'");
          header("location:AdminPortal.php");
      }
+
 function getHostels(){
     global $connection;
         $run = mysqli_query($connection, "select * from HostelsList");
@@ -79,6 +80,7 @@ function getHostels(){
         ";
     }
 }
+
 ?>
 
 

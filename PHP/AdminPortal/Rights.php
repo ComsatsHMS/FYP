@@ -1,7 +1,8 @@
 <?php
 session_start();
-if(!isset($_SESSION['UserId'])){
-    header('Location: ../ManagementPortal/OfficeLogin.php');
+error_reporting(0);
+if(!isset($_SESSION['Login'])){
+    header('Location:AdminLogin.php');
 }
 include "../connection.php";
 ?>
@@ -36,7 +37,7 @@ include "../connection.php";
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
-            <a  class="navbar-brand" href="MainApplicationOffice.php" id="sidebar-title">Admin Portal</a>
+            <a class="navbar-brand" href="Profile.php" id="sidebar-title">Admin Portal</a>
         </div>
         <ul class="nav navbar-top-links navbar-right">
             <!-- /.dropdown -->
@@ -62,16 +63,19 @@ include "../connection.php";
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
+                    <a href="Profile.php"><i class="fa fa-"></i>Profile</a>
+                </li>
+                <li>
                     <a  href="AdminPortal.php"><i class="fa fa-"></i>Home</a>
                 </li>
                 <li>
-                    <a href="List_Emoloyees.php"><i class="fa fa-"></i> Employee's List</a>
+                    <a class="active-menu" href="List_Employees.php"><i class="fa fa-"></i> Employee's List</a>
                 </li>
                 <li>
-                    <a class="active-menu" href="Request.php"><i class="fa fa-"></i> Account Requests</a>
+                    <a href="AddEmployeeAccount.php"><i class="fa fa-"></i> Add Employee Account</a>
                 </li>
                 <li>
-                    <a href="../ManagementPortal/Logout.php"><i class="fa fa-"></i> Logout</a>
+                    <a href="Logout.php"><i class="fa fa-"></i> Logout</a>
                 </li>
             </ul>
 
@@ -90,20 +94,20 @@ include "../connection.php";
                 </div>
                 <div class="col-md-6 col-xs-8 col-sm-8">
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover">
-                            <tr>
-                                <td>Name</td>
-                                <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Rank</td>
-                                <td><?php echo "{$_SESSION['UserRank'] }";?></td>
-                            </tr>
-                            <tr>
-                                <td>Hostel</td>
-                                <td><?php echo "{$_SESSION['UserHostel'] }";?></td>
-                            </tr>
-                        </table>
+                         <table class="table table-striped table-bordered table-hover">
+                                <tr>
+                                    <td>Name</td>
+                                    <td><?php echo "{$_SESSION['name'] }"; ?></td>
+                                </tr>
+                                <tr style="background-color: #f36a5a">
+                                    <td >Rank</td>
+                                    <td><?php echo "{$_SESSION['role'] }";?></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td><?php echo "{$_SESSION['email'] }";?></td>
+                                </tr>
+                            </table>
                     </div>
                 </div>
 
@@ -132,7 +136,7 @@ include "../connection.php";
                                     $run = mysqli_query($connection, $get_record);
                                     $value = $_GET["name"];
                                     $value1 = $_GET["id3"];
-                                    echo "<h3>Check Tabs Will only visible to Employee $value </h3>";
+                                    echo "<h3>Check Tabs Will only visible to Employee $value </h3>"."<br>";
                                     $get_record = "select * from emp_rights where userid=$value1";
                                     $run = mysqli_query($connection, $get_record);
                                     while ($each_record = mysqli_fetch_array($run)) {
@@ -148,65 +152,61 @@ include "../connection.php";
                                         $par = $each_record['parents'];
 
                                         if ($app == 1) {
-                                            echo "<div><input type=\"checkbox\" name=\"1\"  value='1' checked > <button class=\"btn-justified btn btn-default\" style=\"background-color: #999999;color: white\"  >Hostel Application</button></div>";
+                                            echo "<div><input type=\"checkbox\" name=\"1\"  value='1' checked > <button class=\"btn-justified btn btn-default\" disabled  style=\"background-color: #3E3E3E;color: white\"  >Hostel Application</button></div>";
 
                                         } else {
-                                            echo "   <div><input type=\"checkbox\" name=\"1\"value='0' > <button class=\"btn-justified btn btn-default\" style=\"background-color: #999999;color: white\"  >Hostel Application</button></div>";
+                                            echo "   <div><input type=\"checkbox\" name=\"1\" value='0' > <button class=\"btn-justified btn btn-default\" disabled  style=\"background-color: #3E3E3E;color: white\"  >Hostel Application</button></div>";
                                         }
                                         if ($all == 1) {
-                                            echo "<div><input type=\"checkbox\" name=\"2\" checked> <button class=\"btn-justified btn btn-default\" style=\"background-color: #999999;color: white\" >Allotment</button></div>";
+                                            echo "<div><input type=\"checkbox\" name=\"2\" checked> <button class=\"btn-justified btn btn-default\" disabled style=\"background-color: #3E3E3E;color: white\" >Allotment</button></div>";
                                         } else {
-                                            echo "<div><input type=\"checkbox\" name=\"2\" > <button class=\"btn btn-justified btn-default\" style=\"background-color: #999999;color: white\" >Allotment</button></div>";
+                                            echo "<div><input type=\"checkbox\" name=\"2\" > <button class=\"btn btn-justified btn-default\" disabled  style=\"background-color: #3E3E3E;color: white\" >Allotment</button></div>";
                                         }
                                         if ($list == 1) {
-                                            echo " <div><input type=\"checkbox\" name=\"3\" checked> <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >Student List</button></div>";
+                                            echo " <div><input type=\"checkbox\" name=\"3\" checked> <button class=\"btn btn-default\" disabled style=\"background-color: #3E3E3E;color: white\" >Student List</button></div>";
                                         } else {
-                                            echo " <div><input type=\"checkbox\" name=\"3\"> <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >Student List</button></div>";
+                                            echo " <div><input type=\"checkbox\" name=\"3\"> <button class=\"btn btn-default\" disabled style=\"background-color: #3E3E3E;color: white\" >Student List</button></div>";
                                         }
                                         if ($com == 1) {
-                                            echo "<div><input type=\"checkbox\" name=\"4\" checked> <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >View Complain</button></div>";
+                                            echo "<div><input type=\"checkbox\" name=\"4\" checked> <button class=\"btn btn-default\" disabled style=\"background-color: #3E3E3E;color: white\" >View Complain</button></div>";
                                         } else {
-                                            echo "<div><input type=\"checkbox\" name=\"4\" > <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >View Complain</button></div>";
+                                            echo "<div><input type=\"checkbox\" name=\"4\" > <button class=\"btn btn-default\" disabled style=\"background-color: #3E3E3E;color: white\" >View Complain</button></div>";
                                         }
                                         if ($view == 1) {
-                                            echo " <div><input type=\"checkbox\" name=\"5\" checked> <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >View Application</button></div>";
+                                            echo " <div><input type=\"checkbox\" name=\"5\" checked> <button class=\"btn btn-default\" disabled style=\"background-color: #3E3E3E;color: white\" >View Application</button></div>";
                                         } else {
-                                            echo " <div><input type=\"checkbox\" name=\"5\" > <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >View Application</button></div>";
+                                            echo " <div><input type=\"checkbox\" name=\"5\" > <button class=\"btn btn-default\" disabled style=\"background-color: #3E3E3E;color: white\" >View Application</button></div>";
                                         }
                                         if ($sat == 1) {
-                                            echo "<div><input type=\"checkbox\" name=\"6\" checked> <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >Statics</button></div>";
+                                            echo "<div><input type=\"checkbox\" name=\"6\" checked> <button class=\"btn btn-default\" disabled style=\"background-color: #3E3E3E;color: white\" >Statics</button></div>";
                                         } else {
-                                            echo "<div><input type=\"checkbox\" name=\"6\" > <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >Statics</button></div>";
+                                            echo "<div><input type=\"checkbox\" name=\"6\" > <button class=\"btn btn-default\" disabled style=\"background-color: #3E3E3E;color: white\" >Statics</button></div>";
                                         }
                                         if ($voting == 1) {
-                                            echo " <div><input type=\"checkbox\"name=\"7\" checked> <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >Voting</button></div>";
+                                            echo " <div><input type=\"checkbox\"name=\"7\" checked> <button class=\"btn btn-default\" disabled style=\"background-color: #3E3E3E;color: white\" >Voting</button></div>";
 
                                         } else {
-                                            echo " <div><input type=\"checkbox\"name=\"7\"> <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >Voting</button></div>";
+                                            echo " <div><input type=\"checkbox\"name=\"7\"> <button class=\"btn btn-default\" disabled style=\"background-color: #3E3E3E;color: white\" >Voting</button></div>";
                                         }
                                         if ($fee == 1) {
-                                            echo "<div><input type=\"checkbox\" name=\"8\" checked > <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >Fee/Fine</button></div>";
+                                            echo "<div><input type=\"checkbox\" name=\"8\" checked > <button class=\"btn btn-default\" disabled style=\"background-color: #3E3E3E;color: white\" >Fee/Fine</button></div>";
                                         } else {
-                                            echo "<div><input type=\"checkbox\" name=\"8\" > <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >Fee/Fine</button></div>";
+                                            echo "<div><input type=\"checkbox\" name=\"8\" > <button class=\"btn btn-default\" disabled style=\"background-color: #3E3E3E;color: white\" >Fee/Fine</button></div>";
                                         }
                                         if ($inv == 1) {
-                                            echo " <div><input type=\"checkbox\" name=\"9\" checked > <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >View Inventory</button></div>";
+                                            echo " <div><input type=\"checkbox\" name=\"9\" checked > <button class=\"btn btn-default\" disabled style=\"background-color: #3E3E3E;color: white\" >View Inventory</button></div>";
                                         } else {
-                                            echo "<div><input type=\"checkbox\" name=\"9\"> <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >View Inventory</button></div>";
+                                            echo "<div><input type=\"checkbox\" name=\"9\"> <button class=\"btn btn-default\" disabled style=\"background-color: #3E3E3E;color: white\" >View Inventory</button></div>";
                                         }
                                         if ($par == 1) {
-                                            echo "<div><input type=\"checkbox\" name=\"10\" checked> <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >Parents</button></div>";
+                                            echo "<div><input type=\"checkbox\" name=\"10\" checked> <button class=\"btn btn-default\" disabled style=\"background-color: #3E3E3E;color: white\" >Parents</button></div>";
                                         } else {
-                                            echo "<div><input type=\"checkbox\" name=\"10\"> <button class=\"btn btn-default\" style=\"background-color: #999999;color: white\" >Parents</button></div>";
+                                            echo "<div><input type=\"checkbox\" name=\"10\"> <button class=\"btn btn-default\" disabled style=\"background-color: #3E3E3E;color: white\" >Parents</button></div>";
                                         }
                                     }
 
-                                    echo '
-
-
-
-                            <input type="submit" name="submit" value="Update" class="submi">
-
+                                    echo '<br>'.'
+                            <input type="submit" name="submit" value="Update" id="button">
                             ';?>
 
                                 </form>

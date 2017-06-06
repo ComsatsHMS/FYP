@@ -82,7 +82,7 @@ $total = $mess_bill + $water_bill + $gas_electric + $internet_charges + $service
 
 function convert_digit_to_words($no)
 {
-
+    global $numbers;
     //creating array  of word for each digit
     $words = array('0'=> 'Zero' ,'1'=> 'One' ,'2'=> 'Two' ,'3' => 'Three','4' => 'Four','5' => 'Five','6' => 'Six','7' => 'Seven','8' => 'Eight','9' => 'Nine','10' => 'Ten','11' => 'Eleven','12' => 'Twelve','13' => 'Thirteen','14' => 'Fourteen','15' => 'Fifteen','16' => 'Sixteen','17' => 'Seventeen','18' => 'Eighteen','19' => 'Nineteen','20' => 'Twenty','30' => 'Thirty','40' => 'Forty','50' => 'Fifty','60' => 'Sixty','70' => 'Seventy','80' => 'Eighty','90' => 'Ninty','100' => 'Hundred','1000' => 'Thousand','100000' => 'Lac','10000000' => 'Crore');
     //$words = array('0'=> '0' ,'1'=> '1' ,'2'=> '2' ,'3' => '3','4' => '4','5' => '5','6' => '6','7' => '7','8' => '8','9' => '9','10' => '10','11' => '11','12' => '12','13' => '13','14' => '14','15' => '15','16' => '16','17' => '17','18' => '18','19' => '19','20' => '20','30' => '30','40' => '40','50' => '50','60' => '60','70' => '70','80' => '80','90' => '90','100' => '100','1000' => '1000','100000' => '100000','10000000' => '10000000');
@@ -296,7 +296,7 @@ function convert_digit_to_words($no)
                     </table>
                     <br>
                     <div class="container">
-                        <p>Amount in Words:</p><br>
+                        <p>Amount in Words:</p>
                         <p><?php {echo convert_digit_to_words($total); echo "Rupees";}?></p>
                         <br><br><br>
                         <p>Issuing Authority</p>
@@ -424,7 +424,7 @@ function convert_digit_to_words($no)
                     </table>
                     <br>
                     <div class="container">
-                        <p>Amount in Words:</p><br>
+                        <p>Amount in Words:</p>
                         <p><?php {echo convert_digit_to_words($total); echo "Rupees";}?></p>
                         <br><br><br>
                         <p>Issuing Authority</p>
@@ -551,7 +551,7 @@ function convert_digit_to_words($no)
                     </table>
                     <br>
                     <div class="container">
-                        <p>Amount in Words:</p><br>
+                        <p>Amount in Words:</p>
                         <p><?php {echo convert_digit_to_words($total); echo "Rupees";}?></p>
 
                         <br><br><br>

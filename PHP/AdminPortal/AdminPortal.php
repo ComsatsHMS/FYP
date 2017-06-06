@@ -1,7 +1,11 @@
 <?php
+error_reporting(0);
+session_start();
+if(!isset($_SESSION['Login'])){
+    header('Location:AdminLogin.php');
+}
 include "../connection.php";
 include "Admin_processing.php";
-error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +38,7 @@ error_reporting(0);
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
-            <a  class="navbar-brand" href="MainApplicationOffice.php" id="sidebar-title">Admin Portal</a>
+            <a class="navbar-brand" href="Profile.php" id="sidebar-title">Admin Portal</a>
         </div>
         <ul class="nav navbar-top-links navbar-right">
             <!-- /.dropdown -->
@@ -62,16 +66,19 @@ error_reporting(0);
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
+                    <a  href="Profile.php"><i class="fa fa-"></i>Profile</a>
+                </li>
+                <li>
                     <a class="active-menu" href="AdminPortal.php"><i class="fa fa-"></i>Home</a>
                 </li>
                 <li>
-                    <a href="List_Emoloyees.php"><i class="fa fa-"></i> Employee's List</a>
+                    <a href="List_Employees.php"><i class="fa fa-"></i> Employee's List</a>
                 </li>
                 <li>
-                    <a href="Request.php"><i class="fa fa-"></i> Account Requests</a>
+                    <a href="AddEmployeeAccount.php"><i class="fa fa-"></i> Add Employee Account</a>
                 </li>
                 <li>
-                    <a href="../ManagementPortal/Logout.php"><i class="fa fa-"></i> Logout</a>
+                    <a href="Logout.php"><i class="fa fa-"></i> Logout</a>
                 </li>
             </ul>
 
@@ -90,27 +97,27 @@ error_reporting(0);
                 </div>
                 <div class="col-md-6 col-xs-8 col-sm-8">
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover">
-                            <tr>
-                                <td>Name</td>
-                                <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Rank</td>
-                                <td><?php echo "{$_SESSION['UserRank'] }";?></td>
-                            </tr>
-                            <tr>
-                                <td>Hostel</td>
-                                <td><?php echo "{$_SESSION['UserHostel'] }";?></td>
-                            </tr>
-                        </table>
+                         <table class="table table-striped table-bordered table-hover">
+                                <tr>
+                                    <td>Name</td>
+                                    <td><?php echo "{$_SESSION['name'] }"; ?></td>
+                                </tr>
+                                <tr style="background-color: #f36a5a">
+                                    <td >Rank</td>
+                                    <td><?php echo "{$_SESSION['role'] }";?></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td><?php echo "{$_SESSION['email'] }";?></td>
+                                </tr>
+                            </table>
                     </div>
                 </div>
 
             </div>
             <ol class="breadcrumb">
                 <li><a href="../../index.html">Home</a></li>
-                <li><a href="OfficeLogin.php">Login</a></li>
+                <li><a href="AdminLogin.php">Login</a></li>
                 <li class="active"> Admin Home</li>
             </ol>
         </div>
