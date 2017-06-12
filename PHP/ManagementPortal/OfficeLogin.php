@@ -24,22 +24,19 @@ error_reporting(0);
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse" style="float: right;padding-top: 15px">
                 <ul class="nav navbar-nav">
-                    <li role="presentation" style="font-size: 25px"><a href="../../index.html">Home </a></li>
-                    <li role="presentation" style="font-size: 25px"><a href="ApplicationForm.php">Hostel Form </a></li>
-                    <li class="dropdown" style="font-size: 25px">
-                        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Downloads<span class="caret"></span></a>
-                        <ul class="dropdown-menu dropdown-menu-right" role="menu" style="border: 1px solid">
-                            <li role="presentation" style="font-size: 16px"><a href="#">item 1 </a></li>
-                            <li role="presentation" style="font-size: 16px"><a href="#">item 2 </a></li>
-                            <li role="presentation" style="font-size: 16px"><a href="#">item 3 </a></li>
-                        </ul>
+                    <li role="presentation" style="font-size: 25px;font-family: 'Times New Roman'"><a href="../../index.html">Home </a></li>
+                    <li role="presentation" style="font-size: 25px;font-family: 'Times New Roman'"><a href="ApplicationForm.php">Hostel Form </a></li>
+                    <li class="dropdown" style="font-size: 25px;font-family: 'Times New Roman'">
+                        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Downloads</a>
                     </li>
-                    <li class="dropdown" style="font-size: 25px">
+                    <li class="dropdown" style="font-size: 25px;font-family: 'Times New Roman'">
                         <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Login<span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-menu-right" role="menu" style="border: 1px solid">
-                            <li role="presentation" style="font-size: 16px"><a href="../StudentPortal/Login.php">Student Portal </a></li>
-                            <li role="presentation" style="font-size: 16px"><a href="OfficeLogin.php">Management Portal </a></li>
-                            <li role="presentation" style="font-size: 16px"><a href="../ParentPortal/ParentLogin.php">Parent Portal </a></li>
+                            <li role="presentation" style="font-size: 16px;font-family: 'Times New Roman'"><a href="../StudentPortal/Login.php">Student Portal </a></li>
+                            <li role="presentation" style="font-size: 16px;font-family: 'Times New Roman'"><a href="OfficeLogin.php">Management Portal </a></li>
+                            <li role="presentation" style="font-size: 16px;font-family: 'Times New Roman'"><a href="../ParentPortal/ParentLogin.php">Parent Portal </a></li>
+                            <li role="presentation" style="font-size: 16px"><a href="../AdminPortal/AdminLogin.php">Admin
+                                    Portal </a></li>
                         </ul>
                     </li>
                 </ul>

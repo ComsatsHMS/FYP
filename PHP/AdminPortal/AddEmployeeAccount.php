@@ -64,7 +64,7 @@ include "../connection.php";
                         <a href="Profile.php"><i class="fa fa-"></i>Profile</a>
                     </li>
                     <li>
-                        <a  href="AdminPortal.php"><i class="fa fa-"></i>Home</a>
+                        <a href="AdminPortal.php"><i class="fa fa-"></i>Home</a>
                     </li>
                     <li>
                         <a href="List_Employees.php"><i class="fa fa-"></i> Employee's List</a>
@@ -87,7 +87,8 @@ include "../connection.php";
                 <div class="page-header row">
                     <div class="col-md-3 col-xs-4 col-sm-4">
                         <a href="#">
-                            <img id="profile_pic" src="../../IMAGES/<?php echo $_SESSION['UserPic'];?>" alt="profilepic" style="width: 120px; height: 120px";>
+                            <img id="profile_pic" src="../../IMAGES/<?php echo $_SESSION['UserPic'];?>" alt="profilepic"
+                                 style="width: 120px; height: 120px" ;>
                         </a>
                     </div>
                     <div class="col-md-6 col-xs-8 col-sm-8">
@@ -98,7 +99,7 @@ include "../connection.php";
                                     <td><?php echo "{$_SESSION['name'] }"; ?></td>
                                 </tr>
                                 <tr style="background-color: #f36a5a">
-                                    <td >Rank</td>
+                                    <td>Rank</td>
                                     <td><?php echo "{$_SESSION['role'] }";?></td>
                                 </tr>
                                 <tr>
@@ -122,67 +123,80 @@ include "../connection.php";
                         <div class="board">
                             <div class="panel panel-primary">
 
-                                <div class="panel-heading" >Employee's Signup Data</div>
+                                <div class="panel-heading">Employee's Signup Data</div>
                                 <div class="panel-body">
                                     <?php
-                                    if($_SESSION['SignUp']=='OK'){
+                                    if ($_SESSION['SignUp'] == 'OK') {
                                         echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
                                                  <strong>Success!</strong> User Profile Created, Login details sent to Employee!!
                                                 </div>";
-                                    } elseif($_SESSION['SignUp']=='Error'){
+                                    } elseif ($_SESSION['SignUp'] == 'Error') {
                                         echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
                                                  <strong>Error!</strong> Something went wrong!!
                                                 </div>";
                                     }
                                     unset($_SESSION['SignUp']);
                                     ?>
-                                    <form class="form-horizontal" action="AddEmployeeProcessing.php" method="post" enctype="multipart/form-data">
+                                    <form class="form-horizontal" action="AddEmployeeProcessing.php" method="post"
+                                          enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <label class="control-label textcolor col-sm-2" for="email">First Name:</label>
+                                            <label class="control-label textcolor col-sm-2" for="email">First
+                                                Name:</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control"  placeholder="First Name" name="FName" required>
+                                                <input type="text" class="form-control" placeholder="First Name"
+                                                       name="FName" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label textcolor col-sm-2" for="pwd">Last Name:</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control"  placeholder="Last Name" name="LName" required>
+                                                <input type="text" class="form-control" placeholder="Last Name"
+                                                       name="LName" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label textcolor col-sm-2" for="email">Email:</label>
                                             <div class="col-md-6">
-                                                <input type="email" class="form-control"  placeholder="Employee email" name="Email" required>
+                                                <input type="email" class="form-control" placeholder="Employee email"
+                                                       name="Email" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label textcolor col-sm-2" for="pwd">Employment Rank:</label>
+                                            <label class="control-label textcolor col-sm-2" for="pwd">Employment
+                                                Rank:</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control"  placeholder="Employee Position" name="Rank" required>
+                                                <input type="text" class="form-control" placeholder="Employee Position"
+                                                       name="Rank" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label textcolor col-sm-2" for="hostel">Hostel:</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control"  placeholder="Hostel Incharge of" name="hostel" required>
+                                                <input type="text" class="form-control" placeholder="Hostel Incharge of"
+                                                       name="hostel" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label textcolor col-sm-2" for="address">Address:</label>
+                                            <label class="control-label textcolor col-sm-2"
+                                                   for="address">Address:</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control"  placeholder="Employee Address" name="Address" required>
+                                                <input type="text" class="form-control" placeholder="Employee Address"
+                                                       name="Address" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label textcolor col-sm-2" for="pwd">Picture:</label>
                                             <div class="col-md-6">
-                                                <input type="file" class="form-control" id="ProfilePic" name="ProfilePic" required>
+                                                <input type="file" class="form-control" id="ProfilePic"
+                                                       name="ProfilePic" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label textcolor col-sm-2" for="email">Phone No:</label>
+                                            <label class="control-label textcolor col-sm-2" for="email">Phone
+                                                No:</label>
                                             <div class="col-md-6">
-                                                <input type="NUMBER" class="form-control"  placeholder="Employee Phone No" name="PhoneNo" required>
+                                                <input type="NUMBER" class="form-control"
+                                                       placeholder="Employee Phone No" name="PhoneNo" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -229,8 +243,6 @@ include "../connection.php";
 
 
     <!-- Chart Js -->
-    <script type="text/javascript" src="../../JS/chart.min.js"></script>
-    <script type="text/javascript" src="../../JS/chartjs.js"></script>
 
 
     </body>

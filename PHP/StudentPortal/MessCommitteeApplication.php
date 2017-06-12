@@ -18,27 +18,31 @@ if(isset($_POST['mess'])){
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Student Portal</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+          integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
+        <
+        script
+        src = "//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js" ></script>
     <!-- Bootstrap Styles-->
-    <link href="../../CSS/bootstrap.css" rel="stylesheet" />
+    <link href="../../CSS/bootstrap.css" rel="stylesheet"/>
     <!-- FontAwesome Styles-->
-    <link href="../../CSS/font-awesome.css" rel="stylesheet" />
+    <link href="../../CSS/font-awesome.css" rel="stylesheet"/>
     <!-- Morris Chart Styles-->
-    <link href="../../JS/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
-    <link href="../../CSS/custom-styles.css" rel="stylesheet" />
+    <link href="../../CSS/custom-styles.css" rel="stylesheet"/>
     <!-- Google Fonts-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="../../JS/Lightweight-Chart/cssCharts.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
 </head>
 <body>
 <div id="wrapper">
@@ -59,17 +63,18 @@ if(isset($_POST['mess'])){
             <!-- /.dropdown -->
             <li class="dropdown">
                 <?php
-                $query=mysqli_query($connection,"select notice from notification where view=0");
+                $query = mysqli_query($connection, "select notice from notification where view=0");
                 while ($each_record = mysqli_fetch_array($query)) {
                     $count++;
                 }
                 ?>
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <span class="badge badge-notify"><?php echo $count ?></span>   <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <span class="badge badge-notify"><?php echo $count ?></span> <i class="fa fa-bell fa-fw"></i> <i
+                        class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-alerts">
                     <?php
-                    $query=mysqli_query($connection,"select notificationType,date,number from notification where view=0 order by number desc limit 5");
+                    $query = mysqli_query($connection, "select notificationType,date,number from notification where view=0 order by number desc limit 5");
                     while ($each_record = mysqli_fetch_array($query)) {
                         $content = $each_record ['notificationType'];
                         $date = $each_record ['date'];
@@ -139,7 +144,8 @@ if(isset($_POST['mess'])){
                 </li>
 
                 <li>
-                    <a class="active-menu" href="Applications.php"><i class="fa fa-"></i> Applications<span class="fa arrow"></a>
+                    <a class="active-menu" href="Applications.php"><i class="fa fa-"></i> Applications<span
+                            class="fa arrow"></a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="MessCloseApplication.php">Mess Close</a>
@@ -207,7 +213,8 @@ if(isset($_POST['mess'])){
             <div class="page-header row">
                 <div class="col-md-3 col-xs-4 col-sm-4">
                     <a href="#">
-                        <img id="profile_pic" src="../IMAGES/<?php echo"{$_SESSION['pic']}";?>" alt="profilepic" style="width: 100px; height: 100px";>
+                        <img id="profile_pic" src="../IMAGES/<?php echo "{$_SESSION['pic']}";?>" alt="profilepic"
+                             style="width: 100px; height: 100px" ;>
                     </a>
                 </div>
                 <div class="col-md-6 col-xs-8 col-sm-8">
@@ -242,31 +249,35 @@ if(isset($_POST['mess'])){
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
                         <div class="panel panel-primary">
-                            <div class="panel-heading" > Mess Committee Application </div>
-                                <div class="panel-body">
-                                    <?php
-                                    if(isset($_POST['mess'])) {
-                                        if ($query) {
-                                            echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                            <div class="panel-heading"> Mess Committee Application</div>
+                            <div class="panel-body">
+                                <?php
+                                if (isset($_POST['mess'])) {
+                                    if ($query) {
+                                        echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
                                                  <strong>Success!</strong> Application Submitted!!
                                                 </div>";
-                                        } else {
-                                            echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                    } else {
+                                        echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
                                                  <strong>Error!</strong> Something went wrong!!
                                                 </div>";
-                                        }
                                     }
-                                    ?>
-                                    <form role="form" action="MessCommitteeApplication.php" method="post" enctype="multipart/form-data">
-                                       <div class="form-group ">
+                                }
+                                ?>
+                                <form role="form" action="MessCommitteeApplication.php" method="post"
+                                      enctype="multipart/form-data">
+                                    <div class="form-group ">
                                         <label for="text">Application content</label>
-                                        <textarea class="form-control" name="text" rows="9" cols="20" required></textarea>
-                                        </div>
-                                       <div class="form-group ">
-                                        <button id="button" style="float: right" type='submit' name="mess" class="btn btn-success">submit</button>
-                                       </div>
-                                    </form>
-                             </div>
+                                        <textarea class="form-control" name="text" rows="9" cols="20"
+                                                  required></textarea>
+                                    </div>
+                                    <div class="form-group ">
+                                        <button id="button" style="float: right" type='submit' name="mess"
+                                                class="btn btn-success">submit
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -287,23 +298,13 @@ if(isset($_POST['mess'])){
 
 <!-- Metis Menu Js -->
 <script src="../../JS/jquery.metisMenu.js"></script>
-<!-- Morris Chart Js -->
-<script src="../../JS/morris/raphael-2.1.0.min.js"></script>
-<script src="../../JS/morris/morris.js"></script>
 
-
-<script src="../../JS/easypiechart.js"></script>
-<script src="../../JS/easypiechart-data.js"></script>
-
-<script src="../../JS/Lightweight-Chart/jquery.chart.js"></script>
 
 <!-- Custom Js -->
 <script src="../../JS/custom-scripts.js"></script>
 
 
 <!-- Chart Js -->
-<script type="text/javascript" src="../../JS/chart.min.js"></script>
-<script type="text/javascript" src="../../JS/chartjs.js"></script>
 
 
 </body>

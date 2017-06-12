@@ -3,15 +3,11 @@ session_start();
 if(!isset($_SESSION['name'])){
     header('Location:Login.php');
 }
-error_reporting(0);
 include "../connection.php";
-include "LogsProcessing.php";
-
+error_reporting(0);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -26,10 +22,8 @@ include "LogsProcessing.php";
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
             integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
             crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
-        <
-        script
-        src = "//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js" ></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
+    <!--    <script type="text/javascript" src="../../JS/Validation.js"> </script>-->
     <!-- Bootstrap Styles-->
     <link href="../../CSS/bootstrap.css" rel="stylesheet"/>
     <!-- FontAwesome Styles-->
@@ -39,6 +33,7 @@ include "LogsProcessing.php";
     <link href="../../CSS/custom-styles.css" rel="stylesheet"/>
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <script type="text/javascript" src="../../JS/profileValidation.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -77,7 +72,7 @@ include "LogsProcessing.php";
                         $number = $each_record ['number'];
                         $date = date("d", strtotime("$date"));
                         $count++;
-                        echo " <li><a href='../StudentPortal/DisplayNotification.php?id=$number'>
+                        echo " <li><a href='DisplayNotification.php?id=$number'>
                             <div>
                                 <i class='fa fa-bell'></i> $content
                                 <span class='pull-right text-muted small'>$date Date</span>
@@ -89,7 +84,7 @@ include "LogsProcessing.php";
                     ?>
 
                     <li>
-                        <a class="text-center" href="Notifications.php">
+                        <a class="text-center" href="../ParentPortal/Notifications.php">
                             <strong>View All New Notifications</strong>
                             <i class="fa fa-angle-right"></i>
                         </a>
@@ -103,7 +98,7 @@ include "LogsProcessing.php";
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="ParentPortal.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <li><a href="StudentPortal.php"><i class="fa fa-user fa-fw"></i> User Profile</a>
                     </li>
                     <li><a href="Settings.php"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
@@ -122,11 +117,10 @@ include "LogsProcessing.php";
         <!--            <img id="ciit_logo" src="../../IMAGES/CIITLogo_Plain.png" alt="COMSATS" />-->
         <!--        </a>-->
         <div class="sidebar-collapse">
-
             <ul class="nav" id="main-menu">
 
                 <li>
-                    <a href="StudentPortal.php"><i class="fa fa-"></i> Profile</a>
+                    <a class="active-menu" href="StudentPortal.php"><i class="fa fa-"></i> Profile</a>
                 </li>
                 <li>
                     <a href="Notifications.php"><i class="fa fa-"></i> Notifications</a>
@@ -139,7 +133,6 @@ include "LogsProcessing.php";
                 <li>
                     <a href="Voting.php"><i class="fa fa-"></i> Votes</a>
                 </li>
-
                 <li>
                     <a href="#"><i class="fa fa-"></i> Applications<span class="fa arrow"></a>
                     <ul class="nav nav-second-level">
@@ -195,10 +188,9 @@ include "LogsProcessing.php";
                     </ul>
                 </li>
                 <li>
-                    <a class="active-menu" href="MyLog.php"><i class="fa fa-"></i> My Logs</a>
+                    <a href="MyLog.php"><i class="fa fa-"></i> My Logs</a>
                 </li>
             </ul>
-
 
         </div>
 
@@ -219,7 +211,7 @@ include "LogsProcessing.php";
                         <table class="table table-striped table-bordered table-hover">
                             <tr>
                                 <td><strong>Welcome</strong></td>
-                                <td><?php echo "{$_SESSION['name'] }"; ?></td>
+                                <td><?php echo "{$_SESSION['name'] }";?></td>
                             </tr>
                             <tr style="background-color: #f36a5a">
                                 <td><strong>Hostel</strong></td>
@@ -235,9 +227,9 @@ include "LogsProcessing.php";
             </div>
             <ol class="breadcrumb">
                 <li><a href="../../index.html">Home</a></li>
-                <li><a href="Login.php">Login</a></li>
+                <li><a href="Logout.php">Login</a></li>
                 <li><a href="StudentPortal.php">Student Portal</a></li>
-                <li class="active">Logs</li>
+                <li class="active">Settings</li>
             </ol>
         </div>
         <div id="page-inner">
@@ -245,31 +237,17 @@ include "LogsProcessing.php";
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
                         <div class="panel panel-primary">
-                            <div class="panel-heading"> Logs/History</div>
-
+                            <div class="panel-heading">Change Password</div>
                             <div class="panel-body">
-                                <div class="form-group ">
-                                    <label for="complain">Please Choose: </label>
-                                    <select id="Log" name="Log">
-                                        <option><?php echo "{$_SESSION['SelectedLog']}" ?> </option>
-                                        <option>Complains</option>
-                                        <option>Applications</option>
-                                    </select>
-                                </div>
-                                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-                                <script>
-                                    $("#Log").on("change", function () {
-                                        var selected = $(this).val();
-                                        window.location = "LogsProcessing.php?SelectedLog=" + selected;
-                                    })
-                                </script>
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover">
-                                        <?php
-                                        getLogs();
-                                        ?>
-                                    </table>
-                                </div>
+                                <form class="form-horizontal" role="form" name="settings" method="post" action="ProfileProcessing.php">
+                                    <div class="notification information">
+                                        <div>
+                                            Note : Password should be changed carefully. Be alert about your new password and
+                                            remember it. Password should be at least 6 characters long.</div>
+                                        </div>
+
+
+                                </form>
                             </div>
                         </div>
                     </div>

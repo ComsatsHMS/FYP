@@ -32,7 +32,7 @@ include("../connection.php");
 </head>
 <body>
 <?php
-if(isset($_POST['messmenuL'])){
+if (isset($_POST['messmenuL'])) {
     $op1 = $_POST['Option1'];
     $op2 = $_POST['Option2'];
     $op3 = $_POST['Option3'];
@@ -42,41 +42,39 @@ if(isset($_POST['messmenuL'])){
     $op7 = $_POST['Option7'];
     $query = "SHOW TABLES IN  fyp WHERE Tables_in_fyp = 'messmenu'";
     $result = mysqli_query($connection, $query);
-    if(mysqli_num_rows($result) == 1){
+    if (mysqli_num_rows($result) == 1) {
         $query = "drop table messmenu";
         $result = mysqli_query($connection, $query);
-        if($result){
+        if ($result) {
             $query = "create table messmenu(days VARCHAR (15),`$op1` VARCHAR(80), `$op2` VARCHAR(80),`$op3` VARCHAR(80),`$op4` VARCHAR(80),`$op5` VARCHAR(80),`$op6` VARCHAR(80),`$op7` VARCHAR(80))";
             $result = mysqli_query($connection, $query);
         }
 
-    }
-    else{
+    } else {
         $query = "create table messmenu(days VARCHAR (15),`$op1` VARCHAR(80), `$op2` VARCHAR(80),`$op3` VARCHAR(80),`$op4` VARCHAR(80),`$op5` VARCHAR(80),`$op6` VARCHAR(80),`$op7` VARCHAR(80))";
         $result = mysqli_query($connection, $query);
     }
-    if($result){
-        $queryinsert= "insert into messmenu VALUES (Monday,0,0,0,0,0,0,0)";
+    if ($result) {
+        $queryinsert = "insert into messmenu VALUES (Monday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenu VALUES (Tuesday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenu VALUES (Tuesday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenu VALUES (Wednesday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenu VALUES (Wednesday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenu VALUES (Thursday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenu VALUES (Thursday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenu VALUES (Friday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenu VALUES (Friday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenu VALUES (Saturday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenu VALUES (Saturday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenu VALUES (Sunday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenu VALUES (Sunday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
         $_SESSION['votingmessage'] = "ok";
-    }
-    else{
+    } else {
         $_SESSION['votingmessage'] = "notok";
     }
 }
-if(isset($_POST['messmenuB'])){
+if (isset($_POST['messmenuB'])) {
     $op1 = $_POST['Option1'];
     $op2 = $_POST['Option2'];
     $op3 = $_POST['Option3'];
@@ -86,41 +84,39 @@ if(isset($_POST['messmenuB'])){
     $op7 = $_POST['Option7'];
     $query = "SHOW TABLES IN  fyp WHERE Tables_in_fyp = 'messmenub'";
     $result = mysqli_query($connection, $query);
-    if(mysqli_num_rows($result) == 1){
+    if (mysqli_num_rows($result) == 1) {
         $query = "drop table messmenub";
         $result = mysqli_query($connection, $query);
-        if($result){
+        if ($result) {
             $query = "create table messmenub(days VARCHAR (15),`$op1` VARCHAR(80), `$op2` VARCHAR(80),`$op3` VARCHAR(80),`$op4` VARCHAR(80),`$op5` VARCHAR(80),`$op6` VARCHAR(80),`$op7` VARCHAR(80))";
             $result = mysqli_query($connection, $query);
         }
 
-    }
-    else{
+    } else {
         $query = "create table messmenub(days VARCHAR (15),`$op1` VARCHAR(80), `$op2` VARCHAR(80),`$op3` VARCHAR(80),`$op4` VARCHAR(80),`$op5` VARCHAR(80),`$op6` VARCHAR(80),`$op7` VARCHAR(80))";
         $result = mysqli_query($connection, $query);
     }
-    if($result){
-        $queryinsert= "insert into messmenub VALUES (Monday,0,0,0,0,0,0,0)";
+    if ($result) {
+        $queryinsert = "insert into messmenub VALUES (Monday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenub VALUES (Tuesday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenub VALUES (Tuesday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenub VALUES (Wednesday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenub VALUES (Wednesday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenub VALUES (Thursday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenub VALUES (Thursday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenub VALUES (Friday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenub VALUES (Friday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenub VALUES (Saturday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenub VALUES (Saturday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenub VALUES (Sunday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenub VALUES (Sunday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
         $_SESSION['votingmessage'] = "ok";
-    }
-    else{
+    } else {
         $_SESSION['votingmessage'] = "notok";
     }
 }
-if(isset($_POST['messmenuboth'])){
+if (isset($_POST['messmenuboth'])) {
     $op1 = $_POST['Option1'];
     $op2 = $_POST['Option2'];
     $op3 = $_POST['Option3'];
@@ -137,68 +133,65 @@ if(isset($_POST['messmenuboth'])){
     $op14 = $_POST['Option14'];
     $query = "SHOW TABLES IN  fyp WHERE Tables_in_fyp = 'messmenu'";
     $result = mysqli_query($connection, $query);
-    if(mysqli_num_rows($result) == 1){
+    if (mysqli_num_rows($result) == 1) {
         $query = "drop table messmenu";
         $result = mysqli_query($connection, $query);
-        if($result){
+        if ($result) {
             $query = "create table messmenu(days VARCHAR (15),`$op1` VARCHAR(80), `$op2` VARCHAR(80),`$op3` VARCHAR(80),`$op4` VARCHAR(80),`$op5` VARCHAR(80),`$op6` VARCHAR(80),`$op7` VARCHAR(80))";
             $result1 = mysqli_query($connection, $query);
         }
 
-    }
-    else{
+    } else {
         $query = "create table messmenu(days VARCHAR (15),`$op1` VARCHAR(80), `$op2` VARCHAR(80),`$op3` VARCHAR(80),`$op4` VARCHAR(80),`$op5` VARCHAR(80),`$op6` VARCHAR(80),`$op7` VARCHAR(80))";
         $result1 = mysqli_query($connection, $query);
     }
 
     $query = "SHOW TABLES IN  fyp WHERE Tables_in_fyp = 'messmenub'";
     $result = mysqli_query($connection, $query);
-    if(mysqli_num_rows($result) == 1){
+    if (mysqli_num_rows($result) == 1) {
         $query = "drop table messmenub";
         $result = mysqli_query($connection, $query);
-        if($result){
+        if ($result) {
             $query = "create table messmenub(days VARCHAR (15),`$op8` VARCHAR(80), `$op9` VARCHAR(80),`$op10` VARCHAR(80),`$op11` VARCHAR(80),`$op12` VARCHAR(80),`$op13` VARCHAR(80),`$op14` VARCHAR(80))";
             $result = mysqli_query($connection, $query);
         }
 
-    }
-    else{
+    } else {
         $query = "create table messmenub(days VARCHAR (15),`$op8` VARCHAR(80), `$op9` VARCHAR(80),`$op10` VARCHAR(80),`$op11` VARCHAR(80),`$op12` VARCHAR(80),`$op13` VARCHAR(80),`$op14` VARCHAR(80))";
         $result = mysqli_query($connection, $query);
     }
-    if($result && $result1){
-        $queryinsert= "insert into messmenu VALUES (Monday,0,0,0,0,0,0,0)";
+    if ($result && $result1) {
+        $queryinsert = "insert into messmenu VALUES (Monday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenu VALUES (Tuesday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenu VALUES (Tuesday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenu VALUES (Wednesday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenu VALUES (Wednesday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenu VALUES (Thursday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenu VALUES (Thursday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenu VALUES (Friday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenu VALUES (Friday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenu VALUES (Saturday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenu VALUES (Saturday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenu VALUES (Sunday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenu VALUES (Sunday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
 
-        $queryinsert= "insert into messmenub VALUES (Monday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenub VALUES (Monday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenub VALUES (Tuesday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenub VALUES (Tuesday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenub VALUES (Wednesday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenub VALUES (Wednesday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenub VALUES (Thursday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenub VALUES (Thursday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenub VALUES (Friday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenub VALUES (Friday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenub VALUES (Saturday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenub VALUES (Saturday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
-        $queryinsert= "insert into messmenub VALUES (Sunday,0,0,0,0,0,0,0)";
+        $queryinsert = "insert into messmenub VALUES (Sunday,0,0,0,0,0,0,0)";
         $resultinsert = mysqli_query($connection, $queryinsert);
         $_SESSION['votingmessage'] = "ok";
-    }
-    else{
+    } else {
         $_SESSION['votingmessage'] = "notok";
     }
 }
@@ -208,7 +201,7 @@ if(isset($_POST['messmenuboth'])){
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
-            <a  class="navbar-brand" href="MainApplicationOffice.php" id="sidebar-title">Management Portal</a>
+            <a class="navbar-brand" href="MainApplicationOffice.php" id="sidebar-title">Management Portal</a>
         </div>
         <ul class="nav navbar-top-links navbar-right">
             <!-- /.dropdown -->
@@ -236,20 +229,20 @@ if(isset($_POST['messmenuboth'])){
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a  href="MainApplicationOffice.php"><i class="fa fa-"></i>Home</a>
+                    <a href="MainApplicationOffice.php"><i class="fa fa-"></i>Home</a>
                 </li>
                 <?php
-                if($_SESSION['HostelApplications'] == 1){
+                if ($_SESSION['HostelApplications'] == 1) {
                     echo "<li>
                     <a href=\"ApplicationsDisplay.php\"><i class=\"fa fa-\"></i> Hostel Applications</a>
                 </li>";
                 }
-                if($_SESSION['Allotment'] == 1){
+                if ($_SESSION['Allotment'] == 1) {
                     echo " <li>
                     <a href=\"Allotment.php\"><i class=\"fa fa-\"></i> Allotment</a>
                 </li>";
                 }
-                if($_SESSION['StudentsList'] == 1){
+                if ($_SESSION['StudentsList'] == 1) {
                     echo " <li>
                     <a href=\"#\"><i class=\"fa fa-\"></i> Student's List<span class=\"fa arrow\"></span></a>
                     <ul class=\"nav nav-second-level\">
@@ -262,17 +255,17 @@ if(isset($_POST['messmenuboth'])){
                     </ul>
                 </li>";
                 }
-                if($_SESSION['Complains'] == 1){
+                if ($_SESSION['Complains'] == 1) {
                     echo "<li>
                     <a href=\"ViewComplains.php\"><i class=\"fa fa-\"></i> View Complains</a>
                 </li>";
                 }
-                if($_SESSION['Applications'] == 1){
+                if ($_SESSION['Applications'] == 1) {
                     echo "<li>
                     <a href=\"ViewStudentApps.php\"><i class=\"fa fa-\"></i> View Applications</a>
                 </li>";
                 }
-                if($_SESSION['Fine'] == 1){
+                if ($_SESSION['Fine'] == 1) {
                     echo "<li>
                     <a href=\"#\"><i class=\"fa fa-\"></i> Fee/Fine <span class=\"fa arrow\"></span></a>
                     <ul class=\"nav nav-second-level\">
@@ -291,7 +284,7 @@ if(isset($_POST['messmenuboth'])){
                     </ul>
                 </li>";
                 }
-                if($_SESSION['Inventory'] == 1){
+                if ($_SESSION['Inventory'] == 1) {
                     echo "<li>
                     <a href=\"ViewInventory.php\"><i class=\"fa fa-\"></i> View Inventory</a>
                 </li>";
@@ -309,12 +302,12 @@ if(isset($_POST['messmenuboth'])){
                     </ul>
                 </li>";
                 } */
-                if($_SESSION['Voting'] == 1){
+                if ($_SESSION['Voting'] == 1) {
                     echo " <li>
                     <a class=\"active-menu\" href=\"StartVoting.php\"><i class=\"fa fa-\"></i> Voting </a>
                 </li>";
                 }
-                if($_SESSION['Statistics'] == 1){
+                if ($_SESSION['Statistics'] == 1) {
                     echo "<li>
                     <a href=\"OffStatistics.php\"><i class=\"fa fa-\"></i> Statistics </a>
                 </li>";
@@ -336,7 +329,8 @@ if(isset($_POST['messmenuboth'])){
             <div class="page-header row">
                 <div class="col-md-3 col-xs-4 col-sm-4">
                     <a href="#">
-                        <img id="profile_pic" src="../../IMAGES/<?php echo"{$_SESSION['UserPic']}";?>" alt="profilepic" style="width: 120px; height: 120px";>
+                        <img id="profile_pic" src="../../IMAGES/<?php echo "{$_SESSION['UserPic']}";?>" alt="profilepic"
+                             style="width: 120px; height: 120px" ;>
                     </a>
                 </div>
                 <div class="col-md-6 col-xs-8 col-sm-8">
@@ -344,7 +338,7 @@ if(isset($_POST['messmenuboth'])){
                         <table class="table table-striped table-bordered table-hover">
                             <tr>
                                 <td>Name</td>
-                                <td><?php echo "{$_SESSION['UserFirstName'] }"; echo"  ";echo "{$_SESSION['UserLastName']}"; ?></td>
+                                <td><?php echo "{$_SESSION['UserFirstName'] }"; echo "  ";echo "{$_SESSION['UserLastName']}"; ?></td>
                             </tr>
                             <tr style="background-color: #f36a5a">
                                 <td>Rank</td>
@@ -371,12 +365,11 @@ if(isset($_POST['messmenuboth'])){
                     <div class="board">
                         <div class="panel panel-primary">
                             <?php
-                            if($_SESSION['votingmessage'] == "ok"){
+                            if ($_SESSION['votingmessage'] == "ok") {
                                 echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
                                                  <strong>Success!</strong> Voting started!!
                                                 </div>";
-                            }
-                            elseif($_SESSION['votingmessage'] =="notok"){
+                            } elseif ($_SESSION['votingmessage'] == "notok") {
                                 echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
                                                  <strong>Failed!</strong> Voting not started!!
                                                 </div>";
@@ -393,7 +386,7 @@ if(isset($_POST['messmenuboth'])){
                                 $breakfastvotes = $db_data['Breakfast'];
                                 $bothvotes = $db_data['LunchBreakfast'];
                             }
-                            if(($lunchvotes > $breakfastvotes) && ($lunchvotes > $bothvotes)){
+                            if (($lunchvotes > $breakfastvotes) && ($lunchvotes > $bothvotes)) {
                                 echo "
                                 <div class=\"panel-heading\">Possible Options Of Mess Menu For Lunch</div>
                             <div class=\"panel-body\">
@@ -446,8 +439,7 @@ if(isset($_POST['messmenuboth'])){
                                 </form>
                             </div>
                                 ";
-                            }
-                            elseif(($breakfastvotes > $lunchvotes) && ($breakfastvotes > $bothvotes)){
+                            } elseif (($breakfastvotes > $lunchvotes) && ($breakfastvotes > $bothvotes)) {
                                 echo "
                                     <div class=\"panel-heading\">Possible Options Of Mess Menu For BreakFast</div>
                             <div class=\"panel-body\">
@@ -500,8 +492,7 @@ if(isset($_POST['messmenuboth'])){
                                 </form>
                             </div>
                                 ";
-                            }
-                            elseif(($bothvotes >$lunchvotes) && ($bothvotes > $breakfastvotes) || ($lunchvotes == $breakfastvotes) ){
+                            } elseif (($bothvotes > $lunchvotes) && ($bothvotes > $breakfastvotes) || ($lunchvotes == $breakfastvotes)) {
                                 echo "
                                 <div class=\"panel-heading\">Possible Options Of Mess Menu For Lunch and BreakFast</div>
                             <div class=\"panel-body\">
@@ -613,7 +604,6 @@ if(isset($_POST['messmenuboth'])){
                             ?>
 
 
-
                         </div>
                     </div>
                 </div>
@@ -634,23 +624,13 @@ if(isset($_POST['messmenuboth'])){
 
 <!-- Metis Menu Js -->
 <script src="../../JS/jquery.metisMenu.js"></script>
-<!-- Morris Chart Js -->
-<script src="../../JS/morris/raphael-2.1.0.min.js"></script>
-<script src="../../JS/morris/morris.js"></script>
 
-
-<script src="../../JS/easypiechart.js"></script>
-<script src="../../JS/easypiechart-data.js"></script>
-
-<script src="../../JS/Lightweight-Chart/jquery.chart.js"></script>
 
 <!-- Custom Js -->
 <script src="../../JS/custom-scripts.js"></script>
 
 
 <!-- Chart Js -->
-<script type="text/javascript" src="../../JS/chart.min.js"></script>
-<script type="text/javascript" src="../../JS/chartjs.js"></script>
 
 
 </body>

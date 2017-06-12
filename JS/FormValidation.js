@@ -352,19 +352,8 @@ function Validate15() {
             return false;
         }
         if(!regexp2.test(document.forms["application"]["cn"].value)){
-            document.getElementById("cn_error").innerHTML = "Length is not Correct ";
+            document.getElementById("cn_error").innerHTML = "Possible Errors:Length incorrect OR Format Incorrect OR Alphabets Entered";
             document.getElementById("cn").style.borderColor="red";
-            return false;
-        }
-    }if(cnic.length==0 || !regexp2.test(document.forms["application"]["cnic"].value)){
-        if(cnic.length==0){
-            document.getElementById("cn_error").innerHTML = "Please fill out this field";
-            document.getElementById("cnic").style.borderColor="red";
-            return false;
-        }
-        if(!regexp2.test(document.forms["application"]["cnic"].value)){
-            document.getElementById("cnic_error").innerHTML = "Length is not Correct ";
-            document.getElementById("cnic").style.borderColor="red";
             return false;
         }
     }
@@ -384,8 +373,9 @@ function Validate16(){
             document.getElementById("cnic").style.borderColor="red";
             return false;
         }
+
         if(!regexp2.test(document.forms["application"]["cnic"].value)){
-            document.getElementById("cnic_error").innerHTML = "Length is not Correct ";
+            document.getElementById("cnic_error").innerHTML = "Possible Errors:Length incorrect OR Format Incorrect OR Alphabets Entered";
             document.getElementById("cnic").style.borderColor="red";
             return false;
         }

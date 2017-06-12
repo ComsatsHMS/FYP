@@ -24,27 +24,31 @@ while($record = mysqli_fetch_array($exec)){
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Student Portal</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+          integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
+        <
+        script
+        src = "//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js" ></script>
     <!-- Bootstrap Styles-->
-    <link href="../../CSS/bootstrap.css" rel="stylesheet" />
+    <link href="../../CSS/bootstrap.css" rel="stylesheet"/>
     <!-- FontAwesome Styles-->
-    <link href="../../CSS/font-awesome.css" rel="stylesheet" />
+    <link href="../../CSS/font-awesome.css" rel="stylesheet"/>
     <!-- Morris Chart Styles-->
-    <link href="../../JS/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
-    <link href="../../CSS/custom-styles.css" rel="stylesheet" />
+    <link href="../../CSS/custom-styles.css" rel="stylesheet"/>
     <!-- Google Fonts-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="../../JS/Lightweight-Chart/cssCharts.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
 </head>
 <body>
 <div id="wrapper">
@@ -65,17 +69,18 @@ while($record = mysqli_fetch_array($exec)){
             <!-- /.dropdown -->
             <li class="dropdown">
                 <?php
-                $query=mysqli_query($connection,"select notice from notification where view=0");
+                $query = mysqli_query($connection, "select notice from notification where view=0");
                 while ($each_record = mysqli_fetch_array($query)) {
                     $count++;
                 }
                 ?>
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <span class="badge badge-notify"><?php echo $count ?></span>   <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <span class="badge badge-notify"><?php echo $count ?></span> <i class="fa fa-bell fa-fw"></i> <i
+                        class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-alerts">
                     <?php
-                    $query=mysqli_query($connection,"select notificationType,date,number from notification where view=0 order by number desc limit 5");
+                    $query = mysqli_query($connection, "select notificationType,date,number from notification where view=0 order by number desc limit 5");
                     while ($each_record = mysqli_fetch_array($query)) {
                         $content = $each_record ['notificationType'];
                         $date = $each_record ['date'];
@@ -145,7 +150,7 @@ while($record = mysqli_fetch_array($exec)){
                 </li>
 
                 <li>
-                    <a href="Applications.php"><i class="fa fa-"></i> Applications<span class="fa arrow"></a>
+                    <a href="#"><i class="fa fa-"></i> Applications<span class="fa arrow"></a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="MessCloseApplication.php">Mess Close</a>
@@ -213,7 +218,8 @@ while($record = mysqli_fetch_array($exec)){
             <div class="page-header row">
                 <div class="col-md-3 col-xs-4 col-sm-4">
                     <a href="#">
-                        <img id="profile_pic" src="../IMAGES/<?php echo"{$_SESSION['pic']}";?>" alt="profilepic" style="width: 100px; height: 100px";>
+                        <img id="profile_pic" src="../IMAGES/<?php echo "{$_SESSION['pic']}";?>" alt="profilepic"
+                             style="width: 100px; height: 100px" ;>
                     </a>
                 </div>
                 <div class="col-md-6 col-xs-8 col-sm-8">
@@ -247,49 +253,49 @@ while($record = mysqli_fetch_array($exec)){
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
                         <div class="panel panel-primary">
-                            <div class="panel-heading" > Voting </div>
-                                <div class="panel-body">
-                                    <?php
-                                        $LBdate;
-                                        $messdate;
-                                        $tripdate;
-                                        $query = "select endTime from votingtime where votingFor ='lunchBreakfast'";
-                                        $run = mysqli_query($connection, $query);
-                                        while ($each = mysqli_fetch_array($run)){
-                                            $LBdate = $each['endTime'];
-                                        }
+                            <div class="panel-heading"> Voting</div>
+                            <div class="panel-body">
+                                <?php
+                                $LBdate;
+                                $messdate;
+                                $tripdate;
+                                $query = "select endTime from votingtime where votingFor ='lunchBreakfast'";
+                                $run = mysqli_query($connection, $query);
+                                while ($each = mysqli_fetch_array($run)) {
+                                    $LBdate = $each['endTime'];
+                                }
 
-                                        $query2 = "select endTime from votingtime where votingFor ='messMenu'";
-                                        $run = mysqli_query($connection, $query2);
-                                        while ($each = mysqli_fetch_array($run)){
-                                            $messdate = $each['endTime'];
-                                        }
+                                $query2 = "select endTime from votingtime where votingFor ='messMenu'";
+                                $run = mysqli_query($connection, $query2);
+                                while ($each = mysqli_fetch_array($run)) {
+                                    $messdate = $each['endTime'];
+                                }
 
-                                        $query3 = "select endTime from votingtime where votingFor = 'forTrip'";
-                                        $run = mysqli_query($connection, $query3);
-                                        while ($each = mysqli_fetch_array($run)){
-                                            $tripdate = $each['endTime'];
-                                        }
+                                $query3 = "select endTime from votingtime where votingFor = 'forTrip'";
+                                $run = mysqli_query($connection, $query3);
+                                while ($each = mysqli_fetch_array($run)) {
+                                    $tripdate = $each['endTime'];
+                                }
 
 
-                                        date_default_timezone_set("Asia/Karachi");
-                                        //$startdate  = strtotime("05:15pm August 19 2016");
-                                        //for lunch/breakfast
-                                        $enddateL    = strtotime("$LBdate");
-                                        $dateL = date('M d Y', time());
-                                        $endL = date('M d Y', $enddateL);
-                                        //for mess menu
-                                        $enddateM    = strtotime("$messdate");
-                                        $dateM = date('M d Y', time());
-                                        $endM = date('M d Y', $enddateM);
-                                        //for trip
-                                        $enddateT    = strtotime("$tripdate");
-                                        $dateT = date('M d Y', time());
-                                        $endT = date('M d Y', $enddateT);
+                                date_default_timezone_set("Asia/Karachi");
+                                //$startdate  = strtotime("05:15pm August 19 2016");
+                                //for lunch/breakfast
+                                $enddateL = strtotime("$LBdate");
+                                $dateL = date('M d Y', time());
+                                $endL = date('M d Y', $enddateL);
+                                //for mess menu
+                                $enddateM = strtotime("$messdate");
+                                $dateM = date('M d Y', time());
+                                $endM = date('M d Y', $enddateM);
+                                //for trip
+                                $enddateT = strtotime("$tripdate");
+                                $dateT = date('M d Y', time());
+                                $endT = date('M d Y', $enddateT);
 
-                                        if ($dateL < $endL) {
-                                            echo "Voting Last Date is  ". date("d M Y", $enddateL) . "<br><br>";
-                                            echo " <strong> What do you prefer?</strong>
+                                if ($dateL < $endL) {
+                                    echo "Voting Last Date is  " . date("d M Y", $enddateL) . "<br><br>";
+                                    echo " <strong> What do you prefer?</strong>
                         <form role=\"form\" method=\"post\" action=\"VotingProcessing.php\">
                             <label class=\"radio-inline\">
                                 <input type=\"radio\" name=\"optradio\" value=\"Breakfast\">Breakfast
@@ -301,24 +307,21 @@ while($record = mysqli_fetch_array($exec)){
                                 <input type=\"radio\" name=\"optradio\" value='both'>Both
                             </label>";
 
-                                            if($flag == true){
-                                                echo "
+                                    if ($flag == true) {
+                                        echo "
                                     <input type=\"submit\" name=\"submit\" disabled>";
-                                            }
-                                            else{
-                                                echo "
+                                    } else {
+                                        echo "
                                     <input type=\"submit\" name=\"submit\">";
-                                            }
-                                            echo" </form>";
+                                    }
+                                    echo " </form>";
 
-                                        }
+                                } else if ($dateM < $endM) {
 
-                                        else if($dateM < $endM){
-
-                                            if($val > $val1){ // If true then Lunch Menu
-                                                echo "Voting Last Date is  ". date("d M Y", $enddateM) . "<br><br>";
-                                                $flag= $_GET['flag'];
-                                                echo'   <strong> Please! Choose Lunch Menu which suits you the most?</strong>
+                                    if ($val > $val1) { // If true then Lunch Menu
+                                        echo "Voting Last Date is  " . date("d M Y", $enddateM) . "<br><br>";
+                                        $flag = $_GET['flag'];
+                                        echo '   <strong> Please! Choose Lunch Menu which suits you the most?</strong>
                                 <form role="form" method="post" action="VotingProcessing.php">
                                     <fieldset id="Monday">
                                     <strong> Monday?</strong>  <br>
@@ -474,13 +477,12 @@ while($record = mysqli_fetch_array($exec)){
                                         <!--                    else{-->
                                     <input type="submit" name="submit_1">
                                 </form>';
-                                            }
-                                            //Breakfast Menu
+                                    } //Breakfast Menu
 
-                                            else if($val < $val1){
-                                                echo "Voting Last Date is  ". date("d M Y", $enddateM) . "<br><br>";
-                                                $flag= $_GET['flag'];
-                                                echo'   <strong> Please! Choose Breakfast Menu which suits you the most?</strong>
+                                    else if ($val < $val1) {
+                                        echo "Voting Last Date is  " . date("d M Y", $enddateM) . "<br><br>";
+                                        $flag = $_GET['flag'];
+                                        echo '   <strong> Please! Choose Breakfast Menu which suits you the most?</strong>
                                 <form role="form" method="post" action="VotingProcessing.php">
                                     <fieldset id="Monday">
                                     <strong> Monday?</strong>  <br>
@@ -636,11 +638,10 @@ while($record = mysqli_fetch_array($exec)){
                                             <!--  else{-->
                                     <input type="submit" name="submit_2">
                                 </form>';
-                                            }
-                                            elseif($val == $val1 || ($val3>$val1 AND $val3>$val)){
+                                    } elseif ($val == $val1 || ($val3 > $val1 AND $val3 > $val)) {
 
-                                            }
-                                        }?>
+                                    }
+                                }?>
                             </div>
                         </div>
                     </div>
@@ -662,23 +663,13 @@ while($record = mysqli_fetch_array($exec)){
 
 <!-- Metis Menu Js -->
 <script src="../../JS/jquery.metisMenu.js"></script>
-<!-- Morris Chart Js -->
-<script src="../../JS/morris/raphael-2.1.0.min.js"></script>
-<script src="../../JS/morris/morris.js"></script>
 
-
-<script src="../../JS/easypiechart.js"></script>
-<script src="../../JS/easypiechart-data.js"></script>
-
-<script src="../../JS/Lightweight-Chart/jquery.chart.js"></script>
 
 <!-- Custom Js -->
 <script src="../../JS/custom-scripts.js"></script>
 
 
 <!-- Chart Js -->
-<script type="text/javascript" src="../../JS/chart.min.js"></script>
-<script type="text/javascript" src="../../JS/chartjs.js"></script>
 
 
 </body>

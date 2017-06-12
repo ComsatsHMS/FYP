@@ -64,7 +64,7 @@ include "../connection.php";
                         <a class="active-menu" href="Profile.php"><i class="fa fa-"></i>Profile</a>
                     </li>
                     <li>
-                        <a  href="AdminPortal.php"><i class="fa fa-"></i>Home</a>
+                        <a href="AdminPortal.php"><i class="fa fa-"></i>Home</a>
                     </li>
                     <li>
                         <a href="List_Employees.php"><i class="fa fa-"></i> Employee's List</a>
@@ -87,7 +87,8 @@ include "../connection.php";
                 <div class="page-header row">
                     <div class="col-md-3 col-xs-4 col-sm-4">
                         <a href="#">
-                            <img id="profile_pic" src="../../IMAGES/<?php echo $_SESSION['UserPic'];?>" alt="profilepic" style="width: 120px; height: 120px";>
+                            <img id="profile_pic" src="../../IMAGES/<?php echo $_SESSION['UserPic'];?>" alt="profilepic"
+                                 style="width: 120px; height: 120px" ;>
                         </a>
                     </div>
                     <div class="col-md-6 col-xs-8 col-sm-8">
@@ -98,7 +99,7 @@ include "../connection.php";
                                     <td><?php echo "{$_SESSION['name'] }"; ?></td>
                                 </tr>
                                 <tr style="background-color: #f36a5a">
-                                    <td >Rank</td>
+                                    <td>Rank</td>
                                     <td><?php echo "{$_SESSION['role'] }";?></td>
                                 </tr>
                                 <tr>
@@ -122,20 +123,20 @@ include "../connection.php";
                         <div class="board">
                             <div class="panel panel-primary">
 
-                                <div class="panel-heading" >Profile</div>
+                                <div class="panel-heading">Profile</div>
                                 <div class="panel-body">
-                                    <form class="form-horizontal" role="form" method="post" action="Profile_Processing.php"  enctype="multipart/form-data">
+                                    <form class="form-horizontal" role="form" method="post"
+                                          action="Profile_Processing.php" enctype="multipart/form-data">
                                         <?php
-                                        if($_SESSION['update']=='OK'){
+                                        if ($_SESSION['update'] == 'OK') {
                                             echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
                                                  <strong>Success!</strong> Profile Updated, Login again for viewing Updated Profile!!
                                                 </div>";
-                                        }
-                                        elseif($_SESSION['update']=='empty'){
+                                        } elseif ($_SESSION['update'] == 'empty') {
                                             echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
                                                  <strong>Error!</strong> Something went wrong!!
                                                 </div>";
-                                        } elseif($_SESSION['update']=='error'){
+                                        } elseif ($_SESSION['update'] == 'error') {
                                             echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
                                                  <strong>Error!</strong> Something went wrong!!
                                                 </div>";
@@ -145,37 +146,51 @@ include "../connection.php";
                                         <div class="form-group">
                                             <label class="control-label col-sm-2 col-xs-2" for="fname">Name:</label>
                                             <div class="col-md-4 col-xs-4">
-                                                <input type="text" class="form-control" value="<?PHP echo "{$_SESSION['name']}";?>" <?php if($_SESSION['name']!='') echo"readonly"; ?> id="name" name="name" >
+                                                <input type="text" class="form-control"
+                                                       value="<?PHP echo "{$_SESSION['name']}";?>" <?php if ($_SESSION['name'] != '') echo "readonly"; ?>
+                                                       id="name" name="name">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-2 col-xs-2" for="Email">Email:</label>
                                             <div class="col-md-4 col-xs-4">
-                                                <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['email']}";?>" id="email" <?php if($_SESSION['email']!='') echo"readonly"; ?> name="email">
+                                                <input type="text" class="form-control"
+                                                       value="<?PHP echo "{$_SESSION['email']}";?>"
+                                                       id="email" <?php if ($_SESSION['email'] != '') echo "readonly"; ?>
+                                                       name="email">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-2 col-xs-2" for="Rank">Rank:</label>
                                             <div class="col-md-4 col-xs-4">
-                                                <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['role']}";?>" <?php if($_SESSION['role']!='') echo"readonly"; ?> id="role" name="role">
-                                        </div>
+                                                <input type="text" class="form-control"
+                                                       value="<?PHP echo "{$_SESSION['role']}";?>" <?php if ($_SESSION['role'] != '') echo "readonly"; ?>
+                                                       id="role" name="role">
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2 col-xs-2" for="Address">Address:</label>
+                                            <label class="control-label col-sm-2 col-xs-2"
+                                                   for="Address">Address:</label>
                                             <div class="col-md-4 col-xs-4">
-                                                <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['address']}";?>" id="address" name="address">
+                                                <input type="text" class="form-control"
+                                                       value="<?PHP echo "{$_SESSION['address']}";?>" id="address"
+                                                       name="address">
                                                 <div id="address_error" class="val_error" style="color: red "></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2 col-xs-2" for="phone">Phone No.:</label>
+                                            <label class="control-label col-sm-2 col-xs-2" for="phone">Phone
+                                                No.:</label>
                                             <div class="col-md-4 col-xs-4">
-                                                <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['phone']}";?>" id="phone" name="phone">
+                                                <input type="text" class="form-control"
+                                                       value="<?PHP echo "{$_SESSION['phone']}";?>" id="phone"
+                                                       name="phone">
                                                 <div id="contact_error" class="val_error" style="color: red "></div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2 col-xs-2" for="phone">Profile Picture.:</label>
+                                            <label class="control-label col-sm-2 col-xs-2" for="phone">Profile
+                                                Picture.:</label>
                                             <div class="col-md-4 col-xs-4">
                                                 <input type="file" class="form-control" id="pic" name="pic" required>
                                             </div>
@@ -224,8 +239,6 @@ include "../connection.php";
 
 
     <!-- Chart Js -->
-    <script type="text/javascript" src="../../JS/chart.min.js"></script>
-    <script type="text/javascript" src="../../JS/chartjs.js"></script>
 
 
     </body>

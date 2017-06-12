@@ -29,12 +29,10 @@ error_reporting(0);
     <!-- FontAwesome Styles-->
     <link href="../../CSS/font-awesome.css" rel="stylesheet"/>
     <!-- Morris Chart Styles-->
-    <link href="../../JS/morris/morris-0.4.3.min.css" rel="stylesheet"/>
     <!-- Custom Styles-->
     <link href="../../CSS/custom-styles.css" rel="stylesheet"/>
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
-    <link rel="stylesheet" href="../../JS/Lightweight-Chart/cssCharts.css">
     <script type="text/javascript" src="../../JS/profileValidation.js"></script>
 </head>
 <body>
@@ -56,17 +54,18 @@ error_reporting(0);
             <!-- /.dropdown -->
             <li class="dropdown">
                 <?php
-                $query=mysqli_query($connection,"select notice from notification where view=0");
+                $query = mysqli_query($connection, "select notice from notification where view=0");
                 while ($each_record = mysqli_fetch_array($query)) {
                     $count++;
                 }
                 ?>
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <span class="badge badge-notify"><?php echo $count ?></span>   <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <span class="badge badge-notify"><?php echo $count ?></span> <i class="fa fa-bell fa-fw"></i> <i
+                        class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-alerts">
                     <?php
-                    $query=mysqli_query($connection,"select notificationType,date,number from notification where view=0 order by number desc limit 5");
+                    $query = mysqli_query($connection, "select notificationType,date,number from notification where view=0 order by number desc limit 5");
                     while ($each_record = mysqli_fetch_array($query)) {
                         $content = $each_record ['notificationType'];
                         $date = $each_record ['date'];
@@ -155,7 +154,8 @@ error_reporting(0);
             <div class="page-header row">
                 <div class="col-md-3 col-xs-4 col-sm-4">
                     <a href="#">
-                        <img id="profile_pic" src="../IMAGES/<?php echo"{$_SESSION['pic']}";?>" alt="profilepic" style="width: 100px; height: 100px";>
+                        <img id="profile_pic" src="../IMAGES/<?php echo "{$_SESSION['pic']}";?>" alt="profilepic"
+                             style="width: 100px; height: 100px" ;>
                     </a>
                 </div>
                 <div class="col-md-6 col-xs-8 col-sm-8">
@@ -165,7 +165,7 @@ error_reporting(0);
                                 <td><strong>Welcome</strong></td>
                                 <td><?php echo "{$_SESSION['name'] }";?></td>
                             </tr>
-                            <tr  style="background-color: #f36a5a">
+                            <tr style="background-color: #f36a5a">
                                 <td><strong>Hostel</strong></td>
                                 <td><?php echo "{$_SESSION['hostelname'] }";?></td>
                             </tr>
@@ -188,20 +188,20 @@ error_reporting(0);
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="board">
                         <div class="panel panel-primary">
-                            <div class="panel-heading" >Profile</div>
+                            <div class="panel-heading">Profile</div>
                             <div class="panel-body">
-                                <form class="form-horizontal" role="form" name="studentForm" method="post" action="ProfileProcessing.php"  >
+                                <form class="form-horizontal" role="form" name="studentForm" method="post"
+                                      action="ProfileProcessing.php">
                                     <?php
-                                    if($_SESSION['update']=='OK'){
+                                    if ($_SESSION['update'] == 'OK') {
                                         echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
                                                  <strong>Success!</strong> Profile Updated!!
                                                 </div>";
-                                    }
-                                    elseif($_SESSION['update']=='empty'){
+                                    } elseif ($_SESSION['update'] == 'empty') {
                                         echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
                                                  <strong>Error!</strong> Something went wrong!!
                                                 </div>";
-                                    } elseif($_SESSION['update']=='error'){
+                                    } elseif ($_SESSION['update'] == 'error') {
                                         echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
                                                  <strong>Error!</strong> Something went wrong!!
                                                 </div>";
@@ -211,71 +211,95 @@ error_reporting(0);
                                     <div class="form-group">
                                         <label class="control-label col-sm-2 col-xs-2" for="name">Name:</label>
                                         <div class="col-md-4 col-xs-4">
-                                            <input type="text" class="form-control" value="<?PHP echo "{$_SESSION['name']}";?>" <?php if($_SESSION['name']!='') echo"readonly"; ?> id="name" name="studentName" >
+                                            <input type="text" class="form-control"
+                                                   value="<?PHP echo "{$_SESSION['name']}";?>" <?php if ($_SESSION['name'] != '') echo "readonly"; ?>
+                                                   id="name" name="studentName">
                                             <div id="name_error" class="val_error" style="color: red ">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-2 col-xs-2" for="father_name">Father Name:</label>
+                                        <label class="control-label col-sm-2 col-xs-2" for="father_name">Father
+                                            Name:</label>
                                         <div class="col-md-4 col-xs-4">
-                                            <input type="text" class="form-control" id="father_name"  value="<?PHP echo "{$_SESSION['fname']}";?>" <?php if($_SESSION['fname']!='') echo"readonly"; ?> name="fatherName">
+                                            <input type="text" class="form-control" id="father_name"
+                                                   value="<?PHP echo "{$_SESSION['fname']}";?>" <?php if ($_SESSION['fname'] != '') echo "readonly"; ?>
+                                                   name="fatherName">
                                             <div id="f_error" class="val_error" style="color: red "></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-2 col-xs-2" for="RegistrationID">Regestration ID:</label>
+                                        <label class="control-label col-sm-2 col-xs-2" for="RegistrationID">Regestration
+                                            ID:</label>
                                         <div class="col-md-4 col-xs-4">
-                                            <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['id']}";?>" id="RegistrationID" <?php if($_SESSION['id']!='') echo"readonly"; ?> name="Regid">
+                                            <input type="text" class="form-control"
+                                                   value="<?PHP echo "{$_SESSION['id']}";?>"
+                                                   id="RegistrationID" <?php if ($_SESSION['id'] != '') echo "readonly"; ?>
+                                                   name="Regid">
                                             <div id="reg_error" class="val_error" style="color: red "></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-sm-2 col-xs-2" for="Room_No">Room No:</label>
                                         <div class="col-md-4 col-xs-4">
-                                            <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['room']}";?>" <?php if($_SESSION['name']!='') echo"readonly"; ?> id="Room_No" name="room">
+                                            <input type="text" class="form-control"
+                                                   value="<?PHP echo "{$_SESSION['room']}";?>" <?php if ($_SESSION['name'] != '') echo "readonly"; ?>
+                                                   id="Room_No" name="room">
                                             <div id="room_error" class="val_error" style="color: red "></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-sm-2 col-xs-2" for="Program">Program:</label>
                                         <div class="col-md-4 col-xs-4">
-                                            <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['program']}";?>" <?php if($_SESSION['program']!='') echo"readonly"; ?> id="program" name="program">
+                                            <input type="text" class="form-control"
+                                                   value="<?PHP echo "{$_SESSION['program']}";?>" <?php if ($_SESSION['program'] != '') echo "readonly"; ?>
+                                                   id="program" name="program">
                                             <div id="program_error" class="val_error" style="color: red "></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-sm-2 col-xs-2" for="CGPA">CGPA:</label>
                                         <div class="col-md-4 col-xs-4">
-                                            <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['cgpa']}";?>" id="cgpa" name="cgpa" onchange="validateCgpa()">
+                                            <input type="text" class="form-control"
+                                                   value="<?PHP echo "{$_SESSION['cgpa']}";?>" id="cgpa" name="cgpa"
+                                                   onchange="validateCgpa()">
                                             <div id="cgpa_error" class="val_error" style="color: red "></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-2 col-xs-2" for="Econtact">Emergency Contact No.:</label>
+                                        <label class="control-label col-sm-2 col-xs-2" for="Econtact">Emergency Contact
+                                            No.:</label>
                                         <div class="col-md-4 col-xs-4">
-                                            <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['contact']}";?>" id="Econtact" name="econtact" onchange="validateEcontact()">
+                                            <input type="text" class="form-control"
+                                                   value="<?PHP echo "{$_SESSION['contact']}";?>" id="Econtact"
+                                                   name="econtact" onchange="validateEcontact()">
                                             <div id="contact_error" class="val_error" style="color: red "></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-sm-2 col-xs-2" for="phone">Personal NO.:</label>
                                         <div class="col-md-4 col-xs-4">
-                                            <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['phone']}";?>" id="phoneno" name="phone" onchange="validatePcontact()">
+                                            <input type="text" class="form-control"
+                                                   value="<?PHP echo "{$_SESSION['phone']}";?>" id="phoneno"
+                                                   name="phone" onchange="validatePcontact()">
                                             <div id="phone_error" class="val_error" style="color: red "></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-sm-2 col-xs-2" for="Address">Address:</label>
                                         <div class="col-md-4 col-xs-4">
-                                            <input type="text" class="form-control"  value="<?PHP echo "{$_SESSION['address']}";?>" id="address" name="address" onchange="validateAddress()">
+                                            <input type="text" class="form-control"
+                                                   value="<?PHP echo "{$_SESSION['address']}";?>" id="address"
+                                                   name="address" onchange="validateAddress()">
                                             <div id="address_error" class="val_error" style="color: red "></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-2 col-xs-2" for="hostel">Your Hostel: </label>
+                                        <label class="control-label col-sm-2 col-xs-2" for="hostel">Your
+                                            Hostel: </label>
                                         <div class="col-md-4 col-xs-4">
-                                            <select  id="select" name="hostel" class="form-control" <?php if($_SESSION['hostelname']!='') echo "readonly"; ?>>
+                                            <select id="select" name="hostel"
+                                                    class="form-control" <?php if ($_SESSION['hostelname'] != '') echo "readonly"; ?>>
                                                 <option><?PHP echo "{$_SESSION['hostelname']}";?></option>
                                                 <option>Liaqat Hall</option>
                                                 <option>M.A Jinnah</option>
@@ -311,23 +335,13 @@ error_reporting(0);
 
 <!-- Metis Menu Js -->
 <script src="../../JS/jquery.metisMenu.js"></script>
-<!-- Morris Chart Js -->
-<script src="../../JS/morris/raphael-2.1.0.min.js"></script>
-<script src="../../JS/morris/morris.js"></script>
 
-
-<script src="../../JS/easypiechart.js"></script>
-<script src="../../JS/easypiechart-data.js"></script>
-
-<script src="../../JS/Lightweight-Chart/jquery.chart.js"></script>
 
 <!-- Custom Js -->
 <script src="../../JS/custom-scripts.js"></script>
 
 
 <!-- Chart Js -->
-<script type="text/javascript" src="../../JS/chart.min.js"></script>
-<script type="text/javascript" src="../../JS/chartjs.js"></script>
 
 
 </body>

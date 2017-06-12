@@ -35,17 +35,12 @@ error_reporting(0);
             <div class="navbar-header"><a class="navbar-brand navbar-link" href="../../index.html"><img src="../../IMAGES/comsatslogo.png" height="70" width="200" alt="Comsats logo"></a></h6>
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse" style="float: right;padding-top: 15px">
+            <div class="collapse navbar-collapse" id="navbar-collapse" style="float: right;padding-top: 15px;font-family: 'Times New Roman'">
                 <ul class="nav navbar-nav">
                     <li role="presentation" style="font-size: 25px"><a href="../../index.html">Home </a></li>
                     <li role="presentation" style="font-size: 25px"><a href="../ManagementPortal/ApplicationForm.php">Hostel Form </a></li>
                     <li class="dropdown" style="font-size: 25px">
-                        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Downloads<span class="caret"></span></a>
-                        <ul class="dropdown-menu dropdown-menu-right" role="menu" style="border: 1px solid">
-                            <li role="presentation" style="font-size: 16px"><a href="#">item 1 </a></li>
-                            <li role="presentation" style="font-size: 16px"><a href="#">item 2 </a></li>
-                            <li role="presentation" style="font-size: 16px"><a href="#">item 3 </a></li>
-                        </ul>
+                        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Downloads</a>
                     </li>
                     <li class="dropdown" style="font-size: 25px">
                         <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"> Login<span class="caret"></span></a>
@@ -53,6 +48,8 @@ error_reporting(0);
                             <li role="presentation" style="font-size: 16px"><a href="../StudentPortal/Login.php">Student Portal </a></li>
                             <li role="presentation" style="font-size: 16px"><a href="../ManagementPortal/OfficeLogin.php">Management Portal </a></li>
                             <li role="presentation" style="font-size: 16px"><a href="../ParentPortal/ParentLogin.php">Parent Portal </a></li>
+                            <li role="presentation" style="font-size: 16px"><a href="../AdminPortal/AdminLogin.php">Admin
+                                    Portal </a></li>
                         </ul>
                     </li>
                 </ul>
