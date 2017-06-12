@@ -267,7 +267,7 @@ error_reporting(0);
                                     }
                                     elseif ($_SESSION['update'] == 'mismatchold') {
                                         echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
-                                                 <strong>Error!</strong> Old password is not correct!!
+                                                 <strong>Error!</strong> Current password is not correct!!
                                                 </div>";
                                     }
                                     unset($_SESSION['update']);
