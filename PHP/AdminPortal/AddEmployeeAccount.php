@@ -67,13 +67,13 @@ include "../connection.php";
                         <a href="AdminPortal.php"><i class="fa fa-"></i>Home</a>
                     </li>
                     <li>
-                        <a href="List_Employees.php"><i class="fa fa-"></i> Employee's List</a>
+                        <a href="List_Employees.php"><i class="fa fa-"></i>Employee's List</a>
                     </li>
                     <li>
-                        <a class="active-menu" href="AddEmployeeAccount.php"><i class="fa fa-"></i> Add Employee Account</a>
+                        <a href="AddEmployeeAccount.php"><i class="fa fa-"></i>Add Employee Account</a>
                     </li>
                     <li>
-                        <a href="Logout.php"><i class="fa fa-"></i> Logout</a>
+                        <a href="Logout.php"><i class="fa fa-"></i>Logout</a>
                     </li>
                 </ul>
 
