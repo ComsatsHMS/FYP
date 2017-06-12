@@ -240,13 +240,61 @@ error_reporting(0);
                             <div class="panel-heading">Change Password</div>
                             <div class="panel-body">
                                 <form class="form-horizontal" role="form" name="settings" method="post" action="ProfileProcessing.php">
-                                    <div class="notification information">
-                                        <div>
+                                        <div class="notification information">
+                                             <div>
                                             Note : Password should be changed carefully. Be alert about your new password and
-                                            remember it. Password should be at least 6 characters long.</div>
+                                            remember it. Password should be at least 6 characters long.
+                                             </div>
                                         </div>
-
-
+                                    <?php
+                                    if ($_SESSION['update'] == 'OK') {
+                                        echo "<div class=\"alert alert-success alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Success!</strong> Password Changed!!
+                                                </div>";
+                                    } elseif ($_SESSION['update'] == 'length') {
+                                        echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Error!</strong> Password must be at least 6 characters!!
+                                                </div>";
+                                    } elseif ($_SESSION['update'] == 'error') {
+                                        echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Error!</strong> Something went wrong!!
+                                                </div>";
+                                    }
+                                    elseif ($_SESSION['update'] == 'mismatchnew') {
+                                        echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Error!</strong> New and Confirm password mismatched!!
+                                                </div>";
+                                    }
+                                    elseif ($_SESSION['update'] == 'mismatchold') {
+                                        echo "<div class=\"alert alert-danger alert-dismissable\"><a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>
+                                                 <strong>Error!</strong> Old password is not correct!!
+                                                </div>";
+                                    }
+                                    unset($_SESSION['update']);
+                                    ?>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2 col-xs-2" for="password">Current Password:</label>
+                                        <div class="col-md-4 col-xs-4">
+                                            <input type="password" class="form-control" id="CurrentPW" name="CurrentPW">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2 col-xs-2" for="password">New Password:</label>
+                                        <div class="col-md-4 col-xs-4">
+                                            <input type="password" class="form-control" id="NewPW" name="NewPW">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2 col-xs-2" for="password">Confirm Password:</label>
+                                        <div class="col-md-4 col-xs-4">
+                                            <input type="password" class="form-control" id="ConfirmPW" name="ConfirmPW">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10 col-xs-10">
+                                            <input id="button" type="submit" value="Change Password" name="ChangePW">
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>

@@ -56,13 +56,48 @@ if(isset($_POST['update'])) {
         }
     }else{
         $_SESSION['update'] = 'error';
-        header('Location:ParentPortal.php');
+        header('Location:StudentPortal.php');
     }
 }
     else{
         $_SESSION['update'] = 'empty';
-        header('Location:ParentPortal.php');
+        header('Location:StudentPortal.php');
     }
+}
+if(isset($_POST['ChangePW'])){
+    print_r($_POST);
+    $CurrentPW=$_POST['CurrentPW'];
+    $NewPW=$_POST['NewPW'];
+    $ConfirmPW=$_POST['ConfirmPW'];
+    $studentId=$_SESSION['id'];
+    $insert="select password from loginoldstudent where studentid='$studentId'";
+    $query=mysqli_query($connection,$insert);
+    $row   = mysqli_fetch_row($query);
+    echo $row[0];
+    if($row[0]==$CurrentPW){
+        if(strlen($NewPW)>=6) {
+            if ($ConfirmPW == $NewPW) {
+                $update = "update loginoldstudent set password='$NewPW' where studentid='$studentId'";
+                $query = mysqli_query($connection, $update);
+                if($query){
+                    $_SESSION['update'] = "OK";
+                }
+                else{
+                    $_SESSION['update'] = "error";
+                }
+            }
+            else {
+                $_SESSION['update'] = "mismatchnew";
+            }
+        }
+        else{
+            $_SESSION['update'] = "length";
+        }
+    }
+    else{
+        $_SESSION['update']="mismatchold";
+    }
+    header('Location:Settings.php');
 }
 ?>
 
