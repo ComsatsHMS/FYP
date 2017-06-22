@@ -47,13 +47,39 @@ elseif(isset($_POST['forget'])){
         $studentID = $db_data['studentid'];
     }
     if(!empty($studentID)){
-        $admin_email = "ahmadmukhtar@CHMS.gwiddle.co.uk";
-        $email_ = $email;
-        $subject = "Password Reset";
         $tempPW = randomPassword();
         $comment = "New Password is: ".$tempPW;
-        mail($email_, "$subject", $comment, "From:" . $admin_email);
-
+        $to = $email;
+        $subject = "Password Reset Request.";
+        $message = '
+        <html>
+        <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <title></title>
+        </head>
+        <body>
+            <div id="email-wrap">
+            <p>Hy, <strong> '.$studentID.'</strong></p>
+            <p>Your Login password has been changed to:
+            New password :'.$tempPW.'</p>
+            <p>For your convenience your account information is below:
+            ________________________________________________
+            Username:   '.$studentID.'
+            Password:   '.$tempPW.'</p>
+             <p>Thannks!!</p>
+             <p>Please Contact Web Admin if you are having troubles.
+             Best regards,
+             Web Admin</p>
+             <p>' . $regards . '</p>
+            </div>
+        </body>
+        </html>';
+        $from = "ahmadmukhtar@CHMS.gwiddle.co.uk";
+        $headers = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+        $headers .= 'To: ' . $to . "\r\n";
+        $headers .= 'From: ' . $from . "\r\n";
+        mail($to, $subject, $message, $headers);
         $query = mysqli_query($connection,"update loginoldstudent set password='$tempPW' where  studentid='$studentID'");
         if($query){
             $_SESSION['resetPW'] = "Ok";
@@ -66,7 +92,6 @@ elseif(isset($_POST['forget'])){
         $_SESSION['resetPW'] = "empty";
     }
     header('Location:Login.php');
-
 }
 
 function randomPassword() {

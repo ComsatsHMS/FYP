@@ -64,7 +64,6 @@ error_reporting(0);
             <?php ?>
             <input class="btn btn-primary btn-block btn-lg btn-signin" type="submit" value="Sign in" name="submit" id="submit">
         </form>
-        <p><a href="RecoverPassword.php">Forget Password?</a></p>
     </div>
     <footer>
         <div class="row">
