@@ -33,7 +33,6 @@ error_reporting(0);
     <link href="../../CSS/custom-styles.css" rel="stylesheet"/>
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
-    <script type="text/javascript" src="../../JS/profileValidation.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -120,7 +119,7 @@ error_reporting(0);
             <ul class="nav" id="main-menu">
 
                 <li>
-                    <a class="active-menu" href="StudentPortal.php"><i class="fa fa-"></i> Profile</a>
+                    <a href="StudentPortal.php"><i class="fa fa-"></i> Profile</a>
                 </li>
                 <li>
                     <a href="Notifications.php"><i class="fa fa-"></i> Notifications</a>

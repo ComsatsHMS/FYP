@@ -62,6 +62,42 @@
          $delete = mysqli_query($connection,"delete from hostelslist where HostelName='$HostelName'");
          header("location:AdminPortal.php");
      }
+if(isset($_POST['ChangePW'])){
+    print_r($_POST);
+    $CurrentPW=$_POST['CurrentPW'];
+    $NewPW=$_POST['NewPW'];
+    $ConfirmPW=$_POST['ConfirmPW'];
+    $UserID = $_SESSION['UserId'];
+    $insert="select password from adminlogin where userid='$UserID'";
+    $query=mysqli_query($connection,$insert);
+    $row   = mysqli_fetch_row($query);
+    echo $row[0];
+    if($row[0]==$CurrentPW){
+        if(strlen($NewPW)>=6) {
+            if ($ConfirmPW == $NewPW) {
+                $update = "update adminlogin set password='$NewPW' where userid='$UserID'";
+                $query = mysqli_query($connection, $update);
+                if($query){
+                    $_SESSION['update'] = "OK";
+                }
+                else{
+                    $_SESSION['update'] = "error";
+                }
+            }
+            else {
+                $_SESSION['update'] = "mismatchnew";
+            }
+        }
+        else{
+            $_SESSION['update'] = "length";
+        }
+    }
+    else{
+        $_SESSION['update']="mismatchold";
+    }
+    header('Location:ChangePassword.php');
+}
+
 
 function getHostels(){
     global $connection;
