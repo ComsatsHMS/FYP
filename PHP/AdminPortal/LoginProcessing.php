@@ -25,7 +25,8 @@ if(isset($_POST['submit'])) {
                     $_SESSION['UserPic'] = $data['picture'];
                     $_SESSION['address']=$data['address'];
                     $_SESSION['phone']=$data['phone_no'];
-
+                    header('Location:Profile.php');
+                    $_SESSION['Login'] = "OK";
                 }
             }
         }
@@ -34,7 +35,6 @@ if(isset($_POST['submit'])) {
             header('Location:AdminLogin.php');
         }
     }
-    header('Location:Profile.php');
-    $_SESSION['Login'] = "OK";
+
 }
 ?>
