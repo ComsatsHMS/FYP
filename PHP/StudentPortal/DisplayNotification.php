@@ -242,7 +242,7 @@ if(!isset($_SESSION['name'])){
                         <div class="panel panel-primary">
                             <div class="panel-heading"> View Notification</div>
                             <div class="panel-body">
-                                <?php $check = $_GET['id'];
+                                <?php $check = $_GET['id'];$file;
                                 $query = ("select notice from notification where number=$check");
                                 $transpot = mysqli_query($connection, $query);
                                 while ($db = mysqli_fetch_array($transpot)) {
@@ -252,7 +252,7 @@ if(!isset($_SESSION['name'])){
                                 ?>
                                 <textarea style="height:150px" readonly name="NotificationText"
                                           class="col-md-offset-1 col-md-8 col-md-offset-3 col-xs-4"
-                                          id="notification_box"><?php echo file_get_contents("../mydocs/" . "$file "); ?></textarea>
+                                          id="notification_box"><?php echo file_get_contents("../mydocs/" . "$file"); ?></textarea>
                             </div>
                         </div>
                     </div>

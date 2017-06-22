@@ -89,7 +89,7 @@ global $connection;
             <td> $Complain_Type </td>
             <td> $Complain_Date </td>
             <td> $Hostel </td>
-            <td> <button type='button'  id='view' class='btn btn-success'><a href='ComplainsDisplay.php?id=$Complain_ID & room=$Room_No & name=$Student_Name & text=$Complain_Text'>$status_</a> </button> </td>
+            <td><a id='view' href='ComplainsDisplay.php?id=$Complain_ID & room=$Room_No & name=$Student_Name & text=$Complain_Text'>$status_</a></td>
             <td> $ViewBy </td>
             </tr>
         ";

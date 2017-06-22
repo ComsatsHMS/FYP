@@ -199,7 +199,7 @@ function getSelectedStudents(){
                   <td>$student_f_name</td>
                   <td>$student_id</td>
                   <td>$student_preffered_hostel</td>
-                  <td><button type='button' id='view' class='btn btn-default' ><a href='Allocate.php?id=$application_no&newStd=$new_student'>Allot Room</a></button> </td>
+                  <td><a id='view'href='Allocate.php?id=$application_no&newStd=$new_student'>Allot Room</a></td>
                   </tr>";
             }
         }
@@ -419,7 +419,7 @@ function getSelectedStudentsList(){
                   <td>$student_id</td>
                   <td>$student_hostel</td>
                   <td>$student_room</td>
-                  <td><button type='button' id='view' class='btn btn-default' ><a href='StudentCompleteDetails.php?id=$student_id'>Details</a></button> </td>
+                  <td><a id='view' href='StudentCompleteDetails.php?id=$student_id'>Details</a></td>
                   </tr>";
                 }
 
