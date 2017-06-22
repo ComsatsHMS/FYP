@@ -202,7 +202,6 @@ error_reporting(0);
                                             <th scope="col">Fee Type</th>
                                             <th scope="col">Previous Dues</th>
                                             <th scope="col">Current Dues</th>
-                                            <
                                             <th scope="col">Fine</th>
                                             <th scope="col">Net Dues</th>
                                             <th scope="col">Dues Paid</th>

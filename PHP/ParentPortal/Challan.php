@@ -217,7 +217,7 @@ include "../connection.php";
                                             echo "<tr> <td>$i </td>
                                                         <td>Mess Bill </td>
                                                         <td>$challan </td>
-                                                        <td><button><a href='../MessChallan.php?id='.$student_id> Challan</a></button> </td>
+                                                        <td><a id ='view' href='../MessChallan.php?id=$student_id'> Challan</a></td>
                                                 </tr>";
                                         }
                                         ?>

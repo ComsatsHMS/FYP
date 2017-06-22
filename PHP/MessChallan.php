@@ -146,15 +146,15 @@ function convert_digit_to_words($no)
        #wrapper{
            margin-left: 20pt;
            margin-right: 5pt;
-           margin-bottom: 10pt;
-           margin-top: 5pt;
+           /*margin-bottom: 10pt;*/
+           /*margin-top: 5pt;*/
        }
        #copy{
            text-align: center;
            font-weight: bold;
            font-size: 15pt;
-           padding-bottom: 10pt;
-           padding-top: 5pt;
+           /*padding-bottom: 10pt;*/
+           /*padding-top: 5pt;*/
        }
        #bank_name{
            text-align: center;
@@ -176,13 +176,11 @@ function convert_digit_to_words($no)
     <div id="wrapper">
         <table style="padding-left: 40pt">
             <tr style="min-width: 33%;">
-
                 <td style="padding-right: 10pt ;border-right: 1pt dotted">
                     <table style="padding-left: 22.5pt;padding-right: 20pt ;border-bottom: 1pt solid; border-right: 1pt solid;">
                         <tr>
                             <td id="copy">
                                 <h5>Bank Copy</h5>
-
                             </td>
                         </tr>
                         <tr>
@@ -190,7 +188,7 @@ function convert_digit_to_words($no)
                                 <h5 >Habib Bank LTD</h5>
                             </td>
                         </tr>
-                        <tr>
+                        <tr >
                             <td id="bank_branch">
                                 <h5 >CIIT Campus Branch,Lahore.</h5>
                             </td>
@@ -200,22 +198,21 @@ function convert_digit_to_words($no)
                                 <h5 >Account No. 2305-70000667-03</h5>
                             </td>
                         </tr>
-                        <br>
                         <tr>
                             <td>
                                 <table style="min-height: 100pt">
                                     <tr>
                                         <td>
-                                            <p>Issue Date</p><br>
+                                            <p>Issue Date</p>
                                             <p><?php {echo $issue_date;}?></p>
                                         </td>
                                         <td style="border: 1pt solid black">
                                             <h5 id="challan_no">Challan No</h5>
-                                            <br>
+
                                             <h5 id="challan_no"><?php {echo $challan_no;}?></h5>
                                         </td>
                                         <td>
-                                            <p>Due Date</p><br>
+                                            <p>Due Date</p>
                                             <p><?php {echo $due_date;}?></p>
                                         </td>
                                     </tr>
@@ -226,8 +223,7 @@ function convert_digit_to_words($no)
                     <table style="padding-right: 10pt ;border-bottom: 1pt solid; border-right: 1pt solid;">
                         <tr>
                             <td>
-
-                                <img src="../IMAGES/CIITLogo_Plain.png" height="30pt" width="37pt">
+                                <img src="../IMAGES/CIITLogo_Plain.png" height="60pt" width="65pt">
                             </td>
                             <td style="padding-left: 5pt;padding-top: 30pt; text-align: center">
                                 <h5 >Boys Hostel Mess
@@ -328,22 +324,20 @@ function convert_digit_to_words($no)
                                 <h5 >Account No. 2305-70000667-03</h5>
                             </td>
                         </tr>
-                        <br>
                         <tr>
                             <td>
                                 <table style="min-height: 100pt">
                                     <tr>
                                         <td>
-                                            <p>Issue Date</p><br>
+                                            <p>Issue Date</p>
                                             <p><?php {echo $issue_date;}?></p>
                                         </td>
                                         <td style="border: 1pt solid black">
                                             <h5 id="challan_no">Challan No</h5>
-                                            <br>
                                             <h5 id="challan_no"><?php {echo $challan_no;}?></h5>
                                         </td>
                                         <td>
-                                            <p>Due Date</p><br>
+                                            <p>Due Date</p>
                                             <p><?php {echo $due_date;}?></p>
                                         </td>
                                     </tr>
@@ -355,7 +349,7 @@ function convert_digit_to_words($no)
                         <tr>
                             <td>
 
-                                <img src="../IMAGES/CIITLogo_Plain.png" height="30pt" width="37pt">
+                                <img src="../IMAGES/CIITLogo_Plain.png" height="60pt" width="66pt">
                             </td>
                             <td style="padding-left: 5pt;padding-top: 30pt; text-align: center">
                                 <h5 >Boys Hostel Mess
@@ -455,22 +449,20 @@ function convert_digit_to_words($no)
                                 <h5 >Account No. 2305-70000667-03</h5>
                             </td>
                         </tr>
-                        <br>
                         <tr>
                             <td>
                                 <table style="min-height: 100pt">
                                     <tr>
                                         <td>
-                                            <p>Issue Date</p><br>
+                                            <p>Issue Date</p>
                                             <p><?php {echo $issue_date;}?></p>
                                         </td>
                                         <td style="border: 1pt solid black">
                                             <h5 id="challan_no">Challan No</h5>
-                                            <br>
                                             <h5 id="challan_no"><?php {echo $challan_no;}?></h5>
                                         </td>
                                         <td>
-                                            <p>Due Date</p><br>
+                                            <p>Due Date</p>
                                             <p><?php {echo $due_date;}?></p>
                                         </td>
                                     </tr>
@@ -481,8 +473,7 @@ function convert_digit_to_words($no)
                     <table style="padding-right: 10pt ;border-left: 1pt solid;border-bottom: 1pt solid;">
                         <tr>
                             <td>
-
-                                <img src="../IMAGES/CIITLogo_Plain.png" height="30pt" width="37pt">
+                                <img src="../IMAGES/CIITLogo_Plain.png" height="60pt" width="65pt">
                             </td>
                             <td style="padding-left: 5pt;padding-top: 30pt; text-align: center">
                                 <h5 >Boys Hostel Mess

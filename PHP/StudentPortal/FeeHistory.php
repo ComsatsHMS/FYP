@@ -252,7 +252,6 @@ error_reporting(0);
                                             <th scope="col">Fee Type</th>
                                             <th scope="col">Previous Dues</th>
                                             <th scope="col">Current Dues</th>
-                                            <
                                             <th scope="col">Fine</th>
                                             <th scope="col">Net Dues</th>
                                             <th scope="col">Dues Paid</th>
@@ -260,7 +259,7 @@ error_reporting(0);
                                             <th scope="col">Outstanding Balance</th>
                                         </tr>
                                         <?php
-                                        $student_id = $_SESSION["id"];
+                                        $student_id = $_SESSION['id'];
                                         $i = 0;
                                         $query = "select * from messchallandetails where studentid = '$student_id' AND status = TRUE ";
                                         $run = mysqli_query($connection, $query);

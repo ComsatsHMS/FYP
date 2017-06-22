@@ -30,9 +30,9 @@ error_reporting(0);
     }
 </script>
 <body>
-<nav class="navbar navbar-default " style="height: 90px;padding-left: 85px;padding-right: 85px;font-family: 'Times New Roman'">
+<nav class="navbar navbar-default " style="height: 100px;padding-left: 85px;padding-right: 85px;font-family: 'Times New Roman'">
     <div class="container-fluid">
-        <div class="navbar-header"><a class="navbar-brand navbar-link" href="../../index.html"><img src="../../IMAGES/comsatslogo.png" height="70" width="200" alt="Comsats logo"></a></h6>
+        <div class="navbar-header"><a class="navbar-brand navbar-link" href="../../index.html"><img src="../../IMAGES/comsatslogo.png" height="80" width="400" alt="Comsats logo"></a></h6>
             <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse" style="float: right;padding-top: 15px">
@@ -168,7 +168,7 @@ error_reporting(0);
 <footer>
     <div class="row">
         <div class="col-md-4 col-sm-6 footer-navigation">
-            <h3><a href="#"><img src="../../IMAGES/comsatslogo.png" height="70" width="200" alt="Comsats logo"></a></h3>
+            <h3><a href="#"><img src="../../IMAGES/comsatslogo.png" height="80" width="400" alt="Comsats logo"></a></h3>
             <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Hostel Form</a><strong> · </strong><a href="#">Student Login</a><strong> · </strong><a href="#">Management Login</a><strong> · </strong><a href="#">Parent Login</a><strong></p>
             <p class="company-name">&copy; COMSATS lahore. All right reserved. </p>
         </div>
