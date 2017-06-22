@@ -10,7 +10,7 @@ $_type=$_GET['cause'];
 if(isset($_GET['naam'])){
     $_SESSION['hostel1']=$_hostel;
 
-    header("Location:http://localhost/FYP/PHP/ManagementPortal/MainApplicationOffice.php");
+    header("Location:http:MainApplicationOffice.php");
     die();
 
 
@@ -18,7 +18,7 @@ if(isset($_GET['naam'])){
 }
 if(isset($_GET['cause'])){
     $_SESSION['type1']=$_type;
-    header("Location:http://localhost/FYP/PHP/ManagementPortal/MainApplicationOffice.php");
+    header("Location:http:MainApplicationOffice.php");
     die();
 }
 
@@ -42,11 +42,11 @@ if(!empty($_hostel) && !empty($_type) && !empty($file) && !empty($date)){
     }
     unset($_SESSION['hostel1']);
     unset($_SESSION['type1']);
-    header("Location:http://localhost/FYP/PHP/ManagementPortal/MainApplicationOffice.php");
+    header("Location:http:MainApplicationOffice.php");
 }
     else{
         $_SESSION['Notification']="empty";
-        header("Location:http://localhost/FYP/PHP/ManagementPortal/MainApplicationOffice.php");
+        header("Location:http:MainApplicationOffice.php");
     }
 }
 ?>
