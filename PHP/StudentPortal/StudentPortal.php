@@ -256,7 +256,7 @@ error_reporting(0);
                                     unset($_SESSION['update']);
                                     ?>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-8 col-xs-8" for="name">Name:</label>
+                                        <label class="control-label col-sm-2 col-xs-2" for="name">Name:</label>
                                         <div class="col-md-4 col-xs-4">
                                             <input type="text" class="form-control"
                                                    value="<?PHP echo "{$_SESSION['name']}";?>" <?php if ($_SESSION['name'] != '') echo "readonly"; ?>
@@ -266,7 +266,7 @@ error_reporting(0);
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-8 col-xs-8" for="father_name">Father
+                                        <label class="control-label col-sm-2 col-xs-2" for="father_name">Father
                                             Name:</label>
                                         <div class="col-md-4 col-xs-4">
                                             <input type="text" class="form-control" id="father_name"
@@ -276,7 +276,7 @@ error_reporting(0);
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-8 col-xs-8" for="RegistrationID">Regestration
+                                        <label class="control-label col-sm-2 col-xs-2" for="RegistrationID">Regestration
                                             ID:</label>
                                         <div class="col-md-4 col-xs-4">
                                             <input type="text" class="form-control"
@@ -287,7 +287,7 @@ error_reporting(0);
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-8 col-xs-8" for="Room_No">Room No:</label>
+                                        <label class="control-label col-sm-2 col-xs-2" for="Room_No">Room No:</label>
                                         <div class="col-md-4 col-xs-4">
                                             <input type="text" class="form-control"
                                                    value="<?PHP echo "{$_SESSION['room']}";?>" <?php if ($_SESSION['name'] != '') echo "readonly"; ?>
@@ -296,7 +296,7 @@ error_reporting(0);
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-8 col-xs-8" for="Program">Program:</label>
+                                        <label class="control-label col-sm-2 col-xs-2" for="Program">Program:</label>
                                         <div class="col-md-4 col-xs-4">
                                             <input type="text" class="form-control"
                                                    value="<?PHP echo "{$_SESSION['program']}";?>" <?php if ($_SESSION['program'] != '') echo "readonly"; ?>
@@ -305,7 +305,7 @@ error_reporting(0);
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-8 col-xs-8" for="CGPA">CGPA:</label>
+                                        <label class="control-label col-sm-2 col-xs-2" for="CGPA">CGPA:</label>
                                         <div class="col-md-4 col-xs-4">
                                             <input type="text" class="form-control"
                                                    value="<?PHP echo "{$_SESSION['cgpa']}";?>" id="cgpa" name="cgpa"
@@ -314,7 +314,7 @@ error_reporting(0);
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-8 col-xs-8" for="Econtact">Emergency Contact
+                                        <label class="control-label col-sm-2 col-xs-2" for="Econtact">Emergency Contact
                                             No.:</label>
                                         <div class="col-md-4 col-xs-4">
                                             <input type="text" class="form-control"
@@ -324,7 +324,7 @@ error_reporting(0);
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-8 col-xs-8" for="phone">Personal NO.:</label>
+                                        <label class="control-label col-sm-2 col-xs-2" for="phone">Personal NO.:</label>
                                         <div class="col-md-4 col-xs-4">
                                             <input type="text" class="form-control"
                                                    value="<?PHP echo "{$_SESSION['phone']}";?>" id="phoneno"
@@ -333,7 +333,7 @@ error_reporting(0);
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-8 col-xs-8" for="Address">Address:</label>
+                                        <label class="control-label col-sm-2 col-xs-2" for="Address">Address:</label>
                                         <div class="col-md-4 col-xs-4">
                                             <input type="text" class="form-control"
                                                    value="<?PHP echo "{$_SESSION['address']}";?>" id="address"
@@ -342,7 +342,7 @@ error_reporting(0);
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-8 col-xs-8" for="hostel">Your
+                                        <label class="control-label col-sm-2 col-xs-2" for="hostel">Your
                                             Hostel: </label>
                                         <div class="col-md-4 col-xs-4">
                                             <select id="select" name="hostel"

@@ -57,20 +57,19 @@ elseif(isset($_POST['forget'])){
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
             <title></title>
         </head>
-        <body>
+         <body>
             <div id="email-wrap">
             <p>Hy, <strong> '.$studentID.'</strong></p>
-            <p>Your Login password has been changed to:
-            New password :'.$tempPW.'</p>
-            <p>For your convenience your account information is below:
-            ________________________________________________
-            Username:   '.$studentID.'
-            Password:   '.$tempPW.'</p>
+            <p>Your Login password has been changed to:</p>
+            <p>New password :'.$tempPW.'</p>
+            <p>For your convenience your account information is below:</p>
+           <p> ________________________________________________</p>
+           <p> Username:   '.$studentID.'</p>
+          <p>  Password:   '.$tempPW.'</p>
              <p>Thannks!!</p>
-             <p>Please Contact Web Admin if you are having troubles.
-             Best regards,
-             Web Admin</p>
-             <p>' . $regards . '</p>
+             <p>Please Contact Web Admin if you are having troubles.</p>
+            <p> Best regards,</p>
+             <p>Web Admin</p>
             </div>
         </body>
         </html>';
